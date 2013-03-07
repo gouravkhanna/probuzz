@@ -26,6 +26,7 @@ background-color:#CCCCCC;
 border-style:groove;
 border-color:#990033;
 -webkit-border-radius:1em;
+	border-radius:1em;
 height:auto;
       
 }
@@ -100,6 +101,7 @@ margin-left:40px;
 border-style:solid;
 border-color:#FF66FF;
 -webkit-border-radius:0.5em;
+	border-radius:0.5em;
 height:25px;
 width:20em;
 text-align:center;
@@ -113,6 +115,7 @@ float:right;
 cursor:pointer;
 margin-left:12em;
 -webkit-border-radius:10em;
+	border-radius:10em;
 height:3em;
 width:5em;
 background-color:#9966FF;
