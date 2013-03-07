@@ -1,0 +1,17 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+#main {
+    border: 1px solid blue;
+    min-width: 60%;
+    width:65%;
+    float: left;
+    padding-left: 10px;
+}
+#side {
+    min-width: 25%;
+    width:30%;
+    border: 1px solid blue;
+    float: left;
+}
