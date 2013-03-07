@@ -17,5 +17,25 @@ define('PAGINATIONLAST', "Last");
 define('PAGINATIONFIRST', "First");
 define('WELCOME', "Welcome");
 define('PROBUZZ', "ProBuzZ");
+define('HOME', "Home");
+define('LOGOUT', "LogOut");
+define("ROLE","role");
+define("START_DATE","Start Date");
+define("LAST_DATE","Last Date");
+define("AREA_OF_WORK","Area of Work");
+define("DESCRIPTION","Description");
+define("SKILLS_REQUIRED","Skills Required");
+define("RESPONSIBLITY","Responsiblity");
+define("EXPERIENCE","Experience");
+define("CONTACT_PERSON","Contact Person");
+define("PHONE_NUMBER","Phone Number");
+define("KEYWORDS","Keywords");
+define("QUALIFICATION","Qualification");
+define("NUMBER_OF_VACANCY","Number of Vacancy");
+define("PROCESS_DETAILS","Process Details");
+define("SALARY_EXPECTED","Salary Expected");
+define("OTHER_INFO","Other Info");
+define("CRITERIA","Criteria");
+define("SALARY_RANGE","Salary Range");
 
 ?>
