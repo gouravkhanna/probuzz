@@ -10,7 +10,7 @@ class users
 	}
 	function login($userName,$password)
 	{
-			$ob=new DbConnection();
+		$ob=new DbConnection();
 		$flag=0;
 		if(@$_REQUEST["submit"])
 		{

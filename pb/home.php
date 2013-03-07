@@ -1,5 +1,6 @@
-
-
+<?php
+	include_once 'class/lang/lang.en.php';
+?>
 <!doctype html>
 <html>
 <head>
@@ -17,9 +18,9 @@
 
 <div id="container">
 	<div id="head1" class="bg">
-    	<h1> ProBuzZ</h1>
-        <a href="index.php">HOME</a>
-    	<a href="index.php?url=logout">LogOUT</a>
+    	<h1> <?php echo PROBUZZ; ?></h1>
+        <a href="index.php"><?php echo HOME; ?></a>
+    	<a href="index.php?url=logout"><?php echo LOGOUT; ?></a>
 
   	</div>
     <div id="head2" class="bg">
