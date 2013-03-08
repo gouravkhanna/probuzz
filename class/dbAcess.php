@@ -14,7 +14,7 @@
 		{
 			$this->hostName='localhost';
 			$this->user='root';
-			$this->password='root';
+			$this->password='';
 		}
 		private function dbConnect()
 		{
