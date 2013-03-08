@@ -2,6 +2,7 @@
 <?php
 session_start();
 include_once 'class/lang/lang.en.php';
+include_once 'class/lang/labels.lang.en.php';
 include_once 'class/constant.php';
 include 'controllers/controller.php';
 //Controller Object	

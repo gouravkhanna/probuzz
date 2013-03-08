@@ -1,17 +1,22 @@
 function set(val) {
-    if(!val.value) {
-        alert("Enter Your Skills");
-        val.style.backgroundColor="lightsilver";
-        val.focus();
+    var table;
+    if(val=='form1') {
+        table="professional_profile";
+    } else if(val=='form2') {
+        table="qualifications";
+    } else if(val=='form3') {
+        table="resume";
+    } else {
+        alert ("Error Processing Data");
+        return false;
     }
-    else {
-        $.ajax({
-            type: "POST",
-            url: "class/processing.php",
-            data: "property="+val.name+"&&value="+val.value,
-            success: function(msg){
-              alert( msg );
-            }
-        });
-    }
+    $.ajax({
+        type: "POST",
+        url: "class/processing.php",
+        data: $('#'+val).serialize()+ "&table="+table,
+        success: function(msg){
+            alert( msg );
+        }
+    });
+    return false;
 }

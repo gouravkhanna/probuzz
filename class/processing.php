@@ -1,6 +1,15 @@
 <?php
-    require_once('proProfile.class.php'); 
+    require_once('proProfile.class.php');
+   
+   
     $p=new ProProfile();
-    $p->__set($_POST['property'],$_POST['value']);
-    $p->show();
+    foreach($_POST as $key =>$value) {
+        
+        if($key!='table') {
+            echo "$key $value <br/>";    
+        }
+        //$p->__set($key,$value);    
+    }
+    
+    //$p->show();
 ?>

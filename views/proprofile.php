@@ -1,4 +1,5 @@
-
+<html>
+    <head>
         <link rel="stylesheet" type="text/css" href="style/proProfile.css" />
 
         <script type="text/javascript" src="js/proProfile.js"></script>
@@ -10,47 +11,60 @@
     </head>
     <body >
         <div id="accordion">
-            <h3>Basic Profile</h3>
+            <h3><?php echo BASIC_PROFILE;?></h3>
             <div>
-                <form>
+                <form id="form1" onsubmit="return set(this.id)">
                     <table>
                         <tr>
-                            <td>Skills :</td>
-                            <td><input type="text" name="skills" onblur="set(this)"/></td>
+                            <td><?php echo CAREER_OBJECTIVE;?></td>
+                            <td><textarea name="careerObjective" rows="1" cols="30"></textarea></td>
                         </tr>
                         <tr>
-                            <td>Information : </td>
-                            <td><input type="text" name="information" onblur="set(this)"/></td>
+                            <td><?php echo COMPANY_NAME ;?></td>
+                            <td><input type="text" name="company" maxlength="250"/></td>
                         </tr>
                         <tr>
-                            <td>Career Objective :</td>
-                            <td><input type="text" name="careerObjective" onblur="set(this)"/></td>
+                            <td><?php echo DESIGNATION; ?></td>
+                            <td><input type="text" name="designation" maxlength="250"/></td>
                         </tr>
                         <tr>
-                            <td>Proficiency :</td>
-                            <td><input type="text" name="proficiency" onblur="set(this)"/></td>
+                            <td><?php echo PROFICIENCY; ?> </td>
+                            <td><textarea name="proficiency" rows="1" cols="30"></textarea></td>
                         </tr>
                         <tr>
-                            <td>Company Name :</td>
-                            <td><input type="text" name="company" onblur="set(this)"/></td>
+                            <td><?php echo SKILLS; ?></td>
+                            <td><textarea name="skills" rows="1" cols="30"></textarea></td>
                         </tr>
                         <tr>
-                            <td>Designation :</td>
-                            <td><input type="text" name="designation" onblur="set(this)"/></td>
+                            <td><?php echo INFORMATION; ?></td>
+                            <td><textarea name="information" rows="1" cols="30"></textarea></td>
                         </tr>
                         <tr>
-                            <td colspan="2"
+                            <td class="proSubmit" colspan="2" >
+                                <input type="submit" value="<?php echo SUBMIT;?>" />
+                            </td>
                         </tr>
-                    <input type="button" value="submit" name="submit" onclick=""/>
                     </table>
                 </form>
        
             </div>
-            <h3>Qualifications</h3>
+            <h3><?php echo QUALIFICATIONS; ?></h3>
             <div>
-                
+                <form name="form2" onsubmit="return set(this.name)">
+                    <table>
+                        <tr>
+                            <td>sdfasdf:</td>
+                            <td><input type="text"/></td>
+                        </tr>
+                        <tr>
+                            <td class="proSubmit" colspan="2" >
+                                <input type="submit" value="<?php echo SUBMIT;?>"  />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
             </div>
-            <h3>Resume</h3>
+            <h3><?php echo RESUME; ?></h3>
             <div>
                 
               

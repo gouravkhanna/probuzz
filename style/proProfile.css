@@ -2,3 +2,15 @@ body {
     margin: 0px;
     padding: 0px;
 }
+.proSubmit {
+    text-align: right;
+}
+td {
+    text-align: right;
+}
+textarea {
+    resize: none;
+}
+input[type=text] {
+
+}
