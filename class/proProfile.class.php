@@ -41,6 +41,8 @@
                 
             } else if($table=='qualifications') {
                 
+            } else if($table=='resume') {
+                
             }
             
         }
