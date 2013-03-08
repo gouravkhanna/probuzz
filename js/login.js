@@ -53,12 +53,15 @@ var last_name=document.forms["side-2"]["last_name"].value;
 if(last_name.length==0)
 {
 document.getElementById("w5").style.visibility=" visible";
+document.getElementById("e5").style.visibility=" visible";
+document.getElementById("e5").innerHTML="*Last Name cannot by empty";
 return false; 
 }
    else
 {
 document.getElementById("r5").style.visibility=" visible";
 document.getElementById("w5").style.visibility=" hidden";
+document.getElementById("e5").style.visibility=" hidden";
 return true; 
 
 }
@@ -145,6 +148,7 @@ function valid()
 var f=valid_fname();
 var p=valid_password();
 var e=valid_email();
+var l=valid_lname();
 if(!f)
 {
  return false;
@@ -158,6 +162,10 @@ else if(!e)
 {
  return false;
 }
+else if(!l)
+{ 
+return false;
+	}
 else
 {
 true;

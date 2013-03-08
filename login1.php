@@ -40,9 +40,9 @@ include 'class/users.php';
     <div id="2"><h2> Signup with your email.... </h2>
     
    <input type="text" name="first_name" id="first_name"  autocomplete="off" placeholder="First Name" onblur="return  valid_fname()" />
-   <span id="r1" name="r1"> <img src="data/rcs/data/rcs/r.png" height="30px" width="30px" /> </span> <span id="w1"> <img src="data/rcs/w.png" height="30px" width="30px" /> </span><span id="e1" name="e1"> </span> <br/>
+   <span id="r1" name="r1"> <img src="data/rcs/r.png" height="30px" width="30px" /> </span> <span id="w1"> <img src="data/rcs/w.png" height="30px" width="30px" /> </span><span id="e1" name="e1"> </span> <br/>
     <input type="text" name="last_name" id="last_name"  autocomplete="off" placeholder="Last Name" onblur="return  valid_lname()"/>
-   <span id="r5" name="r5"> <img src="data/rcs/r.png" height="30px" width="30px" /> </span> <span id="w5" name="w5"> <img src="data/rcs/w.png" height="30px" width="30px" /> </span> <br/>
+   <span id="r5" name="r5"> <img src="data/rcs/r.png" height="30px" width="30px" /> </span> <span id="w5" name="w5"> <img src="data/rcs/w.png" height="30px" width="30px" /> </span><span id="e5" name="e5"> </span>  <br/>
       <input type="text" name="email" id="email" autocomplete="off" placeholder="Email" onblur="return valid_email()" /> 
       <span id="r2" name="r2" id="r2"> <img src="data/rcs/r.png" height="30px" width="30px" /> </span> <span id="w2" name="w2" name="w2"> <img src="data/rcs/w.png" height="30px" width="30px" /> </span> <span id="e2" name="e2"> </span>
       <br />
