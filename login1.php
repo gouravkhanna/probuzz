@@ -11,78 +11,7 @@ include 'class/users.php';
 <script src="js/jquery-1.9.1.min.js"> </script>
 
 <script src="js/login.js"></script>
-<script type="text/javascript">
-function valid()
-{
 
-	var user_name=document.forms["side-2"]["user_name1"].value;
-	var pwd=document.forms["side-2"]["password1"].value;
-	var cpwd=document.forms["side-2"]["confirm_pass"].value;
-	var x=document.forms["side-2"]["email"].value;
-	var atpos=x.indexOf("@");
-	var dotpos=x.lastIndexOf(".");
-	
-	if(user_name.length<6)
-	{
-		document.getElementById("user_name1").style.borderColor="red";
-		document.getElementById("w1").style.visibility=" visible"; 
-	
-	}
-	else
-	{
-		document.getElementById("r1").style.visibility=" visible"; 
-		document.getElementById("w1").style.visibility=" hidden"; 
-		document.getElementById("user_name1").style.borderColor="#FF66FF";
-
-	}
-		
-	if(pwd.length<6)
-	{
-		document.getElementById("password1").style.borderColor="red";
-		document.getElementById("w3").style.visibility=" visible"; 
-
-	}
-	else
-	{
-
-		document.getElementById("r3").style.visibility=" visible"; 
-		document.getElementById("w3").style.visibility=" hidden"; 
-		document.getElementById("password1").style.borderColor="#FF66FF";
-
-		}
-	
-	/* if(pwd.length>16)
-	{
-		document.getElementById("password1").style.borderColor="red";
-		document.getElementById("w3").style.visibility=" visible"; 
-
-	}
-	 else
-		{
-
-			document.getElementById("r3").style.visibility=" visible"; 
-			document.getElementById("w3").style.visibility=" hidden"; 
-			document.getElementById("password1").style.borderColor="#FF66FF";
-
-			}
-	 
-	
-	 if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length)
-	  {
-		  
-		document.getElementById("email").style.borderColor="red";
-		document.getElementById("w2").style.visibility=" visible"; 
-		return false;
-
-	   }
-*/
-	
-
-}
-
-
-
-</script>
 </head>
 
 <body>
@@ -107,21 +36,24 @@ function valid()
    </div> 
 </form>
 
-<form id="side-2" class="flip"  method="post" name="side-2">
+<form id="side-2" class="flip"  method="post" name="side-2" onsubmit=" return valid()">
     <div id="2"><h2> Signup with your email.... </h2>
     
-   <input type="text" name="user_name1" id="user_name1"  autocomplete="off" placeholder="User Name" />
-   <span id="r1" name="r1"> <img src="right.jpg" height="30px" width="30px" /> </span> <span id="w1"> <img src="wrong.jpeg" height="30px" width="30px" /> </span> <br/>
-      <input type="text" name="email" id="email" autocomplete="off" placeholder="Email" /> 
-      <span id="r2" name="r2"> <img src="right.jpg" height="30px" width="30px" /> </span> <span id="w2" name="w2"> <img src="wrong.jpeg" height="30px" width="30px" /> </span> 
+   <input type="text" name="first_name" id="first_name"  autocomplete="off" placeholder="First Name" onblur="return  valid_fname()" />
+   <span id="r1" name="r1"> <img src="r.png" height="30px" width="30px" /> </span> <span id="w1"> <img src="w.png" height="30px" width="30px" /> </span><span id="e1" name="e1"> </span> <br/>
+    <input type="text" name="last_name" id="last_name"  autocomplete="off" placeholder="Last Name" onblur="return  valid_lname()"/>
+   <span id="r5" name="r5"> <img src="r.png" height="30px" width="30px" /> </span> <span id="w5" name="w5"> <img src="w.png" height="30px" width="30px" /> </span> <br/>
+      <input type="text" name="email" id="email" autocomplete="off" placeholder="Email" onblur="return valid_email()" /> 
+      <span id="r2" name="r2" id="r2"> <img src="r.png" height="30px" width="30px" /> </span> <span id="w2" name="w2" name="w2"> <img src="w.png" height="30px" width="30px" /> </span> <span id="e2" name="e2"> </span>
       <br />
-   <input type="password" name="password1" id="password1" autocomplete="off" placeholder="Password" />
-   <span id="r3" name="r3"> <img src="right.jpg" height="30px" width="30px" /> </span> <span id="w3" name="w4"> <img src="wrong.jpeg" height="30px" width="30px" /> </span> 
+   <input type="password" name="password1" id="password1" autocomplete="off" placeholder="Password" onblur="return  valid_password()" />
+   <span id="r3" name="r3"> <img src="r.png" height="30px" width="30px" /> </span> <span id="w3" name="w4"> <img src="w.png" height="30px" width="30px" /> </span> <span id="e3" name="e3"> </span>
     <br />
-   <input type="password" name="confirm_pass" id="confirm_pass" autocomplete="off" placeholder="Confirm Password" /> 
-   <span id="r4" name="r4"> <img src="right.jpg" height="30px" width="30px" /> </span> <span id="w4" name="w4"> <img src="wrong.jpeg" height="30px" width="30px" /> </span><br />
+   <input type="password" name="confirm_pass" id="confirm_pass" autocomplete="off" placeholder="Confirm Password" onblur="return  valid_password()" /> 
+   <span id="r4" name="r4"> <img src="r.png" height="30px" width="30px" /> </span> <span id="w4" name="w4"> <img src="w.png" height="30px" width="30px" /> </span><span id="e4" name="e4"> </span>
+   <br />
     <p> Already have an account? <a href="" id="login1"> Login </a> </p>
-      <input type="button" id="create" name="create" value="SIGN UP" onclick ="valid()" />   </div>
+      <input type="submit" id="create" name="create" value="SIGN UP"   />   </div>
 </form>
 </div>
 </body>

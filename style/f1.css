@@ -79,7 +79,7 @@ text-align:center;}
 
 
 
-#user_name,#password,#email,#confirm_pass,#first_name,#last_name,#user_name1,#password1
+#user_name,#password,#email,#confirm_pass,#first_name,#last_name,#password1
 {
 
 padding-right:30px;
@@ -92,6 +92,8 @@ border-radius:0.5em;
 height:25px;
 width:20em;
 text-align:center;
+
+
 	
 
 
@@ -101,7 +103,7 @@ img
 	
 	float:right;
 	margin-top:-35px;
-	margin-right :30px;
+	margin-right :43px;
 	
 
 		
@@ -152,8 +154,17 @@ background-size:100%;
 span
 {
 visibility: hidden;
+border-color: transparent;
+	
+	
+}
+#e1,#e2,#e3,#e4
+{
+visibility:hidden;
+color:#FF0000;
+margin-left:40px;
 
-	border-color: transparent;
-	
-	
+
+
+
 }
