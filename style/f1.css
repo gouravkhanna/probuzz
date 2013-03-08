@@ -13,10 +13,10 @@
         -o-transform-origin:      50% 50% 0px;
         -webkit-transform-origin: 50% 50% 0px;
     transition: all 3s;
-        -moz-transition:    all 3s;
-        -ms-transition:     all 3s;
-        -o-transition:      all 3s;
-        -webkit-transition: all 3s;
+        -moz-transition:    all 1s;
+        -ms-transition:     all 1s;
+        -o-transition:      all 1s;
+        -webkit-transition: all 1s;
 		height:300px;
 width:400px;
 background-color:#CCCCCC;
@@ -82,9 +82,9 @@ text-align:center;}
 #user_name,#password,#email,#confirm_pass,#first_name,#last_name,#password1
 {
 
-padding-right:30px;
+padding-right:40px;
 
-margin-left:30px;
+margin-left:40px;
 border-style:solid;
 border-color:#FF66FF;
 -webkit-border-radius:0.5em;
@@ -103,7 +103,7 @@ img
 	
 	float:right;
 	margin-top:-35px;
-	margin-right :43px;
+	margin-right :23px;
 	
 
 		
@@ -162,7 +162,7 @@ border-color: transparent;
 {
 visibility:hidden;
 color:#FF0000;
-margin-left:40px;
+margin-left:50px;
 
 
 
