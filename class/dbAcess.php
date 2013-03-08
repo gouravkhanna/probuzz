@@ -30,6 +30,10 @@
 			$this->dbDisconnect();
 			return $result;
 		}
+		private function pdoConnect()
+		{
+			
+		}
 		private function dbDisconnect()
 		{
 			//code for Disconnecting with DB	

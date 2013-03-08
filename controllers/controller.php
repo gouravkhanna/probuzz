@@ -1,6 +1,7 @@
 <?php
 include_once 'class/constant.php';
 include 'class/users.php';
+include 'class/corporate.php';
 class Controller
 {
 
@@ -37,10 +38,14 @@ class Controller
 		$path=$this->populateHomeData();
 		//$profile_pic_path = "http://".$_SERVER["HTTP_HOST"]."/".APPNAME."/".$path;
 		$profile_pic_path = ROOTPATH.$path;
-
 		include('home.php');
-		
-
+	}
+	function loadCorporateHome()
+	{
+		$path=$this->populateHomeData();
+		$profile_pic_path = ROOTPATH.$path;
+		include('corp.php');
+	
 	}
 	function populateHomeData()
 	{
@@ -49,8 +54,14 @@ class Controller
 	}
 	function logout()
 	{
-				$userOb=new users();
-				$userOb->logout();
+		$userOb=new users();
+		$userOb->logout();
+	}
+	function alotSlot()
+	{	
+		echo "<script> alert('Controller');</script>";
+		$corporateOb=new corporate();
+		$corporateOb->alotSlot(@$_REQUEST['designation']);
 	}
 }
 	

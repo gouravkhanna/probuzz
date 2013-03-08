@@ -43,6 +43,10 @@ define("DESIGNATION","Designation");
 define("TYPE","Type");
 define("LOCATION","Location");
 define("FILLFORM","Please Fill the Following Information");
-
+define("ACCEPT_TERMS","You Accept the T&C ");
+define("SUCCESSALOTID","Slot has Been Alloted!");
+define("UNSUCCESSFULALOTID","Slot Can not be Alloted Now Please try later!");
+define("CREATED_ON","Created On");
+define("STATUS","Status");
 
 ?>

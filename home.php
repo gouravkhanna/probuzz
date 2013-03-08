@@ -31,7 +31,15 @@
       <div id="photo">
         <img class="photo" src="<?php echo $profile_pic_path?>" height="80" width="80">
         <span class="alignwelcome"> <?php echo WELCOME; ?> <br/>
-        <?php echo @$_SESSION['user_name'];?> </span> 
+        <?php echo @$_SESSION['user_name'];
+
+
+  $url = @$_GET['url'];
+    $url = rtrim($url, '/');
+    $url = explode('/', $url);
+print_r($url);
+
+        ?>oooooooo </span> 
        </div>      
 
         <a href="index.php?req=profile">Social Profile</a> 

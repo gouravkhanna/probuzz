@@ -20,14 +20,16 @@ class users
 			}	
 	 		else
 		   {
-				$sql="select user_name ,password from users where user_name='$userName'";
+				$sql="select user_name ,password,type from users where user_name='$userName'";
 			    $result=$ob->executeSQL($sql);
 				 while($row=mysql_fetch_array($result))
 				{
 					$u=$row["user_name"];
 					$p=$row["password"];
+					
 				  if(($u==$userName) && ($p==$password))
 				  {
+				  	$type=$row["type"];
 					  $flag=1;
 					  break;
 			 	  }
@@ -35,9 +37,10 @@ class users
 		   }
 	       if($flag==1)
 	 		{
-			$_SESSION['id']=$this->getId($userName);
-			$_SESSION['user_name']=$userName;
-			   return true;
+				$_SESSION['id']=$this->getId($userName);
+				$_SESSION['user_name']=$userName;
+				$_SESSION['type']=$type;
+				return true;
 			}
 		else
 		{
@@ -90,7 +93,9 @@ class users
 	{
 	}
 	function updateUserStatus($status)
-	{}
+	{
+		
+	}
 	function logout($id)
 	{
 		$_SESSION['id']="";
