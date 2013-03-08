@@ -1,0 +1,4 @@
+<?php
+
+define("APPNAME","pb");
+?>

@@ -1,0 +1,57 @@
+@charset "utf-8";
+/* CSS Document */
+
+.login
+{
+
+height:300px;
+width:400px;
+background-color:#CCCCCC;
+border-style:groove;
+border-color:#990033;
+-webkit-border-radius:1em;
+
+
+}
+h2{
+
+text-align:center;}
+#user_name,#password
+{
+
+padding-right:30px;
+
+margin-left:40px;
+border-style:solid;
+border-color:#FF66FF;
+-webkit-border-radius:0.5em;
+height:25px;
+width:20em;
+text-align:center;
+
+
+}
+
+#submit
+{
+
+cursor:pointer;
+margin-left:12em;
+-webkit-border-radius:10em;
+height:3em;
+width:5em;
+background-color:#9966FF;
+color:#FFFFFF;
+font-family:Georgia, "Times New Roman", Times, serif;
+
+
+}
+a:link{
+margin-left:10px;
+color:#990000;}
+p a:link
+{
+
+color:#0000FF;}
+p{margin-left:10px;}
+
