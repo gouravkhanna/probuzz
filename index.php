@@ -6,36 +6,24 @@ include_once 'class/constant.php';
 include 'controllers/controller.php';
 //Controller Object	
 $COb=new Controller();
-if(isset($_GET['url']))
-{
-	
+if(isset($_GET['url'])) {
 	$COb->error();
 }
-
 //handling login request
-if(@$_REQUEST['submit']=="BuZZIN")
-{
+if(@$_REQUEST['submit']=="BuZZIN") {
 	$COb->login();
-//	$COb->loadHome();
-
 }
-if(@$_GET['url']=="logout")
-{
+if(@$_GET['url']=="logout") {
 	$COb->logout();
-
 }
 
 
 //to check whether the  user is login or not by checking the session
-if(!isset($_SESSION['id']) || $_SESSION['id']=="" || @$_GET['url']=="login" )
-{
+if(!isset($_SESSION['id']) || $_SESSION['id']=="" || @$_GET['url']=="login" ) {
 	header("location:login1.php");
 }
-else
-{
+else {
 		$id=$_SESSION['id'];
-		$path=$COb->populateHomeData();
-	//	echo $path;
 		$COb->loadHome();
 }
 

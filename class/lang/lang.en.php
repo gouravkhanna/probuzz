@@ -1,5 +1,10 @@
 <?php
 define('PROJECTTITLE', "Pagination");
+define("CHOME","Corporate Home");
+define('WELCOME', "Welcome");
+define('PROBUZZ', "ProBuzZ");
+define('HOME', "Home");
+define('LOGOUT', "LogOut");
 define('VIEWUSER', "View Users");
 define('USERNAME', "User Name");
 define('FIRSTNAME', "First Name");
@@ -15,10 +20,6 @@ define('PAGINATIONNEXT', "Next");
 define('PAGINATIONPREV', "Previous");
 define('PAGINATIONLAST', "Last");
 define('PAGINATIONFIRST', "First");
-define('WELCOME', "Welcome");
-define('PROBUZZ', "ProBuzZ");
-define('HOME', "Home");
-define('LOGOUT', "LogOut");
 define("ROLE","role");
 define("START_DATE","Start Date");
 define("LAST_DATE","Last Date");
@@ -37,5 +38,11 @@ define("SALARY_EXPECTED","Salary Expected");
 define("OTHER_INFO","Other Info");
 define("CRITERIA","Criteria");
 define("SALARY_RANGE","Salary Range");
+define("SALARY","Salary");
+define("DESIGNATION","Designation");
+define("TYPE","Type");
+define("LOCATION","Location");
+define("FILLFORM","Please Fill the Following Information");
+
 
 ?>
