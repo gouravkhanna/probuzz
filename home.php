@@ -1,5 +1,6 @@
 <?php
 	include_once 'class/lang/lang.en.php';
+  
 ?>
 <!doctype html>
 <html>
@@ -26,7 +27,7 @@
         <progress value=10 max=100></progress>
   </div>
   <div id="mid1" >
- 
+
       <div id="photo">
         <img class="photo" src="<?php echo $profile_pic_path?>" height="80" width="80">
         <span class="alignwelcome"> <?php echo WELCOME; ?> <br/>

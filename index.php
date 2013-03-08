@@ -8,6 +8,7 @@ include 'controllers/controller.php';
 $COb=new Controller();
 if(isset($_GET['url']))
 {
+	
 	$COb->error();
 }
 

@@ -5,7 +5,7 @@ $(document).ready(function(e) {
 	$("#start_date").datepicker();
 	$("#end_date").datepicker();	
 	$("#head2").html("<img src='data/header/h26.jpg'  />");
-	
+	//
 	//for sliding headers
 	//setInterval (headrotate, 3500);
 
