@@ -24,7 +24,7 @@
                             <td><input type="text" name="company" maxlength="250"/></td>
                         </tr>
                         <tr>
-                            <td><?php echo DESIGNATION; ?></td>
+                            <td><?php echo PRO_DESIGNATION; ?></td>
                             <td><input type="text" name="designation" maxlength="250"/></td>
                         </tr>
                         <tr>
@@ -50,7 +50,7 @@
             </div>
             <h3><?php echo QUALIFICATIONS; ?></h3>
             <div>
-                <form name="form2" onsubmit="return set(this.name)">
+                <form id="form2" onsubmit="return set(this.id)">
                     <table>
                         <tr>
                             <td>sdfasdf:</td>

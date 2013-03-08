@@ -31,7 +31,17 @@
         public function edit() {
             
         }
-        public function insert(){
+        public function insert() {
+            
+        }
+        public function insertProfile($table=""){
+            if($table=="") {
+                echo "No table Supplied";
+            } else if($table=="professional_profile") {
+                
+            } else if($table=='qualifications') {
+                
+            }
             
         }
         

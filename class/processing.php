@@ -4,12 +4,9 @@
    
     $p=new ProProfile();
     foreach($_POST as $key =>$value) {
-        
-        if($key!='table') {
-            echo "$key $value <br/>";    
-        }
-        //$p->__set($key,$value);    
+        $p->__set($key,$value);    
     }
-    
+    $p->insertProfile($_POST['table']);
     //$p->show();
+    
 ?>
