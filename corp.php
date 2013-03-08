@@ -1,5 +1,4 @@
 
-<link href="<?php echo "http://".$_SERVER['HTTP_HOST']."/".APPNAME."/style/style.css"; ?>" rel="stylesheet" type="text/css">
 <link href="style/style.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="js/jqueryui/css/ui-lightness/jquery-ui-1.10.1.custom.css">
 <script src="js/jquery-1.9.1.min.js"> </script>
@@ -21,6 +20,7 @@ $id=3;
 <div id="container">
 	<div id="head1">
        <a href="index.php">HOME</a>
+       <a href="corp.php">Corporate HOME</a>
     	<a href="index.php?url=logout">LogOUT</a>
     </div>
     <div id="head2">
@@ -41,9 +41,9 @@ $id=3;
         <div id="mid2">
 	        <h1>Mid 2</h1>
 		<?php
-		if($_REQUEST['req']=="") include_once 'views/buzz.php';
-		if($_REQUEST['req']=="cprofile") include_once 'gdata/cprofile.php';
-		if($_REQUEST['req']=="jobs") include_once 'gdata/jobs.php';
+		if(@$_REQUEST['req']=="") include_once 'views/buzz.php';
+		if(@$_REQUEST['req']=="cprofile") include_once 'gdata/cprofile.php';
+		if(@$_REQUEST['req']=="jobs") include_once 'gdata/jobs.php';
 		?>
      		<!-- INCLUDE FIle here (using include tag) -->   
         </div>

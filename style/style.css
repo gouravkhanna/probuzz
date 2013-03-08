@@ -2,92 +2,100 @@
 body{
 	max-height:auto;
 	max-width:1285;
-	background-color:#eef;
+	background-color:#F9F9F9;
 	font-family:Verdana, Geneva, sans-serif;	
 	
 }
 #container{
 	width:1024px;
 	margin:0px auto;
-
 	height: auto;
+	min-height:1000px;
+}
+#mid1{
+	position: inherit;
+	min-height:980px;
+	padding-top: 10px;
+	width:152px;
+	height: auto;
+	float :left;	
+	margin-right:5px;
+	background-color:darkgrey;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-radius: 20px;
 }
 #mid{
 	
-	margin-top:5px;
-	min-height:600px;
+	margin-top:10px;
 	
 }
 #head1{
-	
 	height:50px;
 	width:100%;
-
 	position: fixed;
 	top: 0;
 	background-image:url(../data/rcs/g.svg);
 	background-size: 100%;
 	left: 0;
-	
-
 }
 
 #head2{
-		background-color: #dfdfdf;
-	height:250px;	
+	background-color: #dfdfdf;
+	height:255px;	
 	overflow:hidden;
 	margin-top:55px;
+-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	
+}
 
-}
-#mid1{
-		
-	width:252px;
-	min-height:600px;
-	float :left;	
-	margin-right:5px;
-}
-#photo
-{
-	width:241px;
-	min-height:150px;
-	float :left;	
-	margin:5px;
-
-}
 #mid2{
 		background-color: #dfdfdf;
-	width:462px;
+	width:582px;
 	min-height:600px;
 	float :left;	
 	margin-right:5px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
 	
 }
 
 #mid3{
 		
 	min-height:300px;
-	width:300px;
+	width:280px;
 	float :left;
-	
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
 	border-bottom: none;
 }
 #mid35{
 		
 	min-height:300px;
-	width:300px;
+	width:280x;
 	float :left;
-	
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
 	border-top: none;
 }
 #footer{
+	text-align: center;
+	background-size: 100%;
+	padding: 15px;
 	float: left;
 	margin-top:7px;
-	height :50px;
+	height :25px;
 	width:1020px;
-	
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	background-image:url(../data/rcs/g.svg);
 }
 #buzz{
 	background-color: #579BBA;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;	
 }
 
 a
@@ -104,4 +112,23 @@ h1
 	
 	
 	
+}
+#photo
+{
+	float:left;
+text-align: center;
+}
+.photo
+{
+
+	vertical-align: middle;
+
+}
+.alignwelcome
+{
+	vertical-align: middle;
+	font-weight: bold;
+	font-variant: small-caps;
+	display: inline-block;
+	text-align: center;
 }

@@ -35,7 +35,9 @@ class Controller
 	{
 		
 		$path=$this->populateHomeData();
-		$profile_pic_path = "http://".$_SERVER["HTTP_HOST"]."/".APPNAME."/".$path;
+		//$profile_pic_path = "http://".$_SERVER["HTTP_HOST"]."/".APPNAME."/".$path;
+		$profile_pic_path = ROOTPATH.$path;
+
 		include('home.php');
 		
 

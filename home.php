@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
 <title>ProBuzZ</title>
-<link href="<?php echo "http://".$_SERVER['HTTP_HOST']."/".APPNAME."/style/style.css"; ?>" rel="stylesheet" type="text/css">
+<link href="<?php echo ROOTPATH."style/style.css"; ?>" rel="stylesheet" type="text/css">
 <link href="style/style.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="js/jqueryui/css/ui-lightness/jquery-ui-1.10.1.custom.css">
 <script src="js/jquery-1.9.1.min.js"> </script>
@@ -17,33 +17,35 @@
 <body>
 
 <div id="container">
-	<div id="head1" class="bg">
-    	<h1> <?php echo PROBUZZ; ?></h1>
+	<div id="head1" >
+    	<h1> 
+        <?php echo PROBUZZ; ?>     
+      </h1>
         <a href="index.php"><?php echo HOME; ?></a>
-    	<a href="index.php?url=logout"><?php echo LOGOUT; ?></a>
+    	  <a href="index.php?url=logout"><?php echo LOGOUT; ?></a>
+        <progress value=10 max=100></progress>
+  </div>
+  <div id="mid1" >
+ 
+      <div id="photo">
+        <img class="photo" src="<?php echo $profile_pic_path?>" height="80" width="80">
+        <span class="alignwelcome"> <?php echo WELCOME; ?> <br/>
+        <?php echo @$_SESSION['user_name'];?>oooooooo </span> 
+       </div>      
 
-  	</div>
-    <div id="head2" class="bg">
-    	<h2>Head 2    	
-    	 
-    	</h2>
-   		<!-- INCLUDE FIle here (using include tag) -->
-    </div>
-    <div id="mid" >
+        <a href="index.php?req=profile">Social Profile</a> 
+        <a href="index.php?req=pprofile">Professional Profile</a>
+      
+          <!-- INCLUDE FIle here (using include tag) -->
+       
+   </div>
+   
+    <div id="head2" >
     
-    	<div id="mid1" class="bg">
-    		<h1> Welcome <?php echo @$_SESSION['user_name'];?></h1><br>
-		<div id="photo">
-		          <img src="<?php echo $profile_pic_path?>" height="150" width="240">
-        	</div>
-			<a href="index.php?req=profile" >Social Profile</a> 
-			<a href="index.php?req=pprofile" >Professional Profile</a>
-    	
-        	<!-- INCLUDE FIle here (using include tag) -->
-        
-        </div>
-    	
-        <div id="mid2" class="bg">
+    </div>
+   
+    <div id="mid" >
+    <div id="mid2" >
         	<h1>Mid 2</h1>
      		<!-- INCLUDE FIle here (using include tag) -->
 		<?php
@@ -61,12 +63,12 @@
         </div>
 
 
-    	<div id="midm" class="bg">
+    	<div id="midm" >
 	
-	        <div id="mid3" class="bg">
+	        <div id="mid3" >
 			<h1>Notifications</h1>
        		</div>
-		<div id="mid35"  class="bg">
+		<div id="mid35"  >
             	<h1>Top Jobs</h1>
        			<!-- INCLUDE FIle here (using include tag) -->
 		 </div>
@@ -75,7 +77,7 @@
 
     
     
-<div id="footer" class="bg">
+<div id="footer" >
 <footer> Copyright ProBuzZ || All Right Reserved || 2013  </footer>
 
 </div>
