@@ -10,7 +10,7 @@ include 'controllers/controller.php';
 $COb=new Controller();
 //handling error
 if(isset($_GET['url'])) {
-		$COb->error();
+		//$COb->error();
 }
 //handling login request
 if(@$_REQUEST['submit']=="BuZZIN") {

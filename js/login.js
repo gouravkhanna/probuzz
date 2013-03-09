@@ -19,6 +19,35 @@ document.getElementById( 'login1' ).addEventListener( 'click', function( event )
 }, false );
 });
 
+function valid_uname()
+{
+	
+	var user_name1=document.forms["side-2"]["user_name1"].value;
+	if(user_name1.length<6) 
+	{
+	document.getElementById("w6").style.visibility=" visible";
+	document.getElementById("e6").style.visibility=" visible";
+	document.getElementById("e6").innerHTML="* User Name must contain 6 characters ";
+	return false; 
+	}
+	else if(user_name1.length>30) 
+	{
+	document.getElementById("w6").style.visibility=" visible";
+
+	return false; 
+	}
+	 else
+	 {
+	 document.getElementById("r6").style.visibility=" visible";
+	 document.getElementById("w6").style.visibility=" hidden";
+	 document.getElementById("e6").style.visibility=" hidden";
+	 return true; 
+
+	 }
+
+
+}
+
 function valid_fname() // to check first name
 {
 
@@ -149,6 +178,7 @@ var f=valid_fname();
 var p=valid_password();
 var e=valid_email();
 var l=valid_lname();
+var u=valid_uname();
 if(!f)
 {
  return false;
@@ -166,6 +196,10 @@ else if(!l)
 { 
 return false;
 	}
+
+else if(!u){
+	return false;
+}
 else
 {
 true;

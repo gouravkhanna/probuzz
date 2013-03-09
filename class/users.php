@@ -102,7 +102,47 @@ class users
 		unset($_SESSION['id']);
 	}
 	
-	function validate($first_name,$last_name,$email,$password)
+	
+
+	function register($first_name,$last_name,$email,$password,$user_name)
+	{
+		echo "hello111";
+		$ob=new DbConnection();
+		echo $first_name;
+		
+	
+			if(empty($first_name) && empty($password) && empty($last_name) && empty($email))
+			{
+				echo "<script> alert('please fill all the values'); </script>";
+			}
+			else
+			{
+				$sql="select user_name from users where user_name='$user_name'";
+				$res=$ob->executeSQL($sql);
+				if($res==true)
+				{
+					echo "user already exist";				
+				}
+				else
+			{
+	
+				$sql="insert into probuzz.users (user_name,password) values ('$user_name','$password')" or die("ssss");
+				$ob->executeSQL($sql);
+				$iid=$this->getId($user_name);
+				
+				$sql1="insert into personal_profile(user_id,first_name,last_name,email) values('$user_id','$first_name','$last_name','$email')";
+				$ob->executeSQL($sql1);
+				
+			
+			} //else
+				
+			}
+				
+				
+		// if*/
+}
+	
+	/*function validate($first_name,$last_name,$email,$password)
 	{
 		$ob=new DbConnection();
 		if(@$_REQUEST["submit"])
@@ -111,21 +151,22 @@ class users
 			    {
 				$first_name = filter_var($first_name, FILTER_SANITIZE_STRING);
 				     if ($first_name == "") 
-				     {
-					echo "Please enter a valid name.<br/><br/>";
-				     }
-		    	} else {
+				    	 {
+						echo "Please enter a valid name.<br/><br/>";
+				   		  }
+		    	} 
+		    	else {
 				echo "Please enter your name.<br/>";
-			}
+					}
 			
 			
 			
 			
-		}
+				}
 		
 		
 		
-	}
+			}	*/
 	
 }
 

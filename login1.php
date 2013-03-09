@@ -37,9 +37,11 @@ include_once 'class/lang/lang.en.php';
    </div> 
 </form>
 
-<form id="side-2" class="flip"  method="post" name="side-2" onsubmit=" return valid()">
+<form id="side-2" class="flip"  method="post" name="side-2" onsubmit=" return valid()" action="registerindex.php">
     <div id="2"><h2> Signup with your email.... </h2>
     
+     <input type="text" name="user_name1" id="user_name1"  autocomplete="off" placeholder="User Name" onblur="return  valid_uname()" />
+   <span id="r6" name="r6"> <img src="data/rcs/r.png" height="30px" width="30px" /> </span> <span id="w6"> <img src="data/rcs/w.png" height="30px" width="30px" /> </span><span id="e6" name="e6"> </span> <br/>
    <input type="text" name="first_name" id="first_name"  autocomplete="off" placeholder="First Name" onblur="return  valid_fname()" />
    <span id="r1" name="r1"> <img src="data/rcs/r.png" height="30px" width="30px" /> </span> <span id="w1"> <img src="data/rcs/w.png" height="30px" width="30px" /> </span><span id="e1" name="e1"> </span> <br/>
     <input type="text" name="last_name" id="last_name"  autocomplete="off" placeholder="Last Name" onblur="return  valid_lname()"/>

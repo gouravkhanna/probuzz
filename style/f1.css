@@ -79,7 +79,7 @@ text-align:center;}
 
 
 
-#user_name,#password,#email,#confirm_pass,#first_name,#last_name,#password1
+#user_name,#password,#email,#confirm_pass,#first_name,#last_name,#password1,#user_name1
 {
 
 padding-right:40px;
@@ -158,7 +158,7 @@ border-color: transparent;
 	
 	
 }
-#e1,#e2,#e3,#e4,#e5
+#e1,#e2,#e3,#e4,#e5,#e6
 {
 visibility:hidden;
 color:#FF0000;

@@ -21,6 +21,29 @@ class Controller
 		}
 		
 	}
+function register()
+{
+
+$userName=@$_REQUEST["user_name1"];
+$password=@$_REQUEST["password1"];
+$first_name=@$_REQUEST["first_name"];
+$last_name=@$_REQUEST["last_name"];
+$email=@$_REQUEST["email"];
+$userOb=new users();
+$userOb->register($first_name,$last_name,$email,$password,$userName);
+
+	/*if($userOb->login($userName,$password)) {
+				header('location:index.php');
+	}
+	else
+	{
+	echo  'Cant Login'; ";
+	}*/
+}
+
+
+
+
 	function error($key="",$index="")
 	{
 		$s="location:views/error.php?$key=$index";
