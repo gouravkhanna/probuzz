@@ -20,3 +20,7 @@ function set(val) {
     });
     return false;
 }
+
+function upload() {
+    
+}

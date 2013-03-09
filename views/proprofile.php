@@ -17,7 +17,7 @@
                     <table>
                         <tr>
                             <td><?php echo CAREER_OBJECTIVE;?></td>
-                            <td><textarea name="careerObjective" rows="1" cols="30"></textarea></td>
+                            <td><textarea name="career_objective" rows="2" cols="30"></textarea></td>
                         </tr>
                         <tr>
                             <td><?php echo COMPANY_NAME ;?></td>
@@ -29,15 +29,15 @@
                         </tr>
                         <tr>
                             <td><?php echo PROFICIENCY; ?> </td>
-                            <td><textarea name="proficiency" rows="1" cols="30"></textarea></td>
+                            <td><textarea name="proficiency" rows="2" cols="30"></textarea></td>
                         </tr>
                         <tr>
                             <td><?php echo SKILLS; ?></td>
-                            <td><textarea name="skills" rows="1" cols="30"></textarea></td>
+                            <td><textarea name="skills" rows="2" cols="30"></textarea></td>
                         </tr>
                         <tr>
                             <td><?php echo INFORMATION; ?></td>
-                            <td><textarea name="information" rows="1" cols="30"></textarea></td>
+                            <td><textarea name="information" rows="2" cols="30"></textarea></td>
                         </tr>
                         <tr>
                             <td class="proSubmit" colspan="2" >
@@ -53,6 +53,9 @@
                 <form id="form2" onsubmit="return set(this.id)">
                     <table>
                         <tr>
+                            
+                        </tr>
+                        <tr>
                             <td>sdfasdf:</td>
                             <td><input type="text"/></td>
                         </tr>
@@ -66,7 +69,16 @@
             </div>
             <h3><?php echo RESUME; ?></h3>
             <div>
-                
+                <form action="class/processUpload.php" method="post" enctype="multipart/form-data" >
+                    <table><label for="resume"><?php echo FILE;?></label>
+                        <tr>
+                            <td><input type="file" name="resume" id="file"></td>
+                        </tr>
+                        <tr>
+                            <td class="proSubmit"><input type="submit" value="<?php echo SUBMIT;?>"></td>
+                        </tr>
+                    </table>
+                </form>
               
             </div>
         </div>

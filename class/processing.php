@@ -1,12 +1,15 @@
 <?php
     require_once('proProfile.class.php');
-   
-   
-    $p=new ProProfile();
+    
+    $fields=array();
     foreach($_POST as $key =>$value) {
-        $p->__set($key,$value);    
+        if($key!='table') {
+            $fields[$key] = $value;        
+        }
     }
-    $p->insertProfile($_POST['table']);
-    //$p->show();
+    $profile=new ProProfile();
+    
+    $profile->updateProfile($fields,$_POST['table']);
+    
     
 ?>
