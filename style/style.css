@@ -55,7 +55,7 @@ body{
 #mid2{
 		background-color: #dfdfdf;
 	width:582px;
-	min-height:600px;
+	min-height:725px;
 	float :left;	
 	margin-right:5px;
 	-webkit-border-radius: 20px;
@@ -64,18 +64,23 @@ body{
 }
 
 #mid3{
-		
-	min-height:300px;
-	width:280px;
+	padding:5px;
+	background-color: #dfdfdf;
+	min-height:350px;
+	width:270px;
 	float :left;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-bottom: none;
 }
 #mid35{
-		
-	min-height:300px;
-	width:280x;
+	padding:5px;
+	margin-top:10px;
+	background-color: #dfdfdf;
+	min-height:260px;
+	min-width:270px;
+	width:350x;
+	height:345px;
 	float :left;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
@@ -124,7 +129,7 @@ text-align: center;
 {
 
 	vertical-align: middle;
-
+	text-align:center;
 }
 .alignwelcome
 {
@@ -134,16 +139,27 @@ text-align: center;
 	display: inline-block;
 	text-align: center;
 }
+#createjobform
+{
+	margin:5px;
+}
 #createjobform input
 {
-	background-color: red;
 	width:200px;
 	min-width: 200px;
+	height:20px;
+	margin:3px;
+	font-family:sans-serif;
+}
+#createjobform #jbsub
+{	
+	width: 565px;
+	height:40px;
 }
 #createjobform #jblbl
 {
-	background-color: red;
-	width:200px;
+	font-size:1em;
+	display: inline-block; 
+	width: 250px;
 	min-width: 200px;
-	height: 200px;
 }

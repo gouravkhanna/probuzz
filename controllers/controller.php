@@ -74,9 +74,13 @@ header('location:registerindex.php');
 		$userOb=new users();
 		$userOb->logout();
 	}
-	function alotSlot()
-	{	
-		echo "<script> alert('Controller');</script>";
+	function updateSlot() {
+		echo "<script> alert('in iupddex'); </script>";
+			$corporateOb=new corporate();		
+			$corporateOb->updateSlot();
+			echo "<script> alert('index'); </script>";
+		}
+	function alotSlot() {	
 		$corporateOb=new corporate();
 		$corporateOb->alotSlot(@$_REQUEST['designation']);
 	}

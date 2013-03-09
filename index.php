@@ -44,6 +44,9 @@ if(@$_REQUEST['terms']=="true" && @$_REQUEST['SlotAllotment']=="GETSlot" && isse
  		$COb->alotSlot();
 }
 
+if(@$_REQUEST['Update']=="UpdateSlot") {
+	$COb->updateSlot();
+}
 /*
 
 

@@ -39,47 +39,45 @@ $profile_pic_path="data/photo/g.jpg";
 			<div id="photo">
 				<img class="photo" src="<?php echo $profile_pic_path;?>" height="80" width="80">
 				<span class="alignwelcome"> <?php echo WELCOME; ?> <br/>
-				<?php echo $_SESSION['user_name'];?>
-			</span> 
-			 </div>      
-
+					<?php echo $_SESSION['user_name'];?>
+				</span> 
+		    </div>      
 				<a href="index.php?req=profile">Social Profile</a> 
 				<a href="index.php?req=pprofile">Professional Profile</a>
 				<a href="index.php?req=cprofile" >Cprofile</a> 
 				<a href="index.php?req=jobs">Create Job</a>
+				<a href="index.php?req=showJobs">Show Job</a>
 				<!-- INCLUDE FIle here (using include tag) -->
 			 
-		</div>
+	</div>
 	 
 		<div id="head2" >
 		
 		</div>
 	 
 		<div id="mid" >
-		<div id="mid2" >
-				 <!-- INCLUDE FIle here (using include tag) -->
-			<?php
-			if(@$_REQUEST['req']=="") include_once 'views/buzz.php';
-			if(@$_REQUEST['req']=="cprofile") include_once 'gdata/cprofile.php';
-			if(@$_REQUEST['req']=="jobs") include_once 'gdata/prejob.php';
-			if(@$_REQUEST['req']=="createJob" && isset($_REQUEST['jobId'])) include_once 'gdata/jobs.php';
-		
-		?>
-		
-				</div>
+			<div id="mid2" >
+					 <!-- INCLUDE FIle here (using include tag) -->
+				<?php
+					if(@$_REQUEST['req']=="") include_once 'views/buzz.php';
+					if(@$_REQUEST['req']=="cprofile") include_once 'gdata/cprofile.php';
+					if(@$_REQUEST['req']=="jobs") include_once 'gdata/prejob.php';
+					if(@$_REQUEST['req']=="createJob" && isset($_REQUEST['jobId'])) include_once 'gdata/jobs.php';
+					if(@$_REQUEST['req']=="showJobs") include_once 'gdata/showjobs.php';
+				?>
+			</div>
 
 
 		<div id="midm" >
-	
-					<div id="mid3" >
-		<h1>Notifications</h1>
-					</div>
-		<div id="mid35"  >
-							<h1>Top Jobs</h1>
-						<!-- INCLUDE FIle here (using include tag) -->
-		 </div>
-				 </div>
+			<div id="mid3" >
+				<h1>Notifications</h1>
+			</div>
+			<div id="mid35"  >
+				<h1>Top Jobs</h1>
+				<!-- INCLUDE FIle here (using include tag) -->
+		 	</div>
 		</div>
+	</div>	
 
 		
 		
