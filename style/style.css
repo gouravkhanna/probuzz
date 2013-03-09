@@ -134,3 +134,16 @@ text-align: center;
 	display: inline-block;
 	text-align: center;
 }
+#createjobform input
+{
+	background-color: red;
+	width:200px;
+	min-width: 200px;
+}
+#createjobform #jblbl
+{
+	background-color: red;
+	width:200px;
+	min-width: 200px;
+	height: 200px;
+}
