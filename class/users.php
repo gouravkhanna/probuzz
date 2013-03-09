@@ -106,11 +106,8 @@ class users
 
 	function register($first_name,$last_name,$email,$password,$user_name)
 	{
-		echo "hello111";
-		$ob=new DbConnection();
-		echo $first_name;
-		
-	
+			$ob=new DbConnection();
+					
 			if(empty($first_name) && empty($password) && empty($last_name) && empty($email))
 			{
 				echo "<script> alert('please fill all the values'); </script>";
@@ -119,24 +116,28 @@ class users
 			{
 				$sql="select user_name from users where user_name='$user_name'";
 				$res=$ob->executeSQL($sql);
-				if($res==true)
+				$row=mysql_fetch_array($res);
+				if($row==$user_name)
 				{
 					echo "user already exist";				
 				}
 				else
-			{
+				{
 	
-				$sql="insert into probuzz.users (user_name,password) values ('$user_name','$password')" or die("ssss");
+				$sql="insert into users (user_name,password) values ('$user_name','$password')" or die("ssss");
 				$ob->executeSQL($sql);
 				$iid=$this->getId($user_name);
 				
-				$sql1="insert into personal_profile(user_id,first_name,last_name,email) values('$user_id','$first_name','$last_name','$email')";
-				$ob->executeSQL($sql1);
+				$s2="insert into professional_profile (user_id) values ('$iid')";
+				$ob->executeSQL($s2);
+				echo "added<br>"; 
+				$s1="insert into personal_profile(user_id,first_name,last_name,email) values('$iid','$first_name','$last_name','$email')" or die("error on page");
+				$ob->executeSQL($s1);
+				echo "<script>alert('you have regiester successfully') </script>";
 				
-			
-			} //else
+				} //else
 				
-			}
+		}
 				
 				
 		// if*/

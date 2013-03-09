@@ -52,7 +52,7 @@ function valid_fname() // to check first name
 {
 
 var first_name=document.forms["side-2"]["first_name"].value;
-if(first_name.length<6) 
+if(first_name.length<2) 
 {
 document.getElementById("w1").style.visibility=" visible";
 document.getElementById("e1").style.visibility=" visible";

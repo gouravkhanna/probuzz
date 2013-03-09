@@ -31,14 +31,8 @@ $last_name=@$_REQUEST["last_name"];
 $email=@$_REQUEST["email"];
 $userOb=new users();
 $userOb->register($first_name,$last_name,$email,$password,$userName);
-
-	/*if($userOb->login($userName,$password)) {
-				header('location:index.php');
-	}
-	else
-	{
-	echo  'Cant Login'; ";
-	}*/
+header('location:index.php');
+			
 }
 
 
