@@ -1,5 +1,6 @@
 <?php
 include 'class/users.php';
+include_once 'class/lang/lang.en.php';
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -19,7 +20,7 @@ include 'class/users.php';
 <form id="side-1" class="flip" method="GET" action="index.php">
    
    <div id="1">
-    <h2> Login into your Account! </h2> 
+    <h2> <?php echo LOGIN; ?> </h2> 
 <input type="text" name="user_name" id="user_name" autocomplete="off" placeholder="User Name" />
 <br />
 <br />
@@ -28,10 +29,10 @@ include 'class/users.php';
 
 <br />
 <br>
-    <a href="#"> Forget Password ?</a>
+    <a href="#"> <?php echo FORGET_PASSWORD; ?></a>
 <input type="submit" id="submit" name="submit" value="BuZZIN" />
 <br />
-<br /> <p> Dont you have an account ? <a id="signup" href="#">SignUp Now </a>
+<br /> <p> <?php echo ACCOUNT_INFO; ?> <a id="signup" href="#"><?php echo SIGNUP;?> </a>
 </p>
    </div> 
 </form>
@@ -57,6 +58,4 @@ include 'class/users.php';
 </form>
 </div>
 </body>
-
-
 </html>

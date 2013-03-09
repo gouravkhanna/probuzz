@@ -48,5 +48,9 @@ define("SUCCESSALOTID","Slot has Been Alloted!");
 define("UNSUCCESSFULALOTID","Slot Can not be Alloted Now Please try later!");
 define("CREATED_ON","Created On");
 define("STATUS","Status");
+define("LOGIN","Login into your Account!");
+define("FORGET_PASSWORD","Forget Password?");
+define("ACCOUNT_INFO","Dont you have an account ?");
+define("SIGNUP","SignUp Now");
 
 ?>

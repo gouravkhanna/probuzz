@@ -102,6 +102,31 @@ class users
 		unset($_SESSION['id']);
 	}
 	
+	function validate($first_name,$last_name,$email,$password)
+	{
+		$ob=new DbConnection();
+		if(@$_REQUEST["submit"])
+		{
+			if ($first_name != "") 
+			    {
+				$first_name = filter_var($first_name, FILTER_SANITIZE_STRING);
+				     if ($first_name == "") 
+				     {
+					echo "Please enter a valid name.<br/><br/>";
+				     }
+		    	} else {
+				echo "Please enter your name.<br/>";
+			}
+			
+			
+			
+			
+		}
+		
+		
+		
+	}
+	
 }
 
 ?>
