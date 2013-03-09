@@ -122,12 +122,10 @@ class users
 					echo "user already exist";				
 				}
 				else
-				{
-	
+				{	
 				$sql="insert into users (user_name,password) values ('$user_name','$password')" or die("ssss");
 				$ob->executeSQL($sql);
-				$iid=$this->getId($user_name);
-				
+				$iid=$this->getId($user_name);				
 				$s2="insert into professional_profile (user_id) values ('$iid')";
 				$ob->executeSQL($s2);
 				echo "added<br>"; 
