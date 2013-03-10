@@ -12,25 +12,20 @@ body{
 	height: auto;
 	min-height:1000px;
 }
-#mid1{
-	
+#navigation	{
 	position: inherit;
 	min-height:980px;
 	padding-top: 10px;
-	width:152px;
+	width:150px;
 	height: auto;
 	float :left;	
-	margin-right:5px;
+	margin-right:7px;
 	background-color:darkgrey;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-radius: 20px;
 }
-#mid{
-	
-	margin-top:10px;
-	
-}
+
 #head1{
 	height:50px;
 	width:100%;
@@ -40,47 +35,71 @@ body{
 	background-size: 100%;
 	left: 0;
 	z-index: 1000;
-}
 
+}
+#head1 nav {
+	display: inline;
+}
 #head2{
 	background-color: #dfdfdf;
 	height:255px;	
 	overflow:hidden;
 	margin-top:55px;
--webkit-border-radius: 20px;
+	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	
 }
-
-#mid2{
-		background-color: #dfdfdf;
+#midpanel{
+	margin-top:8px;
+	background-color: #dfdfdf;
 	width:582px;
-	min-height:725px;
+	min-height:727px;
 	float :left;	
 	margin-right:5px;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	
 }
-
-#mid3{
+#mid{
 	padding:5px;
 	background-color: #dfdfdf;
-	min-height:350px;
-	width:270px;
+	margin-top:8px;
+	float :left;	
+	min-width:857px;
+	min-height: 727px;
+	height: auto;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+		
+		
+}
+#rightpanel{
+	margin-top:8px; 
+	background-color: #dfdfdf;
+	min-height:726px;
+	width:280px;
 	float :left;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	border-bottom: none;
 }
-#mid35{
-	padding:5px;
+#rightpanel1{
+	margin-top:8px; 
+	background-color: #dfdfdf;
+	min-height:362px;
+	width:280px;
+	float :left;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	border-bottom: none;
+}
+#rightpanel2{
 	margin-top:10px;
 	background-color: #dfdfdf;
 	min-height:260px;
-	min-width:270px;
+	min-width:280px;
 	width:350x;
-	height:345px;
+	height:355px;
 	float :left;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
@@ -93,32 +112,18 @@ body{
 	float: left;
 	margin-top:7px;
 	height :25px;
-	width:1020px;
+	width:994px;
 	-webkit-border-radius: 20px;
 	-moz-border-radius: 20px;
 	background-image:url(../data/rcs/g.svg);
 }
 #buzz{
 	background-color: #579BBA;
-
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;	
 }
-
-a
-{
-	background:grey;
-	
-}
-h1
-{
+h1 {
 	display:inline;
-}
-.bg
-{
-	
-	
-	
 }
 #photo
 {

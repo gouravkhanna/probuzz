@@ -1,5 +1,5 @@
 <?php
-	include_once 'class/lang/lang.en.php';
+	include_once 'library/lang/lang.en.php';
   
 ?>
 <!doctype html>
@@ -31,15 +31,8 @@
       <div id="photo">
         <img class="photo" src="<?php echo $profile_pic_path?>" height="80" width="80">
         <span class="alignwelcome"> <?php echo WELCOME; ?> <br/>
-        <?php echo @$_SESSION['user_name'];
-
-
-  $url = @$_GET['url'];
-    $url = rtrim($url, '/');
-    $url = explode('/', $url);
-print_r($url);
-
-        ?>oooooooo </span> 
+        <?php echo @$_SESSION['user_name']; ?>
+        </span> 
        </div>      
 
         <a href="index.php?req=profile">Social Profile</a> 

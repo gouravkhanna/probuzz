@@ -1,1 +1,5 @@
-<h2> helllo i m Bhaluri</h2>
+<div id="mid">
+
+
+	CODe For personal profile 
+</div>

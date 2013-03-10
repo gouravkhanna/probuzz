@@ -15,6 +15,14 @@ include_once 'library/lang/lang.en.php';
 </head>
 
 <body>
+  <div id="errmsg">
+<?php
+if(isset($arrData))
+{
+  echo @$arrData['error_msg'];
+}
+?>
+</div>
 <div id="wrapper">
 <form id="side-1" class="flip" method="GET" action="index.php">
    

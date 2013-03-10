@@ -1,4 +1,4 @@
-<html>
+
     <head>
         <link rel="stylesheet" type="text/css" href="style/proProfile.css" />
 
@@ -9,8 +9,8 @@
             });
         </script>
     </head>
-    <body >
-        <div id="accordion">
+    <div id="mid">
+            <div id="accordion">
             <h3><?php echo BASIC_PROFILE;?></h3>
             <div>
                 <form id="form1" onsubmit="return set(this.id)">
@@ -82,5 +82,4 @@
               
             </div>
         </div>
-    </body>
-</html>
+</div>

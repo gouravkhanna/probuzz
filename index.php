@@ -1,66 +1,43 @@
 <?php
-
 session_start();
-include_once 'class/lang/lang.en.php';
-include_once 'class/lang/labels.lang.en.php';
-include_once 'class/constant.php';
-include 'controllers/controller.php';
+include_once 'library/lang/lang.en.php';
+include_once 'library/lang/labels.lang.en.php';
+include_once 'library/constant.php';
+include_once('library/common.inc.php');
 
-//Controller Object	
-$COb=new Controller();
-//handling error
-if(isset($_GET['url'])) {
-		//$COb->error();
-}
-//handling login request
-if(@$_REQUEST['submit']=="BuZZIN") {
-	$COb->login();
-}
-//handling logout request
-if(@$_GET['url']=="logout") {
-	$COb->logout();
-}
 
-//to check whether the  user is login or not by checking the session
-if(!isset($_SESSION['id']) || $_SESSION['id']=="" || @$_GET['url']=="login" ) {
-	header("location:login1.php");
+if(isset($_GET['controller']) && !empty($_GET['controller'])){
+      $controller =$_GET['controller'];
+
+    
+}else{
+      $controller ='Controller';  //default controller
+}
+//echo SITE_ROOT;  echo $controller;
+if(isset($_GET['url']) && !empty($_GET['url'])) {
+      $function =$_GET['url'];
 }
 else {
-	$id=$_SESSION['id'];
-	$type=$_SESSION['type'];
-	//if user is corporate User
-	if($type=='1') 	{
-		$COb->loadCorporateHome();	
-	}
-	//if user is Normal User
-	else {
-		$COb->loadHome();
-	}
-	
+    $function ='home'; //default method to be called or the first method
 }
-//Corporate user slot allotment
-if(@$_REQUEST['terms']=="true" && @$_REQUEST['SlotAllotment']=="GETSlot" && isset($_REQUEST['designation'])) {	
-
- 		$COb->alotSlot();
-}
-
-if(@$_REQUEST['Update']=="UpdateSlot") {
-	$COb->updateSlot();
-}
-/*
-
-
-if(!isset($_GET['url']))
+if(@$_SESSION['id']==""  || !isset($_SESSION['id']))
 {
-	echo "Ss";
+   if(!isset($arrData)) $function="buzzin";   //method if user is not login
 }
-else
-{
-	
-	echo " <br/>get url  ".@$_GET['url'];
+
+$controller=strtolower($controller);
+
+$fn = SITE_ROOT.'controllers/'.$controller . '.controller.php';
+
+if(file_exists($fn)){
+      require_once($fn);
+      $controllerClass=$controller;
+      $obj=new $controllerClass;
+      $obj->$function();
+
+
+
+}else{
+      die($controller .' controller not found');
 }
-	//if(){}
-*/
-
-?><br>
-
+?>
