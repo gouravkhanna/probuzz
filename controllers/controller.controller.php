@@ -52,8 +52,8 @@ class Controller
 	function home()
 	{
 	  $this->view->loadView('head/head1.php');
-	  $path=ROOTPATH.'data/photo/g.jpg';
-	  $this->view->loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
+	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+	  loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
 	  $this->view->loadView('head/head2.php');
 	  $this->view->loadView('midpanel/midpanel.php');
 	  $this->view->loadView('rightpanel/rightpanel1.php');
@@ -63,8 +63,8 @@ class Controller
 	function loadHome1()
 	{ 
 	  loadView('head/head1.php');
-	  $path=ROOTPATH.'data/photo/g.jpg';
-	  loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
+	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
 	  loadView('head/head2.php');
 	  loadView('midpanel/mid.php');
 	  loadView('footer/footer.php');
@@ -73,8 +73,8 @@ class Controller
 	function loadHome2()
 	{
 	  loadView('head/head1.php');
-	  $path=ROOTPATH.'data/photo/g.jpg';
-	  loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
+	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
 	  loadView('head/head2.php');
 	  loadView('midpanel/midpanel.php');
 	  loadView('rightpanel/rightpanel.php');
@@ -84,8 +84,8 @@ class Controller
 	function profile()
 	{
 	  $this->view->loadView('head/head1.php');
-	  $path=ROOTPATH.'data/photo/g.jpg';
-	  $this->view->loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
+	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
 	  $this->view->loadView('head/head2.php');
 	  $this->view->loadView('midpanel/midpanel.php');
 	  $this->view->loadView('rightpanel/rightpanel1.php');
