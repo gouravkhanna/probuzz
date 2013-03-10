@@ -26,18 +26,35 @@ class Controller
 
 	}
 
-/*	function register()
+	function register()
 	{
-		$userName=@$_REQUEST["user_name1"];
-		$password=@$_REQUEST["password1"];
-		$first_name=@$_REQUEST["first_name"];
-		$last_name=@$_REQUEST["last_name"];
-		$email=@$_REQUEST["email"];
-			$userOb=new users();
-			$userOb->register($first_name,$last_name,$email,$password,$userName);
-			header('location:registerindex.php');
+		
+		$arrArgs=array(
+		'userName'=>@$_REQUEST["user_name1"],
+		'password'=>@$_REQUEST["password1"],
+		'firstName'=>@$_REQUEST["first_name"],
+		'lastName'=>@$_REQUEST["last_name"],
+		'email'=>@$_REQUEST["email"],
+		);
+
+if(@$_REQUEST['user_name1']=="" || @$_REQUEST['password1']=="")
+{
+$arrArgs=array('error_msg' => 	"name and password cannot be empty" );
+			loadView("login1.php",$arrArgs);
+
+}
+		 else if(loadModel("users","register",$arrArgs))
+
+		{
+			header('location:index.php');
+		}
+		else {
+			$arrArgs=array('error_msg' => 	"User Already Exist valid" );
+			loadView("login1.php",$arrArgs);
+		}
+			
 	}
-*/
+
 
 	function error($key="",$index="")
 	{
