@@ -70,7 +70,7 @@ $arrArgs=array('error_msg' => 	"name and password cannot be empty" );
 	{
 	  $this->view->loadView('head/head1.php');
 	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
-	  loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
+	  loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
 	  $this->view->loadView('head/head2.php');
 	  $this->view->loadView('midpanel/midpanel.php');
 	  $this->view->loadView('rightpanel/rightpanel1.php');
@@ -81,7 +81,7 @@ $arrArgs=array('error_msg' => 	"name and password cannot be empty" );
 	{ 
 	  loadView('head/head1.php');
 	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
-	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
+	loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
 	  loadView('head/head2.php');
 	  loadView('midpanel/mid.php');
 	  loadView('footer/footer.php');
@@ -91,7 +91,7 @@ $arrArgs=array('error_msg' => 	"name and password cannot be empty" );
 	{
 	  loadView('head/head1.php');
 	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
-	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
+	loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
 	  loadView('head/head2.php');
 	  loadView('midpanel/midpanel.php');
 	  loadView('rightpanel/rightpanel.php');

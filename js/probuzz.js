@@ -10,6 +10,7 @@ $(document).ready(function(e) {
 	//setInterval (headrotate, 3500);
 
 
+	//,data,callback);
 });
 var i=0;
 function headrotate()

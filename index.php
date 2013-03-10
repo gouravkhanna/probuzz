@@ -11,7 +11,8 @@ if(isset($_GET['controller']) && !empty($_GET['controller'])){
 
     
 }else{
-      $controller ='Controller';  //default controller
+     if(@$_SESSION['type']==1)  $controller ="corporatecontroller";
+     else $controller ='Controller';  //default controller
 }
 
 if(isset($_GET['url']) && !empty($_GET['url'])) {
