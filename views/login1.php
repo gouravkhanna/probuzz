@@ -15,14 +15,7 @@ include_once 'library/lang/lang.en.php';
 </head>
 
 <body>
-  <div id="errmsg">
-<?php
-if(isset($arrData))
-{
-  echo @$arrData['error_msg'];
-}
-?>
-</div>
+  
 <div id="wrapper">
 <form id="side-1" class="flip" method="GET" action="index.php">
    
@@ -44,7 +37,7 @@ if(isset($arrData))
    </div> 
 </form>
 
-<form id="side-2" class="flip"  method="post" name="side-2" onsubmit=" return valid()" action="registerindex.php">
+<form id="side-2" class="flip"  method="get" name="side-2" onsubmit=" return valid()" action="index.php">
     <div id="2"><h2> Signup with your email.... </h2>
     
      <input type="text" name="user_name1" id="user_name1"  autocomplete="off" placeholder="User Name" onblur="return  valid_uname()" />
@@ -63,8 +56,16 @@ if(isset($arrData))
    <span id="r4" name="r4"> <img src="data/rcs/r.png" height="30px" width="30px" /> </span> <span id="w4" name="w4"> <img src="data/rcs/w.png" height="30px" width="30px" /> </span><span id="e4" name="e4"> </span>
    <br />
     <p> Already have an account? <a href="" id="login1"> Login </a> </p>
-      <input type="submit" id="create" name="create" value="SIGN UP"   />   </div>
+      <input type="submit" id="create"  name="url" value="register"   />   </div>
 </form>
+</div>
+<div id="errmsg" name="errmsg">
+<?php
+if(isset($arrData))
+{
+  echo @$arrData['error_msg'];
+}
+?>
 </div>
 </body>
 </html>

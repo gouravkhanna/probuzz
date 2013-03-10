@@ -6,6 +6,10 @@ class users
 	private $userName="";
 	private $password="";
 	private $type="";
+	private $firstName="";
+	private $lastName="";
+	private $email="";
+
 	function __construct()
 	{
 	
@@ -100,40 +104,46 @@ class users
 	
 	
 
-	function register()
+	function register($arrData=array())
 	{
-		$first_name="";
-		$last_name="";
-		$email="";
-		$password="";
-		$user_name="";
-			$ob=new DbConnection();
-					
-			if(empty($first_name) && empty($password) && empty($last_name) && empty($email))
+		
+		$this->userName=$arrData['userName'];
+		$this->password=$arrData['password'];
+		$this->firstName=$arrData['firstName'];
+		$this->lastName=$arrData['lastName'];
+		$this->email=$arrData['email'];
+		$ob=new DbConnection();
+		
+//echo "$this->userName,$this->password,$this->lastName,$this->email,$this->firstName";
+			if(empty($this->userName) && empty($this->password) && empty($this->lastName) && empty($this->email) && empty($this->firstName))
 			{
 				echo "<script> alert('please fill all the values'); </script>";
 			}
 			else
 			{
-				$sql="select user_name from users where user_name='$user_name'";
+				$sql="select user_name from users where user_name='$this->userName'";
 				$res=$ob->executeSQL($sql);
 				$row=mysql_fetch_array($res);
-				if($row==$user_name)
+				if($row['user_name']==$this->userName)
 				{
-					echo "user already exist";				
+					echo "user already exist";		
+					return false;		
 				}
 				else
 				{	
-				$sql="insert into users (user_name,password) values ('$user_name','$password')" or die("ssss");
+				$sql="insert into users (user_name,password) values ('$this->userName','$this->password')" or die("ssss");
 				$ob->executeSQL($sql);
-				$iid=$this->getId($user_name);				
+				$iid=$this->getId($this->userName);	
 				$s2="insert into professional_profile (user_id) values ('$iid')";
 				$ob->executeSQL($s2);
-				echo "added<br>"; 
-				$s1="insert into personal_profile(user_id,first_name,last_name,email) values('$iid','$first_name','$last_name','$email')" or die("error on page");
+			   $s1="insert into personal_profile(user_id,first_name,last_name,email) values('$iid','$this->firstName','$this->lastName','$this->email')" or die("error on page");
 				$ob->executeSQL($s1);
-				echo "<script>alert('you have regiester successfully') </script>";
-				
+				$arrArgs= array(
+					'user_name' =>$arrData['userName'],
+					'password' =>$arrData['password'],
+				);
+				$this->login($arrArgs);	
+				return true;
 				} //else
 				
 		}

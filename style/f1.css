@@ -163,8 +163,16 @@ border-color: transparent;
 visibility:hidden;
 color:#FF0000;
 margin-left:50px;
+}
+
+#errmsg
+{
+    width: auto;
+font-size: 20px;
+color:yellow;
 
 
+ 
 
 
 }

@@ -15,7 +15,7 @@ function loadView($templateName,$arrPassValue=''){
 
 function loadModel($modelName,$function,$arrArgument=''){
          $model_path=MODEL_PATH.$modelName.'.class.php';
-
+             
          if(file_exists($model_path)){
             if(isset($arr)){
                  $arrData=$arrPassValue;
@@ -29,13 +29,16 @@ function loadModel($modelName,$function,$arrArgument=''){
 
             $obj=new $modelClass;
             if(isset($arrArgument)){
+
                 return $obj-> $function($arrArgument);
             }else{
+
                 return $obj-> $function();
             }
          }else{
             die($modelName. ' Model Not Found under Model Folder');
          }
+
 
 }
 ?>
