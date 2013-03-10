@@ -19,7 +19,7 @@ document.getElementById( 'login1' ).addEventListener( 'click', function( event )
 }, false );
 });
 
-/*function valid_uname()
+function valid_uname()
 {
 	
 	var user_name1=document.forms["side-2"]["user_name1"].value;
@@ -207,4 +207,3 @@ true;
 }
 
 }
-*/
