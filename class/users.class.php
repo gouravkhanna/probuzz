@@ -73,14 +73,14 @@ class users
 		$row=mysql_fetch_array($res);
  		return $row['$key'];
 	}
-	function getProfilePic($id)
+	function getProfilePic($arrArg=array())
 	{
 		
 		$ob=new DbConnection();
-		$sql="select p.path from photo p join personal_profile pp where pp.user_id='$id' and pp.profile_pic_id=p.id  ";
+		$sql="select p.path from photo p join personal_profile pp where pp.user_id='".$arrArg['id']."' and pp.profile_pic_id=p.id  ";
 		$res=$ob->executeSQL($sql);
 		$row=mysql_fetch_array($res);
- 		return $row['path'];
+ 		return ROOTPATH.$row['path'];
 	}
 	function getType()
 	{

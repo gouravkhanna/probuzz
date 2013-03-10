@@ -53,12 +53,7 @@ class Controller
 	{
 	  $this->view->loadView('head/head1.php');
 	  $path=ROOTPATH.'data/photo/g.jpg';
-	  if(@$_SESSION['type']==1) {
-		loadView('navigation/corpnavigation.php',array('profile_pic_path'=>"$path"));
-	  }
-	  else {
-	   $this->view->loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
-	  }
+	  $this->view->loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
 	  $this->view->loadView('head/head2.php');
 	  $this->view->loadView('midpanel/midpanel.php');
 	  $this->view->loadView('rightpanel/rightpanel1.php');
