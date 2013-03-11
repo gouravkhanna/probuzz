@@ -15,14 +15,9 @@ function home() {
 	loadView('rightpanel/rightpanel2.php');
     loadView('footer/footer.php');
 }
-function cprofile(){
-
-	loadView("head/head1.php");
-	$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
-	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
-	loadView("head/head2.php");
-	loadView('midpanel/mid.php');
-	loadView('footer/footer.php');
+function cprofile()
+{
+	
 }
 function showJobs()
 {
