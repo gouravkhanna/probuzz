@@ -21,3 +21,9 @@ function headrotate()
 		$("#head2").css("text-align","center");
 		$( "#head2" ).effect( "slide", "", 1500);//, callback );
 	}
+function fncreatejob()  {
+    $("#mid").load("index.php","controller=corporatecontroller&url=createjobs");
+    $("#midpanel").load("index.php","controller=corporatecontroller&url=createjobs");
+
+}
+

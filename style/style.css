@@ -22,7 +22,6 @@ body{
 	margin-right:7px;
 	background-color:darkgrey;
 	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
 	border-radius: 20px;
 }
 
@@ -46,7 +45,7 @@ body{
 	overflow:hidden;
 	margin-top:55px;
 	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
+	border-radius: 20px;
 	
 }
 #midpanel{
@@ -57,7 +56,7 @@ body{
 	float :left;	
 	margin-right:5px;
 	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
+	border-radius: 20px;
 	
 }
 #mid{
@@ -69,7 +68,7 @@ body{
 	min-height: 727px;
 	height: auto;
 	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
+	border-radius: 20px;
 		
 		
 }
@@ -80,7 +79,7 @@ body{
 	width:280px;
 	float :left;
 	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
+	border-radius: 20px;
 	border-bottom: none;
 }
 #rightpanel1{
@@ -90,7 +89,7 @@ body{
 	width:280px;
 	float :left;
 	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
+	border-radius: 20px;
 	border-bottom: none;
 }
 #rightpanel2{
@@ -102,7 +101,7 @@ body{
 	height:355px;
 	float :left;
 	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
+	border-radius: 20px;
 	border-top: none;
 }
 #footer{
@@ -114,13 +113,13 @@ body{
 	height :25px;
 	width:994px;
 	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
+	border-radius: 20px;
 	background-image:url(../data/rcs/g.svg);
 }
 #buzz{
 	background-color: #579BBA;
 	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;	
+	border-radius: 5px;	
 }
 h1 {
 	display:inline;
