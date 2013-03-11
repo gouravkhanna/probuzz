@@ -8,8 +8,6 @@ $(document).ready(function(e) {
 	//
 	//for sliding headers
 	//setInterval (headrotate, 3500);
-
-
 	//,data,callback);
 });
 var i=0;
@@ -24,6 +22,5 @@ function headrotate()
 function fncreatejob()  {
     $("#mid").load("index.php","controller=corporatecontroller&url=createjobs");
     $("#midpanel").load("index.php","controller=corporatecontroller&url=createjobs");
-
 }
 

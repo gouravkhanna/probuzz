@@ -1,5 +1,5 @@
 <?php
-include 'class/dbAcess.php';
+include_once 'class/dbAcess.php';
 //session_start();
 class users
 {

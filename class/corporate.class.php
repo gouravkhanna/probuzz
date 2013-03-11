@@ -2,7 +2,7 @@
 
 
 <?php
-//include_once 'dbAcess.php';
+include_once 'dbAcess.php';
 
 //session_start();
 class corporate
@@ -10,10 +10,11 @@ class corporate
     function __construct() {
     
     }
-    function alotSlot($designation="") {
+    function alotSlot($arrArg=array()) {
         //if(!$designation!="")
+        
+        $sql="INSERT INTO probuzz.jobs (corp_id,designation) VALUES (".$arrArg['id'].",'".$arrArg['designation']."')";
         $ob=new DbConnection();
-        $sql="INSERT INTO probuzz.jobs (corp_id,designation) VALUES (".$_SESSION['id'].",'$designation')";
         $result=$ob->executeSQL($sql);
         if($result=="true") {
             echo "<script> alert(SUCCESSALOTID);</script>";
@@ -23,11 +24,16 @@ class corporate
         } 
     }
     function showSlot($arrArg=array()) {
+        $cond="";
+        if(isset($arrArg['jobId']))
+        {
+                $cond=" AND id='".$arrArg['jobId']."'";
+        }
         $ob=new DbConnection();
         
         $sql="SELECT id,designation,status, DATE_FORMAT(start_date, ";
         $sql.="'%M %D, %Y'".") as startdate,DATE_FORMAT(last_date, '%M %D, %Y') as lastdate ";
-        $sql.= "FROM probuzz.jobs where corp_id="."'".$arrArg['id']."'";
+        $sql.= "FROM probuzz.jobs where corp_id="."'".$arrArg['id']."'".$cond;
         
         $result=$ob->executeSQL($sql);
         return $result;

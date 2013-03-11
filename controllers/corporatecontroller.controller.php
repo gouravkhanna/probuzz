@@ -17,7 +17,7 @@ function home() {
 }
 function cprofile()
 {
-	
+
 }
 function showJobs()
 {
@@ -34,7 +34,40 @@ function showJobs()
 }
 function createjobs()
 {
-	echo "lot of lulus";
+	loadView("head/head1.php");
+	$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
+	loadView("head/head2.php");
+	$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
+	loadView('gdata/prejob.php',$arrData);
+	loadView('rightpanel/rightpanel1.php');
+	loadView('rightpanel/rightpanel2.php');
+    loadView('footer/footer.php');
+}
+function alotSlot() {
+	
+	$arrArgs=array(
+		'id'=>@$_SESSION['id'],
+		'designation'=>$_REQUEST['designation'],
+		);
+	if(@$_REQUEST['terms']==true)
+	loadModel("corporate","alotSlot",$arrArgs);
+	header("location:index.php?url=createjobs");
+	//$this->createjobs();
+}
+function showSpecficJob()
+{
+	$arrArgs=array(
+		'id'=>@$_SESSION['id'],
+		'jobId'=>@$_REQUEST['jobId']
+		);
+	$arrData1=loadModel("corporate","showSlot",$arrArgs);
+	loadView("gdata\showSpecificJob.php",$arrData1);
+	
+}
+function showUpdateSlot()
+{
+	loadView("gdata/jobs.php");
 }
 
 }
