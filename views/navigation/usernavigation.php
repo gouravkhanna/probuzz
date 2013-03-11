@@ -6,9 +6,11 @@
         </span> 
        </div>      
         <a href="index.php?controller=profile">Social Profile</a> 
+        <a href="index.php?controller=proprofile">Profesional Profile</a> 
         <a href="index.php?controller=friends">Friends</a>
         <a href="index.php?controller=photos">Photos</a>
         <a href="index.php?controller=friends&url=request">Friends Request</a>
+        <a href="index.php?controller=u4&url=search">Search</a>
       
           <!-- INCLUDE FIle here (using include tag) -->
        
