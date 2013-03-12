@@ -73,7 +73,7 @@ class corporate
     function updateStatusJob($arrArg)
     {
     	$ob=new DbConnection();
-    	$status=$arrArg['status']==0?1:0;
+    	$status=@$arrArg['status']==0?1:0;
     	$sql="update probuzz.jobs set status='".$status."' where id=".$arrArg['jobId'];
        	$res=$ob->executeSQL($sql);
     }

@@ -5,7 +5,8 @@ $(document).ready(function(e) {
 		
 	$("#head2").html("<img src='data/header/h26.jpg'  />");
 	$( document ).tooltip();
-
+//	$("#showAllSlot").load("index.php","url=showAllJobs");	
+loadPreJob();
 	//
 	//for sliding headers
 	//setInterval (headrotate, 3500);
@@ -29,5 +30,21 @@ function fncreatejob()  {
 	$("#start_date").datepicker();
 	$("#end_date").datepicker();
 
-}*/
+}*//*
+$.ajax({
+	url:"index.php",
+	type:"get",
+	data:
+});*/
+
+/* FOR UPDATING STATUS i.e active to inactive and inactive to active  */
+function updateStatusJob(status,jobId) {
+	$("#smsg").load("index.php","controller=corporatecontroller&url=updateStatusJob&status="+status+"&jobId="+jobId,function(){
+		$("#showAllSlot").load("index.php","url=showAllJobs");
+		});	
+	}
+
+function loadPreJob() {
+	
+}
 

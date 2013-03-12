@@ -15,12 +15,10 @@ function home() {
 	loadView('rightpanel/rightpanel2.php');
     loadView('footer/footer.php');
 }
-function cprofile()
-{
+function cprofile() {
 
 }
-function showJobs()
-{
+function showJobs() {
 	loadView("head/head1.php");
 	$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
@@ -32,13 +30,13 @@ function showJobs()
     loadView('footer/footer.php');
 
 }
-function createjobs()
-{
+function createjobs() {
 	loadView("head/head1.php");
 	$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
 	loadView("head/head2.php");
-	loadView('gdata/prejob.php');
+	$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
+	loadView('gdata/prejob.php',$arrData);
 	loadView('rightpanel/rightpanel1.php');
 	loadView('rightpanel/rightpanel2.php');
     loadView('footer/footer.php');
@@ -71,7 +69,15 @@ function showSpecficJob()
 }
 function showUpdateSlot()
 {
+	loadView("head/head1.php");
+	$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
+	loadView("head/head2.php");
+	//$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
 	loadView("gdata/jobs.php");
+	loadView('rightpanel/rightpanel1.php');
+	loadView('rightpanel/rightpanel2.php');
+	loadView('footer/footer.php');
 }
 function updateSlot() {
 	//print_r($_REQUEST);
