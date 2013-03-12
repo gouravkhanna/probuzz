@@ -1,0 +1,118 @@
+img
+{
+	height:75px;
+	width:75px;
+	margin-top: 1em;
+	
+}
+ul
+{
+	list-style-type: none;
+	
+	
+}
+span
+{
+	margin-left: 1em;
+}
+
+ #first_name,#last_name,#phone,#book,#movie,#food,#house
+{
+	margin-left:5.5em;
+	margin-top:1em;
+	padding-left: 10em;
+ 	position: relative;	
+	
+	
+	
+}
+#house
+{
+	margin-left:2.9em;
+	margin-top:1em;
+	padding-left: 10em;
+ 	position: relative;	
+	
+	
+	
+}
+#street
+{
+	margin-left:4em;
+	margin-top:1em;
+	padding-left: 10em;
+ 	position: relative;	
+	
+	
+}
+#city
+{
+	margin-left:8em;
+	margin-top:1em;
+ 	position: relative;	
+	
+	
+	
+}
+#pincode
+{
+	
+	
+	margin-left:6.1em;
+	margin-top:1em;
+ 	position: relative;	
+	
+}
+#state
+{
+	margin-left:7.3em;
+	margin-top:1em;
+ 	position: relative;	
+	
+	
+	
+}
+#country
+{
+	margin-left:6.1em;
+	margin-top:1em;
+ 	position: relative;	
+	
+	
+	
+}
+#e
+{
+	margin-top:1em;
+	margin-left:7.9em;
+	padding-left: 10em;
+	position:relative;
+	
+	
+	
+}
+#book
+{
+	margin-left:5.9em;
+	margin-top:1em;
+	padding-left: 10em;
+ 	position: relative;	
+	
+	
+}
+#update
+{
+	 margin-top: 2em;
+	border-radius:15px;
+	
+	
+}
+#tab-3
+{
+	
+	
+	margin-left:7em;
+	padding-left: 10em;
+ 	position: relative;
+	
+}
