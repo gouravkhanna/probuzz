@@ -26,8 +26,8 @@
             $set=rtrim($set,",");
             $query.="$set where user_id = $this->userId ;";
             echo $query;
-            $this->dbInstance=new DbConnection();
-            $this->dbInstance->executeSQL();
+            //$this->dbInstance=new DbConnection();
+            //$this->dbInstance->executeSQL();
         }
         
     }

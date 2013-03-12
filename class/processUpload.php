@@ -1,5 +1,9 @@
 <?php
-    include '../class/constant.php';
+    include '../library/constant.php';
+    echo UPLOAD_PATH."<br/> <pre>";
+    
+    print_r($_FILES);
+    die;
     $allowedExts = array("doc", "docx", "rtf", "txt","pdf","tif");
     $extension = end(explode(".", $_FILES["resume"]["name"]));
     if ((($_FILES["resume"]["type"] == "application/msword")
@@ -19,6 +23,9 @@
                     echo "Stored in: " . UPLOAD_PATH . $_FILES["resume"]["name"];
                     echo "File Uploaded Successfully";
                 }
+		else {
+			echo "File Upload Failed.";
+		}
             }
         }
     }

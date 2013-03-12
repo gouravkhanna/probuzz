@@ -9,6 +9,7 @@
             });
         </script>
     </head>
+    <div id="abcd">hello</div>
     <div id="mid">
             <div id="accordion">
             <h3><?php echo BASIC_PROFILE;?></h3>
@@ -69,7 +70,7 @@
             </div>
             <h3><?php echo RESUME; ?></h3>
             <div>
-                <form action="class/processUpload.php" method="post" enctype="multipart/form-data" >
+                <form id="form3" onsubmit="return uploadResume(this.id)" enctype="multipart/form-data" >
                     <table><label for="resume"><?php echo FILE;?></label>
                         <tr>
                             <td><input type="file" name="resume" id="file"></td>

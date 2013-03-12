@@ -11,9 +11,9 @@ function set(val) {
         return false;
     }
     $.ajax({
-        type: "POST",
-        url: "class/processing.php",
-        data: $('#'+val).serialize()+ "&table="+table,
+        type: "GET",
+        url: "index.php",
+        data:$('#'+val).serialize()+"&controller=proprofile&url=updateProfile&table="+table,
         success: function(msg){
             alert( msg );
         }
@@ -21,6 +21,16 @@ function set(val) {
     return false;
 }
 
-function upload() {
-    
+function uploadResume(val) {
+    $.ajax({
+        type: "POST",
+        url: "class/processUpload.php",
+        enctype: 'multipart/form-data',
+        encoding: 'multipart/form-data',
+        data:$('#'+val).serialize(),
+        success: function(msg){
+            alert( msg );
+        }
+    });
+    return false;
 }
