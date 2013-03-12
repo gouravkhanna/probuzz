@@ -52,13 +52,11 @@ function alotSlot() {
 	header("location:index.php?url=createjobs");
 	//$this->createjobs();
 }
-function showAllJobs()
-{
+function showAllJobs() {
 	$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
 	loadView("gdata/showallslot.php",$arrData);
 }
-function showSpecficJob()
-{
+function showSpecficJob() {
 	$arrArgs=array(
 		'id'=>@$_SESSION['id'],
 		'jobId'=>@$_REQUEST['jobId']
@@ -73,8 +71,9 @@ function showUpdateSlot()
 	$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
 	loadView("head/head2.php");
-	//$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
-	loadView("gdata/jobs.php");
+	$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id'],'jobId'=>$_REQUEST['jobId']));
+	//$arrData=array('type'=>$_REQUEST['jobId']);
+	loadView("gdata/jobs.php",$arrData);
 	loadView('rightpanel/rightpanel1.php');
 	loadView('rightpanel/rightpanel2.php');
 	loadView('footer/footer.php');
@@ -95,8 +94,7 @@ function updateSlot() {
 	}
 		
 }
-function updateStatusJob()
-{
+function updateStatusJob() {
 	//$status=@$_REQUEST['status']=="active"?0:1;
 	$arrArgs=array(
 		'status'=>@$_REQUEST['status'],

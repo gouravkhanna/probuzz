@@ -24,16 +24,20 @@ class corporate
         } 
     }
     function showSlot($arrArg=array()) {
+    	print_r($arrArg);
+    	echo "aaasas<br/>";
         $cond="";
         if(isset($arrArg['jobId']))
         {
                 $cond=" AND id='".$arrArg['jobId']."'";
         }
         $ob=new DbConnection();
-        
-        $sql="SELECT id,designation,status,DATE_FORMAT(created_date, '%M %D, %Y') as createddate, DATE_FORMAT(start_date, ";
+        $sql="SELECT id,designation,type,status,DATE_FORMAT(created_date, '%M %D, %Y') as createddate, DATE_FORMAT(start_date, ";
         $sql.="'%M %D, %Y'".") as startdate,DATE_FORMAT(last_date, '%M %D, %Y') as lastdate ";
-        $sql.= "FROM probuzz.jobs where corp_id="."'".$arrArg['id']."'".$cond;
+        $sql.=", location,role,area_of_work,description,skills_required,responsiblity,";
+        $sql.="experience,contact_person,phone_number,keywords,qualification,";
+        $sql.="number_of_vacancy,process_details,salary_expected,other_info,criteria,salary_range";
+        $sql.= " FROM probuzz.jobs where corp_id="."'".$arrArg['id']."'".$cond;
         
         $result=$ob->executeSQL($sql);
         return $result;
