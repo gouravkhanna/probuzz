@@ -5,7 +5,7 @@ define("DOC_PATH",$_SERVER["DOCUMENT_ROOT"]."/probuzz/trunk/");
 define("UPLOAD_PATH",DOC_PATH."data/uploads/");
 define('DOC_ROOT',$_SERVER['DOCUMENT_ROOT']);
 
-define('SITE_ROOT',DOC_ROOT.'probuzz/trunk/');
+define('SITE_ROOT',DOC_ROOT.'/probuzz/trunk/');
 define('SITE_PATH','http://'.$_SERVER['HTTP_HOST'].'/probuzz/trunk/');
 define('IMAGE_PATH',SITE_PATH.'images/');
 define('CSS_PATH',SITE_PATH.'css/');
