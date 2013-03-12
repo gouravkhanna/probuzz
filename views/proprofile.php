@@ -9,7 +9,6 @@
             });
         </script>
     </head>
-    <div id="abcd">hello</div>
     <div id="mid">
             <div id="accordion">
             <h3><?php echo BASIC_PROFILE;?></h3>

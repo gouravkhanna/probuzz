@@ -10,6 +10,18 @@ class proprofile extends Controller
 	}
 	function home()
 	{
+		
+		loadView('head/head1.php');
+	  	$path=ROOTPATH.'data/photo/g.jpg';
+	  	loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
+	  	loadView('head/head2.php');
+	  	$arrArg=loadModel("professionalprofile","retrieveData","");
+		$this->view->loadView('showproprofile.php',$arrArg);
+	  	loadView('footer/footer.php');
+		
+	}
+	function editView() {
+		
 		loadView('head/head1.php');
 	  	$path=ROOTPATH.'data/photo/g.jpg';
 	  	loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
@@ -20,23 +32,17 @@ class proprofile extends Controller
 	}
 	public function updateProfile() {
 		$fields=array();
-		foreach($_GET as $key =>$value) {
-			if($key!='table' && $key!='controller' && $key!='url') {
-				$fields[$key] = $value;
-			}
+		foreach($_REQUEST as $key => $value) {
+			$fields[$key]=$value;
 		}
-		$query="update ".$_GET['table']." set ";
-		$set="";
-		foreach($_GET as $key => $value) {
-		    $set.="$key = '$value' ,";
+		$result=loadModel("professionalprofile","updateprofile",$fields);
+		if($result) {
+			echo "Data Successfully Updated..";
+		} else {
+			echo "Data Update Failure..";
 		}
-		$set=rtrim($set,",");
-		$query.="$set where user_id = ".$_SESSION['id']." ;";
-		echo $query;
-		//$this->dbInstance=new DbConnection();
-		//$this->dbInstance->executeSQL($query);		UNCOMMENT THESE TWO LINES.......
-        }
-	public function uploadResume() {
+	}
+	/*public function uploadResume() {
 		echo "in upload resume";
 		$allowedExts = array("doc", "docx", "rtf", "txt","pdf","tif");
 		$extension = end(explode(".", $_FILES["resume"]["name"]));
@@ -66,7 +72,7 @@ class proprofile extends Controller
 		else {
 		  echo "Invalid file";
 		}
-	}
+	}*/
 }
 
 

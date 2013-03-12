@@ -2,7 +2,7 @@ body {
     margin: 0px;
     padding: 0px;
 }
-.proSubmit {
+.proSubmit,.alignright  {
     text-align: right;
 }
 td {
@@ -11,6 +11,4 @@ td {
 textarea {
     resize: none;
 }
-input[type=text] {
 
-}
