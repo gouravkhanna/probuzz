@@ -31,29 +31,51 @@ class corporate
         }
         $ob=new DbConnection();
         
-        $sql="SELECT id,designation,status, DATE_FORMAT(start_date, ";
+        $sql="SELECT id,designation,status,DATE_FORMAT(created_date, '%M %D, %Y') as createddate, DATE_FORMAT(start_date, ";
         $sql.="'%M %D, %Y'".") as startdate,DATE_FORMAT(last_date, '%M %D, %Y') as lastdate ";
         $sql.= "FROM probuzz.jobs where corp_id="."'".$arrArg['id']."'".$cond;
         
         $result=$ob->executeSQL($sql);
         return $result;
     }  
-   /*  function updateSlot() {
+   function updateSlot($arrData=array()) {
+    	$sql="yoyuuszddhs";
+    	print_r($arrData);
+    	$sql="update probuzz.jobs SET ";
+    	foreach($arrData as $key =>$value)
+    	{
+    		if($key=="jobId") {
+    			$sql=rtrim($sql," ,");
+    			$sql.=" where id='$value'";
+    		}
+    		else {
+    			$sql.="$key='$value', ";
+    		}
+    	}	
     	
-    		$sql="UPDATE probuzz.jobs SET designation='$designation'";
-    		$sql.="type='$type',location='$location',role=$role,start_date='$start_date'";
-    		$sql.="last_date='$last_date',area_of_work='$area_of_work',description='$description'";
-    		$sql.="skills_required='$skills_required',responsiblity='$responsiblity'";
-    		$sql.="experience='$experience',contact_person='$contact_person'";
-    		$sql.="phone_number='$phone_number',keywords='$keywords'";
-    		$sql.="qualification='$qualification',number_of_vacancy='$number_of_vacancy'";
-    		$sql.="process_details='$process_details',salary_expected='$salary_expected'";
-    		$sql.="other_info='$other_info',criteria='$criteria'";
-    		$sql.="salary_range='$salary_range',status='$status'"; 
-    		$sql.=WHERE id='$corp_id'"; 
-    		$ob=new DbConnection();
-    		$ob->executeSQL($sql);
+    	/* 	$sql="UPDATE probuzz.jobs SET designation='".$arrData['designation']."',";
+    		$sql.="type='".$arrData['type']."',location='".$arrData['location']."',role=".$arrData['role']."',start_date='".$arrData['start_date']."',";
+    		$sql.="last_date='".$arrData['last_date']."',area_of_work='".$arrData['area_of_work]."'',description='$arrData['description']."'";
+    		$sql.="skills_required='".$arrData['skills_required']."',responsiblity=']."'".$arrData['responsiblity']."'";
+    		$sql.="experience='".$arrData['experience']."',contact_person='".$arrData['contact_person']."'";
+    		$sql.="phone_number='".$arrData['phone_number']."',keywords='".$arrData['keywords']."'";
+    		$sql.="qualification='".$arrData['qualification']."',number_of_vacancy='".$arrData['number_of_vacancy']."'";
+    		$sql.="process_details='".$arrData['process_details]."'',salary_expected='".$arrData['salary_expected']."'";
+    		$sql.="other_info='".$arrData['other_info']."',criteria='".$arrData['criteria']."'";
+    		$sql.="salary_range='".$arrData['salary_range']."',status='".$arrData['status']."'"; 
+    		$sql.=WHERE id='".$arrData['corp_id']".'";  */
+    		$ob=new DbConnection(); 
+    		$res=$ob->executeSQL($sql);
+    		return $res==true?true:false;
+
     	 
-    } */
+    } 
+    function updateStatusJob($arrArg)
+    {
+    	$ob=new DbConnection();
+    	$status=$arrArg['status']==0?1:0;
+    	$sql="update probuzz.jobs set status='".$status."' where id=".$arrArg['jobId'];
+       	$res=$ob->executeSQL($sql);
+    }
         
 }

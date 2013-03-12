@@ -2,9 +2,10 @@
 $(document).ready(function(e) {
  	$("button,a,input[type=submit]").button();
 	$("#head2").css("text-align","center");
-	$("#start_date").datepicker();
-	$("#end_date").datepicker();	
+		
 	$("#head2").html("<img src='data/header/h26.jpg'  />");
+	$( document ).tooltip();
+
 	//
 	//for sliding headers
 	//setInterval (headrotate, 3500);
@@ -23,4 +24,10 @@ function fncreatejob()  {
     $("#mid").load("index.php","controller=corporatecontroller&url=createjobs");
     $("#midpanel").load("index.php","controller=corporatecontroller&url=createjobs");
 }
+/*function loadDate() {
+	alert("lulu");
+	$("#start_date").datepicker();
+	$("#end_date").datepicker();
+
+}*/
 

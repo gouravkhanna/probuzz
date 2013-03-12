@@ -38,8 +38,7 @@ function createjobs()
 	$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
 	loadView("head/head2.php");
-	$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
-	loadView('gdata/prejob.php',$arrData);
+	loadView('gdata/prejob.php');
 	loadView('rightpanel/rightpanel1.php');
 	loadView('rightpanel/rightpanel2.php');
     loadView('footer/footer.php');
@@ -55,6 +54,11 @@ function alotSlot() {
 	header("location:index.php?url=createjobs");
 	//$this->createjobs();
 }
+function showAllJobs()
+{
+	$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
+	loadView("gdata/showallslot.php",$arrData);
+}
 function showSpecficJob()
 {
 	$arrArgs=array(
@@ -62,12 +66,42 @@ function showSpecficJob()
 		'jobId'=>@$_REQUEST['jobId']
 		);
 	$arrData1=loadModel("corporate","showSlot",$arrArgs);
-	loadView("gdata\showSpecificJob.php",$arrData1);
+	loadView("gdata/showSpecificJob.php",$arrData1);
 	
 }
 function showUpdateSlot()
 {
 	loadView("gdata/jobs.php");
 }
-
+function updateSlot() {
+	//print_r($_REQUEST);
+	foreach($_REQUEST as $key=>$value) 	{
+		if($key!="controller" && $key!="url" && $key!="submit")
+			$arrArg[$key]=$value;
+	}
+	
+	$res=loadModel("corporate","updateSlot",$arrArg);
+	if($res=true) {
+		$this->createjobs();
+	}
+	else  {
+		echo "Error";
+	}
+		
+}
+function updateStatusJob()
+{
+	//$status=@$_REQUEST['status']=="active"?0:1;
+	$arrArgs=array(
+		'status'=>@$_REQUEST['status'],
+		'jobId'=>@$_REQUEST['jobId'],
+		);
+	$res=loadModel("corporate","updateStatusJob",$arrArgs);
+	if($res=true) {
+		echo "updated Status";
+	}
+	else  {
+		echo "Error";
+	}
+}
 }
