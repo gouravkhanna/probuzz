@@ -97,6 +97,13 @@ $arrArgs=array('error_msg' => 	"name and password cannot be empty" );
 	  loadView('rightpanel/rightpanel.php');
 	  loadView('footer/footer.php');
 	}
+	function loadHome3()
+	{
+	  loadView('head/head1.php');
+	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));		loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
+	  loadView('midpanel/bigmid.php');
+	  loadView('footer/footer.php');
+	}
 
 	function profile()
 	{

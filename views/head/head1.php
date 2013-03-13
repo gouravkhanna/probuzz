@@ -22,6 +22,7 @@
         <a href="index.php"><?php echo HOME; ?></a>
         <a href="index.php?url=loadHome1"><?php echo HOME; ?>1</a>
         <a href="index.php?url=loadHome2"><?php echo HOME; ?>2</a>
+        <a href="index.php?url=loadHome3"><?php echo HOME; ?>3</a>
     	  <a href="index.php?url=logout"><?php echo LOGOUT; ?></a>
         <progress value=10 max=100></progress>
         </nav>
