@@ -195,3 +195,13 @@ text-align: center;
 	width: 250px;
 	min-width: 200px;
 }
+#smsg {
+	text-align:center;	color:red;
+	font-variant: small-caps;
+	font-weight: bolder;
+	background-color: darkgrey;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	display: block;
+	position: static;
+}

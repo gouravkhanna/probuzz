@@ -24,9 +24,7 @@ class corporate
         } 
     }
     function showSlot($arrArg=array()) {
-    	print_r($arrArg);
-    	echo "aaasas<br/>";
-        $cond="";
+    	$cond="";
         if(isset($arrArg['jobId']))
         {
                 $cond=" AND id='".$arrArg['jobId']."'";
@@ -43,7 +41,7 @@ class corporate
         return $result;
     }  
    function updateSlot($arrData=array()) {
-    	$sql="yoyuuszddhs";
+    
     	print_r($arrData);
     	$sql="update probuzz.jobs SET ";
     	foreach($arrData as $key =>$value)
