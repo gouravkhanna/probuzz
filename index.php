@@ -8,7 +8,6 @@ include_once('library/common.inc.php');
 ini_set('display_errors','1');
 if(isset($_GET['controller']) && !empty($_GET['controller'])){
       $controller =$_GET['controller'];
-
     
 }else{
      if(@$_SESSION['type']==1)  $controller ="corporatecontroller";

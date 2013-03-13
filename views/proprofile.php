@@ -9,39 +9,55 @@
             });
         </script>
     </head>
-    <div id="mid">
-            <div id="accordion">
+    <div id="bigmid">
+        <div class="alignright">
+                <a href="index.php?controller=proprofile&url=home">BACK</a>
+        </div>
+        <div id="accordion">
             <h3><?php echo BASIC_PROFILE;?></h3>
             <div>
-                <form id="form1" onsubmit="return set(this.id)">
+                <form id="form1" >
                     <table>
                         <tr>
                             <td><?php echo CAREER_OBJECTIVE;?></td>
-                            <td><textarea name="career_objective" rows="2" cols="30"></textarea></td>
+                            <td>
+                                <textarea name="career_objective"  rows="3" cols="60"><?php echo $arrData['professional_profile']['career_objective'];
+                                ?></textarea>
+                            </td>
+                            <td> </td>
                         </tr>
                         <tr>
                             <td><?php echo COMPANY_NAME ;?></td>
-                            <td><input type="text" name="company" maxlength="250"/></td>
+                            <td><input class="w" type="text" value="<?php echo $arrData['professional_profile']['company']; ?>" name="company" maxlength="250"/></td>
                         </tr>
                         <tr>
                             <td><?php echo PRO_DESIGNATION; ?></td>
-                            <td><input type="text" name="designation" maxlength="250"/></td>
+                            <td><input type="text" value="<?php echo $arrData['professional_profile']['designation']; ?>" name="designation" maxlength="250"/></td>
                         </tr>
                         <tr>
                             <td><?php echo PROFICIENCY; ?> </td>
-                            <td><textarea name="proficiency" rows="2" cols="30"></textarea></td>
+                            <td>
+                                <textarea name="proficiency" rows="3" cols="60"><?php echo $arrData['professional_profile']['proficiency'];
+                                ?></textarea>
+                            </td>
                         </tr>
                         <tr>
                             <td><?php echo SKILLS; ?></td>
-                            <td><textarea name="skills" rows="2" cols="30"></textarea></td>
+                            <td>
+                                <textarea name="skills" rows="3" cols="60"><?php echo $arrData['professional_profile']['skills'];
+                                ?></textarea>
+                            </td>
                         </tr>
                         <tr>
                             <td><?php echo INFORMATION; ?></td>
-                            <td><textarea name="information" rows="2" cols="30"></textarea></td>
+                            <td>
+                                <textarea name="information" rows="3" cols="60"><?php echo $arrData['professional_profile']['career_objective'];
+                                ?></textarea>
+                            </td>
                         </tr>
                         <tr>
                             <td class="proSubmit" colspan="2" >
-                                <input type="submit" value="<?php echo SUBMIT;?>" />
+                                <input type="button" onclick="set('form1')" value="<?php echo SUBMIT;?>" />
                             </td>
                         </tr>
                     </table>

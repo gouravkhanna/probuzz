@@ -1,9 +1,9 @@
 body {
-    margin: 0px;
-    padding: 0px;
+  
 }
 .proSubmit,.alignright  {
     text-align: right;
+    margin-right: 20px;
 }
 td {
     text-align: right;
@@ -11,4 +11,10 @@ td {
 textarea {
     resize: none;
 }
-
+.w {
+    width: 100;
+}
+.highlight {
+    width:60px;
+    background-color: silver; 
+}

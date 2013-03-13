@@ -3,30 +3,30 @@
 	
 class proprofile extends Controller
 {
-	
 	function __construct(){
 		parent::__construct();
 		
 	}
 	function home()
 	{
-		
 		loadView('head/head1.php');
 	  	$path=ROOTPATH.'data/photo/g.jpg';
 	  	loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
-	  	loadView('head/head2.php');
-	  	$arrArg=loadModel("professionalprofile","retrieveData","");
+	  	//loadView('head/head2.php');
+		$arr=loadModel("professionalprofile","constructFields");
+	  	$arrArg=loadModel("professionalprofile","retrieveData",$arr);
 		$this->view->loadView('showproprofile.php',$arrArg);
 	  	loadView('footer/footer.php');
-		
 	}
 	function editView() {
 		
 		loadView('head/head1.php');
 	  	$path=ROOTPATH.'data/photo/g.jpg';
 	  	loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
-	  	loadView('head/head2.php');
-	  	$this->view->loadView('proprofile.php');
+	  	//loadView('head/head2.php');
+		$arr=loadModel("professionalprofile","constructFields");
+		$arrArg=loadModel("professionalprofile","retrieveData",$arr);
+	  	$this->view->loadView('proprofile.php',$arrArg);
 	  	loadView('footer/footer.php');
 		
 	}

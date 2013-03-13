@@ -16,9 +16,13 @@ function set(val) {
         data:$('#'+val).serialize()+"&controller=proprofile&url=updateProfile&table="+table,
         success: function(msg){
             alert( msg );
+            window.location.href = 'index.php?controller=proprofile';
         }
+        
     });
+    //window.location.href = 'index.php?controller=proprofile';
     return false;
+    //return true;
 }
 
 function uploadResume(val) {
