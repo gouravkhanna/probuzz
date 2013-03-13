@@ -28,7 +28,7 @@
                         </tr>
                         <tr>
                             <td><?php echo COMPANY_NAME ;?></td>
-                            <td><input class="w" type="text" value="<?php echo $arrData['professional_profile']['company']; ?>" name="company" maxlength="250"/></td>
+                            <td><input type="text" value="<?php echo $arrData['professional_profile']['company']; ?>" name="company" maxlength="250"/></td>
                         </tr>
                         <tr>
                             <td><?php echo PRO_DESIGNATION; ?></td>
@@ -51,13 +51,13 @@
                         <tr>
                             <td><?php echo INFORMATION; ?></td>
                             <td>
-                                <textarea name="information" rows="3" cols="60"><?php echo $arrData['professional_profile']['career_objective'];
+                                <textarea name="information" rows="3" cols="60"><?php echo $arrData['professional_profile']['information'];
                                 ?></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td class="proSubmit" colspan="2" >
-                                <input type="button" onclick="set('form1')" value="<?php echo SUBMIT;?>" />
+                                <input type="button" onclick="set('form1')" value="Update" />
                             </td>
                         </tr>
                     </table>

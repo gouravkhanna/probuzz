@@ -95,10 +95,13 @@ body{
 	margin-top:50px;
 	float :left;	
 	min-width:857px;
+	max-width:857px;
+	max-height: 980px;
 	min-height: 980px;
 	height: auto;
 	-webkit-border-radius: 20px;
-	border-radius: 20px;		
+	border-radius: 20px;
+    overflow: hidden;
 }
 #rightpanel{
 	margin-top:8px; 

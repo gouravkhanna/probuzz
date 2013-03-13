@@ -11,10 +11,9 @@ td {
 textarea {
     resize: none;
 }
-.w {
-    width: 100;
-}
 .highlight {
-    width:60px;
-    background-color: silver; 
+   background-color: silver;
+}
+input[type="text"] {
+    width: 300px;
 }

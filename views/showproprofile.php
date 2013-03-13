@@ -27,7 +27,7 @@
             <span class="highlight"><?php echo SKILLS; ?></span><br/>
             <pre>       <?php echo strtoupper($arrData['professional_profile']['skills']); ?></pre>
             <span class="highlight"><?php echo INFORMATION; ?></span><br/>
-            
+            <pre>       <?php echo strtoupper($arrData['professional_profile']['information']); ?></pre>
                 
 
         </div>
