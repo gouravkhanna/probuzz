@@ -37,7 +37,7 @@ function createjobs() {
 	loadView("head/head2.php");
 	$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
 	loadView('gdata/prejob.php',$arrData);
-	loadView('rightpanel/rightpanel1.php');
+	loadView('rightpanel/alotSlot.php');
 	loadView('rightpanel/rightpanel2.php');
     loadView('footer/footer.php');
 }
@@ -74,7 +74,7 @@ function showUpdateSlot()
 	$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id'],'jobId'=>$_REQUEST['jobId']));
 	//$arrData=array('type'=>$_REQUEST['jobId']);
 	loadView("gdata/jobs.php",$arrData);
-	loadView('rightpanel/rightpanel1.php');
+	loadView('rightpanel/alotSlot.php');
 	loadView('rightpanel/rightpanel2.php');
 	loadView('footer/footer.php');
 }

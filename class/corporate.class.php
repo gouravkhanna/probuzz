@@ -41,7 +41,7 @@ class corporate
         return $result;
     }  
    function updateSlot($arrData=array()) {
-    
+    echo "<br/><br/> <br/>";
     	print_r($arrData);
     	$sql="update probuzz.jobs SET ";
     	foreach($arrData as $key =>$value)
