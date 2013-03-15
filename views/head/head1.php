@@ -15,9 +15,10 @@
 
 <div id="container">
 	<div id="head1" >
-    	<h1> 
-       		<?php echo PROBUZZ; ?>     
-      	</h1>
+    	<span class="logo">
+    	   		<?php echo PROBUZZ; ?>
+    	 </span>     
+      	
         <nav>
         <a href="index.php"><?php echo HOME; ?></a>
         <a href="index.php?url=loadHome1"><?php echo HOME; ?>1</a>

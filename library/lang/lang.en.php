@@ -52,5 +52,11 @@ define("LOGIN","Login into your Account!");
 define("FORGET_PASSWORD","Forget Password?");
 define("ACCOUNT_INFO","Dont you have an account ?");
 define("SIGNUP","SignUp Now");
+define("EXPRIANCE","Experiance");
+
+define("TEMPORARY","Temporary");
+define("PERMANENT","Permanent");
+define("FREELANCER","freelance");
+define("PAYJOB","payjob");
 
 ?>

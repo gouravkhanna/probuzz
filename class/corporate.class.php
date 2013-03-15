@@ -1,12 +1,6 @@
-
-
-
 <?php
 include_once 'dbAcess.php';
-
-//session_start();
-class corporate
-{
+class corporate {
     function __construct() {
     
     }
@@ -32,7 +26,7 @@ class corporate
         $ob=new DbConnection();
         $sql="SELECT id,designation,type,status,DATE_FORMAT(created_date, '%M %D, %Y') as createddate, DATE_FORMAT(start_date, ";
         $sql.="'%M %D, %Y'".") as startdate,DATE_FORMAT(last_date, '%M %D, %Y') as lastdate ";
-        $sql.=", location,role,area_of_work,description,skills_required,responsiblity,";
+        $sql.=",start_date,last_date, location,role,area_of_work,description,skills_required,responsiblity,";
         $sql.="experience,contact_person,phone_number,keywords,qualification,";
         $sql.="number_of_vacancy,process_details,salary_expected,other_info,criteria,salary_range";
         $sql.= " FROM probuzz.jobs where corp_id="."'".$arrArg['id']."'".$cond;
@@ -41,8 +35,7 @@ class corporate
         return $result;
     }  
    function updateSlot($arrData=array()) {
-    echo "<br/><br/> <br/>";
-    	print_r($arrData);
+    
     	$sql="update probuzz.jobs SET ";
     	foreach($arrData as $key =>$value)
     	{
@@ -54,7 +47,7 @@ class corporate
     			$sql.="$key='$value', ";
     		}
     	}	
-    	
+    	echo "<br/> <br/> <br/> ".$sql;
     	/* 	$sql="UPDATE probuzz.jobs SET designation='".$arrData['designation']."',";
     		$sql.="type='".$arrData['type']."',location='".$arrData['location']."',role=".$arrData['role']."',start_date='".$arrData['start_date']."',";
     		$sql.="last_date='".$arrData['last_date']."',area_of_work='".$arrData['area_of_work]."'',description='$arrData['description']."'";
