@@ -16,6 +16,7 @@
             );
             
             $arr["qualification"] = array(
+                "id",
                 "class",
                 "qualification_type",
                 "institute",
@@ -24,6 +25,7 @@
                 "end_year",
                 "percentage",
                 "subject_studied",
+                "added_date"
             );
             $arr["resume"] = array(
                 "resume_path",
@@ -43,6 +45,7 @@
             }
             $set=rtrim($set,",");
             $query.="$set where user_id =".$_SESSION['id']." ;";
+            echo $query;
             $this->dbInstance=new DbConnection();
             $result=$this->dbInstance->executeSQL($query);
             
@@ -58,14 +61,51 @@
                 }
                 $fields=rtrim($fields,",");
                 $query.="$fields from $tableKey where user_id =".$_SESSION['id']." ;";
-                //echo "<br/><br/><br/><br/><br/><br/><br/><br/>" .$query;
                 $this->dbInstance=new DbConnection();
                 $temp=$this->dbInstance->executeSQL($query);
-                $result[$tableKey]=mysql_fetch_array($temp);
+                if($tableKey=="qualification" || $tableKey=="resume") {
+                    $result[$tableKey]=array();
+                    while($row=mysql_fetch_assoc($temp)) {
+                        array_push($result[$tableKey],$row);
+                    }
+                } else {
+                    $result[$tableKey]=mysql_fetch_assoc($temp);
+                }
             }
             return $result;
         }
-      
+        public function insertQualification($fields) {
+            //print_r($fields);
+            $query="insert into ".$fields['table'];
+            $columns="(";
+            $values="values (";
+            $result;
+            foreach($fields as $key => $value) {
+                if($key!='table' && $key!='controller' && $key!='url') {
+                    $columns.="$key ,";
+                    $values.= " '$value' ,";    
+                }
+            }
+            $columns.="user_id)";
+            $values.="'".$_SESSION['id']."')";
+            //$columns=rtrim($columns,",");
+            //$values=rtrim($values,",");
+            $query.=$columns.$values;
+            echo $query;
+           //$this->dbInstance=new DbConnection();
+            //$result=$this->dbInstance->executeSQL($query);
+            
+            //return $result;
+        }
+        public function deleteQualification($rowId) {
+            if($rowId) {
+                $query="delete from qualification where id=".$rowId." AND user_id=".$_SESSION['id'].";";
+                $this->dbInstance=new DbConnection();
+                $result=$this->dbInstance->executeSQL($query);
+                return $result;
+            } else {
+                return false;
+            }
+        }
     }
-    
 ?>

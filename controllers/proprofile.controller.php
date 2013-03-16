@@ -35,13 +35,36 @@ class proprofile extends Controller
 		foreach($_REQUEST as $key => $value) {
 			$fields[$key]=$value;
 		}
-		$result=loadModel("professionalprofile","updateprofile",$fields);
+		$result=loadModel("professionalprofile","updateProfile",$fields);
 		if($result) {
 			echo "Data Successfully Updated..";
 		} else {
 			echo "Data Update Failure..";
 		}
 	}
+	public function deleteQual() {
+		
+		$result=loadModel("professionalprofile","deleteQualification",$_GET['rowId']);
+		if($result) {
+			echo "Data Successfully Deleted..";
+		} else {
+			echo "Data Deletion Failed..";
+		}
+	}
+	public function insertQual() {
+		$fields=array();
+		foreach($_REQUEST as $key => $value) {
+			$fields[$key]=$value;
+		}
+		$result=loadModel("professionalprofile","insertQualification",$fields);
+		if($result) {
+			echo "Qualification Successfully Added..";
+		} else {
+			echo "Qualification Addition Failure..";
+		}
+	}
+	
+	
 	/*public function uploadResume() {
 		echo "in upload resume";
 		$allowedExts = array("doc", "docx", "rtf", "txt","pdf","tif");

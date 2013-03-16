@@ -15,7 +15,7 @@
         </div>
         <div id="accordion">
             <h3><?php echo BASIC_PROFILE;?></h3>
-            <div>
+            <div class="wide">
                 <form id="form1" >
                     <table>
                         <tr>
@@ -61,30 +61,74 @@
                             </td>
                         </tr>
                     </table>
+             
                 </form>
        
             </div>
             <h3><?php echo QUALIFICATIONS; ?></h3>
-            <div>
-                <form id="form2" onsubmit="return set(this.id)">
+            <div class="wide">
+                <form id="form2" >
+                <?php
+                $qual=$arrData['qualification'];
+                 //echo "<pre>";
+                 //print_r($qual);
+                ?>
                     <table>
+                        <caption><?php echo strtoupper("Add New Qualification");?></caption>
                         <tr>
-                            
+                           <td><?php echo strtoupper("Class/Degree/Diploma :"); ?></td>
+                           <td><input type="text" name="class"/></td>
+                        </tr></div>
+                        <tr>
+                            <td><?php echo strtoupper("Qualification Type :");?></td>
+                            <td>
+                                <select name="qualification_type">
+                                    <option ><?php echo strtoupper("Select");?></option>
+                                    <option><?php echo strtoupper("Under Graduation");?></option>
+                                    <option><?php echo strtoupper("Graduation");?></option>
+                                    <option><?php echo strtoupper("Post Graduation");?></option>
+                                    <option><?php echo strtoupper("Diploma");?></option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
-                            <td>sdfasdf:</td>
-                            <td><input type="text"/></td>
+                            <td><?php echo strtoupper("School/Institute :");?></td>
+                            <td><input type="text" name="institute"/></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo strtoupper("Board/University :");?></td>
+                            <td><input type="text" name ="university"/></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo strtoupper("Start Year :");?></td>
+                            <td><input type="text" name="start_year"/></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo strtoupper("End Year :");?></td>
+                            <td><input type="text" name="end_year"/></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo strtoupper("Percentage :");?></td>
+                            <td><input type="text" name="percentage"/></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo strtoupper("Major Subjects :");?></td>
+                            <td><textarea name="subject_studied" rows="3" cols="60"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo strtoupper("Field :");?></td>
+                            <td><input type="text" name="field"/></td>
                         </tr>
                         <tr>
                             <td class="proSubmit" colspan="2" >
-                                <input type="submit" value="<?php echo SUBMIT;?>"  />
+                                <input type="button" value="<?php echo SUBMIT;?>" onclick="insertQual('form2')" />
                             </td>
                         </tr>
                     </table>
                 </form>
             </div>
             <h3><?php echo RESUME; ?></h3>
-            <div>
+            <div class="wide">
                 <form id="form3" onsubmit="return uploadResume(this.id)" enctype="multipart/form-data" >
                     <table><label for="resume"><?php echo FILE;?></label>
                         <tr>

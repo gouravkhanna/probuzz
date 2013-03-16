@@ -20,11 +20,49 @@ function set(val) {
         }
         
     });
-    //window.location.href = 'index.php?controller=proprofile';
     return false;
-    //return true;
+    
+}
+function insertQual(val) {
+    if(val=='form1') {
+        table="professional_profile";
+    } else if(val=='form2') {
+        table="qualification";
+    } else if(val=='form3') {
+        table="resume";
+    } else {
+        alert ("Error Processing Data");
+        return false;
+    }
+    $.ajax({
+        type: "GET",
+        url: "index.php",
+        data:$('#'+val).serialize()+"&controller=proprofile&url=insertQual&table="+table,
+        success: function(msg){
+            alert( msg );
+            //window.location.href = 'index.php?controller=proprofile';
+        }
+    });
+    return false;
 }
 
+function deleteQual(rowId) {
+    alert(rowId);
+    var answer=confirm("Are You Sure, You Want To Delete It ??");
+    if(answer) {
+        $.ajax({
+            type: "GET",
+            url: "index.php",
+            data:"controller=proprofile&url=deleteQual&rowId="+rowId,
+            success: function(msg){
+                alert( msg );
+                window.location.href = 'index.php?controller=proprofile';
+            }
+            
+        });    
+    }
+    
+}
 function uploadResume(val) {
     $.ajax({
         type: "POST",
