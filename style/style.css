@@ -362,4 +362,12 @@ overflow-x: hidden;
 	height:auto;
 	
 } 
-
+#dvres {
+	float:left;
+	vertical-align: middle;
+	
+}
+#dvres a {
+	float:left;
+	vertical-align: middle;
+}
