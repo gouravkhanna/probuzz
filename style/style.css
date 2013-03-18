@@ -39,7 +39,7 @@ body {
 	position: inherit;
 	min-height: 980px;
 	padding-top: 10px;
-	width: 150px;
+	width: 130px;
 	height: auto;
 	float: left;
 	margin-right: 7px;
@@ -47,6 +47,39 @@ body {
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
 	overflow: visible;
+}
+
+ul.n {
+	width: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+	text-align: left;
+}
+
+ul.n li {
+    display: inline-block;
+    margin: 0px;
+	padding: 0;
+}
+
+ul.n a {
+	display: block;
+	width: 1500px;
+	height: 33px;
+	padding: 12px 0 0 80px;
+	margin-bottom: 5px;
+	color: #8a8980;
+	font-size: 16px;
+	font-weight: normal;
+    text-decoration: none;
+	position: relative;
+}
+ul.n a:hover, ul.n a.selected {
+	color: #201f1b;
+	background:url(../data/rcs/templatemo_menu_hover.png) no-repeat left;
+	
+	
 }
 
 #head1 {
@@ -104,6 +137,7 @@ body {
 }
 
 #bigmid {
+
 	padding: 5px;
 	background-color: #dfdfdf;
 	margin-top: 50px;
