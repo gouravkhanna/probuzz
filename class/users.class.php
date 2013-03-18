@@ -161,7 +161,9 @@ class users
 		 *  $arrArgs['user']==true */
 		$search=explode(" ",$arrArgs['searcharg']);
 		$row=array();
-			
+		$row3=array();
+		$row2=array();
+		$row1=array();	
 		$sql="select p.id,p.first_name,p.last_name,pp.path from personal_profile p join users u join photo pp where p.user_id=u.user_id AND p.profile_pic_id=pp.id AND (";
 		foreach ($search as $value) {
 			if($value!="")
@@ -192,7 +194,6 @@ class users
 		
 		foreach ($search as $value) {
 			if($value!="") {
-			
 				$sql.=" c.company_name like '$value%' OR";
 			}
 		}
@@ -210,6 +211,18 @@ class users
 				);
 		return $row;	 	
 	}
+	function topjobs() {
+		$ob=new DbConnection();
+		$sql="select j.id,c.user_id,j.designation,j.location,c.company_name,p.path ";
+		$sql.=" from probuzz.jobs j  join corporate_profile c join photo p ";
+		$sql.=" where c.user_id=j.corp_id AND c.profile_pic_id=p.id AND j.status='1' ";
+		$sql.=" order by created_date desc";
+		$result=$ob->executeSQL($sql);
+		if($result) {
+			return $result;
+		}
+	}
+	
 	/*function validate($first_name,$last_name,$email,$password)
 	{
 		$ob=new DbConnection();

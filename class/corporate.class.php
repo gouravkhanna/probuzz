@@ -19,6 +19,7 @@ class corporate {
     }
     function showSlot($arrArg=array()) {
     	$cond="";
+    	
         if(isset($arrArg['jobId']))
         {
                 $cond=" AND id='".$arrArg['jobId']."'";
@@ -29,8 +30,13 @@ class corporate {
         $sql.=",start_date,last_date, location,role,area_of_work,description,skills_required,responsiblity,";
         $sql.="experience,contact_person,phone_number,keywords,qualification,";
         $sql.="number_of_vacancy,process_details,salary_expected,other_info,criteria,salary_range";
-        $sql.= " FROM probuzz.jobs where corp_id="."'".$arrArg['id']."'".$cond;
-        
+        /* Will check whether it is request by user or corporate  */
+        if ($arrArg['requestType']=="user"){
+        	$sql.= " FROM probuzz.jobs where id='".$arrArg['jobId']."' ";
+        }
+        else {
+        	$sql.= " FROM probuzz.jobs where corp_id="."'".$arrArg['id']."'".$cond;
+        }
         $result=$ob->executeSQL($sql);
         return $result;
     }  
@@ -47,7 +53,7 @@ class corporate {
     			$sql.="$key='$value', ";
     		}
     	}	
-    	echo "<br/> <br/> <br/> ".$sql;
+    	
     	/* 	$sql="UPDATE probuzz.jobs SET designation='".$arrData['designation']."',";
     		$sql.="type='".$arrData['type']."',location='".$arrData['location']."',role=".$arrData['role']."',start_date='".$arrData['start_date']."',";
     		$sql.="last_date='".$arrData['last_date']."',area_of_work='".$arrData['area_of_work]."'',description='$arrData['description']."'";

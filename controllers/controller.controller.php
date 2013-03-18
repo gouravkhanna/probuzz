@@ -73,7 +73,8 @@ class Controller
 	  $this->view->loadView('head/head2.php');
 	  $this->view->loadView('midpanel/midpanel.php');
 	  $this->view->loadView('rightpanel/rightpanel1.php');
-	  $this->view->loadView('rightpanel/rightpanel2.php');
+	 // $this->view->loadView('rightpanel/topjobs.php');
+	  $this->topjobs();
       $this->view->loadView('footer/footer.php');
 	}
 	function loadHome1()
@@ -114,6 +115,11 @@ class Controller
 	{
 		loadModel("users","logout");
 		header("location:index.php");
+	}
+	function topjobs()
+	{
+		$arrArgs=loadModel("users","topjobs");
+		$this->view->loadView("rightpanel/topjobs.php",$arrArgs);
 	}
 	/*function loadHome()
 	{

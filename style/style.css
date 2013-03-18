@@ -83,7 +83,7 @@ body {
 	min-height: 727px;
 	float: left;
 	margin-right: 5px;
-	overflow:visible;	
+	overflow:hidden;	
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
 	
@@ -99,6 +99,8 @@ body {
 	height: auto;
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
+		overflow:hidden;	
+	
 }
 
 #bigmid {
@@ -125,6 +127,8 @@ body {
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
 	border-bottom: none;
+		overflow:hidden;	
+	
 }
 
 #rightpanel1 {
@@ -136,19 +140,21 @@ body {
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
 	border-bottom: none;
+	overflow:hidden;	
+	
 }
 
 #rightpanel2 {
-	margin-top: 10px;
+	margin-top: 8px;
 	background-color: #dfdfdf;
-	min-height: 260px;
-	min-width: 280px;
-	width: 350x;
-	height: 355px;
+	min-height: 362px;
+	width: 280px;
 	float: left;
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
-	border-top: none;
+	border-bottom: none;
+	overflow:hidden;	
+
 }
 
 #footer {
@@ -350,8 +356,12 @@ height:100px
 	height:450px;
 	width:1020px;
 	border: 2px black solid;
-overflow-y: scroll;
-overflow-x: hidden;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	position: fixed;
+	z-index:4000;
+	background-color: white;	
+
 }
 #dvsearchoption{
 	height: 30px;width:1000px;
@@ -361,13 +371,72 @@ overflow-x: hidden;
 	width:1000px;
 	height:auto;
 	
-} 
+}
 #dvres {
-	float:left;
-	vertical-align: middle;
 	
 }
-#dvres a {
+.imgcenter{
+	vertical-align: top;
+	float: left;
+}
+#imgcenter{
+	vertical-align: top;
+	float: left;
+}
+#topjobhead {
+	font-size: 1.4em;
+	text-align: center;
+	font-weight: bold;
+}
+#topjobcontent {
+	overflow-y: scroll;
+	overflow-x:hidden;
+	height: 400px;
+	margin-left: 2px;	
+	font-size: 0.8em;
+}
+#topjobcontent a {
+	text-decoration: none;
+	color: black;
+}
+#topjobn{
+	width:250px;
+	min-height:60px;
+	height:auto;
+	margin-bottom:4px;
+	/* background-color: #579BBA; */
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+#topjobn img {
 	float:left;
-	vertical-align: middle;
+	margin-top:5px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	margin-left: 2px;
+	
+}
+#topjobn aside {
+	line-height: 1em;
+	text-transform: uppercase;
+}
+.marginl2 {
+	margin-left: 2px;
+}
+
+.calign {
+	text-align: center;
+}
+.hbold {
+	font-weight: bold;
+}
+
+hr {
+    border: 0; height: 1px; 
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));       
+    background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    background-image: linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+    width:auto; 
 }

@@ -58,5 +58,6 @@ define("TEMPORARY","Temporary");
 define("PERMANENT","Permanent");
 define("FREELANCER","freelance");
 define("PAYJOB","payjob");
-
+define("HASOPENING"," Opening for ");
+define("IN"," in ");	
 ?>

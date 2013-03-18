@@ -8,9 +8,8 @@ $(document).ready(function(e) {
 	$("#backjob").hide();
 	$( document ).tooltip();
 //	$("#showAllSlot").load("index.php","url=showAllJobs");	
-	$("#searchbutton").click(function(){
-		$("#dvsearch").slideToggle();
-	});
+		
+	//Search Bar
 	$("#searchbar").keyup(function(e){
 		//if esc key is pressed
 		if(e.which==27) {
@@ -36,6 +35,8 @@ $(document).ready(function(e) {
 			});
 		}
 	});
+	
+//	Event for handling clicks on the container
 	$("#container").click(function(e){
 		if(e.target.id=="dvsearch" || e.target.id=="searchbar" ||e.target.id=="dvsearchresult" || e.target.id=="dvsearchoption") {
 		}
@@ -45,9 +46,12 @@ $(document).ready(function(e) {
 		}
 		
 	});
+	/* Top Jobs Dynamic Loading */
+	//$("#rightpanel2").load("index.php","url=topjobs");
 	
 	
-loadPreJob();
+	
+//loadPreJob();
 	//
 	//for sliding headers
 	//setInterval (headrotate, 3500);
@@ -85,10 +89,18 @@ function updateStatusJob(status,jobId) {
 		$("#showAllSlot").load("index.php","url=showAllJobs");
 		});	
 	}
+/* For Show JOb from topJobs notifications */
+function fnLoadJobUser(a) {
+		//$("#showspecficjob").show();
+	alert(a);
+	$("#midpanel").load("index.php","controller=corporatecontroller&url=showSpecficJob&jobId="+a+"&request_type=user");
+	//$("#showslot").hide();
+	//$("#backjob").show();
+}
+
 /* For Show JOb tab */
 function fnLoadJob(a) {
-	
-	//$("#showspecficjob").show();
+		//$("#showspecficjob").show();
 	$("#showspecficjob").load("index.php","controller=corporatecontroller&url=showSpecficJob&jobId="+a);
 	$("#showslot").hide();
 	$("#backjob").show();

@@ -111,9 +111,15 @@ function showJobs() {
  * */
 
 function showSpecficJob() {
+	$requestType="";
+	if(@$_REQUEST['request_type']=="user") {
+		$requestType="user";
+	}
+	
 	$arrArgs=array(
 			'id'=>@$_SESSION['id'],
-			'jobId'=>@$_REQUEST['jobId']
+			'jobId'=>@$_REQUEST['jobId'],
+			'requestType'=>"$requestType",
 	);
 	$arrData1=loadModel("corporate","showSlot",$arrArgs);
 	loadView("gdata/showSpecificJob.php",$arrData1);
