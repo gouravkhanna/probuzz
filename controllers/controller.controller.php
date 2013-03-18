@@ -35,14 +35,13 @@ class Controller
 		'firstName'=>@$_REQUEST["first_name"],
 		'lastName'=>@$_REQUEST["last_name"],
 		'email'=>@$_REQUEST["email"],
-		);
+	);
 
-if(@$_REQUEST['user_name1']=="" || @$_REQUEST['password1']=="")
-{
-$arrArgs=array('error_msg' => 	"name and password cannot be empty" );
-			loadView("login1.php",$arrArgs);
-
-}
+	if(@$_REQUEST['user_name1']=="" || @$_REQUEST['password1']=="")
+	{
+		$arrArgs=array('error_msg' => 	"name and password cannot be empty" );
+		loadView("login1.php",$arrArgs);
+	}
 		 else if(loadModel("users","register",$arrArgs))
 
 		{
@@ -106,16 +105,10 @@ $arrArgs=array('error_msg' => 	"name and password cannot be empty" );
 	  loadView('footer/footer.php');
 	}
 
-	function profile()
+	function search()
 	{
-	  $this->view->loadView('head/head1.php');
-	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
-	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
-	  $this->view->loadView('head/head2.php');
-	  $this->view->loadView('midpanel/midpanel.php');
-	  $this->view->loadView('rightpanel/rightpanel1.php');
-	  $this->view->loadView('rightpanel/rightpanel2.php');
-      $this->view->loadView('footer/footer.php');
+	   $arrArgs=loadModel("users","search",array("searcharg"=>@$_REQUEST['searcharg']));		
+	  loadView("search/search.php",$arrArgs);
 	}
 	function logout()
 	{

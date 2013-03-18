@@ -6,16 +6,16 @@ include_once 'library/constant.php';
 include_once('library/common.inc.php');
 
 ini_set('display_errors','1');
-if(isset($_GET['controller']) && !empty($_GET['controller'])){
-      $controller =$_GET['controller'];
+if(isset($_REQUEST['controller']) && !empty($_REQUEST['controller'])){
+      $controller =$_REQUEST['controller'];
     
 }else{
      if(@$_SESSION['type']==1)  $controller ="corporatecontroller";
      else $controller ='Controller';  //default controller
 }
 
-if(isset($_GET['url']) && !empty($_GET['url'])) {
-      $function =$_GET['url'];     
+if(isset($_REQUEST['url']) && !empty($_REQUEST['url'])) {
+      $function =$_REQUEST['url'];     
 }
 else {
     $function ='home'; //default method to be called or the first method

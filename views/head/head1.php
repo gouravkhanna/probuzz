@@ -20,11 +20,17 @@
     	 </span>     
       	
         <nav>
-        <a href="index.php"><?php echo HOME; ?></a>
-        <a href="index.php?url=loadHome1"><?php echo HOME; ?>1</a>
-        <a href="index.php?url=loadHome2"><?php echo HOME; ?>2</a>
-        <a href="index.php?url=loadHome3"><?php echo HOME; ?>3</a>
+        <a class="juiButton" href="index.php"><?php echo HOME; ?></a>
+        <a class="juiButton" href="index.php?url=loadHome1"><?php echo HOME; ?>1</a>
+        <a class="juiButton" href="index.php?url=loadHome2"><?php echo HOME; ?>2</a>
+        <a class="juiButton" href="index.php?url=loadHome3"><?php echo HOME; ?>3</a>
     	  <a href="index.php?url=logout"><?php echo LOGOUT; ?></a>
         <progress value=10 max=100></progress>
         </nav>
+        <input type="text" id="searchbar" name="searchbar" placeholder="Search Here" onblur="" >
+        <button class="juiButton" name="searchbutton" id="searchbutton"></button>
+  </div>
+  <div id="dvsearch">
+  <div id="dvsearchoption"></div>
+  <div id="dvsearchresult"></div>
   </div>

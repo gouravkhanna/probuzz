@@ -46,6 +46,7 @@ body {
 	background-color: darkgrey;
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
+	overflow: visible;
 }
 
 #head1 {
@@ -69,7 +70,7 @@ body {
 	height: 255px;
 	width: 865px;
 	float: left;
-	overflow: hidden;
+	overflow: visible;
 	margin-top: 55px;
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
@@ -82,8 +83,10 @@ body {
 	min-height: 727px;
 	float: left;
 	margin-right: 5px;
+	overflow:visible;	
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
+	
 }
 
 #mid {
@@ -254,6 +257,109 @@ height:100px
 #pagehead1{
 	font-family: alba;
 	font-size: 2em;
-		
 	margin: 0px auto;
 }
+#dvErrorPage {
+	background-image: url('../data/rcs/404.jpg');
+	height:600px;
+	width: 1000px;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	margin:0px auto;
+	text-align: center;
+	font-size: 2em;
+}
+#dvSjob {
+	font-family: a211;
+	text-align: center;
+}
+#dvSjob label
+{
+	font-weight: bold;
+	letter-spacing:.4em;
+	
+}
+#dvSjob span {
+	text-align: justify;
+}
+.odd { 
+	background-color:#C8E2F7;
+}
+.even {
+	
+}
+#showslot {
+	
+	margin:0px auto;
+	background-color: #579BBA;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-collapse:collapse;
+	
+}
+#showslot td {
+	
+	border: white 2px solid;
+}
+#showslot tr
+{
+	padding:2px;
+	border-collapse:collapse;
+}
+
+#showslot .even:HOVER,.odd:HOVER {
+	background-color:#E6FCC2;
+}
+.height40 {
+	height:40px;
+}
+
+.height20 {
+	border:none;
+	height:20px;
+}
+#usermenu ul {
+	padding: 0px;
+	margin: 0px;
+	list-style-type: none;
+}
+#usermenu a {
+	text-decoration: none;
+	color: black;
+}
+#umenu:HOVER {
+	background-image: url("../data/rcs/thovr.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	width:138px;
+	height:40px;
+	padding-left:20px;
+	
+}
+#searchbar {
+	height:35px;
+	width:450px;
+	font-family: alba;
+	text-align: center;
+	background-image: url("../data/rcs/g.svg");
+	background-size: 100%;
+	color: white;
+}
+#dvsearch {
+	margin-top: 50px;
+	height:450px;
+	width:1020px;
+	border: 2px black solid;
+overflow-y: scroll;
+overflow-x: hidden;
+}
+#dvsearchoption{
+	height: 30px;width:1000px;
+}
+#dvsearchresult {
+	margin:0px auto;
+	width:1000px;
+	height:auto;
+	
+} 
+

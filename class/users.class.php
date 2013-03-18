@@ -153,7 +153,63 @@ class users
 				
 		// if*/
 }
+	function search($arrArgs=array()) {
+		$ob=new DbConnection();
+		
+		/*User Search
+		 * BAsed on user name
+		 *  $arrArgs['user']==true */
+		$search=explode(" ",$arrArgs['searcharg']);
+		$row=array();
+			
+		$sql="select p.id,p.first_name,p.last_name,pp.path from personal_profile p join users u join photo pp where p.user_id=u.user_id AND p.profile_pic_id=pp.id AND (";
+		foreach ($search as $value) {
+			if($value!="")
+			$sql.=" u.user_name like '$value%' OR";
+		}
+		$sql=rtrim($sql,"OR");
+		$sql.=" )";
+		$result=$ob->executeSQL($sql);
+		if($result) {
+					while($row1[]=mysql_fetch_array($result)) {}
+		}
 	
+		/*Based on First and Last Name */
+		$sql="select p.id,p.first_name,p.last_name,pp.path from personal_profile p join photo pp where p.profile_pic_id=pp.id AND (";
+		foreach ($search as $value) {
+			if($value!="")
+				$sql.=" p.first_name like '$value%' OR p.last_name like '$value%' OR";
+		}
+		$sql=rtrim($sql,"OR");
+		$sql.=" )";
+	
+		$result=$ob->executeSQL($sql);
+		if($result) {
+			while($row2[]=mysql_fetch_array($result)) {}
+		}
+		/*Based on Company Name */
+		$sql="select c.id,c.company_name,pp.path from corporate_profile c join photo pp where c.profile_pic_id=pp.id AND ( ";
+		
+		foreach ($search as $value) {
+			if($value!="") {
+			
+				$sql.=" c.company_name like '$value%' OR";
+			}
+		}
+		$sql=rtrim($sql,"OR");
+		$sql.=" )";
+		
+		$result=$ob->executeSQL($sql);
+		if($result) {
+			while($row3[]=mysql_fetch_array($result)) {	}
+		}
+		$row=array(
+				"username"=>$row1,
+				"name"=>$row2,
+				"company"=>$row3,
+				);
+		return $row;	 	
+	}
 	/*function validate($first_name,$last_name,$email,$password)
 	{
 		$ob=new DbConnection();

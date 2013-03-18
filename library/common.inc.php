@@ -41,4 +41,22 @@ function loadModel($modelName,$function,$arrArgument=''){
 
 
 }
+
+function listText($arg)
+{
+	$list=explode("\n", $arg);
+	$str="<ul>";
+	foreach($list as $value)
+	{
+		if(empty($value) || $value=="") {
+			$str.="<br/>";
+		}
+		else {
+			$str.="<li>$value</li>";
+		}
+	}
+	$str.="</ul>";
+	return $str;
+	
+} 
 ?>

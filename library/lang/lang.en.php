@@ -20,7 +20,7 @@ define('PAGINATIONNEXT', "Next");
 define('PAGINATIONPREV', "Previous");
 define('PAGINATIONLAST', "Last");
 define('PAGINATIONFIRST', "First");
-define("ROLE","role");
+define("ROLE","Role");
 define("START_DATE","Start Date");
 define("LAST_DATE","Last Date");
 define("AREA_OF_WORK","Area of Work");
