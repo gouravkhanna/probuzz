@@ -26,7 +26,7 @@ function createjobs() {
 	loadView("head/head2.php");
 	$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
 	loadView('gdata/prejob.php',$arrData);
-	loadView('rightpanel/alotSlot.php');
+	loadView('rightpanel/alotslot.php');
 	loadView('rightpanel/rightpanel2.php');
     loadView('footer/footer.php');
 }
@@ -65,7 +65,7 @@ function showUpdateSlot()
 function updateSlot() {
 	//print_r($_REQUEST);
 	foreach($_REQUEST as $key=>$value) 	{
-		if($key!="controller" && $key!="url" && $key!="submit")
+		if($key!="controller" && $key!="url" && $key!="submit" && $key!="PHPSESSID")
 			$arrArg[$key]=$value;
 	}
 	

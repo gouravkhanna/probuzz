@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 include_once 'library/lang/lang.en.php';
 include_once 'library/lang/labels.lang.en.php';
 include_once 'library/constant.php';
@@ -40,4 +41,5 @@ if(file_exists($fn)){
 }else{
       die($controller .' controller not found');
 }
+ob_flush();
 ?>
