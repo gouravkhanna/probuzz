@@ -66,7 +66,7 @@
        
             </div>
             <h3><?php echo QUALIFICATIONS; ?></h3>
-            <div class="wide">
+            <div id="displayQual" class="wide">
                 <form id="form2" >
                 <?php
                 $qual=$arrData['qualification'];
@@ -74,7 +74,7 @@
                  //print_r($_SESSION);
                  
                 ?>
-                    <table>
+                    <!--<table>
                         <caption><?php echo strtoupper("Add New Qualification");?></caption>
                         <tr>
                            <td><?php echo strtoupper("Class/Degree/Diploma :"); ?></td>
@@ -125,11 +125,13 @@
                                 <input type="button" value="<?php echo SUBMIT;?>" onclick="insertQual('form2')" />
                             </td>
                         </tr>
-                    </table>
+                    </table>-->
+  
                 </form>
             </div>
             <h3><?php echo RESUME; ?></h3>
             <div class="wide">
+                
                 <form id="form3" onsubmit="return uploadResume(this.id)" enctype="multipart/form-data" >
                     <table><label for="resume"><?php echo FILE;?></label>
                         <tr>

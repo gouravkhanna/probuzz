@@ -21,11 +21,11 @@ input[type="text"] {
     margin: 0px;
     padding-top:5px;
     padding-left: 5px;
-    
     background-color: white;
 }
 .wide {
-    max-height: 90%;
+    max-height: 50%;
+    overflow: scroll;
 }
 .deleteQual {
     float: right;

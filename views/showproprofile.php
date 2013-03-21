@@ -4,7 +4,7 @@
     <script>
         $(function() {
             $( "#accordion" ).accordion();
-            $( "#accordion1" ).accordion();
+            
         });
     </script>
 </head>
@@ -12,7 +12,7 @@
     <div class="alignright">
         <a href="index.php?controller=proprofile&url=editView">EDIT</a>
     </div>
-    <div id="accordion">
+    <div id="accordion" >
         <h3><?php echo BASIC_PROFILE;?></h3>
         <div class="wide">
             <!--<?php echo "<pre>";print_r($arrData); ?><br/>-->
@@ -47,7 +47,7 @@
             ?>
             <div class="highlight" id="divhead<?php echo $value['id']; ?>">
                 <?php echo strtoupper($value['qualification_type']." : ".$value['class']);?>
-                <div class="deleteQual" ><img title="Delete" id="<?php echo $value['id']; ?>" onclick="deleteQual(this.id)" src="delete.gif"/></div>
+                <div class="deleteQual" ></div>
             </div>
             <div class="displayDetails" id="div<?php echo $value['id']; ?>">
                 <?php if($value['institute']) { ?>

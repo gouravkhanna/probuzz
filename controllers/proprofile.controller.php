@@ -65,7 +65,12 @@ class proprofile extends Controller
 		}
 	}
 	
-	
+	public function fetchQual() {
+		$arr=loadModel("professionalprofile","constructFields");
+		$arrArg=loadModel("professionalprofile","retrieveData",$arr);
+	  	$this->view->loadView('displayQual.php',$arrArg);
+		
+	}
 	/*public function uploadResume() {
 		echo "in upload resume";
 		$allowedExts = array("doc", "docx", "rtf", "txt","pdf","tif");

@@ -81,3 +81,10 @@ function uploadResume(val) {
     });
     return false;
 }
+
+$(document).ready( function (){
+        $("#displayQual").load("index.php","controller=proprofile&url=fetchQual");
+    }
+    
+);
+    
