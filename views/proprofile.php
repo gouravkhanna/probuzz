@@ -71,7 +71,8 @@
                 <?php
                 $qual=$arrData['qualification'];
                  //echo "<pre>";
-                 //print_r($qual);
+                 //print_r($_SESSION);
+                 
                 ?>
                     <table>
                         <caption><?php echo strtoupper("Add New Qualification");?></caption>

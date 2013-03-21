@@ -16,7 +16,7 @@ function set(val) {
         data:$('#'+val).serialize()+"&controller=proprofile&url=updateProfile&table="+table,
         success: function(msg){
             alert( msg );
-            window.location.href = 'index.php?controller=proprofile';
+            //window.location.href = 'index.php?controller=proprofile';
         }
         
     });
@@ -49,6 +49,7 @@ function insertQual(val) {
 function deleteQual(rowId) {
     alert(rowId);
     var answer=confirm("Are You Sure, You Want To Delete It ??");
+    
     if(answer) {
         $.ajax({
             type: "GET",
@@ -56,7 +57,11 @@ function deleteQual(rowId) {
             data:"controller=proprofile&url=deleteQual&rowId="+rowId,
             success: function(msg){
                 alert( msg );
-                window.location.href = 'index.php?controller=proprofile';
+                var x="#div"+rowId;
+                var x1="#divhead"+rowId;
+                $(x).hide();
+                $(x1).hide();
+                //window.location.href = 'index.php?controller=proprofile';
             }
             
         });    

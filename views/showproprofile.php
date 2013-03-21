@@ -45,11 +45,11 @@
             <?php } else {
                 foreach($qual as $key => $value){
             ?>
-            <div class="highlight">
+            <div class="highlight" id="divhead<?php echo $value['id']; ?>">
                 <?php echo strtoupper($value['qualification_type']." : ".$value['class']);?>
-                <div class="deleteQual"><img id="<?php echo $value['id']; ?>" onclick="deleteQual(this.id)" src="delete.gif"/></div>
+                <div class="deleteQual" ><img title="Delete" id="<?php echo $value['id']; ?>" onclick="deleteQual(this.id)" src="delete.gif"/></div>
             </div>
-            <div class="displayDetails">
+            <div class="displayDetails" id="div<?php echo $value['id']; ?>">
                 <?php if($value['institute']) { ?>
                 <pre>       <?php echo "Institute : ".$value['institute']; ?></pre>
                 <?php } ?>

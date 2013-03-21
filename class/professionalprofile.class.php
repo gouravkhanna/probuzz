@@ -39,7 +39,7 @@
             $set=" set ";
             $result;
             foreach($fields as $key => $value) {
-                if($key!='table' && $key!='controller' && $key!='url') {
+                if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID') {
                     $set.="$key = '$value' ,";    
                 }
             }
@@ -81,17 +81,17 @@
             $values="values (";
             $result;
             foreach($fields as $key => $value) {
-                if($key!='table' && $key!='controller' && $key!='url') {
+                if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID') {
                     $columns.="$key ,";
                     $values.= " '$value' ,";    
                 }
             }
             $columns.="user_id)";
-            $values.="'".$_SESSION['id']."')";
+            $values.="'".$_SESSION['id']."');";
             //$columns=rtrim($columns,",");
             //$values=rtrim($values,",");
             $query.=$columns.$values;
-            echo $query;
+            echo $query ;
            //$this->dbInstance=new DbConnection();
             //$result=$this->dbInstance->executeSQL($query);
             
