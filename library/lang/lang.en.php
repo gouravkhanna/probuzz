@@ -60,4 +60,29 @@ define("FREELANCER","freelance");
 define("PAYJOB","payjob");
 define("HASOPENING"," Opening for ");
 define("IN"," in ");	
+define("DELHI","Delhi");
+define("GURGAON","Gurgaon");
+define("BENGLORE","Benglore");
+define("NOIDA","Noida");
+define("CHENNAI","Chennai");
+define("MUMBAI","Mumbai");
+define("LONDON","London");
+define("IFOTHER","If other, Please Specify");
+define("CITY","City");
+define("HIGHSCHOOL","Highschool");
+define("INTERMEDIATE","Intermediate");
+define("GRADUATE","Graduate");
+define("POSTGRADUATE","postgraduate");
+define("MASTERS","Masters");
+define("DOCTORATE","Doctorate");
+define("AGE","Age");
+define("BETWEEN","Between");
+define("GENDER","Gender");
+define("FEMALE","Female");
+define("MALE","Male");
+define("BOTH","BOTH");
+
+
+
+
 ?>

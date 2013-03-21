@@ -48,7 +48,31 @@ $(document).ready(function(e) {
 	});
 	/* Top Jobs Dynamic Loading */
 	//$("#rightpanel2").load("index.php","url=topjobs");
-	
+	$("#searchoptbar").click(function(e){
+		n=e.target.id;
+		n1=n.split("lx");
+		alert(n1[1]);
+		$("#sp"+n1[1]).slideToggle();
+		changeIt(1);
+	});
+	 function changeIt(id) 
+	    {
+	        var theImg = document.getElementsByTagName('img')[0].src;
+
+	        var x = theImg.split("/");
+	        var t = x.length-1;
+	        var y = x[t];
+
+	        if(y=='up.png')
+	        {
+	            document.images.upcity.src='data/rcs/down.png'
+	        }
+
+	          if(y=='down.png')
+	        {
+	            document.images.boxcolor1.src='data/rcs/up.gif'
+	        }
+	    }
 	
 	
 //loadPreJob();
