@@ -190,7 +190,7 @@ class users
 			while($row2[]=mysql_fetch_array($result)) {}
 		}
 		/*Based on Company Name */
-		$sql="select c.id,c.company_name,pp.path from corporate_profile c join photo pp where c.profile_pic_id=pp.id AND ( ";
+		$sql="select c.id,c.company_alias,c.company_name,pp.path from corporate_profile c join photo pp where c.profile_pic_id=pp.id AND ( ";
 		
 		foreach ($search as $value) {
 			if($value!="") {

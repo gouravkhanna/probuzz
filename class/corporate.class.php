@@ -31,7 +31,7 @@ class corporate {
         $sql.="experience,contact_person,phone_number,keywords,qualification,";
         $sql.="number_of_vacancy,process_details,salary_expected,other_info,criteria,salary_range";
         /* Will check whether it is request by user or corporate  */
-        if ($arrArg['requestType']=="user"){
+        if (@$arrArg['requestType']=="user"){
         	$sql.= " FROM probuzz.jobs where id='".$arrArg['jobId']."' ";
         }
         else {

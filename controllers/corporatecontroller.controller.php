@@ -125,5 +125,21 @@ function showSpecficJob() {
 	loadView("gdata/showSpecificJob.php",$arrData1);
 
 }
-
+/* Search for the people with required qualification */
+	function searchPeople() {
+		loadView("head/head1.php");
+		$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+		loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
+		
+		if(isset($_REQUEST['search']) || @$_REQUEST['search']!="") {
+			$arddata=loadModel("corporate", "searchPeople");
+			loadView('search/searchpeople.php',$arrData);
+		}
+		else
+		{
+			loadView('search/searchpeople.php');
+		}
+		
+		loadView('footer/footer.php');
+	}
 }

@@ -8,8 +8,10 @@
        </div>      
        <!--  <a href="index.php?controller=profile">Social Profile</a> 
         <a href="index.php?controller=proprofile">Profesional Profile</a> 
-       -->  <a href="index.php?url=cprofile" >Corporate Profile</a> 
-        <a href="createjobs" title="Create a new Job or Update Existing">Create Job</a>
+       -->  
+       	<a href="index.php?url=cprofile" >Corporate Profile</a> 
+        <a href="createjobs" class=juiButton" title="Create a new Job or Update Existing">Create Job</a>
+        <a href="searchpeople" title="Search People">Search People</a>
     
      
         <a href="showJobs">Show Job</a>
