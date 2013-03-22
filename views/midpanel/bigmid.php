@@ -1,3 +1,5 @@
+
+
 <div id="bigmid">
 <br /> <br /> <br /> <br /> <br /> <br /> 
 
@@ -52,7 +54,11 @@ Home
 <div id="2" class="leftarrowdiv"> 
    My profile
    <div id="me" name="me" class="m">
-   About My self
+   About Me
+   <div id="details" >
+
+   <div id="" > <?PHP  echo $arrData['personal']['first_name']." ".$arrData['personal']['last_name'] . " ".$arrData['personal']['relationship_status'] ;    ?> </div>
+   </div>
    </div>
    
    
@@ -67,18 +73,40 @@ Home
   <div id="work" name="work" class="w">
   
    Work
+   <div>
+    <?PHP 
+	 print_r($arrData['address']);
+	echo "Company ".$arrData['address']['0'] ;
+	
+	
+	?>
+     
+   
+    </div>
   
   </div>
   
 <div id="basicInfo" name="basicInfo" class="b">
 
-My Info
+          What i am...
+          <div>
+          <?PHP  echo "Gender ".$arrData['personal']['gender'] ;  
+		         echo "<br>Birthday ".$arrData['personal']['DOB'] ;  
+				 echo "<br>Relationship Status ".$arrData['personal']['relationship_status'] ;  
+		         echo "<br>Intrested In ".$arrData['personal']['intersted_in'] ;  
+		  
+		  
+		    ?>
+          
+          
+           </div>
  <a href="#" id="editi" name="editi"> Edit </a>
   </div>
     
    <div id="contactInfo" name="contactInfo" class="c">
    My Contact Info 
     
+  
      <a href="#" id="editc" name="editc"> Edit </a>
   </div> 
   

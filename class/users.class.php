@@ -86,6 +86,8 @@ class users
 		$row=mysql_fetch_array($res);
  		return ROOTPATH.$row['path'];
 	}
+	
+	
 	function getType()
 	{
 	}

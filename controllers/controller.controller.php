@@ -86,6 +86,7 @@ class Controller
 	  $this->topjobs();
       $this->view->loadView('footer/footer.php');
 	}
+	
 	function loadHome1()
 	{ 
 	  loadView('head/head1.php');
@@ -130,6 +131,44 @@ class Controller
 		$arrArgs=loadModel("users","topjobs");
 		$this->view->loadView("rightpanel/topjobs.php",$arrArgs);
 	}
+	
+	
+	/*function displayAddress()
+	{
+	
+	$arrArgs=loadModel("users","getAddress",array('id'=>$_SESSION['id']));
+	loadView('midpanel/bigmid.php',$arrArgs);
+	
+	
+	}*/
+	
+	/*function displayEducation()
+	{
+	
+	$arrArgs=loadModel("users","getProfileData",array('id'=>$_SESSION['id']));
+	loadView('midpanel/bigmid.php',$arrArgs);
+	
+	
+	
+	}
+	
+	function displayWork()
+	{
+	
+	$arrArgs=loadModel("users","getProfileData",array('id'=>$_SESSION['id']));
+	loadView('midpanel/bigmid.php',$arrArgs);
+	
+	
+	
+	}
+	function displaySocial()
+	{
+	
+	$arrArgs=loadModel("users","getProfileData",array('id'=>$_SESSION['id']));
+	loadView('midpanel/bigmid.php',$arrArgs);
+		
+	}*/
+	
 	/*function loadHome()
 	{
 		$path=$this->populateHomeData();

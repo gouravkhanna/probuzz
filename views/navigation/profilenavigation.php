@@ -10,14 +10,14 @@
         </div>   
 <div id="dropdown" name="dropdown">
   <ul>
-<li> <input type="image" title="Home" src="../../data/rcs/home.png"   id="home" name="home" /> </li>
+<li> <input type="image" title="Home" src="../../home.png" id="home" name="home" /> </li>
 
 <li>  <input type="image" title="My Profile" src="../../data/rcs/profile.jpg" id="profile" name="profile">	</li>
 
 <li> <input type="image" id="friend" name="friend"  title="My Friends" src="../../data/rcs/images.jpg"> </li>
 <li> <input type="image" id="pics" name="pics"  title="My pics" src="../../data/rcs/camera.png"> </li>
 
-<li>  </li>
+
 </ul>
 
 </div> 
