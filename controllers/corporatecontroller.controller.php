@@ -130,9 +130,17 @@ function showSpecficJob() {
 		loadView("head/head1.php");
 		$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 		loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
-		
+		echo "<br/><br/><br/><br/>GANGNAM STYLE";
+		print_r($_REQUEST);
 		if(isset($_REQUEST['search']) || @$_REQUEST['search']!="") {
-			$arddata=loadModel("corporate", "searchPeople");
+			$arrArgs=array(
+					"city"=>@$_REQUEST['spcity'],
+					"degree"=>@$_REQUEST['spdegree'],
+					"gender"=>@$_REQUEST['spgender'],
+					"qualification"=>@$_REQUEST['spqualification'],
+					);
+			
+			$arrData=loadModel("corporate", "searchPeople",$arrArgs);
 			loadView('search/searchpeople.php',$arrData);
 		}
 		else

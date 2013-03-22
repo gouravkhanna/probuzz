@@ -78,5 +78,55 @@ class corporate {
     	$sql="update probuzz.jobs set status='".$status."' where id=".$arrArg['jobId'];
        	$res=$ob->executeSQL($sql);
     }
+    function searchPeople($arrArg=array()) {
+    	print_r($arrArg);
+    	/* USer Must Have a valid entry in personal_profile,qualifation,address,photo,experiance  */
+    	$sql="select p.user_id as id,p.first_name,p.last_name,photo.path from personal_profile p join address a join qualification q join photo photo";
+    	$on="on ";
+    	$on.="p.user_id=a.user_id AND q.user_id=p.user_id AND p.profile_pic_id=photo.id";
+    	$cond=" where (";
+    	//Based on City
+    	if(!empty($arrArg['city'])) {
+    		 foreach($arrArg['city'] as $val) {
+    			if($val!="") {
+       				$cond.=" a.city='$val' OR";
+    			}
+       		}
+       		$cond=rtrim($cond,"OR");
+       		$cond.=") AND (";
+       		 
+    	}
+    	//Based On gender
+    	if(!empty($arrArg['gender']))  {echo "SSSSSS";
+    	foreach($arrArg['gender'] as $val) {
+    		echo $val;
+    		if($val!="") {
+       				$cond.=" p.gender='$val' OR";
+       			}
+    		}
+       			$cond=rtrim($cond,"OR");
+       		$cond.=") AND (";
+    	}
+    	//Based On Degree
+    	if(!empty($arrArg['degree'])) {
+    		foreach($arrArg['degree'] as $val) {
+    			if($val!="") {
+    				$cond.=" q.class='$val' OR";
+    			}
+    		}
+    		$cond=rtrim($cond,"OR");
+    		$cond.=") AND (";
+    	}
+    	$cond=rtrim($cond,"AND (");
+    	$sql.=" ".$on." ".$cond;
+    	echo "<br/>=>".$sql."<=<br/>";
+     	$res=mysql_query($sql);
+    	 while($r[]=mysql_fetch_array($res)) {
+    			
+    	} 
+    	
+    
+    	return $r;
+    }
         
 }

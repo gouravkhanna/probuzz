@@ -51,29 +51,30 @@ $(document).ready(function(e) {
 	$("#searchoptbar").click(function(e){
 		n=e.target.id;
 		n1=n.split("lx");
-		alert(n1[1]);
+		//alert(n1[1]);
 		$("#sp"+n1[1]).slideToggle();
 		changeIt(1);
 	});
-	 function changeIt(id) 
-	    {
-	        var theImg = document.getElementsByTagName('img')[0].src;
-
-	        var x = theImg.split("/");
-	        var t = x.length-1;
-	        var y = x[t];
-
-	        if(y=='up.png')
-	        {
-	            document.images.upcity.src='data/rcs/down.png'
-	        }
-
-	          if(y=='down.png')
-	        {
-	            document.images.boxcolor1.src='data/rcs/up.gif'
-	        }
-	    }
-	
+	$("#showoption").click(function(){
+		$("#searchoptbar").slideToggle(function(){
+		if($("#searchoptbar").is(":visible")) {
+			$("#showoption").html('Hide');
+		}
+		else {
+			$("#showoption").html('Show');
+		}
+		});
+		
+	});
+	$("#searchoptbar select").click(function(){
+		n=e.target.id;
+		n1=n.split("ls");
+		alert(n1[1]);
+		var selectVal=$("#spcity").val();
+		if($.inArray("other",selectVal)!=-1) {
+			alert("yes");
+		}
+	});	
 	
 //loadPreJob();
 	//
