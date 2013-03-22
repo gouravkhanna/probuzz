@@ -37,11 +37,20 @@ class Controller
 		'email'=>@$_REQUEST["email"],
 	);
 
-	if(@$_REQUEST['user_name1']=="" || @$_REQUEST['password1']=="")
+	/*if(@$_REQUEST['user_name1']=="" || @$_REQUEST['password1']=="")
 	{
 		$arrArgs=array('error_msg' => 	"name and password cannot be empty" );
 		loadView("login1.php",$arrArgs);
+	}*/
+	
+	$validator=loadModel("users","validate",$arrArgs); //cal the validator method for server side validation
+
+	if(!$validator)
+	{
+		$arrArgs=array('error_msg' => 	"Some problem has occured!! Please try again..." );
+		loadView("login1.php",$arrArgs);
 	}
+	
 		 else if(loadModel("users","register",$arrArgs))
 
 		{

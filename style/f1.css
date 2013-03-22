@@ -19,7 +19,7 @@
         -webkit-transition: all 1s;
 		height:300px;
 width:400px;
-background-color:#CCCCCC;
+background-color:#E1E1E1;
 border-style:groove;
 border-color:#990033;
 -webkit-border-radius:1em;
@@ -27,7 +27,6 @@ border-radius:1em;
 height:auto;
       
 }
-
 #side-1 {
     transform:             rotateY( 0deg );
         -moz-transform:    rotateY( 0deg );
@@ -85,8 +84,8 @@ text-align:center;}
 padding-right:40px;
 
 margin-left:40px;
-border-style:solid;
-border-color:#FF66FF;
+
+
 -webkit-border-radius:0.5em;
 border-radius:0.5em;
 height:25px;

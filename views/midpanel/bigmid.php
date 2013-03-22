@@ -5,21 +5,49 @@
 Home
 </div>
 
-
-<div id="edit_edu" name="edit_edu" class="ee">
-     <div id="editchead">Contact Information</div>
+<!--edit Contact code goes here-->
+<div id="edit_contact" name="edit_contact" >
+     <div id="editchead" >Contact Information <span id="close"> X</span></div>
    
    <form method="get" action="#">
-    House No : <input type="text" id="hno" name="hno" value=""  />
-   Street No : <input type="text" id="streetNo" name="streetNo" value=""  />
-   Street Name:<input type="text" id="streetName" name="streetName" value=""  />
-   City  <input type="text" id="city" name="city" value=""  />
-   State  <input type="text" id="state" name="state" value=""  />
-   Country <input type="text" id="country" name="country" value=""  />
-   PinCode <input type="text" id="pincode" name="pincode" value=""  />
+   <ul>
+   
+  <li>  House No : <input type="text" id="ehno" name="ehno" value=""  /></li>
+ <li>  Street No : <input type="text" id="estreetNo" name="estreetNo" value=""  /></li>
+   <li>Street Name:<input type="text" id="estreetName" name="estreetName" value=""  /></li>
+   <li>City  <input type="text" id="ecity" name="ecity" value=""  /></li>
+   <li>State  <input type="text" id="estate" name="estate" value=""  /></li>
+   <li>Country <input type="text" id="ecountry" name="ecountry" value=""  /></li>
+   <li>PinCode <input type="text" id="epincode" name="epincode" value=""  /></li>
+   </ul>
+   <input type="submit" id="subCon" name="subCon" value="Save Me" />
    </form>
-  
+
  </div>
+ <!-- edit contact ends here    -->
+ <!--  edit personal information code goes here-->
+ 
+ 
+ 
+ <div id="edit_i" name="edit_i" >
+     <div id="editihead" > My Faourites <span id="close1"> X</span></div>
+   
+   <form method="get" action="#">
+  
+    <span>Favourite Books  <textarea rows="2" cols="25"> </textarea></span> 
+    <span>Favourite Movies <textarea rows="2" cols="25"> </textarea> <span>
+    <span>Favourite Food <textarea rows="2" cols="25"> </textarea>  <span>
+   
+   <input type="submit" id="subInfo" name="subInfo" value="Save Me" />
+   </form>
+
+ </div>
+ 
+ 
+ 
+ 
+ <!--    edit personal information ends here-->
+ 
  
 <div id="2" class="leftarrowdiv"> 
    My profile
@@ -32,7 +60,7 @@ Home
   <div id="education" name="education" class="e ">
  
    Education
-    <a href="#" id="edit" name="edit"> Edit </a>
+    <a href="#" id="edite" name="edite"> Edit </a>
   </div>
   
   
@@ -45,11 +73,13 @@ Home
 <div id="basicInfo" name="basicInfo" class="b">
 
 My Info
+ <a href="#" id="editi" name="editi"> Edit </a>
   </div>
     
    <div id="contactInfo" name="contactInfo" class="c">
    My Contact Info 
     
+     <a href="#" id="editc" name="editc"> Edit </a>
   </div> 
   
 
@@ -103,12 +133,45 @@ $("#4.leftarrowdiv").show();
 
 
 
-$("#edit").click(function()
+$("#editc").click(function()
 {
 $("#2").fadeTo("fast",0.1);
-$("#edit_edu").show();
+$("#edit_contact").show();
 
 }
 );
+$("#editi").click(function()
+{
+$("#2").fadeTo("fast",0.1);
+$("#edit_i").show();
+
+}
+);
+
+$("#close").click(function()
+{
+$("#edit_contact").hide();
+$("#2").css("opacity","5");
+
+
+}
+);
+
+$("#close1").click(function()
+{
+
+$("#edit_i").hide();
+$("#2").css("opacity","5");
+
+
+}
+);
+
+/////////////////
+
+
+
+
+
  </script>
 </div>

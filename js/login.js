@@ -1,6 +1,8 @@
 // JavaScript Document
 
 
+
+
 $(document).ready(function() {
 document.getElementById( 'signup' ).addEventListener( 'click', function( event ) {
     
@@ -21,7 +23,7 @@ document.getElementById( 'login1' ).addEventListener( 'click', function( event )
 
 function valid_uname()
 {
-	
+	var ck_username = /^[A-Za-z0-9_]{1,20}$/;
 	var user_name1=document.forms["side-2"]["user_name1"].value;
 	if(user_name1.length<6) 
 	{
@@ -30,12 +32,27 @@ function valid_uname()
 	document.getElementById("e6").innerHTML="* User Name must contain 6 characters ";
 	return false; 
 	}
-	else if(user_name1.length>30) 
+	else if(user_name1.length>20) 
 	{
 	document.getElementById("w6").style.visibility=" visible";
+	document.getElementById("e6").style.visibility=" visible";
+	document.getElementById("e6").innerHTML="* User Name cannot contain more then 20 chracters ";
 
 	return false; 
 	}
+	
+	
+	else if(!ck_username.test(user_name1))
+		{
+		
+		document.getElementById("w6").style.visibility=" visible";
+		document.getElementById("e6").style.visibility=" visible";
+		document.getElementById("e6").innerHTML="* User Name is not in valid format ";
+
+		return false;
+		
+		
+		}
 	 else
 	 {
 	 document.getElementById("r6").style.visibility=" visible";
@@ -50,16 +67,27 @@ function valid_uname()
 
 function valid_fname() // to check first name
 {
-
+var ck_name = /^[A-Za-z0-9 ]{2,20}$/;
 var first_name=document.forms["side-2"]["first_name"].value;
 if(first_name.length<2) 
 {
 document.getElementById("w1").style.visibility=" visible";
 document.getElementById("e1").style.visibility=" visible";
-document.getElementById("e1").innerHTML="*Name must be 6 characters long";
+document.getElementById("e1").innerHTML="*Name is too short";
 return false; 
 }
-else if(first_name.length>30) 
+
+else if(!ck_name.test(first_name))
+	{
+	
+	document.getElementById("w1").style.visibility=" visible";
+	document.getElementById("e1").style.visibility=" visible";
+	document.getElementById("e1").innerHTML="*Name is not in valid format";
+	return false; 
+	
+	
+	}
+else if(first_name.length>20) 
 {
 document.getElementById("w1").style.visibility=" visible";
 
@@ -98,6 +126,7 @@ return true;
 
 function valid_password()
 {
+	var ck_password =  /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
 var pwd=document.forms["side-2"]["password1"].value;
 var cpwd=document.forms["side-2"]["confirm_pass"].value;
 if(pwd.length<6 )
@@ -118,6 +147,16 @@ if(pwd.length<6 )
 		return false; 
 	
 	}
+	else if(!ck_password.test(pwd))
+		{
+		
+		document.getElementById("w3").style.visibility=" visible";
+		document.getElementById("e3").style.visibility=" visible";
+		document.getElementById("e3").innerHTML=" * Password is not in valid format";
+		return false; 
+		
+		
+		}
 	else if(pwd.length>6)
 	{
     	document.getElementById("r3").style.visibility=" visible"; 
@@ -146,7 +185,7 @@ if(pwd.length<6 )
 
 function valid_email()
 {
-
+	var ck_email = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/ ;
 	var x=document.forms["side-2"]["email"].value;
 	var atpos=x.indexOf("@");
 	var dotpos=x.lastIndexOf(".");
@@ -160,6 +199,15 @@ function valid_email()
 		return false;
 
 	   }
+	 else if (!ck_email.test(x))
+		 {
+		 document.getElementById("w2").style.visibility=" visible"; 
+			document.getElementById("e2").style.visibility=" visible";
+			document.getElementById("e2").innerHTML=" *Email is not valid";
+			return false;
+		 
+		 
+		 }
 	   else
 	   {
 	   document.getElementById("w2").style.visibility=" hidden"; 

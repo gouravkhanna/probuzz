@@ -223,31 +223,80 @@ class users
 		}
 	}
 	
-	/*function validate($first_name,$last_name,$email,$password)
+	
+	
+	// Function for server side validation
+	function validate($arrData=array())
 	{
 		$ob=new DbConnection();
-		if(@$_REQUEST["submit"])
-		{
-			if ($first_name != "") 
-			    {
-				$first_name = filter_var($first_name, FILTER_SANITIZE_STRING);
-				     if ($first_name == "") 
-				    	 {
-						echo "Please enter a valid name.<br/><br/>";
-				   		  }
-		    	} 
-		    	else {
-				echo "Please enter your name.<br/>";
-					}
+		$this->firstName=$arrData['firstName'];
+		$this->lastName=$arrData['lastName'];
+		$this->password=$arrData['password'];
+		$this->userName=$arrData['userName'];
+		$this->email=$arrData['email'];
+		
+			if (eregi('^[A-Za-z0-9 ]{2,20}$',$this->firstName))
+			{
+				$valid_firstname=$this->firstName;
+			}
+			else
+			{
+				$error_firstname='Enter valid Name.';
+			}
+			
+
+			if (eregi('^[A-Za-z0-9 ]{2,20}$',$this->lastName))
+			{
+				$valid_lastname=$this->lastName;
+			}
+			else
+			{
+				$error_lastname='Enter valid Name.';
+			}
+			if (eregi('^[A-Za-z0-9_]{3,20}$',$this->userName))
+			{
+				$valid_username=$this->userName;
+			}
+			else
+			{
+				$error_username='Enter valid Username min 3 Chars.';
+			}
+			if (eregi('^[A-Za-z0-9!@#$%^&*()_]{6,20}$',$this->password))
+			{
+				$valid_password=$this->password;
+			}
+			else
+			{
+				$error_password='Enter valid Password min 6 Chars.';
+			}
+				
+			if (eregi('^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.([a-zA-Z]{2,4})$', $this->email))
+			{
+				$valid_email=$this->email;
+			}
+			else
+			{
+				$error_email='Enter valid Email.';
+			}
+			if((strlen($valid_firstname)>0)&&(strlen($valid_email)>0)
+			&&(strlen($valid_username)>0)&&(strlen($valid_password)>0))
+			{
+				return true;
+			}
+			else{ 
+				
+				return false;
+			}
 			
 			
 			
 			
-				}
+			
 		
 		
 		
-			}	*/
+	}
+	
 	
 }
 
