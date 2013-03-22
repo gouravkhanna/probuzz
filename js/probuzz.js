@@ -66,6 +66,7 @@ $(document).ready(function(e) {
 		});
 		
 	});
+	$("#searchpeopleform").submit(function(){ $("#searchoptbar").slideUp(); });
 	$("#searchoptbar select").click(function(){
 		n=e.target.id;
 		n1=n.split("ls");

@@ -84,7 +84,7 @@ class corporate {
     	$sql="select p.user_id as id,p.first_name,p.last_name,photo.path from personal_profile p join address a join qualification q join photo photo";
     	$on="on ";
     	$on.="p.user_id=a.user_id AND q.user_id=p.user_id AND p.profile_pic_id=photo.id";
-    	$cond=" where (";
+    	$cond=" ";
     	//Based on City
     	if(!empty($arrArg['city'])) {
     		 foreach($arrArg['city'] as $val) {
@@ -118,15 +118,17 @@ class corporate {
     		$cond.=") AND (";
     	}
     	$cond=rtrim($cond,"AND (");
-    	$sql.=" ".$on." ".$cond;
-    	echo "<br/>=>".$sql."<=<br/>";
-     	$res=mysql_query($sql);
-    	 while($r[]=mysql_fetch_array($res)) {
-    			
+    	if($cond!="") {
+    		$sql.=" ".$on." where ( ".$cond;
+    		echo "<br/>=>".$sql."<=<br/>";
+     		$res=mysql_query($sql);
+    	 	while($r[]=mysql_fetch_array($res)) {		
     	} 
+    	return $r;
+    	}
     	
     
-    	return $r;
+    	
     }
         
 }

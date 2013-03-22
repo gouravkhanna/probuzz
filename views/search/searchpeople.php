@@ -12,7 +12,7 @@
 	<hr />
 <button id="showoption" >Show</button>	
 	<div id="searchoptbar">
-	<form id="searchpeopleform">
+	<form id="searchpeopleform" action="#">
 		<div id=spdcity>
 				<label id=lxcity><?php echo CITY;?></label>
 			<select id=spcity name=spcity[] multiple="multiple">
@@ -26,7 +26,7 @@
 				<option><?php echo LONDON;?></option>
 				<option value="other"><?php echo IFOTHER;?></option>
 			</select>
-		<input type="text" id="spdcityother" placeholder="Enter City" >
+		<input type="text" id="spdcityother" name="spdcityother" placeholder="Enter City" >
 		</div>
 		
 		<div id=spdqualification>
@@ -89,7 +89,7 @@
 
 
 <?php
-print_r ( $arrData );
+print_r ( @$arrData );
 echo "<div id=dvresbig >";
 if (! empty ( $arrData )) {
 

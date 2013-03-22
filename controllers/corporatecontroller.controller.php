@@ -127,17 +127,29 @@ function showSpecficJob() {
 }
 /* Search for the people with required qualification */
 	function searchPeople() {
+		$city=@$_REQUEST['spcity'];
+		$degree=@$_REQUEST['spdegree'];
+		$gender=@$_REQUEST['spgender'];
+		$qualification=@$_REQUEST['spqualification'];
 		loadView("head/head1.php");
 		$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 		loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
 		echo "<br/><br/><br/><br/>GANGNAM STYLE";
 		print_r($_REQUEST);
-		if(isset($_REQUEST['search']) || @$_REQUEST['search']!="") {
+		
+		$c=explode(",",@$_REQUEST['spdcityother']);
+		if(is_array($c) ) {
+			
+		}
+		/*	$city=array_merge($city,$c);	
+		 $degree=array_merge($degree,explode(",",@$_REQUEST['spdcityother']));
+		$gender=array_merge($gender,explode(",",@$_REQUEST['spdcityother']));
+		 */if(isset($_REQUEST['search']) || @$_REQUEST['search']!="") {
 			$arrArgs=array(
-					"city"=>@$_REQUEST['spcity'],
-					"degree"=>@$_REQUEST['spdegree'],
-					"gender"=>@$_REQUEST['spgender'],
-					"qualification"=>@$_REQUEST['spqualification'],
+					"city"=>$city,
+					"degree"=>$degree,
+					"gender"=>$gender,
+					"qualification"=>$qualification,
 					);
 			
 			$arrData=loadModel("corporate", "searchPeople",$arrArgs);
