@@ -25,7 +25,7 @@ while($row=mysql_fetch_array($arrData))
 
 <?php 
 }
-print_r($row[0]);
+//print_r($row[0]);
 ?>
 
 </div>

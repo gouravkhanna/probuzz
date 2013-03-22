@@ -25,5 +25,8 @@
 		<li id="umenu">
 			<a href="search">Search</a></li>
 		</ul>
+		<!-- APPLICATION STATUS -->
+		<!-- NOTIFICATION STATUS -->
+		<!-- -->
      </div>	
    </div>

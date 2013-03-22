@@ -406,15 +406,31 @@ height:100px
 	height:auto;
 	
 }
+#dvresbig {
+width:1000px;
+min-height:80px;
+height:auto;
+float: left;
+	}
 #dvres {
 	
+	width:auto;
+	padding:5px;
+	width:220px;
+	height:auto;
+	float: left;
+	background-color:#579bba;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+#dvresbig a {
+	text-decoration: none;
+	color: black;
 }
 .imgcenter{
 	vertical-align: top;
-	float: left;
 }
-#imgcenter{
-	vertical-align: top;
+.floatl {
 	float: left;
 }
 #topjobhead {
@@ -463,6 +479,14 @@ height:100px
 }
 .hbold {
 	font-weight: bold;
+}
+.round20 {
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+}
+.round5{
+border-radius: 5px;
+	-webkit-border-radius: 5px;
 }
 
 hr {
