@@ -1,13 +1,4 @@
-<head>
-    <link rel="stylesheet" type="text/css" href="style/proProfile.css" />
-    <script type="text/javascript" src="js/proProfile.js"></script>
-    <script>
-        $(function() {
-            $( "#accordion" ).accordion();
-            
-        });
-    </script>
-</head>
+
 <div id="bigmid">
     <div class="alignright">
         <a href="index.php?controller=proprofile&url=editView">EDIT</a>

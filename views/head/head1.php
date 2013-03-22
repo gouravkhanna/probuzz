@@ -9,6 +9,17 @@
 <script src="js/jquery-1.9.1.min.js"> </script>
 <script src="js/jqueryui/js/jquery-ui-1.10.1.custom.js"></script>
 <script src="js/probuzz.js"></script>
+<link rel="stylesheet" type="text/css" href="style/proProfile.css" />
+<script type="text/javascript" src="js/proProfile.js"></script>
+
+
+
+<script>
+
+	$(function() {
+		$( "#accordion" ).accordion();
+        });
+</script>
 </head>
 
 <body>

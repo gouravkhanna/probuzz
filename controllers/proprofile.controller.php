@@ -19,7 +19,6 @@ class proprofile extends Controller
 	  	loadView('footer/footer.php');
 	}
 	function editView() {
-		
 		loadView('head/head1.php');
 	  	$path=ROOTPATH.'data/photo/g.jpg';
 	  	loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));

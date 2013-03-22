@@ -83,8 +83,8 @@ function uploadResume(val) {
 }
 
 $(document).ready( function (){
+     
+        
         $("#displayQual").load("index.php","controller=proprofile&url=fetchQual");
     }
-    
 );
-    
