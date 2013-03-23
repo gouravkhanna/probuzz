@@ -75,9 +75,9 @@ Home
    Work
    <div>
     <?PHP 
-	 print_r($arrData['address']);
+	// print_r($arrData['address']);
 	echo "Company ".$arrData['address']['house_number'] ;
-	
+	echo "Company ".$arrData['address']['house_name'] ;
 	
 	?>
      

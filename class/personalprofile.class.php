@@ -19,25 +19,27 @@ function loadProfile($arrArgs=array()) {
 	
 	$sql1="SELECT company_Name,current_job,position  FROM experience WHERE user_id='$id'";
 	$res1=$ob->executeSQL($sql1);
-	while($row1[]=mysql_fetch_array($res1))
+	$row1[]=mysql_fetch_array($res1);
+	/* while($row1[]=mysql_fetch_array($res1))
 	{
 	
 	
-	}
+	} */
 	$sql2="SELECT house_number,street_number,street_name,city,state,country FROM address WHERE user_id='$id'";
 	$res2=$ob->executeSQL($sql2);
-	while($row2[]=mysql_fetch_array($res2))
+	$row2=mysql_fetch_array($res2);
+	/* while($row2[]=mysql_fetch_array($res2))
 	{
 	
 	
-	}
+	} */
 	$arrData=array(
 			  'personal'=>$row,	
 			  'experience'=>$row1,
 			  'address'=>$row2,
 	);
 	
-	print_r($arrData);
+	//print_r($arrData);
 		return $arrData;
 }
 
