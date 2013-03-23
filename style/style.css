@@ -19,7 +19,7 @@ body {
 	max-height: auto;
 	max-width: 1285;
 	background-color: #F9F9F9;
-	font-family: a21,verdana;
+	font-family: "a21",verdana;
 }
 
 #container {
@@ -31,7 +31,7 @@ body {
 .logo {
 	font-size: 28px;
 	padding:2px;
-	font-family:alba;
+	font-family:"alba";
 	color:#579BBA;
 }
 #navigation {
@@ -137,13 +137,14 @@ ul.n a:hover, ul.n a.selected {
 }
 
 #bigmid {
-
+	position:relative;
 	padding: 5px;
 	background-color: #dfdfdf;
 	margin-top: 50px;
 	float: left;
 	min-width: 857px;
 	max-width: 857px;
+	 width: 857px;
 	max-height: 980px;
 	min-height: 980px;
 	height: auto;

@@ -21,7 +21,7 @@
 			<a href="index.php?controller=photos">Photos</a>
 		</li>
 		<li id="umenu">
-			<a href="index.php?controller=friends&url=request">Friends Request</a> 
+			<a href="index.php?url=showfriend">SHOW Friend</a> 	
 		<li id="umenu">
 			<a href="search">Search</a></li>
 		</ul>

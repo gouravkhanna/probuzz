@@ -8,6 +8,7 @@ $(document).ready(function(e) {
 	$("#backjob").hide();
 	$( document ).tooltip();
 //	$("#showAllSlot").load("index.php","url=showAllJobs");	
+
 		
 	//Search Bar
 	$("#searchbar").keyup(function(e){

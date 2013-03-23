@@ -81,9 +81,20 @@ class corporate {
     function searchPeople($arrArg=array()) {
     	print_r($arrArg);
     	/* USer Must Have a valid entry in personal_profile,qualifation,address,photo,experiance  */
-    	$sql="select p.user_id as id,p.first_name,p.last_name,photo.path from personal_profile p join address a join qualification q join photo photo";
+$sql = "select 
+			p.user_id as id,
+			p.first_name,p.last_name,
+			photo.path 
+		from 
+			personal_profile p 
+			left  join address a on p.user_id=a.user_id
+			left join qualification q on q.user_id=p.user_id
+			left join photo photo on p.profile_pic_id=photo.id";  
+		    	
+    	
+    	/*$sql="select p.user_id as id,p.first_name,p.last_name,photo.path from personal_profile p join address a join qualification q join photo photo";
     	$on="on ";
-    	$on.="p.user_id=a.user_id AND q.user_id=p.user_id AND p.profile_pic_id=photo.id";
+    	$on.="p.user_id=a.user_id AND q.user_id=p.user_id AND p.profile_pic_id=photo.id";*/
     	$cond=" ";
     	//Based on City
     	if(!empty($arrArg['city'])) {
@@ -119,7 +130,7 @@ class corporate {
     	}
     	$cond=rtrim($cond,"AND (");
     	if($cond!="") {
-    		$sql.=" ".$on." where ( ".$cond;
+    		$sql.=" where ( ".$cond." group by id";
     		echo "<br/>=>".$sql."<=<br/>";
      		$res=mysql_query($sql);
     	 	while($r[]=mysql_fetch_array($res)) {		
