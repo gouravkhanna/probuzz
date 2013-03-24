@@ -55,6 +55,7 @@ class proprofile extends Controller
 		foreach($_REQUEST as $key => $value) {
 			$fields[$key]=$value;
 		}
+		echo "<pre>";
 		print_r($fields);
 		$result=loadModel("professionalprofile","insertQualification",$fields);
 		if($result) {

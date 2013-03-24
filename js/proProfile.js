@@ -1,3 +1,4 @@
+
 function set(val) {
     var table;
     if(val=='form1') {
@@ -24,15 +25,13 @@ function set(val) {
     
 }
 function insertQual(val) {
-    if(val=='form1') {
-        table="professional_profile";
-    } else if(val=='form2') {
+    alert(val);
+    if(val=='form4') {
         table="qualification";
-    } else if(val=='form3') {
-        table="resume";
     } else {
         alert ("Error Processing Data");
-        return false;
+        parent.$.fancybox.close();
+        
     }
     $.ajax({
         type: "GET",
@@ -41,15 +40,17 @@ function insertQual(val) {
         success: function(msg){
             alert( msg );
             //window.location.href = 'index.php?controller=proprofile';
+            parent.$.fancybox.close();
         }
     });
-    return false;
+    
+    
 }
 
-function deleteQual(rowId) {
-    alert(rowId);
+function deleteQual(input) {
+    var rowId=$(input).parent().attr("id");
+    //alert(rowId);
     var answer=confirm("Are You Sure, You Want To Delete It ??");
-    
     if(answer) {
         $.ajax({
             type: "GET",
@@ -57,17 +58,13 @@ function deleteQual(rowId) {
             data:"controller=proprofile&url=deleteQual&rowId="+rowId,
             success: function(msg){
                 alert( msg );
-                var x="#div"+rowId;
-                var x1="#divhead"+rowId;
-                $(x).hide();
-                $(x1).hide();
-                //window.location.href = 'index.php?controller=proprofile';
+                var toHide="#mainQualDisplay"+rowId;
+                $(toHide).hide();
             }
-            
         });    
     }
-    
 }
+
 function uploadResume(val) {
     $.ajax({
         type: "POST",
@@ -82,9 +79,16 @@ function uploadResume(val) {
     return false;
 }
 
+
 $(document).ready( function (){
-     
-        
         $("#displayQual").load("index.php","controller=proprofile&url=fetchQual");
+        
     }
 );
+function append(input) {
+    var rowId=$(input).parent().attr("id");
+    alert(rowId);
+    var url="views/addUpdateQual.php?id="+rowId;
+    alert(url);
+    input.setAttribute("href",url);
+}
