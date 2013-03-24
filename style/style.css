@@ -15,11 +15,16 @@
 	font-family: a211;
 	src: url("../data/font/Prociono-Regular.otf");
 }
+@font-face {
+	font-family: del;
+	src: url("../data/font/Delicious-Italic.otf");
+}
 body {
 	max-height: auto;
 	max-width: 1285;
 	background-color: #F9F9F9;
-	font-family: "a21",verdana;
+	background-image:url("../data/rcs/bg.jpg");
+	font-family: del,verdana;
 }
 
 #container {
@@ -41,14 +46,15 @@ body {
 	padding-top: 10px;
 	width: 130px;
 	height: auto;
+	color:white;
 	float: left;
 	margin-right: 7px;
-	background-color: darkgrey;
+	background-color: #78bbe6; /*darkgrey;*/
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
 	overflow: visible;
 }
-
+/*
 ul.n {
 	width: auto;
     list-style: none;
@@ -79,10 +85,10 @@ ul.n a:hover, ul.n a.selected {
 	color: #201f1b;
 	background:url(../data/rcs/templatemo_menu_hover.png) no-repeat left;
 	
-	
 }
-
+*/
 #head1 {
+	
 	height: 50px;
 	width: 100%;
 	position: fixed;
@@ -99,7 +105,7 @@ ul.n a:hover, ul.n a.selected {
 }
 
 #head2 {
-	background-color: #dfdfdf;
+	background-color: #FFFFFe;
 	height: 255px;
 	width: 865px;
 	float: left;
@@ -111,7 +117,8 @@ ul.n a:hover, ul.n a.selected {
 
 #midpanel {
 	margin-top: 8px;
-	background-color: #dfdfdf;
+/*	  background-color: #dfdfdf; */
+background-color: #FFFFFe;
 	width: 582px;
 	min-height: 727px;
 	float: left;
@@ -124,7 +131,8 @@ ul.n a:hover, ul.n a.selected {
 
 #mid {
 	padding: 5px;
-	background-color: #dfdfdf;
+/*	background-color: #efefef; */
+	background-color: #FFFFFe;
 	margin-top: 8px;
 	float: left;
 	min-width: 857px;
@@ -139,7 +147,8 @@ ul.n a:hover, ul.n a.selected {
 #bigmid {
 	position:relative;
 	padding: 5px;
-	background-color: #dfdfdf;
+	/* background-color: #ededed; */
+	background-color: #FFFFFe;
 	margin-top: 50px;
 	float: left;
 	min-width: 857px;
@@ -247,7 +256,7 @@ h1 {
 	
 }
 
-#createjobform input[type="text"],select {
+#createjobform 	[type="text"],#createjobform select {
 	width: 400px;
 	min-width: 400px;
 	height: 20px;
@@ -268,7 +277,7 @@ h1 {
 }
 #createjobform textarea {
 	width:400px;
-height:100px
+	height:100px
 }
 
 #smsg {
@@ -311,7 +320,7 @@ height:100px
 	font-size: 2em;
 }
 #dvSjob {
-	font-family: a211;
+	font-family: del;
 	text-align: center;
 }
 #dvSjob label
@@ -366,14 +375,17 @@ height:100px
 }
 #usermenu a {
 	text-decoration: none;
-	color: black;
+	color: white;
+	font-family: alba;
 }
 #umenu:HOVER {
-	background-image: url("../data/rcs/thovr.png");
+	background-image: url("../data/rcs/g.svg");
 	background-repeat: no-repeat;
 	background-size: 100%;
-	width:138px;
-	height:40px;
+		width:auto;
+	border-radius: 30px;
+	-webkit-border-radius: 30px;
+	height:auto;
 	padding-left:20px;
 	
 }
@@ -499,3 +511,14 @@ hr {
     background-image: linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
     width:auto; 
 }
+#searchoptbar select {
+	width:150px;
+}
+.vcenter {
+	vertical-align: middle;
+}
+#lxgender,#lxdegree,#lxcity {
+	font-size:1.6em;
+	font-weight:bold;
+}
+

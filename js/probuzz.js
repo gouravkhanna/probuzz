@@ -9,7 +9,6 @@ $(document).ready(function(e) {
 	$( document ).tooltip();
 //	$("#showAllSlot").load("index.php","url=showAllJobs");	
 
-		
 	//Search Bar
 	$("#searchbar").keyup(function(e){
 		//if esc key is pressed
@@ -17,6 +16,7 @@ $(document).ready(function(e) {
 			$("#dvsearch").slideUp();
 			$("#searchbar").val('');
 		}
+		
 		var search=$("#searchbar").val();
 		if(search=="")
 		{
@@ -49,11 +49,12 @@ $(document).ready(function(e) {
 	});
 	/* Top Jobs Dynamic Loading */
 	//$("#rightpanel2").load("index.php","url=topjobs");
+	
 	$("#searchoptbar").click(function(e){
 		n=e.target.id;
 		n1=n.split("lx");
 		//alert(n1[1]);
-		$("#sp"+n1[1]).slideToggle();
+		$("#spd"+n1[1]).slideToggle();
 		changeIt(1);
 	});
 	$("#showoption").click(function(){
@@ -68,15 +69,36 @@ $(document).ready(function(e) {
 		
 	});
 	$("#searchpeopleform").submit(function(){ $("#searchoptbar").slideUp(); });
-	$("#searchoptbar select").click(function(){
+	$("#searchoptbar input[type=checkbox]").click(function(e){
 		n=e.target.id;
-		n1=n.split("ls");
-		alert(n1[1]);
+		//n1=n.split("ls");
+		var x=$("#"+n);
+		alert(x);
 		var selectVal=$("#spcity").val();
 		if($.inArray("other",selectVal)!=-1) {
 			alert("yes");
 		}
 	});	
+	
+	$("#updateJobDiv input").focus(function(e) {
+		n=e.target.id;
+		n1="#dv"+n;
+		$(n1).css("background-color","lightblue");
+		$(n).css("border","8px green solid");
+		
+	});
+	$("#updateJobDiv input").blur(function(e) {
+		n=e.target.id;
+		n1="#dv"+n;
+		$(n1).css("background-color","#dfdfdf");
+		
+	});
+	
+	
+	
+	
+	
+	
 	
 //loadPreJob();
 	//
@@ -97,6 +119,8 @@ function fncreatejob()  {
     $("#mid").load("index.php","controller=corporatecontroller&url=createjobs");
     $("#midpanel").load("index.php","controller=corporatecontroller&url=createjobs");
 }
+
+
 
 /*function loadDate() {
 	alert("lulu");

@@ -2,98 +2,97 @@
 
 
 </script>
-<!DOCTYPE html>
-<html>
+
 <div id="bigmid">
-<div id="dvsearchpeople">
+	<div id="dvsearchpeople">
 
 
-	<h1 class=calign>SEACRH PEOPLE</h1>
-	<hr />
-<button id="showoption" >Show</button>	
-	<div id="searchoptbar">
-	<form id="searchpeopleform" action="#">
-		<div id=spdcity>
+		<h1 class=calign>SEACRH PEOPLE</h1>
+		<hr />
+		<button id="showoption">Hide</button>
+		<div id="searchcriteria"></div>
+		<div id="searchoptbar">
+			<form id="searchpeopleform" action="#">
 				<label id=lxcity><?php echo CITY;?></label>
-			<select id=spcity name=spcity[] multiple="multiple">
-				<option></option>
-				<option><?php echo DELHI;?></option>
-				<option><?php echo NOIDA;?></option>
-				<option><?php echo BENGLORE;?></option>
-				<option><?php echo CHENNAI;?></option>
-				<option><?php echo MUMBAI;?></option>
-				<option><?php echo GURGAON;?></option>
-				<option><?php echo LONDON;?></option>
-				<option value="other"><?php echo IFOTHER;?></option>
-			</select>
-		<input type="text" id="spdcityother" name="spdcityother" placeholder="Enter City" >
+				<hr />
+
+				<div id=spdcity>
+					<select title="Use CTRL to Select Multiple Cities" 
+					class="vcenter floatl" id=spcity name=spcity[] multiple="multiple">
+						<option><?php echo DELHI;?></option>
+						<option><?php echo NOIDA;?></option>
+						<option><?php echo BENGLORE;?></option>
+						<option><?php echo CHENNAI;?></option>
+						<option><?php echo MUMBAI;?></option>
+						<option><?php echo GURGAON;?></option>
+						<option><?php echo LONDON;?></option>
+						</select>
+						<aside >
+							<?php echo IFOTHER;?>
+							<input id="spccity" type="checkbox"
+							name="other" value="other">
+						</aside>
+						<aside>		
+						 	<input type="text" title="Septate City by Comma (,) "
+						 	id="spccityother" name="spccityother" placeholder="Enter City">
+						</aside> 
+				</div>
+				<br/><br/>
+				
+				<label id=lxdegree>DEGREE <?php  echo ""; ?></label>
+				<hr />
+				<div id=spddegree>
+					<select class="vcenter floatl" title="Use CTRL to Select Multiple Cities" 
+					id=spdegree name=spdegree[] multiple="multiple">
+						<option>BA</option>
+						<option>BCom</option>
+						<option>BCA</option>
+						<option>BBA</option>
+						<option>MBA</option>
+						<option>BSc</option>
+						<option>B.Tech</option>
+						<option>B.Arch</option>
+						<option>MBA</option>
+						<option>MCA</option>
+						<option>MSc</option>
+						<option>MBA</option>
+						<option>M.Tech</option>
+						<option>Phd</option>
+					</select>
+					<aside>
+						<?php echo IFOTHER;?> <input id="spcdegree" type="checkbox"
+						name="other" value="other">
+					</aside>
+					<aside>
+					<input type="text" title="Septate City by Comma (,) "
+					 id="spcdegreeother" name="spcdegreeother" placeholder="Enter Degree">
+					</aside>
+				</div>
+				<br/><br/>
+				<label id=lxgender><?php echo GENDER;?></label>
+				<hr />
+				<div id=spdgender>
+					<div id=spgender>
+						<input type=radio name=spgender value=male>
+						<label id=lxmale><?php echo MALE;?></label> 
+						<input type=radio name=spgender value=female> 
+						<label id=lxfemale><?php echo FEMALE;?></label>
+						<input type=radio name=spgender value=Both>
+						<label id=lxboth><?php echo BOTH;?></label>
+					</div>
+
+				</div>
+				<input type="submit" name="search" value="search" class="juiButton">
+			</form>
 		</div>
-		
-		<div id=spdqualification>
-			<label id=lxqualification><?php echo QUALIFICATION?></label> <select
-				id=spqualification name=spqualification[] multiple="multiple">
-				<option></option>
-				<option><?php echo HIGHSCHOOL;?></option>
-				<option><?php echo INTERMEDIATE;?></option>
-				<option><?php echo GRADUATE;?></option>
-				<option><?php echo POSTGRADUATE;?></option>
-				<option><?php echo MASTERS;?></option>
-				<option><?php echo DOCTORATE;?></option>
-				<option value="other"><?php echo IFOTHER;?></option>
-			</select>
-		</div>
-		
-		<style>
-		
-		#searchoptbar select{
-			height:100px;
-			width:250px;
-		}
-		</style>
-		<div id=spddegree>
-			<label id=lxdegree>DEGREE <?php  echo ""; ?></label> 
-			<select id=spdegree name=spdegree[] multiple="multiple" >
-				<option> </option> 
-				<option>BA </option>
-				<option>BCom</option>
-				<option>BCA </option>
-				<option>BBA</option>
-				<option>MBA</option>
-				<option>BSc </option>
-				<option>B.Tech </option>
-				<option>B.Arch </option>
-				<option>MBA</option>
-				<option>MCA</option>
-				<option>MSc</option>
-				<option>MBA</option>
-				<option>M.Tech </option>
-				<option>Phd </option>
-				<option value="other"><?php echo IFOTHER;?></option>		
-		</select>
-		
-		</div>
-	
-		
-		<div id=spdgender>
-			<label id=lxgender><?php echo GENDER;?></label> <select id=spgender
-				name=spgender[] multiple="multiple">
-				<option></option>
-				<option><?php echo MALE;?></option>
-				<option><?php echo FEMALE;?></option>
-				<option><?php echo BOTH;?></option>
-			</select >
-		</div>
-		<input type="submit" name="search" value="search" class="juiButton">
-		</form>
-	</div>
 
 
 <?php
-print_r ( @$arrData );
+
 echo "<div id=dvresbig >";
 if (! empty ( $arrData )) {
-
-		foreach ( $arrData  as $key => $val ) {
+	
+	foreach ( $arrData as $key => $val ) {
 		if ($val ['id'] != "") {
 			$res = "<a href='" . $val ['id'] . "' >";
 			$res .= "<div id=dvres>";

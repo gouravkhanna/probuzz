@@ -245,8 +245,13 @@ class users
 		}
 		//print_r($rr);
 		echo "<pre>";
-		
-		return $rr;
+		if(!empty($rr)) {
+			return $rr;
+		}
+		else {
+			return false;
+		}
+
 		
 	}
 	

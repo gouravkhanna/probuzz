@@ -78,24 +78,21 @@ class corporate {
     	$sql="update probuzz.jobs set status='".$status."' where id=".$arrArg['jobId'];
        	$res=$ob->executeSQL($sql);
     }
+    /*  Search for the people with required qualification,City,Gender
+     */
     function searchPeople($arrArg=array()) {
-    	print_r($arrArg);
-    	/* USer Must Have a valid entry in personal_profile,qualifation,address,photo,experiance  */
+       	/* USer Must Have a valid entry in personal_profile,qualifation,address,photo,experiance  */
 $sql = "select 
 			p.user_id as id,
 			p.first_name,p.last_name,
 			photo.path 
 		from 
 			personal_profile p 
-			left  join address a on p.user_id=a.user_id
+			left join address a on p.user_id=a.user_id
 			left join qualification q on q.user_id=p.user_id
 			left join photo photo on p.profile_pic_id=photo.id";  
-		    	
-    	
-    	/*$sql="select p.user_id as id,p.first_name,p.last_name,photo.path from personal_profile p join address a join qualification q join photo photo";
-    	$on="on ";
-    	$on.="p.user_id=a.user_id AND q.user_id=p.user_id AND p.profile_pic_id=photo.id";*/
-    	$cond=" ";
+		 	
+		$cond=" ";
     	//Based on City
     	if(!empty($arrArg['city'])) {
     		 foreach($arrArg['city'] as $val) {
@@ -108,16 +105,12 @@ $sql = "select
        		 
     	}
     	//Based On gender
-    	if(!empty($arrArg['gender']))  {echo "SSSSSS";
-    	foreach($arrArg['gender'] as $val) {
-    		echo $val;
-    		if($val!="") {
+    	 $val=$arrArg['gender'];
+    		if($val!="" && $val!="Both" ) {
        				$cond.=" p.gender='$val' OR";
-       			}
+       			  	$cond=rtrim($cond,"OR");
+       			  	$cond.=") AND (";
     		}
-       			$cond=rtrim($cond,"OR");
-       		$cond.=") AND (";
-    	}
     	//Based On Degree
     	if(!empty($arrArg['degree'])) {
     		foreach($arrArg['degree'] as $val) {
@@ -129,13 +122,13 @@ $sql = "select
     		$cond.=") AND (";
     	}
     	$cond=rtrim($cond,"AND (");
+    	
     	if($cond!="") {
     		$sql.=" where ( ".$cond." group by id";
-    		echo "<br/>=>".$sql."<=<br/>";
-     		$res=mysql_query($sql);
-    	 	while($r[]=mysql_fetch_array($res)) {		
+    	  	$res=mysql_query($sql);
+    	 	while($result[]=mysql_fetch_array($res)) {		
     	} 
-    	return $r;
+    	return $result;
     	}
     	
     

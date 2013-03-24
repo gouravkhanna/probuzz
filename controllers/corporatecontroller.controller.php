@@ -125,33 +125,47 @@ function showSpecficJob() {
 	loadView("gdata/showSpecificJob.php",$arrData1);
 
 }
-/* Search for the people with required qualification */
+/* Search for the people with required qualification,City,Gender */
 	function searchPeople() {
+		//fetching valued from url
 		$city=@$_REQUEST['spcity'];
 		$degree=@$_REQUEST['spdegree'];
 		$gender=@$_REQUEST['spgender'];
-		$qualification=@$_REQUEST['spqualification'];
+		$otherDegree=@$_REQUEST['spcdegreeother'];
+		$otherCity=@$_REQUEST['spccityother'];
+		
+		//checking whether if any other city are specified or not
+		if($otherCity!="") {
+			$otherCityArray=explode(",",$otherCity);
+			//checking if only other city are specified and value from select box is not choosen
+			if(!is_array($city)) {
+				$city=array();	
+			}
+			$city=array_merge($city,$otherCityArray);
+		}
+		//checking whether if any other degree are specified or not
+		if($otherDegree!="") {
+			$otherDegreeArray=explode(",",$otherDegree);
+			//checking if only other city are specified and value from select box is not choosen
+			if(!is_array($degree)) {
+				$degree=array();
+			}
+			$degree=array_merge($degree,$otherDegreeArray);
+		}
+		
+		
+		//loading page content
 		loadView("head/head1.php");
 		$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 		loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
-		echo "<br/><br/><br/><br/>GANGNAM STYLE";
-		print_r($_REQUEST);
-		
-		$c=explode(",",@$_REQUEST['spdcityother']);
-		if(is_array($c) ) {
-			
-		}
-		/*	$city=array_merge($city,$c);	
-		 $degree=array_merge($degree,explode(",",@$_REQUEST['spdcityother']));
-		$gender=array_merge($gender,explode(",",@$_REQUEST['spdcityother']));
-		 */if(isset($_REQUEST['search']) || @$_REQUEST['search']!="") {
+		//checking if request for search is made or not
+		if(isset($_REQUEST['search']) || @$_REQUEST['search']!="") {
 			$arrArgs=array(
 					"city"=>$city,
 					"degree"=>$degree,
 					"gender"=>$gender,
-					"qualification"=>$qualification,
-					);
-			
+				);
+			//passing data to model
 			$arrData=loadModel("corporate", "searchPeople",$arrArgs);
 			loadView('search/searchpeople.php',$arrData);
 		}
