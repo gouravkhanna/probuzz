@@ -147,8 +147,8 @@ background-color: #FFFFFe;
 #bigmid {
 	position:relative;
 	padding: 5px;
-	/* background-color: #ededed; */
-	background-color: #FFFFFe;
+	background-color: #ededed;
+/*	background-color: #FFFFFe;*/
 	margin-top: 50px;
 	float: left;
 	min-width: 857px;
@@ -521,4 +521,5 @@ hr {
 	font-size:1.6em;
 	font-weight:bold;
 }
+.style6{border-bottom:4px solid orange;border-bottom-left-radius:10px;border-left:4px solid orange;border-right:0 none #FFF;border-top:4px solid orange;border-top-left-radius:10px;float:left;font-size:15pt;height:32px;margin-top:.2cm;padding:2px;width:300px}
 

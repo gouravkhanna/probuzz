@@ -11,19 +11,32 @@ if(isset($_REQUEST['controller']) && !empty($_REQUEST['controller'])){
       $controller =$_REQUEST['controller'];
     
 }else{
-     if(@$_SESSION['type']==1)  $controller ="corporatecontroller";
-     else $controller ='Controller';  //default controller
+     if(@$_SESSION['type']==1)  {
+     	$controller ="corporatecontroller";
+     }
+     else {
+     	$controller ='Controller';  //default controller
+     }
 }
 
 if(isset($_REQUEST['url']) && !empty($_REQUEST['url'])) {
-      $function =$_REQUEST['url'];     
+	$function =$_REQUEST['url'];
+	//friendly redirection
+      $url=explode("/", @$_REQUEST['url']);
+      if(count($url)>1) {
+      		$controller=$url[0];
+      		$function =$url[1];
+      }
+      
 }
 else {
     $function ='home'; //default method to be called or the first method
 }
 
 if($function!="register" && (@$_SESSION['id']=="" || !isset($_SESSION['id']))) {
-   if(!isset($arrData)) $function="buzzin";   //method if user is not login
+   if(!isset($arrData)) { //arrData used for display message on login(Server Side)
+   	$function="buzzin";   //method if user is not login
+   }
 }
 
 $controller=strtolower($controller);

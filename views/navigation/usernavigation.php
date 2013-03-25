@@ -9,21 +9,21 @@
 	<div id=usermenu>	
 	<ul>
 		<li id="umenu">
-			<a href="index.php?controller=profile">Social Profile</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=profile"; ?>">Social Profile</a>
 		</li>
 		<li id="umenu">
-			<a href="index.php?controller=proprofile">Profesional Profile</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=proprofile"; ?>">Profesional Profile</a>
 		</li>
 		<li id="umenu">
-			<a href="index.php?controller=friends">Friends</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=friends"; ?>">Friends</a>
 		</li>
 		<li id="umenu">
-			<a href="index.php?controller=photos">Photos</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=photos"; ?>">Photos</a>
 		</li>
 		<li id="umenu">
-			<a href="index.php?url=showfriend">SHOW Friend</a> 	
+			<a href="<?php echo ROOTPATH."index.php?url=showfriend"; ?>">SHOW Friend</a> 	
 		<li id="umenu">
-			<a href="search">Search</a></li>
+			<a href="<?php echo ROOTPATH."user/searchjob"; ?>">Search Job</a></li>
 		</ul>
 		<!-- APPLICATION STATUS -->
 		<!-- NOTIFICATION STATUS -->

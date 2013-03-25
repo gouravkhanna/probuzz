@@ -88,7 +88,7 @@
 
 
 <?php
-
+/* For Displaying the result of the search	*/
 echo "<div id=dvresbig >";
 if (! empty ( $arrData )) {
 	

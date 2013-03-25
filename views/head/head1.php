@@ -5,10 +5,12 @@
 <title>ProBuzZ</title>
 <link href="<?php echo ROOTPATH."style/style.css"; ?>" rel="stylesheet" type="text/css">
 <link href="style/style.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="js/jqueryui/css/ui-lightness/jquery-ui-1.10.1.custom.css">
-<script src="js/jquery-1.9.1.min.js"> </script>
-<script src="js/jqueryui/js/jquery-ui-1.10.1.custom.js"></script>
-<script src="js/probuzz.js"></script>
+<link rel="stylesheet" type="text/css" 
+href="<?php echo ROOTPATH."js/jqueryui/css/ui-lightness/jquery-ui-1.10.1.custom.css"; ?>">
+<script src="<?php echo ROOTPATH."js/jquery-1.9.1.min.js"; ?>"> </script>
+<script src="<?php echo ROOTPATH."js/jqueryui/js/jquery-ui-1.10.1.custom.js"; ?>"></script>
+<script src="<?php echo ROOTPATH."js/probuzz.js"; ?>"></script>
+
 <link rel="stylesheet" type="text/css" href="style/proProfile.css" />
 <script type="text/javascript" src="js/proProfile.js"></script>
 

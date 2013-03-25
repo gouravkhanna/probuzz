@@ -252,7 +252,45 @@ class users
 
 		
 	}
-	
+	/* For search people */
+	function showSearchJobs($arrArgs=array()) {
+		if(!empty($arrArgs)) {
+			$ob=new DbConnection();
+			$sql="SELECT j.id as jobid,j.designation, DATE_FORMAT(j.start_date, ";
+			$sql.="'%M %D, %Y'".") as startdate,DATE_FORMAT(j.last_date, '%M %D, %Y') as lastdate ";
+			$sql.=",j.location, j.experience, c.company_name ";
+			$sql.=" from jobs j JOIN corporate_profile c 
+				on 
+					c.user_id=j.corp_id
+				where
+					j.status='1' ";
+			$cond=" AND (salary>='".$arrArgs['minsal']."' AND salary<='".$arrArgs['maxsal']."') ";
+			$cond.= " AND (designation like '%".$arrArgs['designation']."%' ";
+			$cond.=" ";
+			echo $sql;
+			/* foreach($arrArgs as $key=>$val ) {
+				if(is_array($val)) {
+					//foreach($val)
+				}
+				else {
+					
+				}
+			
+				
+			} */
+			$res=$ob->executeSQL($sql);
+			if($res) {
+				while($row[]=mysql_fetch_array($res)) { }
+				return $row;
+			}
+			else {
+				return "1112121";
+			}
+			
+				
+			
+		}
+	}
 	
 	// Function for server side validation
 	function validate($arrData=array())

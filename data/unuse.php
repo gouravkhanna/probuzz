@@ -14,3 +14,29 @@
 		</div>
 		
 		<style>
+
+<script type="text/javascript">
+	
+	//updateStatusJobAjax();
+	//prejob.php
+/*	function updateStatusJobAjax(status,jobId)
+	{
+		$.ajax({ 
+     	 type: "GET",
+      	 url: 'index.php',                  //the script to call to get data          
+      	 data:'controller=corporatecontroller&url=updateStatusJob&status='+status+'&jobId='+jobId,
+    	//data: $('#frmVote').serialize(),
+     
+     beforeSend: function() {
+      	  
+        },
+        success: function(data){ 
+       	     //$("#showAllSlot").append(data);
+       	     $("#showAllSlot").load("index.php","url=showAllJobs");	
+       	    return false;
+       },
+
+      
+    });
+	} */
+</script>

@@ -49,13 +49,13 @@ $(document).ready(function(e) {
 	});
 	/* Top Jobs Dynamic Loading */
 	//$("#rightpanel2").load("index.php","url=topjobs");
-	
+	/* Search People*/
 	$("#searchoptbar").click(function(e){
 		n=e.target.id;
 		n1=n.split("lx");
 		//alert(n1[1]);
 		$("#spd"+n1[1]).slideToggle();
-		changeIt(1);
+		
 	});
 	$("#showoption").click(function(){
 		$("#searchoptbar").slideToggle(function(){
@@ -69,6 +69,7 @@ $(document).ready(function(e) {
 		
 	});
 	$("#searchpeopleform").submit(function(){ $("#searchoptbar").slideUp(); });
+	/*textbox show on chekboz click (NOT DONE)*/
 	$("#searchoptbar input[type=checkbox]").click(function(e){
 		n=e.target.id;
 		//n1=n.split("ls");
@@ -80,6 +81,8 @@ $(document).ready(function(e) {
 		}
 	});	
 	
+	
+	/* JOBS>php*/
 	$("#updateJobDiv input").focus(function(e) {
 		n=e.target.id;
 		n1="#dv"+n;
@@ -95,10 +98,26 @@ $(document).ready(function(e) {
 	});
 	
 	
-	
-	
-	
-	
+	/*SEarch JOb php*/ 
+	$("#formsearchjob").submit(function(e){
+		
+
+			$.ajax({
+		        url:'index.php', //window.location.pathname,
+		        type: 'GET',
+		        data: $(this).serialize()+'&url=showSearchJobs&controller=user',
+		        	beforeSend:function(data){
+		        		$("#jobsearchres").html("<img src='/data/photo/load3.gif' alt='loading' >");		    
+					},
+		        	success:function(data) {
+		        		$("#jobsearchres").html(data+"qqqqqqqqqqqq");
+						alert("SDSD");
+		        	},
+			});
+		});
+	/*Loading 	table on createjobs */
+	$("#showAllSlot").load("index.php","url=showAllJobs");
+
 	
 //loadPreJob();
 	//
@@ -135,11 +154,18 @@ $.ajax({
 });*/
 
 /* FOR UPDATING STATUS i.e active to inactive and inactive to active  */
-function updateStatusJob(status,jobId) {
+	function updateStatusJob(status,jobId) {
+	var x="#buttonstatus"+jobId;
+		$(x).html("<img src='data/photo/load5.gif' height=30 width=100>");
+		$("#smsg").load("index.php","controller=corporatecontroller&url=updateStatusJob&status="+status+"&jobId="+jobId).fadeIn("fast").fadeOut(5000).delay(1000);	
+		$("#showAllSlot").delay(1000).load("index.php","url=showAllJobs");
+		  
+	}	
+/*function updateStatusJob(status,jobId) {
 	$("#smsg").load("index.php","controller=corporatecontroller&url=updateStatusJob&status="+status+"&jobId="+jobId,function(){
 		$("#showAllSlot").load("index.php","url=showAllJobs");
 		});	
-	}
+	}*/
 /* For Show JOb from topJobs notifications */
 function fnLoadJobUser(a) {
 		//$("#showspecficjob").show();

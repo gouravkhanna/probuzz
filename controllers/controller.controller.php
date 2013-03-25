@@ -72,7 +72,9 @@ class Controller
 
 	function __call($key,$index)
 	{
-		$this->error($key,$index);
+		echo "call;";
+		$url=explode("/", @$_REQUEST['url']);
+		//$this->error($key,$index);
 	}
 	function home()
 	{
