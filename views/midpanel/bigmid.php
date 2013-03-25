@@ -34,7 +34,7 @@ Home
  <div id="edit_i" name="edit_i" >
      <div id="editihead" > My Faourites <span id="close1"> X</span></div>
    
-   <form method="get" action="#">
+      <form method="get" action="#">
   
     <span>Favourite Books  <textarea rows="2" cols="25"> </textarea></span> 
     <span>Favourite Movies <textarea rows="2" cols="25"> </textarea> <span>
@@ -46,7 +46,34 @@ Home
  </div>
  
  
- 
+ <div id="edit_w" name="edit_w" >
+     <div id="editwhead" > Add Work <span id="close2"> X</span></div>
+   
+      <form method="get" action="#">
+    Company Name <input type="text" id="companyName" name="companyName"> <br>
+    start Date                                                           <br>
+    End Date                                                              <br>
+    Position <input type="text" id="positon" name="position"> 
+  
+     <input type="submit" id="subInfo" name="subInfo" value="Save Me" />
+   </form>
+
+ </div>
+
+
+<div id="edit_e" name="edit_e" >
+     <div id="editehead" > Add Education <span id="close3"> X</span></div>
+   
+      <form method="get" action="#">
+  
+   
+   
+   <input type="submit" id="subInfo" name="subInfo" value="Save Me" />
+   </form>
+
+ </div>
+
+
  
  <!--    edit personal information ends here-->
  
@@ -57,7 +84,17 @@ Home
    About Me
    <div id="details" >
 
-   <div id="" > <?PHP  echo $arrData['personal']['first_name']." ".$arrData['personal']['last_name'] . " ".$arrData['personal']['relationship_status'] ;    ?> </div>
+   <div id="" > <?PHP  echo $arrData['personal']['first_name']." "
+                            .$arrData['personal']['last_name'];
+
+                       echo " &nbsp; Lives in &nbsp". $arrData['address']['city'];
+                       echo "<br>  Attented &nbsp ". $arrData['education']['institute'];
+
+
+
+                ?>
+
+   </div>
    </div>
    </div>
    
@@ -66,31 +103,51 @@ Home
   <div id="education" name="education" class="e ">
  
    Education
+      
+      <?PHP
+      if($arrData['education']['institute']==NULL)
+      {
+
+          echo "<br> <br>Add Education";
+
+      }
+      else
+      {
+      echo "<br>Studied At <br>";
+      echo "<br>". $arrData['education']['institute'];
+      echo ",". $arrData['education']['university'];
+   }
+
+
+       ?>
+
+
     <a href="#" id="edite" name="edite"> Edit </a>
   </div>
   
   
   <div id="work" name="work" class="w">
   
-   Work
+    <span>  Work  </span>
    <div>
     <?PHP 
-	// print_r($arrData['address']);
-	echo "Company ".$arrData['address']['house_number'] ;
-	echo "Company ".$arrData['address']['house_name'] ;
+     echo "<br>Currently Working At <br>";
+	   echo $arrData['experience']['company_Name'] ;
+     echo "<br><br> Position <br>";   
+	    echo $arrData['experience']['position'] ;
 	
 	?>
-     
-   
+     <br>
+    <a href="#" id="editw" name="editw"> Edit </a>
     </div>
   
   </div>
   
 <div id="basicInfo" name="basicInfo" class="b">
 
-          What i am...
+             Basic Information
           <div>
-          <?PHP  echo "Gender ".$arrData['personal']['gender'] ;  
+          <?PHP  echo "<br>Gender".$arrData['personal']['gender'] ;  
 		         echo "<br>Birthday ".$arrData['personal']['DOB'] ;  
 				 echo "<br>Relationship Status ".$arrData['personal']['relationship_status'] ;  
 		         echo "<br>Intrested In ".$arrData['personal']['intersted_in'] ;  
@@ -104,9 +161,20 @@ Home
   </div>
     
    <div id="contactInfo" name="contactInfo" class="c">
-   My Contact Info 
-    
-  
+       My Contact Info 
+      
+      <?PHP 
+        echo "<br> Lives in </br><br>";
+        echo $arrData['address']['house_number'];
+       echo ",". $arrData['address']['street_name'];
+        echo "". $arrData['address']['district'];
+        echo "<br>". $arrData['address']['city'];
+        echo " ,".$arrData['address']['country'];
+
+
+
+    ?>
+  <br>
      <a href="#" id="editc" name="editc"> Edit </a>
   </div> 
   
@@ -176,6 +244,21 @@ $("#edit_i").show();
 }
 );
 
+$("#editw").click(function()
+{
+$("#2").fadeTo("fast",0.1);
+$("#edit_w").show();
+
+}
+);
+$("#edite").click(function()
+{
+$("#2").fadeTo("fast",0.1);
+$("#edit_e").show();
+
+}
+);
+
 $("#close").click(function()
 {
 $("#edit_contact").hide();
@@ -195,6 +278,25 @@ $("#2").css("opacity","5");
 }
 );
 
+$("#close2").click(function()
+{
+
+$("#edit_w").hide();
+$("#2").css("opacity","5");
+
+
+}
+);
+
+$("#close3").click(function()
+{
+
+$("#edit_e").hide();
+$("#2").css("opacity","5");
+
+
+}
+);
 /////////////////
 
 
