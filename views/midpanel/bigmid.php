@@ -1,5 +1,3 @@
-
-
 <div id="bigmid">
 <br /> <br /> <br /> <br /> <br /> <br /> 
 
@@ -11,17 +9,22 @@ Home
 <div id="edit_contact" name="edit_contact" >
      <div id="editchead" >Contact Information <span id="close"> X</span></div>
    
-   <form method="get" action="#">
+   <form method="get" action="">
    <ul>
    
-  <li>  House No : <input type="text" id="ehno" name="ehno" value=""  /></li>
- <li>  Street No : <input type="text" id="estreetNo" name="estreetNo" value=""  /></li>
-   <li>Street Name:<input type="text" id="estreetName" name="estreetName" value=""  /></li>
-   <li>City  <input type="text" id="ecity" name="ecity" value=""  /></li>
-   <li>State  <input type="text" id="estate" name="estate" value=""  /></li>
-   <li>Country <input type="text" id="ecountry" name="ecountry" value=""  /></li>
-   <li>PinCode <input type="text" id="epincode" name="epincode" value=""  /></li>
-   </ul>
+  <li>  House No : <input type="text" id="ehno" name="ehno"
+     value= <?PHP echo $arrData['address']['house_number']  ?>  /></li>
+ <li>  Street No : <input type="text" id="estreetNo"
+  name="estreetNo" value= <?PHP echo $arrData['address']['street_number']  ?> /></li>
+   <li>Street Name:<input type="text" id="estreetName"
+    name="estreetName" value=<?PHP echo $arrData['address']['street_name']  ?>  /></li>
+   <li>City  <input type="text" id="ecity"
+    name="ecity" value=<?PHP echo $arrData['address']['city']  ?>  /></li>
+   <li>State  <input type="text" id="estate" name="estate"
+    value=<?PHP echo $arrData['address']['state']  ?>  /></li>
+   <li>Country <input type="text" id="ecountry" name="ecountry" 
+    value= <?PHP echo $arrData['address']['country']  ?>  /></li>
+   
    <input type="submit" id="subCon" name="subCon" value="Save Me" />
    </form>
 

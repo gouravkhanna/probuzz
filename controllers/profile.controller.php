@@ -1,5 +1,6 @@
 <?php
 include 'controller.controller.php';
+
 class profile extends Controller
 {
 	function __construct() 	{
@@ -16,6 +17,9 @@ class profile extends Controller
 	  loadView('midpanel/bigmid.php',$arrData);
 	  loadView('footer/footer.php');
 	
+
+
+
 	/*
 		loadView('head/head1.php');
 	
@@ -26,6 +30,27 @@ class profile extends Controller
   	loadView('footer/footer.php');*/
 		
 	}		
+
+
+	function editCon(){
+   echo '<script> alert("sssd"); </script>';
+      $arrArgs=array(
+		'houseNumber'=>@$_GET["ehno"],
+		'street_number'=>@$_GET["estreetNo"],
+		'street_name'=>@$_GET["estreetName"],
+		'city'=>@$_GET["ecity"],
+		'state'=>@$_GET["estate"],
+		'country'=>@$_GET["ecountry"],
+	);
+       $arrData=loadModel("personalprofile ","updateCon",$arrArgs);
+        loadView('midpanel/bigmid.php',$arrData);
+
+
+
+
+
+	}
+
 }
 
 ?>

@@ -43,11 +43,52 @@ function loadProfile($arrArgs=array()) {
 			  'education'=>$row3,
 	);
 	
-	//print_r($arrData);
+	
 		return $arrData;
 }
 
+function updateCon($arrArgs=array()){
+	$ob=new DbConnection();
 
+ $id=$_SESSION['id'];
+ $house_number=$arrArgs['house_number'];
+ $street_number=$arrArgs['street_number'];
+ $street_name=$arrArgs['street_name'];
+ $city=$arrArgs['city'];
+ $state=$arrArgs['state'];
+ $country=$arrArgs['country'];
+  if($_GET['subCon']){
+
+   $sql = "UPDATE probuzz.address SET
+           house_number='$house_number', 
+           street_number = '$street_number',
+           street_name='$street_name',
+           state='$state',
+           city='$city',
+           country='$country'
+           WHERE user_id='$id'";
+    if( $ob->executeSQL($sql)){
+    	echo "updated sucessfully";
+    	return true;
+    }
+    else{
+
+
+    	echo "some problem is occured please contact gourav";
+    	return  false;
+    }
+
+
+
+
+
+
+  }
+
+
+
+
+}
 
 }
 
