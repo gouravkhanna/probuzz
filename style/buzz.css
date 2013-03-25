@@ -1,0 +1,51 @@
+.uparrowdiv, .downarrowdiv, .leftarrowdiv, .rightarrowdiv{
+width:auto;
+min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
+background:white;
+color:black;
+padding:5px;
+position:relative;
+word-wrap:break-word;
+-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+-webkit-border-radius:5px;
+border-style: groove;
+border-width: 1px;
+border-color:red;
+border-radius:5px;
+margin-top: 10px;
+margin-bottom:2em;
+}
+
+.uparrowdiv:after{ /*arrow added to uparrowdiv DIV*/
+content:'';
+display:block;
+position:absolute;
+top:-20px; /*should be set to -border-width x 2 */
+left:30px;
+width:0;
+height:0;
+border-color: transparent transparent red transparent; /*border color should be same as div div background color*/
+border-style: solid;
+border-width: 10px;
+
+}
+textarea{
+background-color: transparent;
+border:0;
+border-color: #fff;	
+outline: 0;
+-webkit-box-sizing: border-box;
+
+}
+#subuzz{
+background-color: #0029A3;
+color: #fff;
+height: 25px;
+width: auto;
+border:0;
+border-radius: 4px;
+margin-left: 37em;
+display: none;
+
+
+}
