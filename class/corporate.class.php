@@ -97,7 +97,7 @@ $sql = "select
     	if(!empty($arrArg['city'])) {
     		 foreach($arrArg['city'] as $val) {
     			if($val!="") {
-       				$cond.=" a.city='$val' OR";
+       				$cond.=" a.city='$val' OR ";
     			}
        		}
        		$cond=rtrim($cond,"OR");
@@ -107,7 +107,7 @@ $sql = "select
     	//Based On gender
     	 $val=$arrArg['gender'];
     		if($val!="" && $val!="Both" ) {
-       				$cond.=" p.gender='$val' OR";
+       				$cond.=" p.gender='$val' OR ";
        			  	$cond=rtrim($cond,"OR");
        			  	$cond.=") AND (";
     		}
