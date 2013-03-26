@@ -159,7 +159,7 @@ background-color: #FFFFFe;
 	height: auto;
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
-	overflow: hidden;
+	
 }
 
 #rightpanel {
@@ -202,6 +202,7 @@ background-color: #FFFFFe;
 }
 
 #footer {
+	position:inherit;
 	text-align: center;
 	background-size: 100%;
 	padding: 15px;
@@ -212,12 +213,6 @@ background-color: #FFFFFe;
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
 	background-image: url(../data/rcs/g.svg);
-}
-
-#buzz {
-	background-color: #579BBA;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
 }
 
 h1 {
