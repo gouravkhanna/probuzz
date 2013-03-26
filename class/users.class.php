@@ -267,29 +267,60 @@ class users
 			$cond=" AND (salary>='".$arrArgs['minsal']."' AND salary<='".$arrArgs['maxsal']."') ";
 			$cond.= " AND (designation like '%".$arrArgs['designation']."%' ";
 			$cond.=" ";
-			echo $sql;
-			/* foreach($arrArgs as $key=>$val ) {
-				if(is_array($val)) {
-					//foreach($val)
-				}
-				else {
-					
-				}
-			
-				
-			} */
+			//echo $sql;
 			$res=$ob->executeSQL($sql);
 			if($res) {
-				while($row[]=mysql_fetch_array($res)) { }
+				while($row[]=mysql_fetch_array($res)) { 
+				}
 				return $row;
 			}
 			else {
-				return "1112121";
+				return "Can't Fetch Friend Right Now! Please Try Again! ";
 			}
 			
 				
 			
 		}
+	}
+	/*to check whether user applied for hob or not*/
+	function getJobAppStatus($arrArgs=array()) {
+		if(!empty($arrArgs)) {
+			$id=$arrArgs['id'];
+			$jobId=base64_decode($arrArgs['jobId']);
+			$sql="select id from job_applicant where status='1' AND user_id='$id' AND job_id='$jobId'";
+			$ob=new DbConnection();
+			$result=$ob->executeSQL($sql);
+			if($result) {
+				$row=mysql_fetch_array($result);
+				if(!empty($row)) { //if applcant is registred
+					return true;
+				}
+				else { //if applicant is not registered					
+					return false;
+				}
+				
+			} else {
+				//if there is error in query 
+				echo "oops Error PLease Try Again Later";
+				return false;
+			}
+		}
+	}
+	/* Apply for job  */
+	function applyJob($arrArgs=array()) {
+		if(!empty($arrArgs)) {
+			$id=$arrArgs['id'];
+			$jobId=base64_decode($arrArgs['jobId']);
+			$sql="Insert into probuzz.job_applicant values('','$id','$jobId','1',now(),'','')";
+			$ob=new DbConnection();
+			$result=$ob->executeSQL($sql);
+			if($result) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}		
 	}
 	
 	// Function for server side validation

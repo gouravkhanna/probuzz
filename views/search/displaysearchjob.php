@@ -1,25 +1,27 @@
 <?php
-echo "<pre> sssssssssssss";
-print_r($arrData);
-/*
-echo "<div id=dvresbig >";
+echo "<pre>oyoy";
+//print_r($arrData);
+
+echo "<div id='sjresdata'>";
 if (! empty ( $arrData )) {
-	echo "<table id='' ><tr><th>DESIGNATION</th><th>LOCATION</th><th>POSTED BY</th><th>START DATE</th><th>END DATE</th></tr>";
+	echo "<div id='sjresulttable' ><div id='sjresultrow'><div id='sjresultcol'>DESIGNATION</div><div id='sjresultcol'>LOCATION</div><div id='sjresultcol'>POSTED BY</div><div id='sjresultcol'>START DATE</div><div id='sjresultcol'>END DATE</div></div>";
 	foreach ( $arrData as $key => $val ) {
-		if ($val ['id'] != "") {
-			$res = " <tr id=''> ";
-				//<a href='" . $val ['jobid'] . "' >";
-			$res .= "<td>'".$val['designation']."'</td> ";
-			$res .= "<td>'".$val['location']."'</td> ";
-			$res .= "<td>'".$val['company_name']."'</td> ";
-			$res .= "<td>'".$val['startdate']."'</td> ";
-			$res .= "<td>$arrData['lastdate']</td> ";
-			$res .= "</tr>";
-			//$res .= "<img class='imgcenter floatl round5' src=" . ROOTPATH . $val ['path'] . " height=50 width=50 >";
-			//$res .= "</a>";
+		if ($val ['jobid'] != "") {
+			$res = " <div id='sjresultrow' class=floatl> ";
+			$res .="<button onclick=fnLoadJobSearch('" . base64_encode($val ['jobid']) . "') >";
+			$res .= "<div id='sjresultcol' >".$val['designation']."</div> ";
+			$res .= "<div id='sjresultcol' >".$val['location']."</div> ";
+			$res .= "<div id='sjresultcol' >".$val['company_name']."</div> ";
+			$res .= "<div id='sjresultcol' >".$val['startdate']."</div> ";
+			$res .= "<div id='sjresultcol' >".$val['lastdate']."</div> ";
+			$res .= "</button>";
+			$res .= "</div>";
+			
 			echo $res;
 		}
 	}
+	echo "</div>";
 }
-echo "</div>"; */
+
+echo "</div>"; 
 ?>

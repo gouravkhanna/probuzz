@@ -144,16 +144,12 @@ COMAPANY
 <input type="text" name="sjcompany" id="sjcompany" >
 </div>
 <input type="submit" name="search" id="sjsubmit" value="search">
-</form>aaaaaaaaaaaaaaaaaaaaaaaaa
-<?php
-print_r(PDO::getAvailableDrivers());
-?>
+</form>
 </div>
 
-<div id="jobsearchres">aa</div>
+<div id="sjsearchres"></div>
+<button id='sjbackbutton'>Back</button> 
 
+<div id="sjappstatus"></div>
+<div id="sjjob"></div>
 </div>
-
-sjdesignation
-sjminsal
-sjmaxsal

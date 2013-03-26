@@ -99,6 +99,7 @@ $(document).ready(function(e) {
 	
 	
 	/*SEarch JOb php*/ 
+	$("#sjbackbutton").hide();
 	$("#formsearchjob").submit(function(e){
 		
 
@@ -107,17 +108,25 @@ $(document).ready(function(e) {
 		        type: 'GET',
 		        data: $(this).serialize()+'&url=showSearchJobs&controller=user',
 		        	beforeSend:function(data){
-		        		$("#jobsearchres").html("<img src='/data/photo/load3.gif' alt='loading' >");		    
+		        		$("#sjsearchres").html("<img src='/data/photo/load3.gif' alt='loading' >");		    
 					},
 		        	success:function(data) {
-		        		$("#jobsearchres").html(data+"qqqqqqqqqqqq");
-						alert("SDSD");
+		        			$("#sjsearchres").html(data).fadeIn("fast");
+						
 		        	},
 			});
 		});
+	$("#sjbackbutton").click(function() {
+		$("#sjsearchres").show();
+		$("#sjjob").hide();
+		$("#sjbackbutton").hide();
+		$("#sjappstatus").hide();
+		
+	});
+	
 	/*Loading 	table on createjobs */
 	$("#showAllSlot").load("index.php","url=showAllJobs");
-
+	
 	
 //loadPreJob();
 	//
@@ -166,6 +175,25 @@ $.ajax({
 		$("#showAllSlot").load("index.php","url=showAllJobs");
 		});	
 	}*/
+	
+/* For Show JObs from  search for user $ searchjob.php*/
+	function fnLoadJobSearch(a) {
+		//check the status of the job and show button or message accordingly
+		$("#sjappstatus").show();
+		$("#sjappstatus").load("index.php","controller=user&url=loadAppStatus&jobId="+a);
+		//load the details of the job the divison
+		$("#sjjob").show();
+		$("#sjjob").load("index.php","controller=corporatecontroller&url=showSpecficJob&jobId="+a+"&request_type=user");
+		$("#sjsearchres").hide();
+		$("#sjbackbutton").show();
+		
+	}
+	/* Called when user Apply forparticular job */
+	function fncapplyJob(a) {
+		
+		$("#sjappstatus").load("index.php","controller=user&url=applyJob&jobId="+a);
+	}
+
 /* For Show JOb from topJobs notifications */
 function fnLoadJobUser(a) {
 		//$("#showspecficjob").show();
