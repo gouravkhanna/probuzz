@@ -8,7 +8,7 @@ if (! empty ( $arrData )) {
 	foreach ( $arrData as $key => $val ) {
 		if ($val ['jobid'] != "") {
 			$res = " <div id='sjresultrow' class=floatl> ";
-			$res .="<button onclick=fnLoadJobSearch('" . base64_encode($val ['jobid']) . "') >";
+			$res .="<button onclick=fnLoadJobSearch('" . $val ['jobid'] . "') >";
 			$res .= "<div id='sjresultcol' >".$val['designation']."</div> ";
 			$res .= "<div id='sjresultcol' >".$val['location']."</div> ";
 			$res .= "<div id='sjresultcol' >".$val['company_name']."</div> ";

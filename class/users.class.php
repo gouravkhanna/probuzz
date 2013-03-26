@@ -286,7 +286,7 @@ class users
 	function getJobAppStatus($arrArgs=array()) {
 		if(!empty($arrArgs)) {
 			$id=$arrArgs['id'];
-			$jobId=base64_decode($arrArgs['jobId']);
+			$jobId=$arrArgs['jobId'];
 			$sql="select id from job_applicant where status='1' AND user_id='$id' AND job_id='$jobId'";
 			$ob=new DbConnection();
 			$result=$ob->executeSQL($sql);
@@ -310,7 +310,7 @@ class users
 	function applyJob($arrArgs=array()) {
 		if(!empty($arrArgs)) {
 			$id=$arrArgs['id'];
-			$jobId=base64_decode($arrArgs['jobId']);
+			$jobId=$arrArgs['jobId'];
 			$sql="Insert into probuzz.job_applicant values('','$id','$jobId','1',now(),'','')";
 			$ob=new DbConnection();
 			$result=$ob->executeSQL($sql);

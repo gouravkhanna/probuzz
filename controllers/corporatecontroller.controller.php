@@ -118,7 +118,7 @@ function showSpecficJob() {
 	
 	$arrArgs=array(
 			'id'=>@$_SESSION['id'],
-			'jobId'=>@base64_decode($_REQUEST['jobId']),
+			'jobId'=>$_REQUEST['jobId'],
 			'requestType'=>"$requestType",
 	);
 	$arrData1=loadModel("corporate","showSlot",$arrArgs);

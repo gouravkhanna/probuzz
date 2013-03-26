@@ -206,6 +206,7 @@ function fnLoadJobUser(a) {
 /* For Show JOb tab */
 function fnLoadJob(a) {
 		//$("#showspecficjob").show();
+	alert(a);
 	$("#showspecficjob").load("index.php","controller=corporatecontroller&url=showSpecficJob&jobId="+a);
 	$("#showslot").hide();
 	$("#backjob").show();
