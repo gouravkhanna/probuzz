@@ -78,7 +78,10 @@ class Controller
 	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 	  loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
 	  $this->view->loadView('head/head2.php');
-	  $this->view->loadView('midpanel/midpanel.php');
+	  $arrData=loadModel("buzzin","loadBuzz",array('id'=>$_SESSION['id']));
+	  $this->view->loadView('midpanel/midpanel.php',$arrData);
+	  $arrData=loadModel("buzzin","friendBuzz",array('id'=>$_SESSION['id']));
+	  $this->view->loadView('midpanel/midpanel.php',$arrData);
 	  $this->view->loadView('rightpanel/rightpanel1.php');
 	 // $this->view->loadView('rightpanel/topjobs.php');
 	  $this->topjobs();
