@@ -224,34 +224,7 @@ class users
 			return $result;
 		}
 	}
-	function showfriend($arrArg=array()) {
-		$ob=new DbConnection();
-		$sql="select f.friend_id as id,p.first_name,p.last_name from friend f JOIN personal_profile p ";
-		$sql.=" on f.friend_id=p.user_id ";
-		$sql.=" where f.user_id='".$arrArg['id']."' AND f.friendship_status='1'";
-		$rr=array();
-		$res=$ob->executeSQL($sql);
-		while($row=mysql_fetch_array($res)) {
-			$path=$this->getProfilePic($row['id']);
-			
-			$rr=array(
-					"id"=>$row['id'],
-					"first_name"=>$row['first_name'],
-					"last_name"=>$row['last_name'],
-					"path"=>"$path",
-					);
-		}
-		//print_r($rr);
-		echo "<pre>";
-		if(!empty($rr)) {
-			return $rr;
-		}
-		else {
-			return false;
-		}
 
-		
-	}
 	/* For search people */
 	function showSearchJobs($arrArgs=array()) {
 		if(!empty($arrArgs)) {

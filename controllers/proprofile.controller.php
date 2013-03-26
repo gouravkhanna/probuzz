@@ -13,8 +13,13 @@ class proprofile extends Controller
 	  	$path=ROOTPATH.'data/photo/g.jpg';
 	  	loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
 	  	//loadView('head/head2.php');
-		$arr=loadModel("professionalprofile","constructFields");
-	  	$arrArg=loadModel("professionalprofile","retrieveData",$arr);
+		//$arr=loadModel("professionalprofile","constructFields");
+		if($_REQUEST['id']) {
+			$id=$_REQUEST['id'];
+		} else {
+			$id=$_SESSION['id'];
+		}
+	  	$arrArg=loadModel("professionalprofile","retrieveData",$id);
 		$this->view->loadView('showproprofile.php',$arrArg);
 	  	loadView('footer/footer.php');
 	}

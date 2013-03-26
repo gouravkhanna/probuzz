@@ -129,13 +129,7 @@ class Controller
 		$arrArgs=loadModel("users","topjobs");
 		$this->view->loadView("rightpanel/topjobs.php",$arrArgs);
 	}
-	function showfriend() {
-		loadView('head/head1.php');
-		$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
-		loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
-		$arrData=loadModel("users","showfriend",array("id"=>@$_SESSION['id']));
-		loadView("showfriend.php",$arrData);	
-	}
+	
 	
 	/*function displayAddress()
 	{

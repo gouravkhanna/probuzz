@@ -51,16 +51,17 @@
             
             return $result;
         }
-        public function retrieveData($table=array()) {
+        public function retrieveData($id=array()) {
             $result;
+            $table=$this->constructFields();
             foreach($table as $tableKey =>$fieldsKey) {
                 $query="select ";
                 $fields="";
                 foreach($fieldsKey as $key) {
-                    $fields.="$key ,";    
+                    $fields.="$key ,";
                 }
                 $fields=rtrim($fields,",");
-                $query.="$fields from $tableKey where user_id =".$_SESSION['id']." ;";
+                $query.="$fields from $tableKey where user_id =".$id." ;";
                 $this->dbInstance=new DbConnection();
                 $temp=$this->dbInstance->executeSQL($query);
                 if($tableKey=="qualification" || $tableKey=="resume") {
