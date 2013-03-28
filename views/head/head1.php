@@ -14,33 +14,14 @@ href="<?php echo ROOTPATH."js/jqueryui/css/ui-lightness/jquery-ui-1.10.1.custom.
 <link rel="stylesheet" type="text/css" href="style/proProfile.css" />
 <script type="text/javascript" src="js/proProfile.js"></script>
 
-
-<link rel="stylesheet" href="js/fancybox/source/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
-<script type="text/javascript" src="js/fancybox/source/jquery.fancybox.pack.js?v=2.1.4"></script>
-
-
-
 <script>
-
 	$(function() {
 		$( "#accordion" ).accordion();
-		$(".various").fancybox({
-				maxWidth	: 420,
-				maxHeight	: 900,
-				fitToView	: false,
-				width		: '70%',
-				height		: '70%',
-				autoSize	: false,
-				closeClick	: false,
-				openEffect	: 'none',
-				closeEffect	: 'none'				
-			});
-		$(".fancybox").fancybox();
 	});
 	
 </script>
-</head>
 
+</head>
 <body>
 
 <div id="container">

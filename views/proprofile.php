@@ -1,13 +1,6 @@
 <div class="fancybox">
 	<div class="box">
-	<form action="jasd">
 
-		USERNAME<input type ="text"><br>
-		PASSWORD<input type ="text"><br>
-		<input type="submit">
-		<a  id="close"><img	src="close.png"></a>
-	
-	</form>
 	</div>
 </div>
 
@@ -68,6 +61,7 @@
    
         </div>
         <h3><?php echo QUALIFICATIONS; ?></h3>
+        
         <div id="displayQual" class="wide">
          
         

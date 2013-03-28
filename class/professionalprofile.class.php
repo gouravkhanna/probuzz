@@ -5,7 +5,7 @@
         public function __construct() {
         
         }
-        public function constructFields() {
+        private function constructFields() {
             $arr["professional_profile"] = array(
                 "career_objective",
                 "skills",
@@ -25,7 +25,8 @@
                 "end_year",
                 "percentage",
                 "subject_studied",
-                "added_date"
+                "added_date",
+                "field"
             );
             $arr["resume"] = array(
                 "resume_path",
@@ -63,7 +64,7 @@
                 $fields=rtrim($fields,",");
                 $query.="$fields from $tableKey where user_id =".$id." ;";
                 $this->dbInstance=new DbConnection();
-                $temp=$this->dbInstance->executeSQL($query) or die("<br/><br/><br/><br/><br/><br/><br/><br/><br/>nothidn");
+                $temp=$this->dbInstance->executeSQL($query) or die("<br/><br/><br/><br/><br/><br/><br/><br/><br/>nothing");
                 if($tableKey=="qualification" || $tableKey=="resume") {
                     $result[$tableKey]=array();
                     while($row=mysql_fetch_assoc($temp)) {
@@ -89,14 +90,11 @@
             }
             $columns.="user_id)";
             $values.="'".$_SESSION['id']."');";
-            //$columns=rtrim($columns,",");
-            //$values=rtrim($values,",");
             $query.=$columns.$values;
             echo $query ;
-           //$this->dbInstance=new DbConnection();
-            //$result=$this->dbInstance->executeSQL($query);
-            
-            //return $result;
+            $this->dbInstance=new DbConnection();
+            $result=$this->dbInstance->executeSQL($query);
+            return $result;
         }
         public function deleteQualification($rowId) {
             if($rowId) {
@@ -107,6 +105,21 @@
             } else {
                 return false;
             }
+        }
+        public function retrieveQual($rowId) {
+            $temp=$this->constructFields();
+            $fields=$temp['qualification'];
+            $query="select ";
+            foreach($fields as $key =>$value) {
+                //echo $value ."=>";
+                $query.=$value." ,";
+            }
+            $query=rtrim($query,",");
+            $query.="from qualification where id=".$rowId.";";
+            echo $query;
+            $this->dbInstance=new DbConnection();
+            $result=$this->dbInstance->executeSQL($query);
+            return $result;
         }
     }
 ?>

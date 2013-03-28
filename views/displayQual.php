@@ -1,6 +1,8 @@
         <div class="align">
-                <a class="b1">Add Qualification</a>
+                <input type="button" class="b1" value="Add Qualification" onclick="openFancyBox(-1)">
+                                
         </div>
+        <br/>
 <?php
 $qual=$arrData['qualification'];
             if(!$qual) {
@@ -15,10 +17,8 @@ $qual=$arrData['qualification'];
                 <div class="highlight" id="divhead<?php echo $value['id']; ?>">
                     <?php echo strtoupper($value['qualification_type']." : ".$value['class']);?>
                     <div class="deleteQual" id="<?php echo $value['id']; ?>">
-                       <a class="various fancybox.ajax" onclick="append(this)" href="" >
-                           <img title="Edit" src="<?php echo SITE_PATH.'data/rcs/'.'edit.gif'; ?>"/>
-                       </a>
-                        <img title="Delete" onclick="deleteQual(this)" src="<?php echo SITE_PATH.'data/rcs/'.'delete.gif'; ?>"/>
+                       <img title="Edit" onclick="openFancyBox(<?php echo $value['id']; ?>)" src="<?php echo SITE_PATH.'data/rcs/'.'edit.gif'; ?>"/>
+                       <img title="Delete" onclick="deleteQual(this)" src="<?php echo SITE_PATH.'data/rcs/'.'delete.gif'; ?>"/>
                     </div>
                 </div>
                 <div class="displayDetails" id="div<?php echo $value['id']; ?>">

@@ -1,71 +1,95 @@
-<script type="text/javascript" src="js/proProfile.js"></script>
-<b><form name="form4">
+<script>
+$(function() {
+    $( "#d" ).datepicker();
+});
+}
+</script>
+<b><form id="form4" class="qual">
 <?php
-	if(isset($_REQUEST['id'])) {
-		if($_REQUEST['id']) {
-?>
+	//echo "<pre>";
+	$flag=0;
+	if(isset($_REQUEST['rowId'])) {
+		if($_REQUEST['rowId']) {
+			$flag=1;
+			$rowId=$_REQUEST['rowId'];
+			$qual=mysql_fetch_assoc($arrData);
 			
-			//echo $_REQUEST['id'];
-<?php } else {
-			echo "Internal Error Occured..";
-		}	
-	} else {
-?>
-		<table>
-			<caption><?php echo strtoupper("Add New Qualification");?></caption>
-			<tr>
-			   <td><?php echo strtoupper("Class/Degree/Diploma :"); ?></td>
-			   <td><input type="text" name="class"/></td>
-			</tr></div>
-			<tr>
-				<td><?php echo strtoupper("Qualification Type :");?></td>
-				<td>
-					<select name="qualification_type">
-						<option ><?php echo strtoupper("Select");?></option>
-						<option><?php echo strtoupper("Under Graduation");?></option>
-						<option><?php echo strtoupper("Graduation");?></option>
-						<option><?php echo strtoupper("Post Graduation");?></option>
-						<option><?php echo strtoupper("Diploma");?></option>
-					</select>
-				</td>
-			</tr>
-			<tr>
-				<td><?php echo strtoupper("School/Institute :");?></td>
-				<td><input type="text" name="institute"/></td>
-			</tr>
-			<tr>
-				<td><?php echo strtoupper("Board/University :");?></td>
-				<td><input type="text" name ="university"/></td>
-			</tr>
-			<tr>
-				<td><?php echo strtoupper("Start Year :");?></td>
-				<td><input type="text" name="start_year"/></td>
-			</tr>
-			<tr>
-				<td><?php echo strtoupper("End Year :");?></td>
-				<td><input type="text" name="end_year"/></td>
-			</tr>
-			<tr>
-				<td><?php echo strtoupper("Percentage :");?></td>
-				<td><input type="text" name="percentage"/></td>
-			</tr>
-			<tr>
-				<td><?php echo strtoupper("Major Subjects :");?></td>
-				<td><textarea name="subject_studied" rows="3" cols="30"></textarea></td>
-			</tr>
-			<tr>
-				<td><?php echo strtoupper("Field :");?></td>
-				<td><input type="text" name="field"/></td>
-			</tr>
-			<tr>
-				<td class="proSubmit" colspan="2" >
-					<input type="button" value="<?php echo "SUBMIT";?>" onclick="insertQual('form4')" />
-				</td>
-			</tr>
-		</table>
-<?php
-		//echo "none";
+		}
+		//echo $rowId."<br/>";
+		print_r($qual);
 	}
 	
+	
 ?>
+	<table>
+		<caption>
+		<?php
+			if($flag) {
+				echo strtoupper("Update Qualification");
+			} else {
+				echo strtoupper("Add New Qualification");
+			}
+		?>
+		</caption>
+		<tr>
+		   <td><?php echo strtoupper("Class/Degree/Diploma :"); ?></td>
+		   <td><input type="text" name="class" value="<?php if($flag) { echo $qual['class'];} ?>"/></td>
+		</tr></div>
+		<tr>
+			<td><?php echo strtoupper("Qualification Type :");?></td>
+			<td>
+				<select name="qualification_type">
+					<option value="0" <?php if($flag && !$qual['qualification_type']) { echo "selected='selected' ";} ?> >
+					<?php echo strtoupper("Select");?></option>
+					<option value="Under Graduation" <?php if($flag && $qual['qualification_type']=="Under Graduation") { echo "selected='selected' ";} ?> >
+						<?php echo strtoupper("Under Graduation");?></option>
+					<option value="Graduation"  <?php if($flag && $qual['qualification_type']=="Graduation") { echo "selected='selected' ";} ?>>
+						<?php echo strtoupper("Graduation");?></option>
+					<option value="Post Graduation"  <?php if($flag && $qual['qualification_type']=="Post Graduation") { echo "selected='selected' ";} ?>>
+						<?php echo strtoupper("Post Graduation");?></option>
+					<option value="Diploma" <?php if($flag && $qual['qualification_type']=="Diploma") { echo "selected='selected' ";} ?>>
+						<?php echo strtoupper("Diploma");?></option>
+				</select>	
+			</td>
+		</tr>
+		<tr>
+			<td><?php echo strtoupper("School/Institute :");?></td>
+			<td><input type="text" name="institute" value="<?php if($flag) { echo $qual['institute'];} ?>"/></td>
+		</tr>
+		<tr>
+			<td><?php echo strtoupper("Board/University :");?></td>
+			<td><input type="text" name ="university" value="<?php if($flag) { echo $qual['university'];} ?>"/></td>
+		</tr>
+		<tr>
+			<td><?php echo strtoupper("Start Year :");?></td>
+			<td><input type="text" id="d" onclick="getDatePicker(this)" name="start_year" value="<?php if($flag) { echo $qual['start_year'];} ?>"/></td>
+		</tr>
+		<tr>
+			<td><?php echo strtoupper("End Year :");?></td>
+			<td><input type="text" id="d1" onclick="getDatePicker(this)" name="end_year" value="<?php if($flag) { echo $qual['end_year'];} ?>"/></td>
+		</tr>
+		<tr>
+			<td><?php echo strtoupper("Percentage :");?></td>
+			<td><input type="text" name="percentage" value="<?php if($flag) { echo $qual['percentage'];} ?>"/></td>
+		</tr>
+		<tr>
+			<td><?php echo strtoupper("Major Subjects :");?></td>
+			<td><textarea name="subject_studied" rows="3" cols="30"><?php if($flag) { echo $qual['subject_studied'];} ?></textarea></td>
+		</tr>
+		<tr>
+			<td><?php echo strtoupper("Field :");?></td>
+			<td><input type="text" name="field" value="<?php if($flag) { echo $qual['field'];} ?>"/></td>
+		</tr>
+		<tr>
+			<td class="proSubmit" >
+				<input type="button" value="<?php if($flag) { echo 'Update Qualification';} else {echo 'Add Qualification';}?>"
+				onclick="<?php if($flag) { echo "updateQual('qual',$rowId)"; } else { echo "insertQual('qual')";}
+				?>" />
+			</td>
+			<td class="proSubmit" >
+				<input type="button" value="<?php echo "CLOSE";?>" onclick="closeFancy()"/>
+			</td>
+		</tr>
+	</table>
+
 </form></b>

@@ -60,6 +60,22 @@ class proprofile extends Controller
 			echo "Data Deletion Failed..";
 		}
 	}
+	public function getFancyBoxContent() {
+		if(isset($_REQUEST['rowId'])) {
+			if($_REQUEST['rowId']) {
+				$rowId=$_REQUEST['rowId'];
+				$arrArg=loadModel("professionalprofile","retrieveQual",$rowId);
+				$this->view->loadView('addUpdateQual.php',$arrArg);
+
+			} else {
+				echo "Error Getting the facnybox..";
+			}
+		} else {
+			$this->view->loadView('addUpdateQual.php',"");
+			
+		}
+		//$rowId=$_REQUEST['rowId'];
+	}
 	public function insertQual() {
 		$fields=array();
 		foreach($_REQUEST as $key => $value) {

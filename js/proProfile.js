@@ -25,31 +25,27 @@ function set(val) {
     
 }
 function insertQual(val) {
-    alert(val);
-    if(val=='form4') {
-        table="qualification";
-    } else {
-        alert ("Error Processing Data");
-        parent.$.fancybox.close();
-        
-    }
+    
+    table="qualification";
     $.ajax({
         type: "GET",
         url: "index.php",
-        data:$('#'+val).serialize()+"&controller=proprofile&url=insertQual&table="+table,
+        data:$('.'+val).serialize()+"&controller=proprofile&url=insertQual&table="+table,
         success: function(msg){
             alert( msg );
-            //window.location.href = 'index.php?controller=proprofile';
-            parent.$.fancybox.close();
+            $("#displayQual").load("index.php","controller=proprofile&url=fetchQual");
+            $('.fancybox').css({"display":"none"});
         }
     });
-    
-    
 }
 
+function updateQual(form , rowId) {
+    alert(form+ " " +rowId);
+    
+}
 function deleteQual(input) {
     var rowId=$(input).parent().attr("id");
-    //alert(rowId);
+    alert(rowId);
     var answer=confirm("Are You Sure, You Want To Delete It ??");
     if(answer) {
         $.ajax({
@@ -83,14 +79,6 @@ function uploadResume(val) {
 $(document).ready( function (){
         $("#displayQual").load("index.php","controller=proprofile&url=fetchQual");
        	$('.fancybox').css({"display":"none"});
-        $('.b1').click(function(){
-            $('.fancybox').css({"display":"block"}).hide().fadeIn("slow");
-                $('.box').slideDown("slow");
-                $('.fancybox').css({"z-index":"999999"});
-        });
-        $('#close').click(function(){
-            $('.fancybox').css({"display":"none"});
-        });
     }
 );
 function append(input) {
@@ -99,4 +87,27 @@ function append(input) {
     var url="views/addUpdateQual.php?id="+rowId;
     alert(url);
     input.setAttribute("href",url);
+}
+
+function openFancyBox(rowId) {
+    if(rowId!=-1) {
+        alert( rowId);
+        $(".box").load("index.php","controller=proprofile&url=getFancyBoxContent&rowId="+rowId);
+
+    } else {
+        alert("New record");
+        $(".box").load("index.php","controller=proprofile&url=getFancyBoxContent");
+    }
+    $('.fancybox').css({"display":"block"}).hide().fadeIn("slow");
+    $('.box').slideDown("slow");
+    $('.fancybox').css({"z-index":"999999"});
+}
+
+function closeFancy() {
+    $('.fancybox').css({"display":"none"});
+}
+function getDatePicker(s) {
+    $( "#"+s.id ).datepicker({
+        dateFormat : 'yy-mm-dd'
+    });
 }
