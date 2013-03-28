@@ -28,10 +28,10 @@ private function dbConnect()
 		//old -  Will be Depriciated
 			$this->hostName='localhost';
 			$this->user='root';
-			$this->password='root';
+			$this->password='';
 			//New
 			$this->config['user'] = 'root';
-			$this->config['pass'] = 'root';
+			$this->config['pass'] = '';
 			$this->config['name'] = 'probuzz';
 			$this->config['host'] = 'localhost';
 			$this->config['type'] = 'mysql';
@@ -55,7 +55,7 @@ private function dbConnect()
 		}
 		private function pdoConnect()
 		{
-			
+
 }
 private function dbDisconnect()
 {
@@ -74,7 +74,7 @@ private function dbDisconnect()
 	echo  $row['userID']."</br>";
 	}
 	*/
-	
+
 
 
 
@@ -114,19 +114,19 @@ private function dbDisconnect()
 		}
 		private function pdoConnect()
 		{
-			
+
 		}
 		private function dbDisconnect()
 		{
-			//code for Disconnecting with DB	
+			//code for Disconnecting with DB
 		}
-		
+
 	}
-	
+
 	// for testing DataBase
 /*	$ob=new DbConnection();
 			$ob->executeSQL($sql);
-*/	
+*/
 /*	$res=mysql_query("select * from user");
 
 	while($row=mysql_fetch_array($res)){

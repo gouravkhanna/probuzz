@@ -82,7 +82,15 @@ function uploadResume(val) {
 
 $(document).ready( function (){
         $("#displayQual").load("index.php","controller=proprofile&url=fetchQual");
-        
+       	$('.fancybox').css({"display":"none"});
+        $('.b1').click(function(){
+            $('.fancybox').css({"display":"block"}).hide().fadeIn("slow");
+                $('.box').slideDown("slow");
+                $('.fancybox').css({"z-index":"999999"});
+        });
+        $('#close').click(function(){
+            $('.fancybox').css({"display":"none"});
+        });
     }
 );
 function append(input) {

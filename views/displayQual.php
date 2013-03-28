@@ -1,6 +1,5 @@
         <div class="align">
-                <!--<a id="1" class="various fancybox.ajax" href="" onclick="append(this)">Ajax</a>-->
-                <a class="various fancybox.ajax" href="views/addUpdateQual.php" >Add Qualification</a>
+                <a class="b1">Add Qualification</a>
         </div>
 <?php
 $qual=$arrData['qualification'];

@@ -12,24 +12,29 @@ class proprofile extends Controller
 		loadView('head/head1.php');
 	  	$path=ROOTPATH.'data/photo/g.jpg';
 	  	loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
-	  	//loadView('head/head2.php');
-		//$arr=loadModel("professionalprofile","constructFields");
-		if($_REQUEST['id']) {
+	  	//$arr=loadModel("professionalprofile","constructFields");
+		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
+			
 		} else {
 			$id=$_SESSION['id'];
 		}
-	  	$arrArg=loadModel("professionalprofile","retrieveData",$id);
+		$arrArg=loadModel("professionalprofile","retrieveData",$id);
 		$this->view->loadView('showproprofile.php',$arrArg);
+		
 	  	loadView('footer/footer.php');
 	}
 	function editView() {
 		loadView('head/head1.php');
 	  	$path=ROOTPATH.'data/photo/g.jpg';
 	  	loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
-	  	//loadView('head/head2.php');
-		$arr=loadModel("professionalprofile","constructFields");
-		$arrArg=loadModel("professionalprofile","retrieveData",$arr);
+		if(isset($_REQUEST['id'])) {
+			$id=$_REQUEST['id'];
+			
+		} else {
+			$id=$_SESSION['id'];
+		}
+		$arrArg=loadModel("professionalprofile","retrieveData",$id);
 	  	$this->view->loadView('proprofile.php',$arrArg);
 	  	loadView('footer/footer.php');
 		
@@ -71,9 +76,14 @@ class proprofile extends Controller
 	}
 	
 	public function fetchQual() {
-		$arr=loadModel("professionalprofile","constructFields");
-		$arrArg=loadModel("professionalprofile","retrieveData",$arr);
-	  	$this->view->loadView('displayQual.php',$arrArg);
+		if(isset($_REQUEST['id'])) {
+			$id=$_REQUEST['id'];
+			
+		} else {
+			$id=$_SESSION['id'];
+		}
+		$arrArg=loadModel("professionalprofile","retrieveData",$id);
+		$this->view->loadView('displayQual.php',$arrArg);
 		
 	}
 	/*public function uploadResume() {

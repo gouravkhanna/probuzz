@@ -26,7 +26,7 @@ class friends extends Controller
 		$this->view->loadView('footer/footer.php');
 	}
 	function showfriend() {
-		if($_REQUEST['id']) {
+		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
 		}
 		else {
@@ -41,7 +41,7 @@ class friends extends Controller
 		loadView("footer/footer.php",$arrData);
 	}
  	function professionalProfile() {
-		if($_REQUEST['id']) {
+		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
 		}
 		else {

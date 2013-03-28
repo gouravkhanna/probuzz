@@ -51,7 +51,7 @@
             
             return $result;
         }
-        public function retrieveData($id=array()) {
+        public function retrieveData($id) {
             $result;
             $table=$this->constructFields();
             foreach($table as $tableKey =>$fieldsKey) {
@@ -63,7 +63,7 @@
                 $fields=rtrim($fields,",");
                 $query.="$fields from $tableKey where user_id =".$id." ;";
                 $this->dbInstance=new DbConnection();
-                $temp=$this->dbInstance->executeSQL($query);
+                $temp=$this->dbInstance->executeSQL($query) or die("<br/><br/><br/><br/><br/><br/><br/><br/><br/>nothidn");
                 if($tableKey=="qualification" || $tableKey=="resume") {
                     $result[$tableKey]=array();
                     while($row=mysql_fetch_assoc($temp)) {

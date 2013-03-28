@@ -1,3 +1,16 @@
+<div class="fancybox">
+	<div class="box">
+	<form action="jasd">
+
+		USERNAME<input type ="text"><br>
+		PASSWORD<input type ="text"><br>
+		<input type="submit">
+		<a  id="close"><img	src="close.png"></a>
+	
+	</form>
+	</div>
+</div>
+
 <div id="bigmid">
     <div class="alignright">
             <a href="index.php?controller=proprofile&url=home">BACK</a>
