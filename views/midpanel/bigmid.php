@@ -25,7 +25,9 @@ Home
    <li>Country <input type="text" id="ecountry" name="ecountry" 
     value= <?PHP echo $arrData['address']['country']  ?>  /></li>
    
-   <input type="submit" id="subCon" name="subCon" value="Save Me" />
+   <input type=hidden value=editCon name=url> 
+ <input type=hidden value=profile name=controller><br>
+   <input type="submit" id="submitCon" value="Save Me" name=submit  />
    </form>
 
  </div>
@@ -39,11 +41,21 @@ Home
    
       <form method="get" action="#">
   
-    <span>Favourite Books  <textarea rows="2" cols="25"> </textarea></span> 
-    <span>Favourite Movies <textarea rows="2" cols="25"> </textarea> <span>
-    <span>Favourite Food <textarea rows="2" cols="25"> </textarea>  <span>
+    <span>Favourite Books <br> <textarea rows="2" cols="25" id="fav_book" name="fav_book" > 
+    <?PHP echo $arrData['personal']['favourite_book'];?>
+
+    </textarea></span> <br>
+    <span>Favourite Movies <br><textarea rows="2" cols="25" id="fav_mv" name="fav_mv">
+ <?PHP echo $arrData['personal']['favourite_movies'];?>
+     </textarea> <span>
+    <span>Favourite Food <textarea rows="2" cols="25" id="fav_food" name="fav_food"> 
+ <?PHP echo $arrData['personal']['favourite_food'];?>
+    </textarea>  <span>
    
-   <input type="submit" id="subInfo" name="subInfo" value="Save Me" />
+        <input type=hidden value=editInfo name=url> 
+       <input type=hidden value=profile name=controller><br>
+ 
+   <input type="submit" id="subInfo" name=submit value="Save Me" />
    </form>
 
  </div>
@@ -54,11 +66,41 @@ Home
    
       <form method="get" action="#">
     Company Name <input type="text" id="companyName" name="companyName"> <br>
-    start Date                                                           <br>
-    End Date                                                              <br>
-    Position <input type="text" id="positon" name="position"> 
-  
-     <input type="submit" id="subInfo" name="subInfo" value="Save Me" />
+    start Date    <input type="text" id="start_date" name="start_date">                                                       <br>
+    End Date        <input type="text" id="end_date" name="end_date">                                                       <br>
+    Position     <input type="text" id="positon" name="position"> 
+       <input type=hidden value=wUp name=url> 
+       <input type=hidden value=profile name=controller><br>
+     <input type="submit" id="subInfo" name=submit value="Save Me" />
+   </form>
+
+ </div>
+
+  <div id="edit_b" name="edit_b" >
+     <div id="editbhead" > Basic Info <span id="close4"> X</span></div>
+   
+      <form method="get" action="#">
+      Gender <select id="gender" name="gender">
+            <option>  Male</option>
+            <option> Female </option>
+            <option>  Gay   </option>
+            <option> Lesbian</option>
+            <option>Not to mention </option>
+
+
+
+    </select>
+
+    <br>DOB<input type="text" id="dob" name="dob" >
+    <br>Relationship Status  <select id="relationship" name="relationship">
+   <option>Single</option>
+   <option> Commited</option>
+   <option>Prefer Not to Say</option>
+    </select>
+  <br>Intersted In <input type="text" id="i_in" name="i_in"> 
+    <input type=hidden value=basicInfoUp name=url> 
+       <input type=hidden value=profile name=controller><br>
+     <input type="submit" id="bInfo" name=submit value="Save Me" />
    </form>
 
  </div>
@@ -69,9 +111,13 @@ Home
    
       <form method="get" action="#">
   
-   
-   
-   <input type="submit" id="subInfo" name="subInfo" value="Save Me" />
+     Institute<input type="text" id="institute" name="institute"><br>
+     Start Date <input type="text" id="istart" name="istart"><br>
+     End Date <input type=" text" id="iend" name="iend"><br>
+     University <input type="text" id="university" name="university"><br>   
+    <input type=hidden value=edu_up name=url> 
+       <input type=hidden value=profile name=controller><br>
+   <input type="submit" id="eInfo" name="eInfo" value="Save Me" />
    </form>
 
  </div>
@@ -160,7 +206,7 @@ Home
           
           
            </div>
- <a href="#" id="editi" name="editi"> Edit </a>
+ <a href="#" id="editb" name="editb"> Edit </a>
   </div>
     
    <div id="contactInfo" name="contactInfo" class="c">
@@ -181,6 +227,21 @@ Home
      <a href="#" id="editc" name="editc"> Edit </a>
   </div> 
   
+  <div id="myfav" name="myfav" class="m">
+    My Favourites
+
+
+    <?PHP 
+      echo "<br>".$arrData['personal']['favourite_book'];
+      echo "<br>".$arrData['personal']['favourite_movies']; 
+       echo "<br>".$arrData['personal']['favourite_food']; 
+
+
+    ?>
+
+    <br>
+       <a href="#" id="editf" name="editf"> Edit </a>
+  </div>
 
 
 </div>
@@ -239,10 +300,18 @@ $("#edit_contact").show();
 
 }
 );
-$("#editi").click(function()
+
+$("#editf").click(function()
 {
 $("#2").fadeTo("fast",0.1);
 $("#edit_i").show();
+
+}
+);
+$("#editb").click(function()
+{
+$("#2").fadeTo("fast",0.1);
+$("#edit_b").show();
 
 }
 );
@@ -300,6 +369,33 @@ $("#2").css("opacity","5");
 
 }
 );
+
+$("#close4").click(function()
+{
+
+$("#edit_b").hide();
+$("#2").css("opacity","5");
+
+
+}
+);
+
+$("#dob").datepicker({
+        dateFormat : 'yy-mm-dd'
+    });
+$("#start_date").datepicker({
+        dateFormat : 'yy-mm-dd'
+    });
+$("#end_date").datepicker({
+        dateFormat : 'yy-mm-dd'
+    });
+$("#istart").datepicker({
+        dateFormat : 'yy-mm-dd'
+    });
+
+$("#iend").datepicker({
+        dateFormat : 'yy-mm-dd'
+    });
 /////////////////
 
 

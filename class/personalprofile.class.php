@@ -47,18 +47,16 @@ function loadProfile($arrArgs=array()) {
 		return $arrData;
 }
 
-function updateCon($arrArgs=array()){
+function upCon($arrArgs=array()){
 	$ob=new DbConnection();
 
  $id=$_SESSION['id'];
- $house_number=$arrArgs['house_number'];
+ $house_number=$arrArgs['houseNumber'];
  $street_number=$arrArgs['street_number'];
  $street_name=$arrArgs['street_name'];
  $city=$arrArgs['city'];
  $state=$arrArgs['state'];
  $country=$arrArgs['country'];
-  if($_GET['subCon']){
-
    $sql = "UPDATE probuzz.address SET
            house_number='$house_number', 
            street_number = '$street_number',
@@ -77,15 +75,120 @@ function updateCon($arrArgs=array()){
     	echo "some problem is occured please contact gourav";
     	return  false;
     }
+}
+
+
+
+function upInfo($arrArgs=array()){
+$ob=new DbConnection();
+$id=$_SESSION['id'];
+$favourite_book=@$arrArgs['fav_book'];
+$favourite_movies=@$arrArgs['fav_movies'];
+$favourite_food=@$arrArgs['fav_food'];
+echo "xxx";
+echo $favourite_food. $favourite_book .$favourite_movies;
+$sql="update probuzz.personal_profile set 
+      favourite_book='$favourite_book',
+      favourite_movies='$favourite_movies',
+      favourite_food ='$favourite_food'
+      where user_id='$id'";
+      if( $ob->executeSQL($sql)){
+    	echo "updated sucessfully";
+    	return true;
+    }
+    else{
+
+
+    	echo "some problem is occured please contact gourav";
+    	return  false;
+    }
+
+
+}
+
+function upbInfo($arrArgs=array()){
+$ob=new DbConnection();
+$id=$_SESSION['id'];
+$gender=$arrArgs['gender'];
+$relationship_status=$arrArgs['relationship_status'];
+$dob =$arrArgs['dob'];
+$intersted_in=$arrArgs['i_in'];
+$sql="update probuzz.personal_profile set
+      DOB='$dob',
+      gender='$gender',
+      relationship_status='$relationship_status',
+      intersted_in='$intersted_in'
+      where user_id='$id' ";
+  if( $ob->executeSQL($sql)){
+    	echo "updated sucessfully";
+    	return true;
+    }
+    else{
+
+
+    	echo "some problem is occured please contact gourav";
+    	return  false;
+    } 
 
 
 
 
+}
+
+function up_Work($arrArgs=array()){
+$ob=new DbConnection();
+$id=$_SESSION['id'];
+$company_Name=$arrArgs['company'];
+$start_date=$arrArgs['start_date'];
+$end_date=$arrArgs['end_date'];
+$position=$arrArgs['position'];
+$sql="update probuzz.experience set
+      company_Name='$company_Name',
+      start_date='$start_date',
+      end_date='$end_date',
+      position='$position'
+      where user_id='$id' ";
+      echo $sql;
+if( $ob->executeSQL($sql)){
+    	echo "updated sucessfully";
+    	return true;
+    }
+    else{
 
 
-  }
+    	echo "some problem is occured please contact gourav";
+    	return  false;
+    } 
 
 
+
+}
+
+
+function up_E($arrArgs=array()){
+$ob=new DbConnection();
+$id=$_SESSION['id'];
+$institute=$arrArgs['institute'];
+$start_year=$arrArgs['start_year'];
+$end_year=$arrArgs['end_year'];
+$university=$arrArgs['university'];
+$sql="update probuzz.qualification set
+       institute='$institute',
+       start_year='$start_year',
+        end_year='$end_year',
+        university='$university'
+        where user_id='$id'";
+        echo $sql;
+if( $ob->executeSQL($sql)){
+    	echo "updated sucessfully";
+    	return true;
+    }
+    else{
+
+
+    	echo "some problem is occured please contact gourav";
+    	return  false;
+    } 
 
 
 }

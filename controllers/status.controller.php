@@ -10,7 +10,7 @@ class status extends Controller
 		
 		
    if($_GET['url']=="buzz") {
-	$arrArgs=array("buzztext"=>$_GET['buzztext'],"id"=>$_SESSION['id']);
+   	$arrArgs=array("buzztext"=>$_GET['buzztext'],"id"=>$_SESSION['id']);
 	if(isset($_GET['buzztext']) && !empty($_GET['buzztext'])) {
 			//buzzUpdate($arrArgs);
 	$res=loadModel("buzzin","buzzUpdate",$arrArgs);

@@ -125,7 +125,42 @@ width: 415px;
 position:relative;
 
 }
+#myfav
+{
+margin-top: 75%;
+margin-left:26%;
+height:150px;
+width:300px;
+padding-top: 17px;
+padding-right: 20px;
+padding-bottom: 15px;
+display:block;
+border-top-color:#8cc474;
+border-radius:3px;
 
+font-family:Geneva, Arial, Helvetica, sans-serif;
+font-size:20px;
+
+
+}
+
+.m{
+-webkit-border-radius: 3px;
+border-radius: 3px;
+-webkit-box-shadow: 0 1px 2px #c4c4c4;
+box-shadow: 0 1px 2px #c4c4c4;
+background-color: #fff;
+border-top: 7px solid #fff;
+margin-bottom: 30px;
+width: 415px;
+position:relative;
+}
+
+#dob{
+
+	height: 15px;
+	width: 150px;
+}
 
 #education
 {
@@ -338,6 +373,31 @@ border-radius:20px;
 	border-radius-top:20px;
 
 }
+#edit_b
+{
+
+min-height:350px;
+height:auto;
+width:400px;
+background-color:#FFF;
+margin:0px auto;
+display:none;
+border-radius:20px;
+-webkit-border-radius: 20px;
+
+}
+#editbhead
+{
+
+
+	width:auto;
+	padding:10px;
+	height:30px;
+	background-color:#bc5679;
+	font-size:1.4em;
+	border-radius-top:20px;
+
+}
 	
 	#edit_w
 {
@@ -432,6 +492,18 @@ font-size:14px;
 }
 
 #close3
+{
+float:right ;
+font-weight: bold;
+font-family: sans-serif;
+cursor: pointer;
+margin-top:0.5px;
+font-size:14px;
+		
+
+}
+
+#close4
 {
 float:right ;
 font-weight: bold;
