@@ -24,6 +24,9 @@
 		<li id="umenu">
 			<a href="<?php echo ROOTPATH."user/searchjob"; ?>">Search Job</a></li>
 		</ul>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."user/displayApplication"; ?>">Display Job</a></li>
+		</ul>
 		<!-- APPLICATION STATUS -->
 		<!-- NOTIFICATION STATUS -->
 		<!-- -->
