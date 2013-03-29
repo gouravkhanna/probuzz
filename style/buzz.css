@@ -79,7 +79,7 @@ border-width: 1px;
 	
 }
 
-#statusimg{
+.statusimg{
 	
 	float:left;
 	height: 50px;
@@ -90,7 +90,7 @@ border-width: 1px;
 	
 	
 }
-#statusName{
+.statusName{
 	margin-top: 10px;
 	margin-left:60px;
 	min-height: 50px;
@@ -99,7 +99,7 @@ border-width: 1px;
 	
 	
 }
-#statusText{
+.statusText{
 	
 	
 width:auto;
@@ -120,7 +120,7 @@ span{
 	margin-right: 7px;
 	
 }
-#comment{
+.comment{
 	
 	margin-top: 20px;
 	height: 40px;

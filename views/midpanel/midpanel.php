@@ -15,20 +15,33 @@
      </form> 
 
      <div id="statusShow" name="statusShow">
-  <?php $count=0; while ($row = mysql_fetch_assoc($arrData)) 
+  <?php $count=1; foreach($arrData as $row)
                            {
                          
                            	$pa=$row['path'];
                            	$date=strtotime($row['buzz_time']);
-                           	echo '<div id="statusimg" name="statusimg">';
+                           	echo '<div id="statusimg'.$count.'"class="statusimg">';
                            	echo "<a href='index.php?controller=friends&url=friendsProfile&friendId=" . $row['id'] . "' >";
                            	echo "<img class='round5' src='".$pa."' height='50px' width='50px'/></a></div>";
-                           	echo "<div id='statusName' name='statusName'><a href=''>";
+                          	echo '<div id="statusName'.$count.'"class="statusName"> <a href="   ">';
  	                        echo $row['first_name']." ".$row['last_name']."</a><span>". date('D-M-Y',$date)."</span></div>";
- 	                        echo '<div id="statusText">'. $row['buzztext'] ;
- 	                        echo "<br><input type='text' id='comment' name='comment' placeholder='Post Comment...'>";
- 	                       	echo "</div><hr>";
- }?>   
+ 	                        echo '<div id="statusText'.$count.'"class="statusText">'. $row['buzztext'] ; 
+ 	                        
+ 	                        
+ 	                        echo "<form method='get' name='$count'>"; 	                        
+ 	                        echo  "<input type=hidden value=comment name=url />" ;
+                            echo "<input type=hidden value=status name=controller /><br>";
+ 	                        echo "<input type=hidden value=". $row['buzz_id'] ." name=buzz_id >";
+ 	                        
+ 	                        echo '<br><input type="text" id="comment'. $count.'" name=comment_text  class="comment" placeholder="Post Comment..." />';
+ 	                       	echo '<input type="submit" id="save'.$count	.'" value="Comment" name=submit> ' ;
+ 	                        echo "</form></div><hr>";
+ 	                       	$count++;
+ }
+     
+ 
+  
+ ?>   
      </div> 
 </div> 
 </div> <!-- END OF MID2 -->

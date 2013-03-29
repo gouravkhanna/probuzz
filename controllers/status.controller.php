@@ -35,6 +35,29 @@ class status extends Controller
    	loadView("midpanel/midpanel.php",$arrData);
    	
    }
+   
+   
+   function comment() {
+   	echo "<pre>";
+  
+   	$arrArgs=array(
+   			"id"=>@$_SESSION['id'],
+   			"buzz_id" => $_REQUEST['buzz_id'],
+   			"comment_text" => $_REQUEST['comment_text'],
+   			  			
+   	);
+   
+   	$arrData=loadModel("buzzin","insertComment",$arrArgs);
+   	if($arrData=='true'){
+   		$a=$arrArgs;
+   		header('location:index.php');
+   				
+   				
+   		
+   		
+   		
+   	}
+   }
 
 }
 ?>

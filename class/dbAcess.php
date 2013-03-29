@@ -31,7 +31,7 @@ private function dbConnect()
 			$this->password='root';
 			//New
 			$this->config['user'] = 'root';
-			$this->config['pass'] = 'root';
+			$this->config['pass'] = '';
 			$this->config['name'] = 'probuzz';
 			$this->config['host'] = 'localhost';
 			$this->config['type'] = 'mysql';

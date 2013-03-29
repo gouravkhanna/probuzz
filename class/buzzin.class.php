@@ -14,23 +14,36 @@ function __construct()
  // $id=$_SESSION['id'];
 
 
-  $sql="select b.user_id as id,b.buzztext,p.first_name,p.last_name,photo.path, b.buzz_time
-         from 
-         buzz b 
-         join personal_profile p 
-         on p.user_id=b.user_id 
-         join photo 
-         on photo.id=p.profile_pic_id 
-         where 
-         ( b.user_id='$id' 
-         OR 
-         b.user_id in 
-	     (select f.friend_id from friend f where f.user_id='$id') )
-       	 order by buzz_time desc";
-  $arrData=$ob->executeSQL($sql);
+  $sql="select b.user_id as id,b.id as buzz_id,b.buzztext,p.first_name,p.last_name,photo.path, b.buzz_time
+        from 
+        buzz b 
+        join personal_profile p 
+        on p.user_id=b.user_id 
+        join photo 
+        on photo.id=p.profile_pic_id 
+        where 
+        ( b.user_id='$id' 
+        OR 
+        b.user_id in 
+	    (select f.friend_id from friend f where f.user_id='$id') )
+       	order by buzz_time desc";
+		$result=$ob->executeSQL($sql);
+		while($row=mysql_fetch_array($result)) {
+			$buzzId=$row['buzz_id'];
+			
+			
+			
+			
+			/* $res=array("buzz"=>$row,
+						"comment"=>$rowcomment,	
+			);
+			 */
+		}
 
-
-return $arrData;
+		
+		
+		
+		return $row;
 
 
 	}
@@ -55,7 +68,31 @@ else {
 
 	
 }
-
+function insertComment($arrArgs=array()) {
+	$ob= new DbConnection();
+	if(!empty($arrArgs)) {
+	
+		$id=$arrArgs['id'];
+		$comment_text=$arrArgs['comment_text'];
+		$buzz_id=$arrArgs['buzz_id'];
+		
+		 $sql="INSERT INTO probuzz.comment ( user_id,buzz_id,comment_time, comment_text) 
+		VALUES ( '$id', '$buzz_id', now(),'$comment_text')";
+		  if($ob->executeSQL($sql)){
+		 
+		 
+		 	return true;
+		 
+		 }
+		 else {
+		 	return false;
+		 }
+		 	
+		
+		
+	}
+	
+}
 
 
 }
