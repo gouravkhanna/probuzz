@@ -1,7 +1,6 @@
 <?php
 include_once 'class/dbAcess.php';
 class friend extends users{
-	
 	function showfriend($arrArg=array()) {
 		
 		$ob=new DbConnection();
@@ -39,6 +38,21 @@ class friend extends users{
 		} else {
 			//echo "No Id Passed..";
 			return false;
+		}
+	}
+	function fetchStatus($arrArg=array()) {
+		if($arrArg) {
+			$ob=new DbConnection();
+			$sql="select friendship_status as status from friend where friend_id='".$arrArg['id']."' && user_id= '".$_SESSION['id']."';";
+			$res=$ob->executeSQL($sql);
+			//echo $sql;
+			$row=mysql_fetch_assoc($res);
+			//print_r($row);
+			//echo $row['status'];
+			if(!$row['status']) {
+				return 0;
+			}
+			return $row['status'];
 		}
 	}
 	

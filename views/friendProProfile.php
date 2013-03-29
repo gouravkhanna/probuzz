@@ -1,9 +1,6 @@
 
 
 <div id="bigmid">
-    <div class="alignright">
-        <a href="index.php?controller=proprofile&url=editView">EDIT</a>
-    </div>
     <div id="accordion" >
         <h3><?php echo BASIC_PROFILE;?></h3>
         <div class="wide">
