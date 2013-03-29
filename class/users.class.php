@@ -166,7 +166,7 @@ class users
 		$row3=array();
 		$row2=array();
 		$row1=array();	
-		$sql="select p.id,p.first_name,p.last_name,pp.path from personal_profile p join users u join photo pp where p.user_id=u.user_id AND p.profile_pic_id=pp.id AND (";
+		$sql="select p.user_id as id,p.first_name,p.last_name,pp.path from personal_profile p join users u join photo pp where p.user_id=u.user_id AND p.profile_pic_id=pp.id AND (";
 		foreach ($search as $value) {
 			if($value!="")
 			$sql.=" u.user_name like '$value%' OR";
@@ -179,7 +179,7 @@ class users
 		}
 	
 		/*Based on First and Last Name */
-		$sql="select p.id,p.first_name,p.last_name,pp.path from personal_profile p join photo pp where p.profile_pic_id=pp.id AND (";
+		$sql="select p.user_id as id,p.first_name,p.last_name,pp.path from personal_profile p join photo pp where p.profile_pic_id=pp.id AND (";
 		foreach ($search as $value) {
 			if($value!="")
 				$sql.=" p.first_name like '$value%' OR p.last_name like '$value%' OR";
@@ -192,7 +192,7 @@ class users
 			while($row2[]=mysql_fetch_array($result)) {}
 		}
 		/*Based on Company Name */
-		$sql="select c.id,c.company_alias,c.company_name,pp.path from corporate_profile c join photo pp where c.profile_pic_id=pp.id AND ( ";
+		$sql="select c.user_id as id,c.company_alias,c.company_name,pp.path from corporate_profile c join photo pp where c.profile_pic_id=pp.id AND ( ";
 		
 		foreach ($search as $value) {
 			if($value!="") {
