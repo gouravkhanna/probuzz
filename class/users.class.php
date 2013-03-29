@@ -1,7 +1,7 @@
 <?php
 include_once 'class/dbAcess.php';
 //session_start();
-class users
+class users extends DbConnection
 {
 	private $userName="";
 	private $password="";
@@ -12,6 +12,7 @@ class users
 
 	function __construct()
 	{
+		parent::__construct();	
 	
 	}
 	function login($arrData=array())
@@ -25,18 +26,19 @@ class users
 				return false; 
 			}	
 	 		else
-		   {
-				$sql="select user_name ,password,type from users where user_name='$this->userName'";
-			    $result=$ob->executeSQL($sql);
-				$row=mysql_fetch_array($result);
-								
-				if($row['user_name']==$this->userName) //)&& ($p==$password))
+		   {	
+				$data= array();
+				$data['tables']	= 'users';
+				$data['columns']= array('users.user_name','users.password','users.type');
+				$data['conditions']=array("users.user_name"=>"$this->userName");
+				$result=$this->db->select($data);
+				$row = $result->fetch(PDO::FETCH_ASSOC);
+				if($row['user_name']==$this->userName && $row['password']==$this->password)
 				{
 				  	  $this->type=$row["type"];
 					  $flag=1;
 				}
-					
-		   }
+			}
 	       if($flag==1)
 	 		{
 				$_SESSION['id']=$this->getId($this->userName);
@@ -48,9 +50,6 @@ class users
 			{
 		  		return false;
 			}
-		 
-	 
-	
 	}
 	function getId($userName)
 	{

@@ -92,7 +92,7 @@ ul.n a:hover, ul.n a.selected {
 	height: 50px;
 	width: 100%;
 	position: fixed;
-	top: 0;
+	top: 200px;
 	background-image: url(../data/rcs/g.svg);
 	background-size: 100%;
 	left: 0;

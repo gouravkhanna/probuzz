@@ -244,7 +244,7 @@ echo $query;
 	 * (id,name,age)
 	 */
 	function order_by($data=null) {
-		return ' ORDER BY '. implode(',', $this->quoteIdentifier(((array)$data)));
+		return ' ORDER BY '. implode(',');//, $this->quoteIdentifier(((array)$data)));
 	}
 
 
