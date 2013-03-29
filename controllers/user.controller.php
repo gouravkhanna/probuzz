@@ -56,7 +56,14 @@ class user extends controller {
 										));
 		
 	}
-
+	/*SHow all the Jobs Applied  */
+	function displayApplication() {
+		loadView("head/head1.php");
+		$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+		loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
+		$arrData=loadModel("users","displayApplication",array('id'=>$_SESSION['id']));
+		loadView("displayapplication.php",$arrData);
+	}
 	function applyJob() {
 			$result=loadModel("users","applyJob",array(
 														'id'=>$_SESSION['id'],

@@ -123,8 +123,25 @@ function showSpecficJob() {
 	);
 	$arrData1=loadModel("corporate","showSlot",$arrArgs);
 	loadView("gdata/showSpecificJob.php",$arrData1);
-
 }
+/*Show the applicant for the job*/
+	function showApplicant() {
+		loadView("head/head1.php");
+		$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+		loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
+		loadView("head/head2.php");
+		$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
+		loadView('displayapplicant.php',$arrData);
+		loadView('rightpanel/rightpanel1.php');
+		loadView('rightpanel/rightpanel2.php');
+	    loadView('footer/footer.php');
+	}
+/*Get the applicant lists*/ 
+	function getApplicant() {
+		echo "BIG lulu";
+		echo $_REQUEST['jobId'];
+		
+	}
 /* Search for the people with required qualification,City,Gender */
 	function searchPeople() {
 		//fetching valued from url

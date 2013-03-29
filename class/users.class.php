@@ -255,7 +255,7 @@ class users
 			
 		}
 	}
-	/*to check whether user applied for hob or not*/
+	/*to check whether user applied for Job or not(Apply job Button)*/
 	function getJobAppStatus($arrArgs=array()) {
 		if(!empty($arrArgs)) {
 			$id=$arrArgs['id'];
@@ -282,6 +282,7 @@ class users
 	/* Apply for job  */
 	function applyJob($arrArgs=array()) {
 		if(!empty($arrArgs)) {
+		
 			$id=$arrArgs['id'];
 			$jobId=$arrArgs['jobId'];
 			$sql="Insert into probuzz.job_applicant values('','$id','$jobId','1',now(),'','')";
@@ -295,7 +296,22 @@ class users
 			}
 		}		
 	}
-	
+	/*SHow all the Jobs Applied  */
+	function displayApplication($arrArgs=array()) {
+			if(!empty($arrArgs)) {
+				$id=$arrArgs['id'];
+				$sql="select c.company_name, j.id , ja.appliying_date,j.designation,j.location
+ 				from job_applicant ja join jobs j 
+					on ja.job_id=j.id 
+					join corporate_profile c 
+					on c.user_id=j.corp_id 
+				where ja.user_id='$id'";
+				$ob=new DbConnection();
+				$result=$ob->executeSQL($sql);
+				while($row[]=mysql_fetch_array($result)) {}
+				return $row;
+			}
+	}
 	// Function for server side validation
 	function validate($arrData=array())
 	{

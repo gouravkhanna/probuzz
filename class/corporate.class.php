@@ -78,6 +78,13 @@ class corporate {
     	$sql="update probuzz.jobs set status='".$status."' where id=".$arrArg['jobId'];
        	$res=$ob->executeSQL($sql);
     }
+    
+    
+    
+    /*Show the Applciant for the jobs*/ 
+    function showApplicant() {
+  		echo "hello";
+    }
     /*  Search for the people with required qualification,City,Gender
      */
     function searchPeople($arrArg=array()) {
