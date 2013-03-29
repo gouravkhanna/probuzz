@@ -24,7 +24,7 @@ class mysql extends cxpdo {
      * @return string
      */
     public function getQuoteIdentifierSymbol() {
-        return "`";
+        return "";
     }
 	
 	

@@ -10,8 +10,7 @@ class users extends DbConnection
 	private $lastName="";
 	private $email="";
 
-	function __construct()
-	{
+	function __construct() {
 		parent::__construct();	
 	
 	}
@@ -33,40 +32,36 @@ class users extends DbConnection
 				$data['conditions']=array("users.user_name"=>"$this->userName");
 				$result=$this->db->select($data);
 				$row = $result->fetch(PDO::FETCH_ASSOC);
-				if($row['user_name']==$this->userName && $row['password']==$this->password)
-				{
+				if($row['user_name']==$this->userName && $row['password']==$this->password) {
 				  	  $this->type=$row["type"];
 					  $flag=1;
 				}
 			}
-	       if($flag==1)
-	 		{
+	       if($flag==1) {
 				$_SESSION['id']=$this->getId($this->userName);
 				$_SESSION['user_name']=$this->userName;
 				$_SESSION['type']=$this->type;
 				return true;
 			}
-			else
-			{
+			else {
 		  		return false;
 			}
 	}
-	function getId($userName)
-	{
-		$ob=new DbConnection();
-		$sql="select user_id from users where user_name='$userName'";
-		$res=$ob->executeSQL($sql);
-		$row=mysql_fetch_array($res);
+	function getId($userName)	{
+		$data['tables']	= 'users';
+		$data['columns']= array('users.user_id');
+		$data['conditions']=array("users.user_name"=>"$userName");
+		$result=$this->db->select($data);
+		$row = $result->fetch(PDO::FETCH_ASSOC);
  		return $row['user_id'];
 	}
-	function getUserName($user_id)
-	{
-		
-		$ob=new DbConnection();
-		$sql="select user_name from user where user_name='$user_id'";
-		$res=$ob->executeSQL($sql);
-		$row=mysql_fetch_array($res);
- 		return $row['user_name'];
+	function getUserName($userId) 	{
+		$data['tables']	= 'users';
+		$data['columns']= array('users.user_name');
+		$data['conditions']=array("users.user_id"=>"$userId");
+		$result=$this->db->select($data);
+		$row = $result->fetch(PDO::FETCH_ASSOC);
+ 		return $row['user_id'];
 	}
 	function getData($key,$where,$id)
 	{

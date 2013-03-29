@@ -178,7 +178,7 @@ $data				= array();
 
 $data['tables']		= 'posts';
 $data['columns']	= array('posts.id', 'posts.title', 'posts.text', 'posts.date', 'posts.author', 'tags.name');
-$data['where']		= array('posts.id' => array('1', '2'));
+$data['conditions']		= array('posts.id' => array('1', '2'));
 $data['joins']		= null;
 //$data['group_by'] = array('posts.id');
 //$data['order_by'] = 'posts.id';
@@ -187,7 +187,7 @@ $data['offset']		= 0;
 
 //Add the joins
 $data['joins'][] = array(
-	'table' => 'tags_ref', 
+	'table' => 'tags_ref', //2nd table
 	'type'	=> 'right',
 	'conditions' => array('posts.id' => 'tags_ref.item_id')
 );
