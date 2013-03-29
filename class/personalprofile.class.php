@@ -65,6 +65,8 @@ function upCon($arrArgs=array()){
            city='$city',
            country='$country'
            WHERE user_id='$id'";
+   
+   echo $sql;
     if( $ob->executeSQL($sql)){
     	echo "updated sucessfully";
     	return true;

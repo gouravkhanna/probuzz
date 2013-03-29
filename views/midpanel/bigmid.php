@@ -25,7 +25,7 @@ Home
    <li>Country <input type="text" id="ecountry" name="ecountry" 
     value= <?PHP echo $arrData['address']['country']  ?>  /></li>
    
-   <input type=hidden value=editCon name=url> 
+   <input type=hidden value=edit_Con name=url> 
  <input type=hidden value=profile name=controller><br>
    <input type="submit" id="submitCon" value="Save Me" name=submit  />
    </form>

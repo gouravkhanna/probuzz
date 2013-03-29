@@ -13,9 +13,20 @@ function __construct()
   $ob= new DbConnection();
  // $id=$_SESSION['id'];
 
- $sql="select p.first_name,p.last_name, b.buzztext,b.update_time ,c.path from personal_profile p join buzz b 
-       join photo c on p.user_id=b.user_id and c.user_id=p.user_id and b.user_id='$id'
-       order by update_time desc limit 10 ";
+
+  $sql="select b.user_id as id,b.buzztext,p.first_name,p.last_name,photo.path, b.buzz_time
+         from 
+         buzz b 
+         join personal_profile p 
+         on p.user_id=b.user_id 
+         join photo 
+         on photo.id=p.profile_pic_id 
+         where 
+         ( b.user_id='$id' 
+         OR 
+         b.user_id in 
+	     (select f.friend_id from friend f where f.user_id='$id') )
+       	 order by buzz_time desc";
   $arrData=$ob->executeSQL($sql);
 
 
@@ -45,22 +56,6 @@ else {
 	
 }
 
-
-function friendBuzz(){
-	$ob= new DbConnection();	
-	$sql="select f.friend_id,b.buzztext from friend as f join buzz 
-	      as b on f.friend_id=b.user_id where f.user_id='$id' order by b.update_time desc";
-	$arrData=$ob->executeSQL($sql);
-	while($res=mysql_fetch_array($arrData))
-	{
-		
-		
-		
-	}
-	
-	//return $arrData;
-	
-}
 
 
 }

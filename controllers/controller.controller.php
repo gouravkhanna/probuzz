@@ -80,8 +80,7 @@ class Controller
 	  $this->view->loadView('head/head2.php');
 	  $arrData=loadModel("buzzin","loadBuzz",array('id'=>$_SESSION['id']));
 	  $this->view->loadView('midpanel/midpanel.php',$arrData);
-	  $arrData=loadModel("buzzin","friendBuzz",array('id'=>$_SESSION['id']));
-	  $this->view->loadView('midpanel/midpanel.php',$arrData);
+	 
 	  $this->view->loadView('rightpanel/rightpanel1.php');
 	 // $this->view->loadView('rightpanel/topjobs.php');
 	  $this->topjobs();

@@ -27,9 +27,9 @@ class profile extends Controller
 		
 	}		
         
-        function editCon(){
+        function edit_Con(){
 
-   if($_GET['url']=='editCon'){
+   if($_GET['url']=='edit_Con'){
 
  
     $arrArgs=array(

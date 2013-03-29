@@ -15,16 +15,19 @@
      </form> 
 
      <div id="statusShow" name="statusShow">
-  <?php while ($row = mysql_fetch_array($arrData)) 
+  <?php $count=0; while ($row = mysql_fetch_assoc($arrData)) 
                            {
+                         
                            	$pa=$row['path'];
-                           	$date=strtotime($row['update_time']);
+                           	$date=strtotime($row['buzz_time']);
                            	echo '<div id="statusimg" name="statusimg">';
-                           	echo "<a href=''><img src='$pa' height='50px' width='50px'></a></div>";
+                           	echo "<a href='index.php?controller=friends&url=friendsProfile&friendId=" . $row['id'] . "' >";
+                           	echo "<img class='round5' src='".$pa."' height='50px' width='50px'/></a></div>";
                            	echo "<div id='statusName' name='statusName'><a href=''>";
  	                        echo $row['first_name']." ".$row['last_name']."</a><span>". date('D-M-Y',$date)."</span></div>";
- 	                        echo '<div id="statusText">'. $row['buzztext']. "</div>";
- 	                       echo"<hr>";
+ 	                        echo '<div id="statusText">'. $row['buzztext'] ;
+ 	                        echo "<br><input type='text' id='comment' name='comment' placeholder='Post Comment...'>";
+ 	                       	echo "</div><hr>";
  }?>   
      </div> 
 </div> 
