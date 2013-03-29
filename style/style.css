@@ -118,12 +118,12 @@ ul.n a:hover, ul.n a.selected {
 #midpanel {
 	margin-top: 8px;
 /*	  background-color: #dfdfdf; */
-background-color: #FFFFFe;
+	background-color: #FFFFFe;
 	width: 582px;
 	min-height: 727px;
 	float: left;
 	margin-right: 5px;
-	overflow:hidden;	
+	overflow:visible;
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
 	
@@ -419,6 +419,7 @@ width:1000px;
 min-height:80px;
 height:auto;
 float: left;
+margin-right: 5px;
 	}
 #dvres {
 	
@@ -427,6 +428,7 @@ float: left;
 	width:220px;
 	height:auto;
 	float: left;
+	position:relative;
 	background-color:#579bba;
 	margin-left: 5px;
 	margin-top: 5px;

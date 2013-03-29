@@ -1,7 +1,7 @@
 
 <div id=dvresbig >
 <?php 
-if(!empty($arrData) && !empty($arrData['0'])) {
+if(!empty($arrData) && !empty($arrData['0']) {
 		foreach ( $arrData  as $key => $val ) {
 		if ($val ['id'] != "") {
 			$res = "<a href='".ROOTPATH."index.php?controller=friends&url=friendsProfile&friendId=" . $val ['id'] . "' >";
