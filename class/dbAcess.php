@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 
 
@@ -73,7 +73,7 @@ private function dbDisconnect()
 	while($row=mysql_fetch_array($res)){
 	echo  $row['userID']."</br>";
 	}
-	*/
+	
 
 		public function __construct(){
 		//old -  Will be Depriciated

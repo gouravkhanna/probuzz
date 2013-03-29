@@ -1,6 +1,6 @@
 
 <div id=dvresbig >
-<php 
+<?php 
 echo "<hr/>Based on User Name <hr/>";
 if(!empty($arrData)) {
 	foreach ( $arrData  as $key => $val ) {

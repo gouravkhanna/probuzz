@@ -82,7 +82,7 @@ class corporate {
     
     
     /*Show the Applciant for the jobs*/ 
-    function showApplicant() {
+    function getApplicant() {
   		echo "hello";
     }
     /*  Search for the people with required qualification,City,Gender
