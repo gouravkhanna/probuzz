@@ -55,6 +55,48 @@ class friend extends users{
 			return $row['status'];
 		}
 	}
-	
+	function sendRequest($arrArg) {
+		 if($arrArg) {
+			$ob=new DbConnection();
+			$sql="insert into friend (user_id,friend_id,friendship_status,friend_request_date) ";
+			$sql.=" values ('".$_SESSION['id']."','".$arrArg."','2',now())";
+			$result1=$ob->executeSQL($sql);
+			$sql="insert into friend (user_id,friend_id,friendship_status,friend_request_date) ";
+			$sql.=" values ('".$arrArg."','".$_SESSION['id']."','3',now())";
+			$result2=$ob->executeSQL($sql);
+			if($result1 && $result2) {
+				return "Request Sent Successfully";
+			}
+		} 
+	}
+	function acceptRequest($arrArg) {
+		if($arrArg) {
+			$ob=new DbConnection();
+			$sql="update friend set friendship_status='1',friend_accept_date=now() ";
+			$sql.=" where user_id='".$_SESSION['id']."' AND friend_id='".$arrArg."'";
+			//echo $sql;
+			$result1=$ob->executeSQL($sql);
+			$sql="update friend set friendship_status='1',friend_accept_date=now() ";
+			$sql.=" where user_id='".$arrArg."' AND friend_id='".$_SESSION['id']."'";
+			//echo $sql;
+			$result2=$ob->executeSQL($sql);
+			 if($result1 && $result2) {
+				return "Friend Added.";
+			} 
+		}
+	}
+	function declineRequest($arrArg) {
+		if($arrArg) {
+			$ob=new DbConnection();
+			$sql="delete from friend where user_id='".$_SESSION['id']."' AND friend_id='".$arrArg."'";
+			$result1=$ob->executeSQL($sql);
+			$sql="delete from friend where user_id='".$arrArg."' AND friend_id='".$_SESSION['id']."'";
+			$result2=$ob->executeSQL($sql);
+			if($result1 && $result2) {
+				return "Request Declined.";
+			}
+		}
+	}
+
 }
 ?>;

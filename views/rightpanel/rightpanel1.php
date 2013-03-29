@@ -29,7 +29,8 @@
 	?>
 	<div id="friendShipStatus">
 		Request Recieved : 
-		<pre><input type="button" id="<?php echo "accept_".$friendId;?>" value="Accept"/>	<input type="button"  id="decline_<?php echo $status;?>" value="Decline"/></pre>
+		<input type="button" id="<?php echo "accept_".$friendId;?>" onclick="acceptRequest(this)" value="Accept"/>
+		<input type="button"  id="decline_<?php echo $friendId;?>" value="Decline" onclick="declineRequest(this)"/>
 	</div>			
 	<?php
 			}

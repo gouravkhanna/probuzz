@@ -2,6 +2,7 @@
 
 <?php
 include 'controller.controller.php';
+include("class/users.class.php");
 class friends extends Controller
 {
 	function __construct() 	{
@@ -60,8 +61,23 @@ class friends extends Controller
 		
 	}
 	function sendRequest() {
+		$friendId=$_REQUEST['friendId'];
+		$result=loadModel("friend","sendRequest",$friendId);
+		echo $result;
+	}
+	function acceptRequest() {
+		$friendId=$_REQUEST['friendId'];
+		$result=loadModel("friend","acceptRequest",$friendId);
+		echo $result;
+	}
+	function declineRequest() {
+		$friendId=$_REQUEST['friendId'];
+		$result=loadModel("friend","declineRequest",$friendId);
+		echo $result;
+	}
+	function showRequests() {
+		loadView("head/head1.php");
 		
 	}
-	
 }
 ?>

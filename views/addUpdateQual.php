@@ -1,8 +1,8 @@
 <script>
 $(function() {
     $( "#d" ).datepicker();
+    $( "#d1" ).datepicker();
 });
-}
 </script>
 <b><form id="form4" class="qual">
 <?php

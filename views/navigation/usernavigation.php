@@ -18,15 +18,19 @@
 			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showfriend"; ?>">Friends</a>
 		</li>
 		<li id="umenu">
+			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showRequests"; ?>">Show Requests</a>
+		</li>
+		<li id="umenu">
 			<a href="<?php echo ROOTPATH."index.php?controller=photos"; ?>">Photos</a>
 		</li>
 
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."user/searchjob"; ?>">Search Job</a></li>
-		</ul>
+			<a href="<?php echo ROOTPATH."user/searchjob"; ?>">Search Job</a>
+		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."user/displayApplication"; ?>">Display Job</a></li>
-		</ul>
+			<a href="<?php echo ROOTPATH."user/displayApplication"; ?>">Display Job</a>
+		</li>
+	</ul>
 		<!-- APPLICATION STATUS -->
 		<!-- NOTIFICATION STATUS -->
 		<!-- -->
