@@ -28,22 +28,27 @@ function __construct()
 	    (select f.friend_id from friend f where f.user_id='$id') )
        	order by buzz_time desc";
 		$result=$ob->executeSQL($sql);
-		while($row=mysql_fetch_array($result)) {
+		 while($row=mysql_fetch_assoc($result)) {
+		 	$row2=array(); 	
 			$buzzId=$row['buzz_id'];
-			
-			
-			
-			
-			/* $res=array("buzz"=>$row,
-						"comment"=>$rowcomment,	
+			$sql1="select comment_text from probuzz.comment where buzz_id='$buzzId'";
+			$res=$ob->executeSQL($sql1);
+			while($row2[]=mysql_fetch_assoc($res)) {	
+				
+			}
+			$buzz[]=array(
+					"buzz"=>$row,
+					"comment"=>$row2,
+					
 			);
-			 */
+		//	echo "<pre>";
+	//	print_r($buzz);
+		
 		}
-
 		
 		
 		
-		return $row;
+		return $buzz;
 
 
 	}

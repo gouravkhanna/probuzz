@@ -129,3 +129,17 @@ span{
  -webkit-border-radius:5px;
 	
 }
+.comments{
+	
+	margin-left:20px;
+	margin-top:2px;
+	padding-top: 5px;
+	border:4px;
+	border-color: red;
+	
+
+}
+.x{
+	
+	background-color: gray;
+}

@@ -38,7 +38,7 @@ class status extends Controller
    
    
    function comment() {
-   	echo "<pre>";
+   
   
    	$arrArgs=array(
    			"id"=>@$_SESSION['id'],
@@ -48,15 +48,15 @@ class status extends Controller
    	);
    
    	$arrData=loadModel("buzzin","insertComment",$arrArgs);
-   	if($arrData=='true'){
-   		$a=$arrArgs;
+   	 if($arrData=='true'){
+   		
    		header('location:index.php');
    				
    				
    		
    		
    		
-   	}
+   	} 
    }
 
 }

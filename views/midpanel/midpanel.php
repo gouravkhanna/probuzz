@@ -18,24 +18,39 @@
   <?php $count=1; foreach($arrData as $row)
                            {
                          
-                           	$pa=$row['path'];
-                           	$date=strtotime($row['buzz_time']);
+                           	$pa=$row['buzz']['path'];
+                           	$date=strtotime($row['buzz']['buzz_time']);
                            	echo '<div id="statusimg'.$count.'"class="statusimg">';
-                           	echo "<a href='index.php?controller=friends&url=friendsProfile&friendId=" . $row['id'] . "' >";
+                           	echo "<a href='index.php?controller=friends&url=friendsProfile&friendId=" . $row['buzz']['id'] . "' >";
                            	echo "<img class='round5' src='".$pa."' height='50px' width='50px'/></a></div>";
                           	echo '<div id="statusName'.$count.'"class="statusName"> <a href="   ">';
- 	                        echo $row['first_name']." ".$row['last_name']."</a><span>". date('D-M-Y',$date)."</span></div>";
- 	                        echo '<div id="statusText'.$count.'"class="statusText">'. $row['buzztext'] ; 
+ 	                        echo $row['buzz']['first_name']." ".$row['buzz']['last_name']."</a><span>". date('D-M-Y',$date)."</span></div>";
+ 	                        echo '<div id="statusText'.$count.'"class="statusText">'. $row['buzz']['buzztext'] ; 
+							echo "</div><br>";
+					 		foreach ($row['comment'] as $val) {
+								$c=1;
+								if(is_array($val)){
+								      foreach($val as $comment){
+								      	   	echo '<div id="cmmnt'.$c.'"class="comments"><span class="x">';
+								echo $comment."</span><br/></div>";
+								$c++;
+								      }
+							} 
+						}
+ 	                        
+ 	                        
+ 	                        
  	                        
  	                        
  	                        echo "<form method='get' name='$count'>"; 	                        
  	                        echo  "<input type=hidden value=comment name=url />" ;
                             echo "<input type=hidden value=status name=controller /><br>";
- 	                        echo "<input type=hidden value=". $row['buzz_id'] ." name=buzz_id >";
+ 	                        echo "<input type=hidden value=". $row['buzz']['buzz_id'] ." name=buzz_id >";
  	                        
- 	                        echo '<br><input type="text" id="comment'. $count.'" name=comment_text  class="comment" placeholder="Post Comment..." />';
+ 	                        echo '<br><input type="text" id="comment'. $count.'" name=comment_text
+ 	                        		  class="comment" placeholder="Post Comment..." />';
  	                       	echo '<input type="submit" id="save'.$count	.'" value="Comment" name=submit> ' ;
- 	                        echo "</form></div><hr>";
+ 	                        echo "</form><hr>";
  	                       	$count++;
  }
      
