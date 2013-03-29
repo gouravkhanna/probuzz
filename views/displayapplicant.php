@@ -1,6 +1,6 @@
 <div id="midpanel" >
 
-<div id="alljobs">
+<div id="daalljobs">
 <button id=backjob onclick="fnBackJob()">Back</button>
 <?php 
 
@@ -25,6 +25,8 @@ $i=1;
 		
 ?>
 </div>
-<div id="showapplicant">aaaa
+<button id=dabackbutton onclick="dabackbutton()">Back</button>
+<div id="dashowapplicant">
 </div>	
+
 </div>

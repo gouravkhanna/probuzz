@@ -6,6 +6,7 @@ $(document).ready(function(e) {
 	$("#head2").html("<img src='data/header/h26.jpg'  />");
 	$("#dvsearch").hide();
 	$("#backjob").hide();
+	$("#dabackbutton").hide();
 	$( document ).tooltip();
 //	$("#showAllSlot").load("index.php","url=showAllJobs");	
 
@@ -213,11 +214,19 @@ function fnLoadJobUser(a) {
 	//$("#showslot").hide();
 	//$("#backjob").show();
 }
+/* get the applicants for the particular job in showapplicant*/
 function fnLoadApplicants(a) {
-	alert(a);
-	$("#showapplicant").load("index.php","controller=corporatecontroller&url=getApplicant&jobId="+a);
-	
+	$("#dabackbutton").show();
+	$("#dashowapplicant").show();
+	$("#dashowapplicant").load("index.php","controller=corporatecontroller&url=getApplicant&jobId="+a);
+	$("#daalljobs").hide();
 }
+function dabackbutton() {
+	$("#dabackbutton").hide();
+	$("#dashowapplicant").hide();
+	$("#daalljobs").show();
+}
+
 /* For Show JOb tab */
 function fnLoadJob(a) {
 		//$("#showspecficjob").show();

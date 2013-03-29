@@ -1,9 +1,8 @@
 
 <div id=dvresbig >
 <?php 
-echo "<hr/>Based on User Name <hr/>";
-if(!empty($arrData)) {
-	foreach ( $arrData  as $key => $val ) {
+if(!empty($arrData) && !empty($arrData['0'])) {
+		foreach ( $arrData  as $key => $val ) {
 		if ($val ['id'] != "") {
 			$res = "<a href='".ROOTPATH."index.php?controller=friends&url=friendsProfile&friendId=" . $val ['id'] . "' >";
 			$res .= "<div id=dvres class=round20>";

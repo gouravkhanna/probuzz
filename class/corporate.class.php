@@ -82,8 +82,29 @@ class corporate {
     
     
     /*Show the Applciant for the jobs*/ 
-    function getApplicant() {
-  		echo "hello";
+    function getApplicant($arrArgs=array()) {
+    	if(!empty($arrArgs)) {
+    	//	print_r($_REQUEST);
+    		$jobId=@$arrArgs['jobId'];
+    		$ob=new DbConnection();
+    		$sql= "SELECT p.first_name, p.last_name, p.user_id AS id,photo.path
+			FROM personal_profile p
+				JOIN job_applicant ja 
+				ON ja.user_id = p.user_id
+				JOIN photo 
+				on photo.id=p.profile_pic_id
+			WHERE ja.job_id='$jobId' ";
+    		$result=$ob->executeSQL($sql);
+    		if($result) {
+    			while ($row[]=mysql_fetch_array($result)) {
+    			}
+    			return $row;   			
+    		}
+    		else {
+    			echo "Error!!";
+    		}
+    		
+    	}
     }
     /*  Search for the people with required qualification,City,Gender
      */

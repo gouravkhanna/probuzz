@@ -138,11 +138,8 @@ function showSpecficJob() {
 	}
 /*Get the applicant lists*/ 
 	function getApplicant() {
-		echo "BIG lulu";
-		echo $_REQUEST['jobId'];
-		$arrData=loadModel("corporate","getApplicant",array('id'=>$_SESSION['id']));
-		//loadView("getApplicant.php",$arrData);
-		
+		$arrData=loadModel("corporate","getApplicant",array('jobId'=>$_REQUEST['jobId']));
+		loadView("getapplicant.php",$arrData);
 	}
 /* Search for the people with required qualification,City,Gender */
 	function searchPeople() {
