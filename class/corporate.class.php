@@ -1,8 +1,8 @@
 <?php
 include_once 'dbAcess.php';
-class corporate {
+class corporate extends DbConnection{
     function __construct() {
-    
+    	parent::__construct();
     }
     function alotSlot($arrArg=array()) {
         //if(!$designation!="")
@@ -110,7 +110,7 @@ class corporate {
      */
     function searchPeople($arrArg=array()) {
        	/* USer Must Have a valid entry in personal_profile,qualifation,address,photo,experiance  */
-$sql = "select 
+	$sql = "select 
 			p.user_id as id,
 			p.first_name,p.last_name,
 			photo.path 
@@ -128,34 +128,39 @@ $sql = "select
        				$cond.=" a.city='$val' OR ";
     			}
        		}
-       		$cond=rtrim($cond,"OR");
+       		$cond=rtrim($cond,"OR ");
        		$cond.=") AND (";
        		 
     	}
     	//Based On gender
     	 $val=$arrArg['gender'];
     		if($val!="" && $val!="Both" ) {
-       				$cond.=" p.gender='$val' OR ";
-       			  	$cond=rtrim($cond,"OR");
-       			  	$cond.=") AND (";
+       				$cond.=" p.gender='$val' ";
+       				$cond.=") AND (";
     		}
     	//Based On Degree
     	if(!empty($arrArg['degree'])) {
     		foreach($arrArg['degree'] as $val) {
     			if($val!="") {
-    				$cond.=" q.class='$val' OR";
+    				$cond.=" q.class='$val' OR ";
     			}
     		}
-    		$cond=rtrim($cond,"OR");
+    		$cond=rtrim($cond,"OR ");
     		$cond.=") AND (";
     	}
     	$cond=rtrim($cond,"AND (");
     	
     	if($cond!="") {
     		$sql.=" where ( ".$cond." group by id";
-    	  	$res=mysql_query($sql);
-    	 	while($result[]=mysql_fetch_array($res)) {		
-    	} 
+    		echo $sql;
+    	  	$res=$this->executeSQLP($sql);
+    	  	if($res) {
+    	  		echo "Sss";
+    	  	}else {
+    	  		echo "ogooo";
+    	  	}
+    	 	while($result[]=$res->fetch(PDO::FETCH_ASSOC)) {		
+    		} 
     	return $result;
     	}
     	

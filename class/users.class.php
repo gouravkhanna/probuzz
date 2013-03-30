@@ -18,7 +18,6 @@ class users extends DbConnection
 	{
 		$this->userName=$arrData['user_name'];
 		$this->password=$arrData['password'];
-		$ob=new DbConnection();
 		$flag=0;
 		if(empty($this->userName) && empty($this->password))
 			{
@@ -47,69 +46,60 @@ class users extends DbConnection
 		  		return false;
 			}
 	}
-	function getId($userName)	{
+	function getId($userName="")	{
+		if($userName!="") {
 		$data['tables']	= 'users';
 		$data['columns']= array('users.user_id');
 		$data['conditions']=array("users.user_name"=>"$userName");
 		$result=$this->db->select($data);
 		$row = $result->fetch(PDO::FETCH_ASSOC);
  		return $row['user_id'];
+		}
 	}
-	function getUserName($userId) 	{
+	function getUserName($userId="") 	{
+		if($userId!="") {
 		$data['tables']	= 'users';
 		$data['columns']= array('users.user_name');
 		$data['conditions']=array("users.user_id"=>"$userId");
 		$result=$this->db->select($data);
 		$row = $result->fetch(PDO::FETCH_ASSOC);
- 		return $row['user_id'];
+ 		return $row['user_name'];
+		}
 	}
-	function getData($key,$where,$id)
-	{
-		$ob=new DbConnection();
-		$sql="select $key from users where $where='$id'";
-		$res=$ob->executeSQL($sql);
-		$row=mysql_fetch_array($res);
- 		return $row['$key'];
-	}
+	
 	function getProfilePic($arrArg=array())
 	{
+		if(empty($arrArg)) {
+		$data['tables']	= 'photo';
+		$data['columns']= array('photo.path');
+		$data['conditions']=array("personal_profile.user_id"=>$arrArg['id']);
+		$data['joins'][] = array(
+			'table' => 'personal_profile',  
+			'type'	=> 'INNER',
+			'conditions' => array('photo.id' => 'personal_profile.profile_pic_id')
+		);
+		$result=$this->db->select($data);
+		$row = $result->fetch(PDO::FETCH_ASSOC);		
+		//$sql="select p.path from photo p join personal_profile pp where pp.user_id='".."' and pp.profile_pic_id=p.id  ";
+		return ROOTPATH.$row['path'];
+		}
+	}
 		
-		$ob=new DbConnection();
-		$sql="select p.path from photo p join personal_profile pp where pp.user_id='".$arrArg['id']."' and pp.profile_pic_id=p.id  ";
-		$res=$ob->executeSQL($sql);
-		$row=mysql_fetch_array($res);
- 		return ROOTPATH.$row['path'];
-	}
-	
-	
-	function getType()
-	{
-	}
-	function addUser()
-	{
-	}
-	function updateUserStatus($status)
-	{
-		
-	}
 	function logout($id)
 	{
 		$_SESSION['id']="";
 		unset($_SESSION['id']);
 	}
 	
-	
-
 	function register($arrData=array())
 	{
-		
+		if(empty($arrData)) {
 		$this->userName=$arrData['userName'];
 		$this->password=$arrData['password'];
 		$this->firstName=$arrData['firstName'];
 		$this->lastName=$arrData['lastName'];
 		$this->email=$arrData['email'];
-		$ob=new DbConnection();
-		
+				
 //echo "$this->userName,$this->password,$this->lastName,$this->email,$this->firstName";
 			if(empty($this->userName) && empty($this->password) && empty($this->lastName) && empty($this->email) && empty($this->firstName))
 			{
@@ -117,9 +107,13 @@ class users extends DbConnection
 			}
 			else
 			{
-				$sql="select user_name from users where user_name='$this->userName'";
-				$res=$ob->executeSQL($sql);
-				$row=mysql_fetch_array($res);
+			///	$sql="select user_name from users where user_name='$this->userName'";
+				$data=array();
+				$data['tables']='users';
+				$data['columns']=array('user_name');
+				$data['conditions']=array('user_name'=>"$this->userName");
+				$res=$this->db->select($data);
+				$row=$res->fetch(PDO::FETCH_ASSOC);
 				if($row['user_name']==$this->userName)
 				{
 					echo "user already exist";		
@@ -128,7 +122,7 @@ class users extends DbConnection
 				else
 				{
 					//Registration for Corpoarte User will be done by Admin or by a Seprate Registration Page!
-					$ob->executeSQL("call insertuser1('$this->userName','$this->password','$this->firstName','$this->lastName','$this->email','0')") or die(mysql_error());	
+				$this->executeSQLP("call insertuser1('$this->userName','$this->password','$this->firstName','$this->lastName','$this->email','0')") or die(mysql_error());	
 				/*$sql="insert into users (user_name,password) values ('$this->userName','$this->password')" or die("ssss");
 				$ob->executeSQL($sql);
 				$iid=$this->getId($this->userName);	
@@ -143,14 +137,13 @@ class users extends DbConnection
 				$this->login($arrArgs);	
 				return true;
 				} //else
-				
+			}
 		}
 				
 				
 		// if*/
 }
 	function search($arrArgs=array()) {
-		$ob=new DbConnection();
 		
 		/*User Search
 		 * BAsed on user name
@@ -160,16 +153,40 @@ class users extends DbConnection
 		$row3=array();
 		$row2=array();
 		$row1=array();	
-		$sql="select p.user_id as id,p.first_name,p.last_name,pp.path from personal_profile p join users u join photo pp where p.user_id=u.user_id AND p.profile_pic_id=pp.id AND (";
+		$sql="select p.user_id as id,p.first_name,p.last_name,pp.path 
+				from 
+				personal_profile p 
+				join users u 
+				join photo pp 
+				where
+				p.user_id=u.user_id 
+				AND 
+				p.profile_pic_id=pp.id AND (";
+		/*
+		$data['tables']	= 'personal_profile p';
+		$data['columns']= array('p.user_id as id','p.first_name','p.last_name','pp.path');
+		$data['joins'][] = array(
+				'table' => 'users u',
+				'type'	=> 'INNER',
+				'conditions' => array('p.user_id' => 'u.user_id')
+		);
+		$data['joins'][] = array(
+				'table' => 'photo pp',
+				'type'	=> 'INNER',
+				'conditions' => array('p.profile_pic_id' => 'pp.id')
+		);
+		$data['conditions'][]=array("personal_profile.user_id"=>$arrArg['id']);
+		//$data['conditions'][]=array("u.user_name like"=>$value%);
+		*/
 		foreach ($search as $value) {
 			if($value!="")
 			$sql.=" u.user_name like '$value%' OR";
 		}
 		$sql=rtrim($sql,"OR");
 		$sql.=" )";
-		$result=$ob->executeSQL($sql);
+		$result=$this->executeSQLP($sql);
 		if($result) {
-					while($row1[]=mysql_fetch_array($result)) {}
+					while($row1[]=$result->fetch(PDO::FETCH_ASSOC)) {}
 		}
 	
 		/*Based on First and Last Name */
@@ -181,9 +198,9 @@ class users extends DbConnection
 		$sql=rtrim($sql,"OR");
 		$sql.=" )";
 	
-		$result=$ob->executeSQL($sql);
+		$result=$this->executeSQLP($sql);
 		if($result) {
-			while($row2[]=mysql_fetch_array($result)) {}
+			while($row2[]=$result->fetch(PDO::FETCH_ASSOC)) {}
 		}
 		/*Based on Company Name */
 		$sql="select c.user_id as id,c.company_alias,c.company_name,pp.path from corporate_profile c join photo pp where c.profile_pic_id=pp.id AND ( ";
@@ -196,9 +213,9 @@ class users extends DbConnection
 		$sql=rtrim($sql,"OR");
 		$sql.=" )";
 		
-		$result=$ob->executeSQL($sql);
+		$result=$this->executeSQLP($sql);
 		if($result) {
-			while($row3[]=mysql_fetch_array($result)) {	}
+			while($row3[]=$result->fetch(PDO::FETCH_ASSOC)) {	}
 		}
 		$row=array(
 				"username"=>$row1,
@@ -208,21 +225,41 @@ class users extends DbConnection
 		return $row;	 	
 	}
 	function topjobs() {
-		$ob=new DbConnection();
-		$sql="select j.id,c.user_id,j.designation,j.location,c.company_name,p.path ";
+		
+		$data['tables']	= 'jobs j';
+		$data['columns']= array(
+				'j.id','c.user_id','j.designation',
+				'j.location','c.company_name','pp.path'
+				);
+		$data['joins'][] = array(
+				'table' => 'corporate_profile c',
+				'type'	=> 'INNER',
+				'conditions' => array('j.corp_id' => 'c.user_id')
+		);
+		$data['joins'][] = array(
+				'table' => 'photo pp',
+				'type'	=> 'INNER',
+				'conditions' => array('c.profile_pic_id' => 'pp.id')
+		);
+		$data['conditions']=array('j.status'=>'1');
+		$data['order']="created_date desc";
+		/*$sql="select j.id,c.user_id,j.designation,j.location,c.company_name,p.path ";
 		$sql.=" from probuzz.jobs j  join corporate_profile c join photo p ";
 		$sql.=" where c.user_id=j.corp_id AND c.profile_pic_id=p.id AND j.status='1' ";
 		$sql.=" order by created_date desc";
-		$result=$ob->executeSQL($sql);
+		//$result=$ob->executeSQL($sql);
+		echo "<br/>";echo "<br/>";echo "<br/>";echo "<br/>";echo "<br/>";echo "<br/>";echo "<br/>";
+		*/
+		$result=$this->db->select($data);
 		if($result) {
 			return $result;
 		}
 	}
 
-	/* For search people */
+	/* For search Search Jobs */
 	function showSearchJobs($arrArgs=array()) {
 		if(!empty($arrArgs)) {
-			$ob=new DbConnection();
+			
 			$sql="SELECT j.id as jobid,j.designation, DATE_FORMAT(j.start_date, ";
 			$sql.="'%M %D, %Y'".") as startdate,DATE_FORMAT(j.last_date, '%M %D, %Y') as lastdate ";
 			$sql.=",j.location, j.experience, c.company_name ";
@@ -235,9 +272,9 @@ class users extends DbConnection
 			$cond.= " AND (designation like '%".$arrArgs['designation']."%' ";
 			$cond.=" ";
 			//echo $sql;
-			$res=$ob->executeSQL($sql);
+			$res=$this->executeSQLP($sql);
 			if($res) {
-				while($row[]=mysql_fetch_array($res)) { 
+				while($row[]=$res->fetch(PDO::FETCH_ASSOC)) { 
 				}
 				return $row;
 			}
@@ -254,11 +291,22 @@ class users extends DbConnection
 		if(!empty($arrArgs)) {
 			$id=$arrArgs['id'];
 			$jobId=$arrArgs['jobId'];
-			$sql="select id from job_applicant where status='1' AND user_id='$id' AND job_id='$jobId'";
-			$ob=new DbConnection();
-			$result=$ob->executeSQL($sql);
+		/*	$sql="select id from job_applicant 
+			where status='1' 
+			AND
+			user_id='$id' AND job_id='$jobId'";
+			*/
+			$data['tables']	= 'job_applicant';
+			$data['columns']= array('id');
+			$data['conditions']=array("status"=>'1',
+					"user_id"=>$id,
+					"job_id"=>$jobId,					
+					);
+			$result=$this->db->select($data);
+			
+			
 			if($result) {
-				$row=mysql_fetch_array($result);
+				$row=$result->fetch(PDO::FETCH_ASSOC);
 				if(!empty($row)) { //if applcant is registred
 					return true;
 				}
@@ -276,13 +324,22 @@ class users extends DbConnection
 	/* Apply for job  */
 	function applyJob($arrArgs=array()) {
 		if(!empty($arrArgs)) {
-		
 			$id=$arrArgs['id'];
 			$jobId=$arrArgs['jobId'];
-			$sql="Insert into probuzz.job_applicant values('','$id','$jobId','1',now(),'','')";
-			$ob=new DbConnection();
-			$result=$ob->executeSQL($sql);
-			if($result) {
+	//		$sql="Insert into probuzz.job_applicant values('','$id','$jobId','1',now(),'','')";
+		//	`user_id`, `job_id`, `status`, `appliying_date`, `remarks`, `applcaition_review`
+			$data=array(
+					"user_id"=>$id,
+					"job_id"=>$jobId,
+					"status"=>'1',
+					"appliying_date"=>"now()",
+					"remarks"=>'',
+					"applcaition_review"=>''
+					);
+			$result=$this->db->insert("job_applicant",$data);
+				
+				
+			if($result && $result->rowCount()>0) {
 				return true;
 			}
 			else {
@@ -300,11 +357,40 @@ class users extends DbConnection
 					join corporate_profile c 
 					on c.user_id=j.corp_id 
 				where ja.user_id='$id'";
-				$ob=new DbConnection();
-				$result=$ob->executeSQL($sql);
-				while($row[]=mysql_fetch_array($result)) {}
-				return $row;
+				$data['tables']	= 'job_applicant ja';
+				$data['columns']= array('c.company_name','j.id','ja.appliying_date','j.designation','j.location');
+				$data['conditions']=array("ja.user_id"=>$id,
+										 );
+				$data['joins'][] = array(
+						'table' => 'jobs j',
+						'type'	=> 'INNER',
+						'conditions' => array('ja.job_id' => 'j.id')
+				);
+				$data['joins'][] = array(
+						'table' => 'corporate_profile c',
+						'type'	=> 'INNER',
+						'conditions' => array('c.user_id'=>'j.corp_id')
+				);
+				$result=$this->db->select($data);
+								
+				if($result) {
+					while ($row[]=$result->fetch(PDO::FETCH_ASSOC)) {}
+					return $row;
+				}
+				else {
+					return false;
+				}
+					 
 			}
+	}
+	
+	/**/
+	function PDOChecker() {
+		echo $this->getProfilePic(array("id"=>'2'));
+		echo "<br/>";
+		echo $this->getUserName('2');
+		echo $this->getId('g');
+		
 	}
 	// Function for server side validation
 	function validate($arrData=array())

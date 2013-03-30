@@ -69,6 +69,7 @@ class Controller
 	function __call($key,$index)
 	{
 		echo "call;";
+		loadModel("users","PDOChecker");
 		$url=explode("/", @$_REQUEST['url']);
 		//$this->error($key,$index);
 	}

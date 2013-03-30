@@ -4,7 +4,7 @@
 <div id="topjobcontent">
 
 <?php 
-while($row=mysql_fetch_array($arrData))
+while($row=$arrData->fetch(PDO::FETCH_ASSOC))
 {
 ?>
 <div id="topjobn">
