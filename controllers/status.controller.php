@@ -25,7 +25,16 @@ class status extends Controller
 
 
 }	
+function displayComment() {
 
+   $arrData=loadModel("buzzin","loadComment",array('buzz_id' => $_REQUEST['buzz_id']));
+   //create a file display comment and use $arrData to get comment 
+   //and load that file using loadView
+    loadView("midpanel/displaycomment.php",$arrData);
+   //the stuff will be loaded only to specific divison only 
+   
+
+}
    function displayBuzz()
    {
    	
@@ -44,18 +53,20 @@ class status extends Controller
    			"buzz_id" => $_REQUEST['buzz_id'],
    			"comment_text" => $_REQUEST['comment_text'],
    			  		);
-   
+    if(isset($_GET['comment_text']) && !empty($_GET['comment_text'])){
    	$arrData=loadModel("buzzin","insertComment",$arrArgs);
+
    	 if($arrData=='true'){
    		
-   		header('location:index.php');
-   				
-   				
-   		
-   		
-   		
-   	} 
-   }
+   		echo "inserted";   				
+   			             	} 
+               }
+               else{
+
+
+                  echo "nnooooo";
+               }
+       }
 
 }
 ?>

@@ -75,6 +75,22 @@ else {
 
 	
 }
+function loadComment($arrArgs=array()) {
+	  $ob= new DbConnection();
+	$buzz_id=$arrArgs['buzz_id']; //retive all comments of this buzz ID YO :D
+    $sql="select comment_text from probuzz.comment where buzz_id='$buzz_id'";
+   $result=$ob->executeSQL($sql);
+
+  while($row[]=mysql_fetch_assoc($result)) {	
+				
+			}
+			$comments=array("comment_text"=>$row);
+			return $comments;
+
+	//code for retriving comments
+	//and return in array
+}
+
 function insertComment($arrArgs=array()) {
 	$ob= new DbConnection();
 	if(!empty($arrArgs)) {

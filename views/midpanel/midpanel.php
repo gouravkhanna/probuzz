@@ -3,7 +3,7 @@
     <br/>
     <br/>
 <div id="buzz">
-  <div id="abc"></div>
+  <div id="abc">  </div>
     <form action="" method="get" >
    Upadte Status
     <div id="statusUp" name="statusUp" class="uparrowdiv">
@@ -16,12 +16,11 @@
      </form> 
 
      <div id="statusShow" name="statusShow">
-  
+             <div id="commentShow"></div>
      </div> 
 </div> 
 </div> <!-- END OF MID2 -->
 <script >
-
 $("#buzztext").click(function()
 {
 $("#subuzz").show();
@@ -29,6 +28,5 @@ $("#statusUp").css("height","60px");
 
 }
 );
-
 
 </script>
