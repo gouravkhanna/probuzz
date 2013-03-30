@@ -9,6 +9,7 @@
 <script src="<?php echo ROOTPATH."js/jquery-1.9.1.min.js"; ?>"> </script>
 <script src="<?php echo ROOTPATH."js/jqueryui/js/jquery-ui-1.10.1.custom.js"; ?>"></script>
 <script src="<?php echo ROOTPATH."js/probuzz.js"; ?>"></script>
+<script src="<?php echo ROOTPATH."js/buzz.js"; ?>"></script>
 
 <link rel="stylesheet" type="text/css" href="style/proProfile.css" />
 <script type="text/javascript" src="js/proProfile.js"></script>

@@ -42,7 +42,8 @@ function __construct()
 					"comment"=>$row2,
 					
 			);
-		echo "<pre>";
+			$row=array();
+		//echo "<pre>";
 	//	print_r($buzz);
 		
 		}

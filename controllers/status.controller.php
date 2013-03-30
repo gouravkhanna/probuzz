@@ -7,8 +7,7 @@ class status extends Controller
 	}
 
 	function buzz() {
-		
-		
+	echo "string";
    if($_GET['url']=="buzz") {
    	$arrArgs=array("buzztext"=>$_GET['buzztext'],"id"=>$_SESSION['id']);
 	if(isset($_GET['buzztext']) && !empty($_GET['buzztext'])) {
@@ -16,11 +15,11 @@ class status extends Controller
 	$res=loadModel("buzzin","buzzUpdate",$arrArgs);
 	if($res=='true')
 	{
-      
-		header('location:index.php');
+      echo "Updated Statissss";
+		//header('location:index.php');
 	}
 	  
-	}
+	} 
 }
 
 
@@ -30,9 +29,9 @@ class status extends Controller
    function displayBuzz()
    {
    	
-   	$arrArgs=$_SESSION["id"];
+   	$arrArgs=array("id"=>$_SESSION["id"]);
    	$arrData=loadmodel("buzzin","loadbuzz",$arrArgs);
-   	loadView("midpanel/midpanel.php",$arrData);
+      loadView("midpanel/buzzdisplay.php",$arrData);
    	
    }
    
@@ -44,8 +43,7 @@ class status extends Controller
    			"id"=>@$_SESSION['id'],
    			"buzz_id" => $_REQUEST['buzz_id'],
    			"comment_text" => $_REQUEST['comment_text'],
-   			  			
-   	);
+   			  		);
    
    	$arrData=loadModel("buzzin","insertComment",$arrArgs);
    	 if($arrData=='true'){
