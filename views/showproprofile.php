@@ -69,6 +69,46 @@
             ?>
 
         </div>
+        <h3><?php echo CERTIFICATIONS; ?></h3>
+        <div class="wide">
+            <?php
+$cert=$arrData['certifications'];
+            if(!$cert) {
+        ?>
+        No Certifications to display...<br/>
+        Add Certifications...
+        <?php } else {
+            foreach($cert as $key => $value){
+        ?>
+        
+        <div id="mainCertDisplay<?php echo $value['id']; ?>">
+                <div class="highlight" id="divhead<?php echo $value['id']; ?>">
+                    <?php echo strtoupper($value['certification_name']);?>
+                </div>
+                <div class="displayDetails" id="div<?php echo $value['id']; ?>">
+                    <?php if($value['institution']) { ?>
+                    <pre>       <?php echo "Institution : ".$value['institution']; ?></pre>
+                    <?php } ?>
+                    <?php if($value['certification_year']) { ?>
+                    <pre>       <?php echo "Certification Year : ".$value['certification_year']; ?></pre>
+                    <?php } ?>
+                    <?php if($value['validity']) { ?>
+                    <pre>       <?php echo "Valid Till : ".$value['validity']; ?></pre>
+                    <?php } ?>
+                    
+					<!-- Reminder to add added_date column to certifications table-->
+					<?php// if($value['added_date']) { ?>
+                    <pre>       <?php //echo "Added On : ".$value['added_date']; ?></pre>
+                    <?php //} ?>
+                </div>
+        </div>
+        
+        <?php
+                }
+            }
+        ?>
+
+        </div>
         <h3><?php echo RESUME; ?></h3>
         <div class="wide">
 

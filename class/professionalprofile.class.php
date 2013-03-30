@@ -28,6 +28,13 @@
                 "added_date",
                 "field"
             );
+            $arr["certifications"] = array(
+                "id",
+                "certification_name",
+                "certification_year",
+                "institution",
+                "validity"
+            );
             $arr["resume"] = array(
                 "resume_path",
                 "resume_date"
@@ -64,8 +71,8 @@
                 $fields=rtrim($fields,",");
                 $query.="$fields from $tableKey where user_id =".$id." ;";
                 $this->dbInstance=new DbConnection();
-                $temp=$this->dbInstance->executeSQL($query) or die("<br/><br/><br/><br/><br/><br/><br/><br/><br/>nothing");
-                if($tableKey=="qualification" || $tableKey=="resume") {
+                $temp=$this->dbInstance->executeSQL($query) or die("nothing in db");
+                if($tableKey=="qualification" || $tableKey=="resume" || $tableKey=="certifications") {
                     $result[$tableKey]=array();
                     while($row=mysql_fetch_assoc($temp)) {
                         array_push($result[$tableKey],$row);
@@ -78,27 +85,66 @@
         }
         public function insertQualification($fields) {
             //print_r($fields);
-            $query="insert into ".$fields['table'];
-            $columns="(";
-            $values="values (";
-            $result;
-            foreach($fields as $key => $value) {
-                if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID') {
-                    $columns.="$key ,";
-                    $values.= " '$value' ,";    
+            if($fields){
+                $query="insert into ".$fields['table'];
+                $columns="(";
+                $values="values (";
+                $result;
+                foreach($fields as $key => $value) {
+                    if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID') {
+                        $columns.="$key ,";
+                        $values.= " '$value' ,";    
+                    }
                 }
+                $columns.="user_id)";
+                $values.="'".$_SESSION['id']."');";
+                $query.=$columns.$values;
+                echo $query ;
+                $this->dbInstance=new DbConnection();
+                $result=$this->dbInstance->executeSQL($query);
+                return $result;
+            } else {
+                return false;
             }
-            $columns.="user_id)";
-            $values.="'".$_SESSION['id']."');";
-            $query.=$columns.$values;
-            echo $query ;
-            $this->dbInstance=new DbConnection();
-            $result=$this->dbInstance->executeSQL($query);
-            return $result;
+        }
+        /*Reminder---> insertion of certification and qualification can be merged*/
+        public function insertCertification($fields) {
+            //print_r($fields);
+            if($fields){
+                $query="insert into ".$fields['table'];
+                $columns="(";
+                $values="values (";
+                $result;
+                foreach($fields as $key => $value) {
+                    if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID') {
+                        $columns.="$key ,";
+                        $values.= " '$value' ,";    
+                    }
+                }
+                $columns.="user_id)";
+                $values.="'".$_SESSION['id']."');";
+                $query.=$columns.$values;
+                echo $query ;
+                $this->dbInstance=new DbConnection();
+                $result=$this->dbInstance->executeSQL($query);
+                return $result;
+            } else {
+                return false;
+            }
         }
         public function deleteQualification($rowId) {
             if($rowId) {
                 $query="delete from qualification where id=".$rowId." AND user_id=".$_SESSION['id'].";";
+                $this->dbInstance=new DbConnection();
+                $result=$this->dbInstance->executeSQL($query);
+                return $result;
+            } else {
+                return false;
+            }
+        }
+        public function deleteCertification($rowId) {
+            if($rowId) {
+                $query="delete from certifications where id=".$rowId." AND user_id=".$_SESSION['id'].";";
                 $this->dbInstance=new DbConnection();
                 $result=$this->dbInstance->executeSQL($query);
                 return $result;
@@ -121,5 +167,61 @@
             $result=$this->dbInstance->executeSQL($query);
             return $result;
         }
+        public function retrieveCert($rowId) {
+            $temp=$this->constructFields();
+            $fields=$temp['certifications'];
+            $query="select ";
+            foreach($fields as $key =>$value) {
+                //echo $value ."=>";
+                $query.=$value." ,";
+            }
+            $query=rtrim($query,",");
+            $query.="from certifications where id=".$rowId.";";
+            echo $query;
+            $this->dbInstance=new DbConnection();
+            $result=$this->dbInstance->executeSQL($query);
+            return $result;
+        }
+        public function updateQualification($fields) {
+            //print_r($fields);
+            if($fields) {
+                $query="update ".$fields['table']." set ";
+                foreach($fields as $key => $value) {
+                    if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID' && $key!='rowId') {
+                        $query.="$key = '$value' ,";    
+                    }
+                }
+                $query=chop($query," ,");
+                $query.=" where id=".$fields['rowId'].";";
+                //echo $query;
+                $this->dbInstance=new DbConnection();
+                $result=$this->dbInstance->executeSQL($query);
+                return $result;
+            } else {
+                return false;
+            }
+        }
+        
+        /* Reminder-----> updation of certification and qualification can be merged*/
+        public function updateCertification($fields) {
+            //print_r($fields);
+            if($fields) {
+                $query="update ".$fields['table']." set ";
+                foreach($fields as $key => $value) {
+                    if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID' && $key!='rowId') {
+                        $query.="$key = '$value' ,";    
+                    }
+                }
+                $query=chop($query," ,");
+                $query.=" where id=".$fields['rowId'].";";
+                //echo $query;
+                $this->dbInstance=new DbConnection();
+                $result=$this->dbInstance->executeSQL($query);
+                return $result;
+            } else {
+                return false;
+            }
+        }
     }
+    
 ?>

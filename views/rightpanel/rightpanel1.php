@@ -7,7 +7,7 @@
 			if(isset($arrData['friendId'])) { 
 				$friendId=$arrData['friendId'];
 			}
-			if($status==0) { 
+			if($status==0 || $status==4) { 
 	?>
 	<div id="friendShipStatus">
 		Send Request : <input type="button" id="<?php echo "send_".$friendId;?>" value="Send Request" onclick="sendRequest(this)"/>
@@ -16,13 +16,13 @@
 			} else if($status==1) { 
 	?>
 	<div id="friendShipStatus" >
-		Friends
+		<pre>Friends..	<input type="button" id="<?php echo "remove_".$friendId;?>" value="Remove Friend" onclick="removeFriend(this)" /></pre>
 	</div>
 	<?php
 			} else if($status==2){
 	?>
 	<div id="friendShipStatus">
-		Request Sent 
+		Awaiting Confirmation.. 
 	</div>	
 	<?php
 			} else if($status==3){
@@ -38,6 +38,9 @@
 		 
 	?>
 	<hr/>
-	<h1>Notifications</h1>
-	<br/>
+	<div id="notifications">
+		   <h1>Notifications</h1>
+		   	<br/>	   
+	</div>
+	
 </div>

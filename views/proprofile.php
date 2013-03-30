@@ -66,6 +66,11 @@
          
         
         </div>
+        <h3><?php echo CERTIFICATIONS; ?></h3>
+        <div id="displayCertifications" class="wide">
+            
+        </div>
+        
         <h3><?php echo RESUME; ?></h3>
         <div class="wide">
             

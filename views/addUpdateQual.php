@@ -1,7 +1,11 @@
 <script>
 $(function() {
-    $( "#d" ).datepicker();
-    $( "#d1" ).datepicker();
+    $( "#d" ).datepicker({
+        dateFormat : 'yy-mm-dd'
+    });
+    $( "#d1" ).datepicker({
+        dateFormat : 'yy-mm-dd'
+    });
 });
 </script>
 <b><form id="form4" class="qual">
@@ -16,7 +20,7 @@ $(function() {
 			
 		}
 		//echo $rowId."<br/>";
-		print_r($qual);
+		//print_r($qual);
 	}
 	
 	
@@ -62,11 +66,11 @@ $(function() {
 		</tr>
 		<tr>
 			<td><?php echo strtoupper("Start Year :");?></td>
-			<td><input type="text" id="d" onclick="getDatePicker(this)" name="start_year" value="<?php if($flag) { echo $qual['start_year'];} ?>"/></td>
+			<td><input type="text" id="d" name="start_year" value="<?php if($flag) { echo $qual['start_year'];} ?>"/></td>
 		</tr>
 		<tr>
 			<td><?php echo strtoupper("End Year :");?></td>
-			<td><input type="text" id="d1" onclick="getDatePicker(this)" name="end_year" value="<?php if($flag) { echo $qual['end_year'];} ?>"/></td>
+			<td><input type="text" id="d1" name="end_year" value="<?php if($flag) { echo $qual['end_year'];} ?>"/></td>
 		</tr>
 		<tr>
 			<td><?php echo strtoupper("Percentage :");?></td>
@@ -91,5 +95,4 @@ $(function() {
 			</td>
 		</tr>
 	</table>
-
 </form></b>

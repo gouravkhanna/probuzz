@@ -1,6 +1,13 @@
 body {
   
 }
+pre {
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
 .proSubmit,.alignright  {
     text-align: right;
     margin-right: 20px;
@@ -22,15 +29,16 @@ input[type="text"] {
     padding-top:5px;
     padding-left: 5px;
     background-color: white;
+    
 }
 .wide {
     max-height: 50%;
     overflow: scroll;
 }
-.deleteQual {
+.deleteQual,.deleteCert {
     float: right;
 }
-.deleteQual img {
+.deleteQual img,.deleteCert img {
     width: 1.2em;
     height: 1.2em;
 }

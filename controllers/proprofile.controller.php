@@ -60,6 +60,15 @@ class proprofile extends Controller
 			echo "Data Deletion Failed..";
 		}
 	}
+	public function deleteCert() {
+		
+		$result=loadModel("professionalprofile","deleteCertification",$_GET['rowId']);
+		if($result) {
+			echo "Data Successfully Deleted..";
+		} else {
+			echo "Data Deletion Failed..";
+		}
+	}
 	public function getFancyBoxContent() {
 		if(isset($_REQUEST['rowId'])) {
 			if($_REQUEST['rowId']) {
@@ -72,6 +81,22 @@ class proprofile extends Controller
 			}
 		} else {
 			$this->view->loadView('addUpdateQual.php',"");
+			
+		}
+		//$rowId=$_REQUEST['rowId'];
+	}
+	public function getCertFancyBoxContent() {
+		if(isset($_REQUEST['rowId'])) {
+			if($_REQUEST['rowId']) {
+				$rowId=$_REQUEST['rowId'];
+				$arrArg=loadModel("professionalprofile","retrieveCert",$rowId);
+				$this->view->loadView('addUpdateCert.php',$arrArg);
+
+			} else {
+				echo "Error Getting the fancybox..";
+			}
+		} else {
+			$this->view->loadView('addUpdateCert.php',"");
 			
 		}
 		//$rowId=$_REQUEST['rowId'];
@@ -90,7 +115,20 @@ class proprofile extends Controller
 			echo "Qualification Addition Failure..";
 		}
 	}
-	
+	public function insertCert() {
+		$fields=array();
+		foreach($_REQUEST as $key => $value) {
+			$fields[$key]=$value;
+		}
+		echo "<pre>";
+		print_r($fields);
+		$result=loadModel("professionalprofile","insertCertification",$fields);
+		if($result) {
+			echo "Certification Successfully Added..";
+		} else {
+			echo "Certification Addition Failure..";
+		}
+	}
 	public function fetchQual() {
 		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
@@ -101,6 +139,42 @@ class proprofile extends Controller
 		$arrArg=loadModel("professionalprofile","retrieveData",$id);
 		$this->view->loadView('displayQual.php',$arrArg);
 		
+	}
+	public function updateQual() {
+		//print_r($_REQUEST);
+		$fields=array();
+		foreach($_REQUEST as $key => $value) {
+			$fields[$key]=$value;
+		}
+		$result=loadModel("professionalprofile","updateQualification",$fields);
+		if($result) {
+			echo "Qualification Updation Successful..";
+		} else {
+			echo "Qualification Updation Failed..";
+		}
+	}
+	public function updateCert() {
+		//print_r($_REQUEST);
+		$fields=array();
+		foreach($_REQUEST as $key => $value) {
+			$fields[$key]=$value;
+		}
+		$result=loadModel("professionalprofile","updateCertification",$fields);
+		if($result) {
+			echo "Certificate Updation Successful..";
+		} else {
+			echo "Certificate Updation Failed..";
+		}
+	}
+	public function fetchCertifications() {
+		if(isset($_REQUEST['id'])) {
+			$id=$_REQUEST['id'];
+			
+		} else {
+			$id=$_SESSION['id'];
+		}
+		$arrArg=loadModel("professionalprofile","retrieveData",$id);
+		$this->view->loadView('displayCertifications.php',$arrArg);
 	}
 	/*public function uploadResume() {
 		echo "in upload resume";
