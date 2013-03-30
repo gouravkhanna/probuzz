@@ -15,18 +15,18 @@
      </form> 
 
      <div id="statusShow" name="statusShow">
-  <?php $count=1; foreach($arrData as $row)
+  <?php $count=1; foreach(@$arrData as $row)
                            {
-                         
-                           	$pa=$row['buzz']['path'];
-                           	$date=strtotime($row['buzz']['buzz_time']);
-                           	echo '<div id="statusimg'.$count.'"class="statusimg">';
+                            
+                           	$pa=@$row['buzz']['path'];
+                           	$date=@strtotime($row['buzz']['buzz_time']);
+                              	echo '<div id="statusimg'.$count.'"class="statusimg">';
                            	echo "<a href='index.php?controller=friends&url=friendsProfile&friendId=" . $row['buzz']['id'] . "' >";
                            	echo "<img class='round5' src='".$pa."' height='50px' width='50px'/></a></div>";
                           	echo '<div id="statusName'.$count.'"class="statusName"> <a href="   ">';
  	                        echo $row['buzz']['first_name']." ".$row['buzz']['last_name']."</a><span>". date('D-M-Y',$date)."</span></div>";
  	                        echo '<div id="statusText'.$count.'"class="statusText">'. $row['buzz']['buzztext'] ; 
-							echo "</div><br>";
+							           echo "</div><br>";
 					 		foreach ($row['comment'] as $val) {
 								$c=1;
 								if(is_array($val)){

@@ -36,12 +36,13 @@ function __construct()
 			while($row2[]=mysql_fetch_assoc($res)) {	
 				
 			}
+
 			$buzz[]=array(
 					"buzz"=>$row,
 					"comment"=>$row2,
 					
 			);
-		//	echo "<pre>";
+		echo "<pre>";
 	//	print_r($buzz);
 		
 		}
