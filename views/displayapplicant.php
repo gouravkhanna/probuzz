@@ -7,7 +7,7 @@
 $id=$_SESSION['id'];
 echo "<table id='showslot'><tr class=height40><th>SNO</th><th>CREATED_ON</th><th>LAST_DATE</th><th>STATUS</th><th>DESIGNATION</th></tr>";
 $i=1;
-		while($row=mysql_fetch_array($arrData))	{
+		while($row=$arrData->fetch(PDO::FETCH_ASSOC))	{
 	if($i%2==0) {
 		$cClass="even";
 	}

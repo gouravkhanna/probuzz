@@ -24,8 +24,8 @@ function createjobs() {
 	$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
 	loadView("head/head2.php");
-	$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
-	loadView('gdata/prejob.php',$arrData);
+///	$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
+	loadView('gdata/prejob.php');//,$arrData);
 	loadView('rightpanel/alotslot.php');
 	loadView('rightpanel/rightpanel2.php');
     loadView('footer/footer.php');
@@ -38,8 +38,13 @@ function alotSlot() {
 		'designation'=>$_REQUEST['designation'],
 		);
 	if(@$_REQUEST['terms']==true)
-	loadModel("corporate","alotSlot",$arrArgs);
-	header("location:index.php?url=createjobs");
+	$result=loadModel("corporate","alotSlot",$arrArgs);
+	if($result) {
+		header("location:index.php?url=createjobs");
+	}
+	else {
+		echo "Failed to create a Slot! Try again";
+	}
 }
 /* (ajax) Will load all the jobs posted by the User  */
 function showAllJobs() {

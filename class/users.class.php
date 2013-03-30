@@ -69,7 +69,7 @@ class users extends DbConnection
 	
 	function getProfilePic($arrArg=array())
 	{
-		if(empty($arrArg)) {
+	
 		$data['tables']	= 'photo';
 		$data['columns']= array('photo.path');
 		$data['conditions']=array("personal_profile.user_id"=>$arrArg['id']);
@@ -82,7 +82,7 @@ class users extends DbConnection
 		$row = $result->fetch(PDO::FETCH_ASSOC);		
 		//$sql="select p.path from photo p join personal_profile pp where pp.user_id='".."' and pp.profile_pic_id=p.id  ";
 		return ROOTPATH.$row['path'];
-		}
+		
 	}
 		
 	function logout($id)
@@ -93,7 +93,7 @@ class users extends DbConnection
 	
 	function register($arrData=array())
 	{
-		if(empty($arrData)) {
+		//if(empty($arrData)) {
 		$this->userName=$arrData['userName'];
 		$this->password=$arrData['password'];
 		$this->firstName=$arrData['firstName'];
@@ -138,7 +138,7 @@ class users extends DbConnection
 				return true;
 				} //else
 			}
-		}
+		//}
 				
 				
 		// if*/

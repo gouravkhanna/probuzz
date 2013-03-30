@@ -6,16 +6,19 @@ class corporate extends DbConnection{
     }
     function alotSlot($arrArg=array()) {
         //if(!$designation!="")
-        
-        $sql="INSERT INTO probuzz.jobs (corp_id,designation) VALUES (".$arrArg['id'].",'".$arrArg['designation']."')";
-        $ob=new DbConnection();
-        $result=$ob->executeSQL($sql);
-        if($result=="true") {
-            echo "<script> alert(SUCCESSALOTID);</script>";
-        }
-        else{
-            echo "<script> alert(UNSUCCESSFULALOTID);</script>";    
-        } 
+        $data=array(
+        		'corp_id'=>$arrArg['id'],
+        		'designation'=>$arrArg['designation'],
+        		);
+      //  $sql="INSERT INTO probuzz.jobs (corp_id,designation) VALUES (".$arrArg['id'].",'".$arrArg['designation']."')";
+    	   $result=$this->db->insert("jobs",$data);
+							
+			if($result && $result->rowCount()>0) {
+				return true;
+			}
+			else {
+				return false;
+			}
     }
     function showSlot($arrArg=array()) {
     	$cond="";
@@ -37,23 +40,25 @@ class corporate extends DbConnection{
         else {
         	$sql.= " FROM probuzz.jobs where corp_id="."'".$arrArg['id']."'".$cond;
         }
-        $result=$ob->executeSQL($sql);
+        $result=$this->executeSQLP($sql);
         return $result;
     }  
    function updateSlot($arrData=array()) {
-    
+    $data=array();
     	$sql="update probuzz.jobs SET ";
     	foreach($arrData as $key =>$value)
     	{
     		if($key=="jobId") {
-    			$sql=rtrim($sql," ,");
-    			$sql.=" where id='$value'";
+    		$jobId=$value;
     		}
     		else {
-    			$sql.="$key='$value', ";
+    	//		$sql.="$key='$value', ";
+    			$data["$key"]="$value";
     		}
     	}	
     	
+    	$where = array('id' =>"$jobId" );
+    	$result = $this->db->update('jobs', $data, $where);
     	/* 	$sql="UPDATE probuzz.jobs SET designation='".$arrData['designation']."',";
     		$sql.="type='".$arrData['type']."',location='".$arrData['location']."',role=".$arrData['role']."',start_date='".$arrData['start_date']."',";
     		$sql.="last_date='".$arrData['last_date']."',area_of_work='".$arrData['area_of_work]."'',description='$arrData['description']."'";
@@ -65,18 +70,33 @@ class corporate extends DbConnection{
     		$sql.="other_info='".$arrData['other_info']."',criteria='".$arrData['criteria']."'";
     		$sql.="salary_range='".$arrData['salary_range']."',status='".$arrData['status']."'"; 
     		$sql.=WHERE id='".$arrData['corp_id']".'";  */
-    		$ob=new DbConnection(); 
-    		$res=$ob->executeSQL($sql);
-    		return $res==true?true:false;
+   	
+			if($result && $result->rowCount()>0) {
+				return true;
+			}
+			else {
+				return false;
+			}
 
     	 
     } 
     function updateStatusJob($arrArg)
     {
-    	$ob=new DbConnection();
+    	
     	$status=@$arrArg['status']==0?1:0;
-    	$sql="update probuzz.jobs set status='".$status."' where id=".$arrArg['jobId'];
-       	$res=$ob->executeSQL($sql);
+    	$jobId=$arrArg['jobId'];
+    	$data=array("status"=>"$status");
+    	$where = array('id' =>"$jobId" );
+
+    	$result = $this->db->update('jobs', $data, $where);
+    	if($result && $result->rowCount()>0) {
+    		return true;
+    	}
+    	else {
+    		return false;
+    	}
+    	//$sql="update probuzz.jobs set status='".$status."' where id=".$arrArg['jobId'];
+       	//$res=$ob->executeSQL($sql);
     }
     
     
@@ -94,9 +114,24 @@ class corporate extends DbConnection{
 				JOIN photo 
 				on photo.id=p.profile_pic_id
 			WHERE ja.job_id='$jobId' ";
-    		$result=$ob->executeSQL($sql);
+    		$data['tables']="personal_profile p";
+    		$data['columns']=array('p.first_name','p.last_name', 'p.user_id AS id','pp.path');
+    		$data['joins'][] = array(
+    				'table' => 'job_applicant ja ',
+    				'type'	=> 'INNER',
+    				'conditions' => array('p.user_id' => 'ja.user_id')
+    		);
+    		$data['joins'][] = array(
+    				'table' => 'photo pp',
+    				'type'	=> 'INNER',
+    				'conditions' => array('p.profile_pic_id' => 'pp.id')
+    		);
+    		$data['conditions']=array('ja.job_id'=>"$jobId");
+    		
+    		$result=$this->db->select($data);
+    		//$result=$ob->executeSQL($sql);
     		if($result) {
-    			while ($row[]=mysql_fetch_array($result)) {
+    			while ($row[]=$result->fetch(PDO::FETCH_ASSOC)) {
     			}
     			return $row;   			
     		}
@@ -155,13 +190,16 @@ class corporate extends DbConnection{
     		echo $sql;
     	  	$res=$this->executeSQLP($sql);
     	  	if($res) {
-    	  		echo "Sss";
+    	  		while($result[]=$res->fetch(PDO::FETCH_ASSOC)) {
+    	  		}	
+    	  		return $result;
     	  	}else {
-    	  		echo "ogooo";
+    	  		echo "Error!!";
+    	  		return false;
     	  	}
-    	 	while($result[]=$res->fetch(PDO::FETCH_ASSOC)) {		
-    		} 
-    	return $result;
+    	 			
+    		
+    	
     	}
     	
     
