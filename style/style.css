@@ -88,11 +88,10 @@ ul.n a:hover, ul.n a.selected {
 }
 */
 #head1 {
-	/*display: none;*/
 	height: 50px;
 	width: 100%;
 	position: fixed;
-	top: 200px;
+	top: 0;
 	background-image: url(../data/rcs/g.svg);
 	background-size: 100%;
 	left: 0;
@@ -520,3 +519,9 @@ hr {
 }
 .style6{border-bottom:4px solid orange;border-bottom-left-radius:10px;border-left:4px solid orange;border-right:0 none #FFF;border-top:4px solid orange;border-top-left-radius:10px;float:left;font-size:15pt;height:32px;margin-top:.2cm;padding:2px;width:300px}
 
+#wrongcaptcha {
+font-family: alba;
+font-size: 2em;
+color: white;
+margin:0px auto;
+}

@@ -28,6 +28,21 @@ class Controller
 
 	function register()
 	{
+		require_once 'library/recaptcha/recaptchalib.php';
+		$privatekey = "6LcMKN8SAAAAAFbaKu1_OvaeP1yMaQ7cKT5zxwgQ";
+		$resp = recaptcha_check_answer ($privatekey,
+				$_SERVER["REMOTE_ADDR"],
+				$_POST["recaptcha_challenge_field"],
+				$_POST["recaptcha_response_field"]);
+		
+		if (!$resp->is_valid) {
+			// What happens when the CAPTCHA was entered incorrectly
+			
+			$msg="<div id=wrongcaptcha>The reCAPTCHA wasn't entered correctly. Go back and try it again." .
+					"(reCAPTCHA said: " . $resp->error . ")</div>";
+			loadView("login1.php",array('error_msg'=>$msg));
+		} else {
+			// Your code here to handle a successful verification
 		
 		$arrArgs=array(
 		'userName'=>@$_REQUEST["user_name1"],
@@ -58,7 +73,7 @@ class Controller
 		}
 			
 	}
-
+	}
 
 	function error($key="",$index="")
 	{

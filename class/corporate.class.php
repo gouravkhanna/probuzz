@@ -141,6 +141,32 @@ class corporate extends DbConnection{
     		
     	}
     }
+    
+    /* Get the Stats of the company and particular job */
+    function getAppStats($arrArg=array()) {
+    	if(isset($arrArg['jobId'])) {
+    		$result=$this->db->count("job_applicant",array("job_id"=>$arrArg['jobId']));
+    		$row1=$result->fetch(PDO::FETCH_ASSOC);
+    		$arrData=array(
+    				"total_candidate"=>$row1['COUNT(*)'],
+      		);
+    		return ($arrData);
+    	}
+		else {
+			$result=$this->db->count("jobs",array("corp_id"=>@$_SESSION['id']));
+			  $row1=$result->fetch(PDO::FETCH_ASSOC);
+			  $result=$this->db->count("jobs",array(
+		  									"corp_id"=>@$_SESSION['id'],
+		  									"status"=>'1',
+		  									));
+			  $row2=$result->fetch(PDO::FETCH_ASSOC);
+			  $arrData=array(
+		  		"total_jobs"=>$row1['COUNT(*)'],
+		  		"total_active_jobs"=>$row2['COUNT(*)'],
+		  		);
+		 return ($arrData);
+		}
+    	}
     /*  Search for the people with required qualification,City,Gender
      */
     function searchPeople($arrArg=array()) {

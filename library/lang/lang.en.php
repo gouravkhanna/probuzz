@@ -81,7 +81,10 @@ define("GENDER","Gender");
 define("FEMALE","Female");
 define("MALE","Male");
 define("BOTH","BOTH");
-
+define("JOBS_STATS","Job Stats");
+define("TOTAL_JOBS","Total Jobs Posted : ");
+define("TOTAL_ACTIVE_JOBS","Total Active Jobs : "); 
+define("TOTAL_CANDIDATE_APPLIED","Total Candidates Applied");
 
 
 

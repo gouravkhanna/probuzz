@@ -1,4 +1,4 @@
-<?php
+	<?php
 include 'controller.controller.php';
 class corporatecontroller extends controller {
 
@@ -137,10 +137,14 @@ function showSpecficJob() {
 		loadView("head/head2.php");
 		$arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
 		loadView('displayapplicant.php',$arrData);
-		loadView('rightpanel/rightpanel1.php');
-		loadView('rightpanel/rightpanel2.php');
-	    loadView('footer/footer.php');
+		$this->getAppStats();
+		loadView('footer/footer.php');
 	}
+/*Get the stats of company or particular application*/
+function getAppStats() {
+	$arrData=loadModel("corporate","getAppStats",array('id'=>$_SESSION['id']));
+	loadView('rightpanel/appstats.php',$arrData);
+}
 /*Get the applicant lists*/ 
 	function getApplicant() {
 		$arrData=loadModel("corporate","getApplicant",array('jobId'=>$_REQUEST['jobId']));

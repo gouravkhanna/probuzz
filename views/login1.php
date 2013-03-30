@@ -1,5 +1,8 @@
 <?php
 include_once 'library/lang/lang.en.php';
+require_once 'library/recaptcha/recaptchalib.php';
+$publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from the signup page
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -17,7 +20,7 @@ include_once 'library/lang/lang.en.php';
 <body>
   <div id="tittle"> </div>
 <div id="wrapper">
-<form id="side-1" class="flip" method="GET" action="index.php">
+<form id="side-1" class="flip" method="get" action="index.php">
    
    <div id="1">
     <h2> <?php echo LOGIN; ?> </h2> 
@@ -37,7 +40,7 @@ include_once 'library/lang/lang.en.php';
    </div> 
 </form>
 
-<form id="side-2" class="flip"  method="get" name="side-2" onsubmit=" return valid()" action="index.php">
+<form id="side-2" class="flip"  method="post" name="side-2" onsubmit=" return valid()" action="index.php">
     <div id="2"><h2> Signup with your email.... </h2>
     
      <input type="text" name="user_name1" id="user_name1"  autocomplete="off" placeholder="User Name" onblur="return  valid_uname()" />
@@ -55,17 +58,21 @@ include_once 'library/lang/lang.en.php';
    <input type="password" name="confirm_pass" id="confirm_pass" autocomplete="off" placeholder="Confirm Password" onblur="return  valid_password()" /> 
    <span id="r4" name="r4"> <img src="data/rcs/r.png" height="30px" width="30px" /> </span> <span id="w4" name="w4"> <img src="data/rcs/w.png" height="30px" width="30px" /> </span><span id="e4" name="e4"> </span>
    <br />
+   <?php echo recaptcha_get_html($publickey);?>
     <p> Already have an account? <a href="" id="login1"> Login </a> </p>
       <input type="submit" id="create"  name="url" value="register"   />   </div>
 </form>
 </div>
+<div id="wrongcaptcha">
 <div id="errmsg" name="errmsg">
 <?php
+
 if(isset($arrData))
 {
   echo @$arrData['error_msg'];
 }
 ?>
+</div>
 </div>
 </body>
 </html>
