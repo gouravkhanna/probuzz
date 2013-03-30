@@ -71,8 +71,8 @@
         </div>
         <h3><?php echo CERTIFICATIONS; ?></h3>
         <div class="wide">
-            <?php
-$cert=$arrData['certifications'];
+        <?php
+            $cert=$arrData['certifications'];
             if(!$cert) {
         ?>
         No Certifications to display...<br/>
