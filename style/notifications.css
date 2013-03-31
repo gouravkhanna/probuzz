@@ -1,0 +1,24 @@
+.notificationDisplay {
+    margin-top: 8px;
+	background-color: white;
+    padding:7px;
+    width: 240px;
+	float: left;
+	-webkit-border-radius: 20px;
+    border-radius: 20px;
+	border-bottom: none;
+	overflow:hidden;
+}
+#notifications {
+    
+    height: 315px;
+    overflow: auto;
+    
+}
+.padding5 {
+    padding:5px;
+}
+.alignright {
+    width: 100%;
+    text-align: right;
+}

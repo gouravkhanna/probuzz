@@ -1,6 +1,4 @@
-<div id="rightpanel1" >
-	<br/>
-	
+<div id="rightpanel1" class="padding5" >
 	<?php
 		if(isset($arrData['status'])) {
 			$status=$arrData['status'];
@@ -38,9 +36,15 @@
 		 
 	?>
 	<hr/>
-	<div id="notifications">
-		   <h1>Notifications</h1>
-		   	<br/>	   
-	</div>
+	<?php
+		   if(!isset($arrData['friendId'])) {
+		   ?>
+		   <div id="notifications">
+		   
+		   </div>
+	<?php
+		   }
+	?>
+	
 	
 </div>

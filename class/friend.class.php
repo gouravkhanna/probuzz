@@ -88,7 +88,12 @@ class friend {
 			//echo $sql;
 			$result2=$ob->executeSQL($sql);
 			 if($result1 && $result2) {
+				$sql="insert into notifications(user_id,notification_type,friend_id,notification_time,content)";
+				$sql.=" values('".$_SESSION['id']."','1','".$arrArg."',now(),'')";
+				//echo "sql:".$sql;
+				$ob->executeSQL($sql);
 				return "Friend Added.";
+				
 			} 
 		}
 	}
@@ -111,7 +116,7 @@ class friend {
 			$ob=new DbConnection();
 			$sql="select f.user_id,p.first_name,p.last_name from personal_profile as p ";
 			$sql.=" join friend as f on f.user_id=p.user_id where f.friend_id=".$arrArg['id']." and f.friendship_status=3;";
-			echo $sql;
+			//echo $sql;
 			$result=$ob->executeSQL($sql);
 			$requests=array();
 			while($row=mysql_fetch_assoc($result)) {
@@ -140,7 +145,7 @@ class friend {
 		if($arrArg) {
 			$ob=new DbConnection();
 			$sql="select type from users where user_id='".$arrArg['id']."'";
-			echo $sql;
+			//echo $sql;
 			$result=$ob->executeSQL($sql);
 			$row=mysql_fetch_assoc($result);
 			return $row['type'];
@@ -150,7 +155,7 @@ class friend {
 		if($arrArg) {
 			$ob=new DbConnection();
 			$sql="update friend set friendship_status='4' where user_id='".$_SESSION['id']."' AND friend_id='".$arrArg."'";
-			echo $sql;
+			//echo $sql;
 			$result1=$ob->executeSQL($sql);
 			$sql="update friend set friendship_status='4' where user_id='".$arrArg."' AND friend_id='".$_SESSION['id']."'";
 			$result2=$ob->executeSQL($sql);

@@ -1,4 +1,6 @@
-
+$(function() {
+		$( "#accordion" ).accordion();
+});
 function set(val) {
     var table;
     if(val=='form1') {

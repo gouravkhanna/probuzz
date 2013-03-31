@@ -201,4 +201,18 @@ function getAppStats() {
 		
 		loadView('footer/footer.php');
 	}
+	function showProfile() {
+		if($_REQUEST['corpId']!=$_SESSION['id']) {
+			$arrData=array('id'=>$_REQUEST['corpId']);
+			$this->view->loadView('head/head1.php');
+			$path=loadModel("corporate","getProfilePic",$arrData);
+			$corpName=loadModel("corporate","fetchName",$arrData);
+			loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path,'corp_name'=>$corpName,'id'=>$_REQUEST['corpId']));
+
+
+		} else {
+			header("Location: http://localhost/probuzz/trunk/index.php");
+		}
+
+	}
 }

@@ -2,7 +2,9 @@
 
       <div id="photo">
         <img class="photo" src="<?php echo $arrData['profile_pic_path']; ?>" height="80" width="80">
-        <span class="alignwelcome"> <?php echo WELCOME; ?> <br/>
+        <span class="alignwelcome">
+            <?php if(!isset($arrData['id'])) {echo WELCOME;} ?>
+        <br/>
         <?php echo @$_SESSION['user_name']; ?>
         </span> 
        </div>      

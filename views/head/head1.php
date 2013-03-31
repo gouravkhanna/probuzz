@@ -11,15 +11,12 @@
 <script src="<?php echo ROOTPATH."js/probuzz.js"; ?>"></script>
 <script src="<?php echo ROOTPATH."js/buzz.js"; ?>"></script>
 
-<link rel="stylesheet" type="text/css" href="style/proProfile.css" />
-<script type="text/javascript" src="js/proProfile.js"></script>
-<script type="text/javascript" src="js/friends.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/proProfile.css"; ?> " />
+<link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/notifications.css" ; ?>" />
+<script type="text/javascript" src="<?php echo ROOTPATH."js/proProfile.js"; ?> "></script>
+<script type="text/javascript" src="<?php echo ROOTPATH."js/notifications.js" ;?>" ></script>
+<script type="text/javascript" src="<?php echo ROOTPATH."js/friends.js"  ; ?>"></script>
 
-<script>
-	$(function() {
-		$( "#accordion" ).accordion();
-	});
-</script>
 
 </head>
 <body>
