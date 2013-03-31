@@ -1,9 +1,9 @@
 <?php
-echo "<pre>oyoy";
-//print_r($arrData);
+echo "<pre>";
+//	print_r($arrData);
 
 echo "<div id='sjresdata'>";
-if (! empty ( $arrData )) {
+if (! empty ( $arrData[0] )) {
 	echo "<div id='sjresulttable' ><div id='sjresultrow'><div id='sjresultcol'>DESIGNATION</div><div id='sjresultcol'>LOCATION</div><div id='sjresultcol'>POSTED BY</div><div id='sjresultcol'>START DATE</div><div id='sjresultcol'>END DATE</div></div>";
 	foreach ( $arrData as $key => $val ) {
 		if ($val ['jobid'] != "") {

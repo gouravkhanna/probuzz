@@ -24,6 +24,7 @@ MAXIMUM SALARY
 <div id="" class="">
 EXPERIANCE
 <select id=sjexp name=sjexp>
+<option></option>
 <option>Fresher</option>
 <option>1</option>
 <option>2</option>
@@ -43,28 +44,13 @@ EXPERIANCE
 
 <div class="floatl">
 LOCATION
-<select id="sjlocation" title="Use CTRL to Select Multiple Cities" 
-					class="vcenter floatl" name=sjlocation[] multiple="multiple">
-						<option><?php echo DELHI;?></option>
-						<option><?php echo NOIDA;?></option>
-						<option><?php echo BENGLORE;?></option>
-						<option><?php echo CHENNAI;?></option>
-						<option><?php echo MUMBAI;?></option>
-						<option><?php echo GURGAON;?></option>
-						<option><?php echo LONDON;?></option>
-						</select>
-						<aside >
-							<?php echo IFOTHER;?>
-							<input id="sjclocation" type="checkbox"
-							name="other" value="other">
-						</aside>
-						<aside>		
-						 	<input type="text" title="Septate City by Comma (,) "
-						 	id="sjclocation" name="sjclocation" placeholder="Enter City">
-						</aside> 
+	<aside>		
+ 	<input type="text" title="Septate City by Comma (,) "
+ 	id="sjclocation" name="sjclocation" placeholder="Enter City">
+	</aside> 
 </div>
 <br/><br/>
-
+<!-- 
 <div id=sjcat class="">
 JOB CATEGORY
 - Accounting	 
@@ -139,10 +125,8 @@ JOB CATEGORY
 - Franchise	 
 - Nurse
 </div>
-<div id="" class="floatl">
-COMAPANY
-<input type="text" name="sjcompany" id="sjcompany" >
-</div>
+ -->
+
 <input type="submit" name="search" id="sjsubmit" value="search">
 </form>
 </div>

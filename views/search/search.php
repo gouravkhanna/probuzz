@@ -33,7 +33,7 @@ echo "<div id=dvresbig >";
 echo "<hr/>Based on Company <hr/>";
 foreach ( $arrData ["company"] as $key => $val ) {
 	if ($val ['id'] != "") {
-		$res = "<a href='" . $val ['id'] . "' >";
+		$res = "<a href='".ROOTPATH."index.php?controller=corporatecontroller&url=showProfile&corpId=" . $val ['id'] . "' >";
 		$res .= "<div id=dvres class=round20>";
 		$res .= "<img class='imgcenter floatl round5' src=" . ROOTPATH . $val ['path'] . " height=50 width=50 >";
 		$res .= "<aside >" . $val ['company_name']  . "</aside><aside class=calign> " . $val ['company_alias']  . "<aside></div>";

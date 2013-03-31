@@ -3,28 +3,25 @@ class user extends controller {
 	
 	
 	function showSearchJobs() {
-		echo "<pre>";
-		//print_r($_REQUEST);
+	/* 	echo "<pre>";
+		print_r($_REQUEST); */
 		$designation=@$_REQUEST['sjdesignation'];
 		$minSal=@$_REQUEST['sjminsal'];
 		$maxSal=@$_REQUEST['sjmaxsal'];
 		$experiance=@$_REQUEST['sjexp'];
-		$city=@$_REQUEST['sjlocation'];
-		$otherCity=@$_REQUEST['sjclocationother'];
+		$City=@$_REQUEST['sjclocation'];
 		$company=@$_REQUEST['sjcompany'];
 		//checking whether if any other city are specified or not
-		if($otherCity!="") {
-			$otherCityArray=explode(",",$otherCity);
-			//checking if only other city are specified and value from select box is not choosen
-			if(!is_array($city)) {
-				$city=array();
-			}
-			$city=array_merge($city,$otherCityArray);
+		$CityArray=array();
+		if($City!="") {
+			$CityArray=explode(",",$City);
 		}
 		$arrArgs=array(
 				'designation'=>$designation,
 				'minsal'=>$minSal,
 				'maxsal'=>$maxSal,
+				'experiance'=>$experiance,
+				'location'=>$CityArray,
 				'experiance'=>$experiance,
 				);
 		$arrData=loadModel("users","showSearchJobs",$arrArgs);

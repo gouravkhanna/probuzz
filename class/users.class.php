@@ -259,7 +259,6 @@ class users extends DbConnection
 	/* For search Search Jobs */
 	function showSearchJobs($arrArgs=array()) {
 		if(!empty($arrArgs)) {
-			
 			$sql="SELECT j.id as jobid,j.designation, DATE_FORMAT(j.start_date, ";
 			$sql.="'%M %D, %Y'".") as startdate,DATE_FORMAT(j.last_date, '%M %D, %Y') as lastdate ";
 			$sql.=",j.location, j.experience, c.company_name ";
@@ -268,10 +267,39 @@ class users extends DbConnection
 					c.user_id=j.corp_id
 				where
 					j.status='1' ";
-			$cond=" AND (salary>='".$arrArgs['minsal']."' AND salary<='".$arrArgs['maxsal']."') ";
-			$cond.= " AND (designation like '%".$arrArgs['designation']."%' ";
+			$cond="";
+			if ($arrArgs['minsal']!="") {
+				$cond.=" AND ( j.salary_expected>='".$arrArgs['minsal']."' ) "; 
+			}	
+			if ($arrArgs['maxsal']!="") {
+				$cond.=" AND ( j.salary_expected<='".$arrArgs['maxsal']."' ) ";
+			}
+			if($arrArgs['designation']!="") {
+				$cond.= " AND (designation like '%".$arrArgs['designation']."%' ) ";
+			}
 			$cond.=" ";
-			//echo $sql;
+			if(!empty($arrArgs['location'])) {
+				$cond.=" AND (";
+				foreach ($arrArgs['location'] as $val) {
+					$cond.=" j.location like '%$val%' OR ";	
+				}
+				$cond=rtrim($cond,"OR ");
+				$cond.=" ) ";
+			}
+			if($arrArgs['experiance']=="") {
+				
+			}
+			else if($arrArgs['experiance']=="Fresher") {
+				$cond.= "AND ( j.experience like 'fresher' OR 
+				  		j.experience like '0%' ) ";
+			}
+			else if($arrArgs['experiance']=="12+ years") {
+				$cond.= "AND ( j.experience > '12' ) ";  
+			}
+			else {
+				$cond.= "AND ( j.experience like '%".$arrArgs['experiance']."%' ) ";
+			}
+			$sql=$sql.$cond;
 			$res=$this->executeSQLP($sql);
 			if($res) {
 				while($row[]=$res->fetch(PDO::FETCH_ASSOC)) { 
@@ -279,7 +307,7 @@ class users extends DbConnection
 				return $row;
 			}
 			else {
-				return "Can't Fetch Friend Right Now! Please Try Again! ";
+				return "Can't Search! TryAgain! ";
 			}
 			
 				
