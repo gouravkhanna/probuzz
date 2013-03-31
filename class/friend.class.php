@@ -2,6 +2,7 @@
 include_once 'class/dbAcess.php';
 class friend {
 	function showfriend($arrArg=array()) {
+		
 		$ob=new DbConnection();
 		$sql="select f.friend_id as id,p.first_name,p.last_name from friend f JOIN personal_profile p ";
 		$sql.=" on f.friend_id=p.user_id ";
@@ -9,14 +10,18 @@ class friend {
 		$rr=array();
 		$res=$ob->executeSQL($sql);
 		while($row=mysql_fetch_array($res)) {
+			$type=$this->getType(array("id"=>$row['id']));
+			//echo "	type: ".$type."<br/>";
+			if($type!='1') {
+				$path=$this->getProfilePic(array("id"=>$row['id']));
+				$rr[]=array(
+						"id"=>$row['id'],
+						"first_name"=>$row['first_name'],
+						"last_name"=>$row['last_name'],
+						"path"=>"$path",
+				);	
+			}
 			
-			$path=$this->getProfilePic(array("id"=>$row['id']));
-			$rr[]=array(
-					"id"=>$row['id'],
-					"first_name"=>$row['first_name'],
-					"last_name"=>$row['last_name'],
-					"path"=>"$path",
-			);
 		}
 		//print_r($rr);
 		if(!empty($rr)) {
@@ -122,12 +127,24 @@ class friend {
 		}
 	}
 	function getProfilePic($arrArg=array())	{
+		//echo "hello";
 		$ob=new DbConnection();
+		
 		$sql="select p.path from photo p join personal_profile pp where pp.user_id='";
 		$sql.=$arrArg['id']."' and pp.profile_pic_id=p.id  ";
 		$res=$ob->executeSQL($sql);
 		$row=mysql_fetch_array($res);
  		return ROOTPATH.$row['path'];
+	}
+	function getType($arrArg=array()) {
+		if($arrArg) {
+			$ob=new DbConnection();
+			$sql="select type from users where user_id='".$arrArg['id']."'";
+			echo $sql;
+			$result=$ob->executeSQL($sql);
+			$row=mysql_fetch_assoc($result);
+			return $row['type'];
+		}
 	}
 	function removeFriend($arrArg) {
 		if($arrArg) {
@@ -144,4 +161,4 @@ class friend {
 	}
 
 }
-?>;
+?>

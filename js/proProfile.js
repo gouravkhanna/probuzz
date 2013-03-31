@@ -52,6 +52,20 @@ function insertCert(form) {
         }
     });
 }
+function insertExp(form) {
+    
+    table="experience";
+    $.ajax({
+        type: "GET",
+        url: "index.php",
+        data:$('.'+form).serialize()+"&controller=proprofile&url=insertExp&table="+table,
+        success: function(msg){
+            alert( msg );
+            $("#displayExperience").load("index.php","controller=proprofile&url=fetchExperience");
+            $('.fancybox').css({"display":"none"});
+        }
+    });
+}
 function updateQual(form , rowId) {
     //alert(form+ " " +rowId);
     table="qualification";
@@ -79,7 +93,20 @@ function updateCert(form , rowId) {
             $('.fancybox').css({"display":"none"});
         }
     });
-    
+}
+function updateExp(form , rowId) {
+    //alert(form+ " " +rowId);
+    table="experience";
+    $.ajax({
+        type: "GET",
+        url: "index.php",
+        data:$('.'+form).serialize()+"&controller=proprofile&url=updateExp&table="+table+"&rowId="+rowId,
+        success: function(msg){
+            alert( msg );
+            $("#displayExperience").load("index.php","controller=proprofile&url=fetchExperience");
+            $('.fancybox').css({"display":"none"});
+        }
+    });
 }
 function deleteQual(input) {
     var rowId=$(input).parent().attr("id");
@@ -92,8 +119,9 @@ function deleteQual(input) {
             data:"controller=proprofile&url=deleteQual&rowId="+rowId,
             success: function(msg){
                 alert( msg );
-                var toHide="#mainQualDisplay"+rowId;
-                $(toHide).hide();
+        $("#displayQual").load("index.php","controller=proprofile&url=fetchQual");
+                //var toHide="#mainQualDisplay"+rowId;
+                //$(toHide).hide();
             }
         });    
     }
@@ -109,13 +137,31 @@ function deleteCert(input) {
             data:"controller=proprofile&url=deleteCert&rowId="+rowId,
             success: function(msg){
                 alert( msg );
-                var toHide="#mainCertDisplay"+rowId;
-                $(toHide).hide();
+        $("#displayCertifications").load("index.php","controller=proprofile&url=fetchCertifications");
+                //var toHide="#mainCertDisplay"+rowId;
+                //$(toHide).hide();
             }
         });    
     }
 }
-
+function deleteExp(input) {
+    var rowId=$(input).parent().attr("id");
+    alert(rowId);
+    var answer=confirm("Are You Sure, You Want To Delete It ??");
+    if(answer) {
+        $.ajax({
+            type: "GET",
+            url: "index.php",
+            data:"controller=proprofile&url=deleteExp&rowId="+rowId,
+            success: function(msg){
+                alert( msg );
+                $("#displayExperience").load("index.php","controller=proprofile&url=fetchExperience");
+                //var toHide="#mainExperienceDisplay"+rowId;
+                //$(toHide).hide();
+            }
+        });    
+    }
+}
 function uploadResume(val) {
     $.ajax({
         type: "POST",
@@ -134,6 +180,7 @@ function uploadResume(val) {
 $(document).ready( function (){
         $("#displayQual").load("index.php","controller=proprofile&url=fetchQual");
         $("#displayCertifications").load("index.php","controller=proprofile&url=fetchCertifications");
+        $("#displayExperience").load("index.php","controller=proprofile&url=fetchExperience");
        	$('.fancybox').css({"display":"none"});
     }
 );
@@ -157,7 +204,19 @@ function openCertFancyBox (rowId) {
     $('.box').slideDown("slow");
     $('.fancybox').css({"z-index":"999999"});
 }
+function openExpFancyBox (rowId) {
+    if(rowId!=-1) {
+        alert( rowId);
+        $(".box").load("index.php","controller=proprofile&url=getExpFancyBoxContent&rowId="+rowId);
 
+    } else {
+        alert("New record");
+        $(".box").load("index.php","controller=proprofile&url=getExpFancyBoxContent");
+    }
+    $('.fancybox').css({"display":"block"}).hide().fadeIn("slow");
+    $('.box').slideDown("slow");
+    $('.fancybox').css({"z-index":"999999"});
+}
 function openFancyBox(rowId) {
     if(rowId!=-1) {
         alert( rowId);

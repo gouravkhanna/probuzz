@@ -14,18 +14,28 @@ class friends extends Controller
 		echo "ALL requests Aree :D :P";
 	}
 	function friendsProfile () {
-		$arrData=array('id'=>$_REQUEST['friendId']);
-		$this->view->loadView('head/head1.php');
-		$path=loadModel("friend","getProfilePic",$arrData);
-		$friendName=loadModel("friend","fetchName",$arrData);
-		loadView("navigation/friendNavigation.php",array('profile_pic_path' =>$path,'friend_name'=>$friendName,'id'=>$_REQUEST['friendId']));
-		$this->view->loadView('head/head2.php');
-		$this->view->loadView('midpanel/midpanel.php');
-		$status=loadModel("friend","fetchStatus",$arrData);
-		$arrArgs=array("status"=>$status,"friendId"=>$_REQUEST['friendId']);
-		$this->view->loadView('rightpanel/rightpanel1.php',$arrArgs);
-		$this->view->loadView('footer/footer.php');
+		
+		$type=loadModel("friend","getType",array("id"=>$_REQUEST['friendId']));
+		
+		if($_REQUEST['friendId']!=$_SESSION['id'] && $type!='1') {
+			$arrData=array('id'=>$_REQUEST['friendId']);
+			$this->view->loadView('head/head1.php');
+			$path=loadModel("friend","getProfilePic",$arrData);
+			$friendName=loadModel("friend","fetchName",$arrData);
+			loadView("navigation/friendNavigation.php",array('profile_pic_path' =>$path,'friend_name'=>$friendName,'id'=>$_REQUEST['friendId']));
+			$this->view->loadView('head/head2.php');
+			$this->view->loadView('midpanel/midpanel.php');
+			$status=loadModel("friend","fetchStatus",$arrData);
+			$arrArgs=array("status"=>$status,"friendId"=>$_REQUEST['friendId']);
+			$this->view->loadView('rightpanel/rightpanel1.php',$arrArgs);
+			$this->view->loadView('footer/footer.php');	
+
+		} else {
+			header("Location: http://localhost/probuzz/trunk/index.php");
+		}
+		
 	}
+	
 	function showfriend() {
 		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];

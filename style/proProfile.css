@@ -35,10 +35,10 @@ input[type="text"] {
     max-height: 50%;
     overflow: scroll;
 }
-.deleteQual,.deleteCert {
+.deleteQual,.deleteCert ,.deleteExp{
     float: right;
 }
-.deleteQual img,.deleteCert img {
+.deleteQual img,.deleteCert img ,.deleteExp img{
     width: 1.2em;
     height: 1.2em;
 }

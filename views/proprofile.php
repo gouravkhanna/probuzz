@@ -70,7 +70,10 @@
         <div id="displayCertifications" class="wide">
             
         </div>
-        
+        <h3><?php echo EXPERIENCE; ?></h3>
+        <div id="displayExperience" class="wide">
+            
+        </div>
         <h3><?php echo RESUME; ?></h3>
         <div class="wide">
             

@@ -69,6 +69,15 @@ class proprofile extends Controller
 			echo "Data Deletion Failed..";
 		}
 	}
+	public function deleteExp() {
+		
+		$result=loadModel("professionalprofile","deleteExperience",$_GET['rowId']);
+		if($result) {
+			echo "Data Successfully Deleted..";
+		} else {
+			echo "Data Deletion Failed..";
+		}
+	}
 	public function getFancyBoxContent() {
 		if(isset($_REQUEST['rowId'])) {
 			if($_REQUEST['rowId']) {
@@ -101,6 +110,22 @@ class proprofile extends Controller
 		}
 		//$rowId=$_REQUEST['rowId'];
 	}
+	public function getExpFancyBoxContent() {
+		if(isset($_REQUEST['rowId'])) {
+			if($_REQUEST['rowId']) {
+				$rowId=$_REQUEST['rowId'];
+				$arrArg=loadModel("professionalprofile","retrieveExp",$rowId);
+				$this->view->loadView('addUpdateExp.php',$arrArg);
+
+			} else {
+				echo "Error Getting the fancybox..";
+			}
+		} else {
+			$this->view->loadView('addUpdateExp.php',"");
+			
+		}
+		//$rowId=$_REQUEST['rowId'];
+	}
 	public function insertQual() {
 		$fields=array();
 		foreach($_REQUEST as $key => $value) {
@@ -127,6 +152,20 @@ class proprofile extends Controller
 			echo "Certification Successfully Added..";
 		} else {
 			echo "Certification Addition Failure..";
+		}
+	}
+	public function insertExp() {
+		$fields=array();
+		foreach($_REQUEST as $key => $value) {
+			$fields[$key]=$value;
+		}
+		echo "<pre>";
+		print_r($fields);
+		$result=loadModel("professionalprofile","insertExperience",$fields);
+		if($result) {
+			echo "Experience Successfully Added..";
+		} else {
+			echo "Experience Addition Failure..";
 		}
 	}
 	public function fetchQual() {
@@ -166,6 +205,19 @@ class proprofile extends Controller
 			echo "Certificate Updation Failed..";
 		}
 	}
+	public function updateExp() {
+		//print_r($_REQUEST);
+		$fields=array();
+		foreach($_REQUEST as $key => $value) {
+			$fields[$key]=$value;
+		}
+		$result=loadModel("professionalprofile","updateExperience",$fields);
+		if($result) {
+			echo "Eperience Updation Successful..";
+		} else {
+			echo "Eperience Updation Failed..";
+		}
+	}
 	public function fetchCertifications() {
 		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
@@ -175,6 +227,16 @@ class proprofile extends Controller
 		}
 		$arrArg=loadModel("professionalprofile","retrieveData",$id);
 		$this->view->loadView('displayCertifications.php',$arrArg);
+	}
+	public function fetchExperience() {
+		if(isset($_REQUEST['id'])) {
+			$id=$_REQUEST['id'];
+			
+		} else {
+			$id=$_SESSION['id'];
+		}
+		$arrArg=loadModel("professionalprofile","retrieveData",$id);
+		$this->view->loadView('displayExperience.php',$arrArg);
 	}
 	/*public function uploadResume() {
 		echo "in upload resume";

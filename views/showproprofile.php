@@ -109,6 +109,46 @@
         ?>
 
         </div>
+        <h3><?php echo EXPERIENCE; ?></h3>
+        <div class="wide">
+            <?php
+            $experience=$arrData['experience'];
+            if(!$experience) {
+        ?>
+        No Experience to display...<br/>
+        Add Experience...
+        <?php } else {
+            foreach($experience as $key => $value){
+        ?>
+        
+        <div id="mainExperienceDisplay<?php echo $value['id']; ?>">
+                <div class="highlight" id="divhead<?php echo $value['id']; ?>">
+                    <?php echo strtoupper($value['company_name']);?>
+                </div>
+                <div class="displayDetails" id="div<?php echo $value['id']; ?>">
+                    <?php if($value['position']) { ?>
+                    <pre>       <?php echo "Postition : ".$value['position']; ?></pre>
+                    <?php } ?>
+                    <?php if($value['start_date']) { ?>
+                    <pre>       <?php echo "From : ".$value['start_date']; ?></pre>
+                    <?php } ?>
+                    <?php if($value['end_date']) { ?>
+                    <pre>       <?php echo "To : ".$value['end_date']; ?></pre>
+                    <?php } ?>
+                    
+					<!-- Reminder to add this column to certifications table-->
+					<?php// if($value['added_date']) { ?>
+                    <pre>       <?php //echo "Added On : ".$value['added_date']; ?></pre>
+                    <?php //} ?>
+                </div>
+        </div>
+        
+        <?php
+                }
+            }
+        ?>
+
+        </div>
         <h3><?php echo RESUME; ?></h3>
         <div class="wide">
 

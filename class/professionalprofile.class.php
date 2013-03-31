@@ -39,6 +39,15 @@
                 "resume_path",
                 "resume_date"
             );
+            $arr["experience"] = array(
+                "id",
+                "company_name",
+                "start_date",
+                "end_date",
+                "current_job",
+                "position"
+                
+            );
             return $arr;
         }
         public function updateProfile($fields){
@@ -72,7 +81,7 @@
                 $query.="$fields from $tableKey where user_id =".$id." ;";
                 $this->dbInstance=new DbConnection();
                 $temp=$this->dbInstance->executeSQL($query) or die("nothing in db");
-                if($tableKey=="qualification" || $tableKey=="resume" || $tableKey=="certifications") {
+                if($tableKey=="qualification" || $tableKey=="resume" || $tableKey=="certifications" || $tableKey=="experience") {
                     $result[$tableKey]=array();
                     while($row=mysql_fetch_assoc($temp)) {
                         array_push($result[$tableKey],$row);
@@ -107,8 +116,32 @@
                 return false;
             }
         }
-        /*Reminder---> insertion of certification and qualification can be merged*/
+        /*Reminder---> insertion of certification, experience and qualification can be merged*/
         public function insertCertification($fields) {
+            //print_r($fields);
+            if($fields){
+                $query="insert into ".$fields['table'];
+                $columns="(";
+                $values="values (";
+                $result;
+                foreach($fields as $key => $value) {
+                    if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID') {
+                        $columns.="$key ,";
+                        $values.= " '$value' ,";    
+                    }
+                }
+                $columns.="user_id)";
+                $values.="'".$_SESSION['id']."');";
+                $query.=$columns.$values;
+                echo $query ;
+                $this->dbInstance=new DbConnection();
+                $result=$this->dbInstance->executeSQL($query);
+                return $result;
+            } else {
+                return false;
+            }
+        }
+        public function insertExperience($fields) {
             //print_r($fields);
             if($fields){
                 $query="insert into ".$fields['table'];
@@ -152,6 +185,16 @@
                 return false;
             }
         }
+        public function deleteExperience($rowId) {
+            if($rowId) {
+                $query="delete from experience where id=".$rowId." AND user_id=".$_SESSION['id'].";";
+                $this->dbInstance=new DbConnection();
+                $result=$this->dbInstance->executeSQL($query);
+                return $result;
+            } else {
+                return false;
+            }
+        }
         public function retrieveQual($rowId) {
             $temp=$this->constructFields();
             $fields=$temp['qualification'];
@@ -182,6 +225,21 @@
             $result=$this->dbInstance->executeSQL($query);
             return $result;
         }
+        public function retrieveExp($rowId) {
+            $temp=$this->constructFields();
+            $fields=$temp['experience'];
+            $query="select ";
+            foreach($fields as $key =>$value) {
+                //echo $value ."=>";
+                $query.=$value." ,";
+            }
+            $query=rtrim($query,",");
+            $query.="from experience where id=".$rowId.";";
+            echo $query;
+            $this->dbInstance=new DbConnection();
+            $result=$this->dbInstance->executeSQL($query);
+            return $result;
+        }
         public function updateQualification($fields) {
             //print_r($fields);
             if($fields) {
@@ -202,8 +260,27 @@
             }
         }
         
-        /* Reminder-----> updation of certification and qualification can be merged*/
+        /* Reminder-----> updation of certification, experience and qualification can be merged*/
         public function updateCertification($fields) {
+            //print_r($fields);
+            if($fields) {
+                $query="update ".$fields['table']." set ";
+                foreach($fields as $key => $value) {
+                    if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID' && $key!='rowId') {
+                        $query.="$key = '$value' ,";    
+                    }
+                }
+                $query=chop($query," ,");
+                $query.=" where id=".$fields['rowId'].";";
+                //echo $query;
+                $this->dbInstance=new DbConnection();
+                $result=$this->dbInstance->executeSQL($query);
+                return $result;
+            } else {
+                return false;
+            }
+        }
+        public function updateExperience($fields) {
             //print_r($fields);
             if($fields) {
                 $query="update ".$fields['table']." set ";
