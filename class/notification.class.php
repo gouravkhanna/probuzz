@@ -5,7 +5,7 @@
 			$ob=new DbConnection();
 			$sql="select n.user_id,n.notification_type,n.friend_id,n.notification_time,n.content ";
 			$sql.=" from notifications as n join friend as f on n.user_id=f.friend_id where ";
-			$sql.=" f.user_id=".$_SESSION['id']." order by n.notification_time desc limit 20;";
+			$sql.=" f.user_id=".$_SESSION['id']." and f.friendship_status='1' order by n.notification_time desc limit 20;";
 			//echo $sql;
 			$notifications=array();
 			$result=$ob->executeSQL($sql);

@@ -1,6 +1,6 @@
 <?php
 include_once 'class/dbAcess.php';
-class friend {
+class friend  extends DbConnection{
 	function showfriend($arrArg=array()) {
 		
 		$ob=new DbConnection();
@@ -88,10 +88,11 @@ class friend {
 			//echo $sql;
 			$result2=$ob->executeSQL($sql);
 			 if($result1 && $result2) {
-				$sql="insert into notifications(user_id,notification_type,friend_id,notification_time,content)";
-				$sql.=" values('".$_SESSION['id']."','1','".$arrArg."',now(),'')";
-				//echo "sql:".$sql;
-				$ob->executeSQL($sql);
+				$notification_type=1;
+				$friend_id=$arrArg;
+				$content="";
+				$this->executeSQLP("call addNotification('".$_SESSION['id']."','".$notification_type."','".$friend_id."',now(),'".$content."')") or die(mysql_error());
+				$this->executeSQLP("call addNotification('".$friend_id."','".$notification_type."','".$_SESSION['id']."',now(),'".$content."')") or die(mysql_error());
 				return "Friend Added.";
 				
 			} 
