@@ -520,7 +520,7 @@ hr {
 }
 .style6{border-bottom:4px solid orange;border-bottom-left-radius:10px;border-left:4px solid orange;border-right:0 none #FFF;border-top:4px solid orange;border-top-left-radius:10px;float:left;font-size:15pt;height:32px;margin-top:.2cm;padding:2px;width:300px}
 .evenb {
-	background-color: blue;
+	background-color: lightgreen;
 }
 .evenb:HOVER,.oddb:HOVER {
 	background-color: lightblue;

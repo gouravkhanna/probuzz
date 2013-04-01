@@ -106,7 +106,7 @@ class user extends controller {
 		loadView("message/getmessage.php",$arrData);
 	}
 	function insertMessage() {
-		print_r($_REQUEST);
+		//print_r($_REQUEST);
 		$message_text=$_REQUEST['message_text'];
 		$friendId=$_REQUEST['friend_id'];
 		$arrArg=array(

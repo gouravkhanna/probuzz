@@ -271,6 +271,9 @@ function showSender() {
 		type:"POST",
 		url:'index.php',
 		data: "controller=user&url=showSender",
+		beforeSend:function(data){
+    		$("#dvsearchresult").html("<img src='data/photo/load3.gif' alt='loading' >");		        	},
+    	
 		  success: function(data){ 
 			  $("#messagepanel").html(data);
 			  
@@ -288,6 +291,9 @@ function showMessage(a) {
 			type:"POST",
 			url:'index.php',
 			data: "controller=user&url=getMessage&friend_id="+a,
+			beforeSend:function(data){
+        		$("#dvsearchresult").html("<img src='data/photo/load3.gif' alt='loading' >");		        	},
+        	
 			success: function(data){ 
 			  $("#showmessage").html(data);
 			  $("#sendmessage").fadeIn();
