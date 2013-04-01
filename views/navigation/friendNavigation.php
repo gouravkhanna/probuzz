@@ -1,6 +1,6 @@
 
 <div id="navigation">
-
+	<?php echo "<input type='hidden' id='friendz' value='".$arrData['id']."' >"; ?>
 	<div id="photo">
 		<img class="photo" src="<?php echo $arrData['profile_pic_path']; ?>"
 			height="80" width="80"> <span class="alignwelcome">
