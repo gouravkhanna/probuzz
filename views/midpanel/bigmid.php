@@ -33,11 +33,9 @@ Home
 </div>
  </div>
  <!-- edit contact ends here    -->
- <!--  edit personal information code goes here-->
- 
- 
 
- 
+ <!--  edit Favourites code goes here-->
+  
  
  <div id="edit_w" name="edit_w" >
      <div id="editwhead" >My Faourites<span id="close2"> X</span></div>
@@ -61,7 +59,8 @@ Home
    </form>
  </div>
  </div>
-
+  <!-- edit favourite ends here    -->
+ <!--  edit basic info code goes here-->
   <div id="edit_b" name="edit_b" >
      <div id="editbhead" > Basic Info <span id="close4"> X</span></div>
    <div id="innerb">
@@ -97,7 +96,8 @@ Relationship Status</b><select id="relationship" name="relationship">
 </div>
  </div>
 
-
+ <!-- edit basic info ends here    -->
+  <!-- Add Education code here   -->
 <div id="edit_e" name="edit_e" >
      <div id="editehead" > Add Education <span id="close3"> X</span></div>
    <div id="innere">
@@ -120,10 +120,10 @@ Relationship Status</b><select id="relationship" name="relationship">
 
 
  
- <!--    edit personal information ends here-->
+ <!--    Add education code ends here-->
+ <!--  Main div for my profile  -->
  
- 
-<div id="2" class="leftarrowdiv"> 
+<div id="2" class="leftarrowdiv1"> 
    My profile
    <div id="me" name="me" class="m">
      About Me 
@@ -146,9 +146,7 @@ Relationship Status</b><select id="relationship" name="relationship">
    </div>
    </div>
    </div>
-   
-   
-   
+      
   <div id="education" name="education" class="e ">
  
    Education
@@ -242,10 +240,13 @@ Relationship Status</b><select id="relationship" name="relationship">
  
 </div>
 
+<!-- main div for my profile ends here  -->
 
-
- 
-<div id="4" class="leftarrowdiv">
+ <!--div for pics  -->
+ <div id="3" class="leftarrowdiv2">
+My friends
+</div>
+<div id="4" class="leftarrowdiv3">
 My pics
 </div>
 
@@ -257,13 +258,16 @@ My pics
 $("#home").click(function()
 {
 $(".leftarrowdiv").hide();
+$(".leftarrowdiv2").hide();
 $("#1.leftarrowdiv").show();
+
+
 }
 );
 $("#profile").click(function()
 {
 $(".leftarrowdiv").hide();
-$("#2.leftarrowdiv").show();
+$("#2.leftarrowdiv1").show();
 }
 );
 
@@ -271,19 +275,25 @@ $("#edit").click(function()
 {
 
 $(".leftarrowdiv").hide();
-$("#3.leftarrowdiv").show();
+$(".leftarrowdiv1").hide();
+
 }
 );
 $("#friend").click(function()
 {
 $(".leftarrowdiv").hide();
-$("#4.leftarrowdiv").show();
+$(".leftarrowdiv1").hide();
+$(".leftarrowdiv3").hide();
+$("#3.leftarrowdiv2").show();
+
 }
 );
 $("#pics").click(function()
 {
 $(".leftarrowdiv").hide();
-$("#4.leftarrowdiv").show();
+$(".leftarrowdiv1").hide();
+$(".leftarrowdiv2").hide();
+$("#4.leftarrowdiv3").show();
 }
 );
 

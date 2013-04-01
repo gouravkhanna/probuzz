@@ -131,15 +131,118 @@ border-width: 15px;*/
 content:'';
 display:block;
 position:absolute;
-top:10px;
-left:-20px; /*should be set to -border-width x 2 */
+top:5px;
+left:-50px; /*should be set to -border-width x 2 */
 width:0;
 height:0;
 border-color: transparent white transparent transparent; /*border color should be same as div div background color*/
 border-style: solid;
-border-width: 10px;
+border-width: 25px;
 }
 
+.leftarrowdiv1{
+width:auto;
+min-height:inherit;/* min height of DIV should be set to at least 2x the width of the arrow*/
+
+background:white;
+
+border-color:#CCCCCC;
+padding:10px;
+position:relative;
+/*word-wrap:break-word;*/
+-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+-webkit-border-radius:5px;
+border-radius:5px;
+/*margin-bottom:10em;*/
+border-style:solid;
+display:none;
+margin-top:3em;
+
+
+}
+
+.leftarrowdiv1:after{ /*arrow added to leftarrowdiv DIV*/
+
+content:'';
+display:block;
+position:absolute;
+top:90px;
+left:-50px; /*should be set to -border-width x 2 */
+width:0;
+height:0;
+border-color: transparent white transparent transparent; /*border color should be same as div div background color*/
+border-style: solid;
+border-width:25px;
+}
+
+.leftarrowdiv2{
+width:auto;
+min-height:inherit;/* min height of DIV should be set to at least 2x the width of the arrow*/
+
+background:white;
+
+border-color:#CCCCCC;
+padding:10px;
+position:relative;
+/*word-wrap:break-word;*/
+-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+-webkit-border-radius:5px;
+border-radius:5px;
+/*margin-bottom:10em;*/
+border-style:solid;
+display:none;
+margin-top:3em;
+
+
+}
+
+.leftarrowdiv2:after{ /*arrow added to leftarrowdiv DIV*/
+
+content:'';
+display:block;
+position:absolute;
+top:165px;
+left:-50px; /*should be set to -border-width x 2 */
+width:0;
+height:0;
+border-color: transparent white transparent transparent; /*border color should be same as div div background color*/
+border-style: solid;
+border-width: 25px;
+}
+.leftarrowdiv3{
+width:auto;
+min-height:inherit;/* min height of DIV should be set to at least 2x the width of the arrow*/
+
+background:white;
+
+border-color:#CCCCCC;
+padding:10px;
+position:relative;
+/*word-wrap:break-word;*/
+-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+-webkit-border-radius:5px;
+border-radius:5px;
+/*margin-bottom:10em;*/
+border-style:solid;
+display:none;
+margin-top:3em;
+
+
+}
+
+.leftarrowdiv3:after{ /*arrow added to leftarrowdiv DIV*/
+
+content:'';
+display:block;
+position:absolute;
+top:240px;
+left:-50px; /*should be set to -border-width x 2 */
+width:0;
+height:0;
+border-color: transparent white transparent transparent; /*border color should be same as div div background color*/
+border-style: solid;
+border-width: 25px;
+}
 #home,#profile,#friend,#pics,#edit
 {
 height:50px;
