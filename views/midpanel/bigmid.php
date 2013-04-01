@@ -9,7 +9,7 @@ Home
 <div id="edit_contact" name="edit_contact" >
      <div id="editchead" >Contact Information <span id="close"> X</span></div>
    
-   <form method="get" action="">
+   <form method="post" action="">
    <ul>
    
   <li>  House No : <input type="text" id="ehno" name="ehno"
@@ -35,11 +35,12 @@ Home
  <!--  edit personal information code goes here-->
  
  
+
  
- <div id="edit_i" name="edit_i" >
-     <div id="editihead" > My Faourites <span id="close1"> X</span></div>
-   
-      <form method="get" action="#">
+ 
+ <div id="edit_w" name="edit_w" >
+     <div id="editwhead" >My Faourites<span id="close2"> X</span></div>
+    <form method="post" action="#">
   
     <span>Favourite Books <br> <textarea rows="2" cols="25" id="fav_book" name="fav_book" > 
     <?PHP echo $arrData['personal']['favourite_book'];?>
@@ -57,29 +58,12 @@ Home
  
    <input type="submit" id="subInfo" name=submit value="Save Me" />
    </form>
-
- </div>
- 
- 
- <div id="edit_w" name="edit_w" >
-     <div id="editwhead" > Add Work <span id="close2"> X</span></div>
-   
-      <form method="get" action="#">
-    Company Name <input type="text" id="companyName" name="companyName"> <br>
-    start Date    <input type="text" id="start_date" name="start_date">                                                       <br>
-    End Date        <input type="text" id="end_date" name="end_date">                                                       <br>
-    Position     <input type="text" id="positon" name="position"> 
-       <input type=hidden value=wUp name=url> 
-       <input type=hidden value=profile name=controller><br>
-     <input type="submit" id="subInfo" name=submit value="Save Me" />
-   </form>
-
  </div>
 
   <div id="edit_b" name="edit_b" >
      <div id="editbhead" > Basic Info <span id="close4"> X</span></div>
    
-      <form method="get" action="#">
+      <form method="post" action="#">
       Gender <select id="gender" name="gender">
             <option>  Male</option>
             <option> Female </option>
@@ -91,13 +75,17 @@ Home
 
     </select>
 
-    <br>DOB<input type="text" id="dob" name="dob" >
+    <br>DOB<input type="text" id="dob" name="dob" value=
+           <?PHP echo $arrData['personal']['DOB'] ;?>
+            >
     <br>Relationship Status  <select id="relationship" name="relationship">
    <option>Single</option>
    <option> Commited</option>
    <option>Prefer Not to Say</option>
     </select>
-  <br>Intersted In <input type="text" id="i_in" name="i_in"> 
+  <br>Intersted In <input type="text" id="i_in" name="i_in"
+                    value= <?PHP echo $arrData['personal']['intersted_in'] ;?>
+                      > 
     <input type=hidden value=basicInfoUp name=url> 
        <input type=hidden value=profile name=controller><br>
      <input type="submit" id="bInfo" name=submit value="Save Me" />
@@ -109,12 +97,16 @@ Home
 <div id="edit_e" name="edit_e" >
      <div id="editehead" > Add Education <span id="close3"> X</span></div>
    
-      <form method="get" action="#">
+      <form method="post" action="#">
   
-     Institute<input type="text" id="institute" name="institute"><br>
+     Institute<input type="text" id="institute" name="institute"
+                value=<?PHP echo $arrData['education']['institute'];?>
+               ><br>
      Start Date <input type="text" id="istart" name="istart"><br>
      End Date <input type=" text" id="iend" name="iend"><br>
-     University <input type="text" id="university" name="university"><br>   
+     University <input type="text" id="university" name="university"
+                value=<?PHP echo $arrData['education']['university'];?> 
+                 ><br>   
     <input type=hidden value=edu_up name=url> 
        <input type=hidden value=profile name=controller><br>
    <input type="submit" id="eInfo" name="eInfo" value="Save Me" />
@@ -177,18 +169,19 @@ Home
   
   <div id="work" name="work" class="w">
   
-    <span>  Work  </span>
-   <div>
+    My Favourites
+
+
     <?PHP 
-     echo "<br>Currently Working At <br>";
-	   echo $arrData['experience']['company_Name'] ;
-     echo "<br><br> Position <br>";   
-	    echo $arrData['experience']['position'] ;
-	
-	?>
-     <br>
-    <a href="#" id="editw" name="editw"> Edit </a>
-    </div>
+      echo "<br>".$arrData['personal']['favourite_book'];
+      echo "<br>".$arrData['personal']['favourite_movies']; 
+       echo "<br>".$arrData['personal']['favourite_food']; 
+
+
+    ?>
+
+    <br>
+       <a href="#" id="editf" name="editf"> Edit </a>
   
   </div>
   
@@ -227,23 +220,7 @@ Home
      <a href="#" id="editc" name="editc"> Edit </a>
   </div> 
   
-  <div id="myfav" name="myfav" class="m">
-    My Favourites
-
-
-    <?PHP 
-      echo "<br>".$arrData['personal']['favourite_book'];
-      echo "<br>".$arrData['personal']['favourite_movies']; 
-       echo "<br>".$arrData['personal']['favourite_food']; 
-
-
-    ?>
-
-    <br>
-       <a href="#" id="editf" name="editf"> Edit </a>
-  </div>
-
-
+ 
 </div>
 
 
@@ -304,7 +281,7 @@ $("#edit_contact").show();
 $("#editf").click(function()
 {
 $("#2").fadeTo("fast",0.1);
-$("#edit_i").show();
+$("#edit_w").show();
 
 }
 );
@@ -316,13 +293,6 @@ $("#edit_b").show();
 }
 );
 
-$("#editw").click(function()
-{
-$("#2").fadeTo("fast",0.1);
-$("#edit_w").show();
-
-}
-);
 $("#edite").click(function()
 {
 $("#2").fadeTo("fast",0.1);

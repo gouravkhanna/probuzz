@@ -66,7 +66,6 @@ function upCon($arrArgs=array()){
            country='$country'
            WHERE user_id='$id'";
    
-   echo $sql;
     if( $ob->executeSQL($sql)){
     	echo "updated sucessfully";
     	return true;
@@ -74,7 +73,7 @@ function upCon($arrArgs=array()){
     else{
 
 
-    	echo "some problem is occured please contact gourav";
+    	echo "some problem is occured while updating. We will correct it soon. ";
     	return  false;
     }
 }
@@ -87,8 +86,6 @@ $id=$_SESSION['id'];
 $favourite_book=@$arrArgs['fav_book'];
 $favourite_movies=@$arrArgs['fav_movies'];
 $favourite_food=@$arrArgs['fav_food'];
-echo "xxx";
-echo $favourite_food. $favourite_book .$favourite_movies;
 $sql="update probuzz.personal_profile set 
       favourite_book='$favourite_book',
       favourite_movies='$favourite_movies',
@@ -101,7 +98,7 @@ $sql="update probuzz.personal_profile set
     else{
 
 
-    	echo "some problem is occured please contact gourav";
+    	echo "some problem is occured while updating. We will correct it soon. ";
     	return  false;
     }
 
@@ -128,7 +125,7 @@ $sql="update probuzz.personal_profile set
     else{
 
 
-    	echo "some problem is occured please contact gourav";
+    	echo "some problem is occured while updating. We will correct it soon. ";
     	return  false;
     } 
 
@@ -137,34 +134,7 @@ $sql="update probuzz.personal_profile set
 
 }
 
-function up_Work($arrArgs=array()){
-$ob=new DbConnection();
-$id=$_SESSION['id'];
-$company_Name=$arrArgs['company'];
-$start_date=$arrArgs['start_date'];
-$end_date=$arrArgs['end_date'];
-$position=$arrArgs['position'];
-$sql="update probuzz.experience set
-      company_Name='$company_Name',
-      start_date='$start_date',
-      end_date='$end_date',
-      position='$position'
-      where user_id='$id' ";
-      echo $sql;
-if( $ob->executeSQL($sql)){
-    	echo "updated sucessfully";
-    	return true;
-    }
-    else{
 
-
-    	echo "some problem is occured please contact gourav";
-    	return  false;
-    } 
-
-
-
-}
 
 
 function up_E($arrArgs=array()){
@@ -188,7 +158,7 @@ if( $ob->executeSQL($sql)){
     else{
 
 
-    	echo "some problem is occured please contact gourav";
+    	echo "some problem is occured while updating. We will correct it soon. ";
     	return  false;
     } 
 
