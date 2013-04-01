@@ -74,7 +74,62 @@ class user extends controller {
 			}
 		
 	}
+/**/
+	function messages() {
+		loadView("head/head1.php");
+		loadView("message/message.php");
+	//$this->showSender();
+	//	$this->getMessage();
+	}
+	function getMessageFriendId() {
+		$para=explode('/',$_REQUEST['url']);
+		print_r($para);	
+		if(isset($para[2]) && $para[2]!=" ") {
+			return base64_decode($para[2]);
+		}
+		else {
+			return "-1";
+		}
+	}
 	
+	function showSender() {
+		$arrData=loadModel("messaging", "showSender",array("id"=>@$_SESSION['id']));
+		loadView("message/showSender.php",$arrData);
+	}	
+	function getMessage() {
+		$friendId=$_REQUEST['friend_id'];
+		
+		$arrData=loadModel("messaging", "showMessage",array(
+												"id"=>@$_SESSION['id'],
+												"friend_id"=>$friendId,
+													));
+		loadView("message/getmessage.php",$arrData);
+	}
+	function insertMessage() {
+		print_r($_REQUEST);
+		$message_text=$_REQUEST['message_text'];
+		$friendId=$_REQUEST['friend_id'];
+		$arrArg=array(
+				"id"=>@$_SESSION['id'],
+				"friend_id"=>$friendId,
+				"message_text"=>"$message_text"
+				);
+		$result=loadModel("messaging","insertMessage",$arrArg);
+		if($result) {
+			echo "yes";
+		}
+		else {
+			echo "no";
+		}
+	}
+	function messageSeen() {
+		$friendId=$_REQUEST['friend_id'];
+		$arrArg=array(
+				"id"=>@$_SESSION['id'],
+				"friend_id"=>$friendId,
+				);
+		$result=loadModel("messaging","messageSeen",$arrArg);
+	}
 }
 
 ?>

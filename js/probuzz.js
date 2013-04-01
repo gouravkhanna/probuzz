@@ -8,6 +8,12 @@ $(document).ready(function(e) {
 	$("#backjob").hide();
 	$("#dabackbutton").hide();
 	$( document ).tooltip();
+	showSender();
+	setInterval(showMessage,1000);
+	setInterval (showSender, 2500);
+	$("#sendmessage").hide();
+	//setInterval (showMessage,1000);
+	
 //	$("#showAllSlot").load("index.php","url=showAllJobs");	
 
 	//Search Bar
@@ -242,4 +248,52 @@ function fnBackJob() {
 }
 function fnOnLoadJobs() {
 		$("#backjob").hide();
+}
+
+function insertMessage() {
+var message_text=$("#message_text").val();
+	a=$("#friendz").val();
+	$.ajax({
+		type:"POST",
+		url:'index.php',
+		data: "controller=user&url=insertMessage&message_text="+message_text+"&friend_id="+a,
+		  success: function(data){ 
+			  $("#insert").html(data);
+			  $("#message_text").val("");
+			  showMessage();
+	  }
+	});
+}
+
+function showSender() {
+	
+	$.ajax({
+		type:"POST",
+		url:'index.php',
+		data: "controller=user&url=showSender",
+		  success: function(data){ 
+			  $("#messagepanel").html(data);
+			  
+	  }
+	});
+	
+}
+function showMessage(a) {
+	
+	if(a==undefined) {
+		a=$("#friendz").val();
+	}
+	if(a!=undefined && a!="") {
+		$.ajax({
+			type:"POST",
+			url:'index.php',
+			data: "controller=user&url=getMessage&friend_id="+a,
+			success: function(data){ 
+			  $("#showmessage").html(data);
+			  $("#sendmessage").fadeIn();
+			  $("#insert").load("index.php","controller=user&url=messageSeen&friend_id="+a);
+	  
+	}
+	});
+	}
 }

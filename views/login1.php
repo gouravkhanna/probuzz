@@ -2,7 +2,10 @@
 include_once 'library/lang/lang.en.php';
 require_once 'library/recaptcha/recaptchalib.php';
 $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from the signup page
-
+/* print_r($_SERVER);
+echo "<br/>".$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_X_FORWARDED_FOR']; */
+// $ip = $_SERVER['HTTP_CLIENT_IP'];
+// echo $ip;
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
