@@ -97,7 +97,7 @@ float: right;
 
 .leftarrowdiv{
 width:auto;
-min-height:inherit;/* min height of DIV should be set to at least 2x the width of the arrow*/
+min-height:500px;/* min height of DIV should be set to at least 2x the width of the arrow*/
 
 background:white;
 
@@ -177,7 +177,7 @@ border-width:25px;
 
 .leftarrowdiv2{
 width:auto;
-min-height:inherit;/* min height of DIV should be set to at least 2x the width of the arrow*/
+min-height:500px;/* min height of DIV should be set to at least 2x the width of the arrow*/
 
 background:white;
 
@@ -211,7 +211,7 @@ border-width: 25px;
 }
 .leftarrowdiv3{
 width:auto;
-min-height:inherit;/* min height of DIV should be set to at least 2x the width of the arrow*/
+min-height:500px;/* min height of DIV should be set to at least 2x the width of the arrow*/
 
 background:white;
 
