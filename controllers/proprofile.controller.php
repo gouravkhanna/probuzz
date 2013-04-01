@@ -51,193 +51,115 @@ class proprofile extends Controller
 			echo "Data Update Failure..";
 		}
 	}
-	public function deleteQual() {
-		
-		$result=loadModel("professionalprofile","deleteQualification",$_GET['rowId']);
-		if($result) {
-			echo "Data Successfully Deleted..";
-		} else {
-			echo "Data Deletion Failed..";
+	public function deleteFrom() {
+		if($_REQUEST['table']=="qualification") {
+			$message="Qualification";
+		} else if($_REQUEST['table']=="certifications") {
+			$message="Certification";
+		} else if($_REQUEST['table']=="experience") {
+			$message="Experience";
 		}
-	}
-	public function deleteCert() {
-		
-		$result=loadModel("professionalprofile","deleteCertification",$_GET['rowId']);
+		$method="deleteFrom";
+		$result=loadModel("professionalprofile",$method,array("row_id"=>$_GET['rowId'],"table"=>$_REQUEST['table']));
 		if($result) {
-			echo "Data Successfully Deleted..";
+			echo $message." Successfully Deleted..";
 		} else {
-			echo "Data Deletion Failed..";
-		}
-	}
-	public function deleteExp() {
-		
-		$result=loadModel("professionalprofile","deleteExperience",$_GET['rowId']);
-		if($result) {
-			echo "Data Successfully Deleted..";
-		} else {
-			echo "Data Deletion Failed..";
+			echo $message." Deletion Failed..";
 		}
 	}
 	public function getFancyBoxContent() {
+		if($_REQUEST['table']=="qualification") {
+			$view="addUpdateQual.php";
+		} else if($_REQUEST['table']=="certifications") {
+			$view="addUpdateCert.php";
+		} else if($_REQUEST['table']=="experience") {
+			$view="addUpdateExp.php";
+		}
+		$method="retrieveFrom";
 		if(isset($_REQUEST['rowId'])) {
 			if($_REQUEST['rowId']) {
-				$rowId=$_REQUEST['rowId'];
-				$arrArg=loadModel("professionalprofile","retrieveQual",$rowId);
-				$this->view->loadView('addUpdateQual.php',$arrArg);
+				$arrData=array(
+							"rowId" => $_REQUEST['rowId'],
+							"table" => $_REQUEST['table']
+							);
+				$arrArg=loadModel("professionalprofile",$method,$arrData);
+				$this->view->loadView($view,$arrArg);
 
 			} else {
 				echo "Error Getting the facnybox..";
 			}
 		} else {
-			$this->view->loadView('addUpdateQual.php',"");
+			$this->view->loadView($view,"");
 			
 		}
-		//$rowId=$_REQUEST['rowId'];
 	}
-	public function getCertFancyBoxContent() {
-		if(isset($_REQUEST['rowId'])) {
-			if($_REQUEST['rowId']) {
-				$rowId=$_REQUEST['rowId'];
-				$arrArg=loadModel("professionalprofile","retrieveCert",$rowId);
-				$this->view->loadView('addUpdateCert.php',$arrArg);
+	
+	public function insertInto() {
+		$fields=array();
+		foreach($_REQUEST as $key => $value) {
+			$fields[$key]=$value;
+		}
+		if($_REQUEST['table']=="qualification") {
+			$message="Qualification";
+		} else if($_REQUEST['table']=="certifications") {
+			$message="Certification";
+		} else if($_REQUEST['table']=="experience") {
+			$message="Experience";
+		}
+		$method="insertInto";
+		$result=loadModel("professionalprofile",$method,$fields);
+		if($result) {
+			echo $message." Successfully Added..";
+		} else {
+			echo $message." Addition Failure..";
+		}
+	}
+	
 
-			} else {
-				echo "Error Getting the fancybox..";
-			}
-		} else {
-			$this->view->loadView('addUpdateCert.php',"");
-			
-		}
-		//$rowId=$_REQUEST['rowId'];
-	}
-	public function getExpFancyBoxContent() {
-		if(isset($_REQUEST['rowId'])) {
-			if($_REQUEST['rowId']) {
-				$rowId=$_REQUEST['rowId'];
-				$arrArg=loadModel("professionalprofile","retrieveExp",$rowId);
-				$this->view->loadView('addUpdateExp.php',$arrArg);
-
-			} else {
-				echo "Error Getting the fancybox..";
-			}
-		} else {
-			$this->view->loadView('addUpdateExp.php',"");
-			
-		}
-		//$rowId=$_REQUEST['rowId'];
-	}
-	public function insertQual() {
+	public function updateInto() {
 		$fields=array();
 		foreach($_REQUEST as $key => $value) {
 			$fields[$key]=$value;
 		}
-		echo "<pre>";
-		print_r($fields);
-		$result=loadModel("professionalprofile","insertQualification",$fields);
+		if($_REQUEST['table']=="qualification") {
+			$method="updateQualification";
+			$message="Qualification";
+		} else if($_REQUEST['table']=="certifications") {
+			$method="updateCertification";
+			$message="Certificate";
+		} else if($_REQUEST['table']=="experience") {
+			$method="updateExperience";
+			$message="Experience";
+		}
+		$method="updateInto";
+		$result=loadModel("professionalprofile",$method,$fields);
 		if($result) {
-			echo "Qualification Successfully Added..";
+			echo $message." Updation Successful..";
 		} else {
-			echo "Qualification Addition Failure..";
+			echo $message." Updation Failed..";
 		}
 	}
-	public function insertCert() {
-		$fields=array();
-		foreach($_REQUEST as $key => $value) {
-			$fields[$key]=$value;
-		}
-		echo "<pre>";
-		print_r($fields);
-		$result=loadModel("professionalprofile","insertCertification",$fields);
-		if($result) {
-			echo "Certification Successfully Added..";
-		} else {
-			echo "Certification Addition Failure..";
-		}
-	}
-	public function insertExp() {
-		$fields=array();
-		foreach($_REQUEST as $key => $value) {
-			$fields[$key]=$value;
-		}
-		echo "<pre>";
-		print_r($fields);
-		$result=loadModel("professionalprofile","insertExperience",$fields);
-		if($result) {
-			echo "Experience Successfully Added..";
-		} else {
-			echo "Experience Addition Failure..";
-		}
-	}
-	public function fetchQual() {
+	public function fetchFrom() {
 		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
-			
 		} else {
 			$id=$_SESSION['id'];
 		}
-		$arrArg=loadModel("professionalprofile","retrieveData",$id);
-		$this->view->loadView('displayQual.php',$arrArg);
-		
-	}
-	public function updateQual() {
-		//print_r($_REQUEST);
-		$fields=array();
-		foreach($_REQUEST as $key => $value) {
-			$fields[$key]=$value;
-		}
-		$result=loadModel("professionalprofile","updateQualification",$fields);
-		if($result) {
-			echo "Qualification Updation Successful..";
-		} else {
-			echo "Qualification Updation Failed..";
-		}
-	}
-	public function updateCert() {
-		//print_r($_REQUEST);
-		$fields=array();
-		foreach($_REQUEST as $key => $value) {
-			$fields[$key]=$value;
-		}
-		$result=loadModel("professionalprofile","updateCertification",$fields);
-		if($result) {
-			echo "Certificate Updation Successful..";
-		} else {
-			echo "Certificate Updation Failed..";
-		}
-	}
-	public function updateExp() {
-		//print_r($_REQUEST);
-		$fields=array();
-		foreach($_REQUEST as $key => $value) {
-			$fields[$key]=$value;
-		}
-		$result=loadModel("professionalprofile","updateExperience",$fields);
-		if($result) {
-			echo "Eperience Updation Successful..";
-		} else {
-			echo "Eperience Updation Failed..";
-		}
-	}
-	public function fetchCertifications() {
-		if(isset($_REQUEST['id'])) {
-			$id=$_REQUEST['id'];
-			
-		} else {
-			$id=$_SESSION['id'];
+		if($_REQUEST['table']=="qualification") {
+			$method="updateQualification";
+			$view="displayQual.php";
+		} else if($_REQUEST['table']=="certifications") {
+			$method="updateCertification";
+			$view="displayCertifications.php";
+		} else if($_REQUEST['table']=="experience") {
+			$method="updateExperience";
+			$view="displayExperience.php";
 		}
 		$arrArg=loadModel("professionalprofile","retrieveData",$id);
-		$this->view->loadView('displayCertifications.php',$arrArg);
+		$this->view->loadView($view,$arrArg);
 	}
-	public function fetchExperience() {
-		if(isset($_REQUEST['id'])) {
-			$id=$_REQUEST['id'];
-			
-		} else {
-			$id=$_SESSION['id'];
-		}
-		$arrArg=loadModel("professionalprofile","retrieveData",$id);
-		$this->view->loadView('displayExperience.php',$arrArg);
-	}
+	
+	
 	/*public function uploadResume() {
 		echo "in upload resume";
 		$allowedExts = array("doc", "docx", "rtf", "txt","pdf","tif");

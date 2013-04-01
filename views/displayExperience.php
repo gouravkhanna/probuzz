@@ -1,5 +1,5 @@
         <div class="align">
-                <input type="button" class="b1" value="Add Experience" onclick="openExpFancyBox(-1)">
+                <input type="button" class="b1" value="Add Experience" onclick="openFancyBox('experience',-1)">
                                 
         </div>
         <br/>
@@ -17,8 +17,8 @@ $experience=$arrData['experience'];
                 <div class="highlight" id="divhead<?php echo $value['id']; ?>">
                     <?php echo strtoupper($value['company_name']);?>
                     <div class="deleteExp" id="<?php echo $value['id']; ?>">
-                       <img title="Edit" onclick="openExpFancyBox(<?php echo $value['id']; ?>)" src="<?php echo SITE_PATH.'data/rcs/'.'edit.gif'; ?>"/>
-                       <img title="Delete" onclick="deleteExp(this)" src="<?php echo SITE_PATH.'data/rcs/'.'delete.gif'; ?>"/>
+                       <img title="Edit" onclick="openFancyBox('experience',<?php echo $value['id']; ?>)" src="<?php echo SITE_PATH.'data/rcs/'.'edit.gif'; ?>"/>
+                       <img title="Delete" onclick="deleteFrom(this,'experience')" src="<?php echo SITE_PATH.'data/rcs/'.'delete.gif'; ?>"/>
                     </div>
                 </div>
                 <div class="displayDetails" id="div<?php echo $value['id']; ?>">

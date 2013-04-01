@@ -19,6 +19,12 @@
     padding:5px;
 }
 .alignright {
-    width: 100%;
     text-align: right;
+}
+.alignright, .alignCenter {
+	width: 100%;
+}
+.alignCenter {
+	
+	text-align: center;
 }

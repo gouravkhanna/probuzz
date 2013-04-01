@@ -58,7 +58,7 @@ $(function() {
 		<tr>
 			<td class="proSubmit" >
 				<input type="button" value="<?php if($flag) { echo 'Update Experience';} else {echo 'Add Experience';}?>"
-				onclick="<?php if($flag) { echo "updateExp('exp',$rowId)"; } else { echo "insertExp('exp')";}
+				onclick="<?php if($flag) { echo "updateInto('exp',$rowId)"; } else { echo "insertInto('exp')";}
 				?>" />
 			</td>
 			<td class="proSubmit" >

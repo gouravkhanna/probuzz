@@ -54,7 +54,7 @@ $(function() {
 		<tr>
 			<td class="proSubmit" >
 				<input type="button" value="<?php if($flag) { echo 'Update Certification';} else {echo 'Add Certification';}?>"
-				onclick="<?php if($flag) { echo "updateCert('cert',$rowId)"; } else { echo "insertCert('cert')";}
+				onclick="<?php if($flag) { echo "updateInto('cert',$rowId)"; } else { echo "insertInto('cert')";}
 				?>" />
 			</td>
 			<td class="proSubmit" >

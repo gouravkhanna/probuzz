@@ -1,5 +1,5 @@
         <div class="align">
-                <input type="button" class="b1" value="Add Qualification" onclick="openFancyBox(-1)">
+                <input type="button" class="b1" value="Add Qualification" onclick="openFancyBox('qualification',-1)">
                                 
         </div>
         <br/>
@@ -17,8 +17,8 @@ $qual=$arrData['qualification'];
                 <div class="highlight" id="divhead<?php echo $value['id']; ?>">
                     <?php echo strtoupper($value['qualification_type']." : ".$value['class']);?>
                     <div class="deleteQual" id="<?php echo $value['id']; ?>">
-                       <img title="Edit" onclick="openFancyBox(<?php echo $value['id']; ?>)" src="<?php echo SITE_PATH.'data/rcs/'.'edit.gif'; ?>"/>
-                       <img title="Delete" onclick="deleteQual(this)" src="<?php echo SITE_PATH.'data/rcs/'.'delete.gif'; ?>"/>
+                       <img title="Edit" onclick="openFancyBox('qualification',<?php echo $value['id']; ?>)" src="<?php echo SITE_PATH.'data/rcs/'.'edit.gif'; ?>"/>
+                       <img title="Delete" onclick="deleteFrom(this,'qualification')" src="<?php echo SITE_PATH.'data/rcs/'.'delete.gif'; ?>"/>
                     </div>
                 </div>
                 <div class="displayDetails" id="div<?php echo $value['id']; ?>">

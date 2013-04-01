@@ -1,4 +1,4 @@
-Notifications...
+<span class="alignCenter">Notifications...</span>
 <?php
 	//echo "<pre>";
 	//print_r($arrData);
@@ -31,7 +31,11 @@ Notifications...
 					echo  $value['user_name'] ."</a>";
 					echo " ".$value['content']. " ";
 					echo "<a href='".ROOTPATH."index.php?controller=friends&url=friendsProfile&friendId=".$value['friend_id']."' >";
-					echo  $value['friend_name']." </a>" ;
+					if($value['friend_id']==$_SESSION['id']) {
+						echo  "you</a>" ;
+					} else {
+						echo  $value['friend_name']." </a>" ;	
+					}
 					echo "<span class='alignright'>".$value['notification_time']."</span>";
 				}
 				

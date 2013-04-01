@@ -1,5 +1,5 @@
         <div class="align">
-                <input type="button" class="b1" value="Add Certifications" onclick="openCertFancyBox(-1)">
+                <input type="button" class="b1" value="Add Certifications" onclick="openFancyBox('certifications',-1)">
                                 
         </div>
         <br/>
@@ -17,8 +17,8 @@ $cert=$arrData['certifications'];
                 <div class="highlight" id="divhead<?php echo $value['id']; ?>">
                     <?php echo strtoupper($value['certification_name']);?>
                     <div class="deleteCert" id="<?php echo $value['id']; ?>">
-                       <img title="Edit" onclick="openCertFancyBox(<?php echo $value['id']; ?>)" src="<?php echo SITE_PATH.'data/rcs/'.'edit.gif'; ?>"/>
-                       <img title="Delete" onclick="deleteCert(this)" src="<?php echo SITE_PATH.'data/rcs/'.'delete.gif'; ?>"/>
+                       <img title="Edit" onclick="openFancyBox('certifications',<?php echo $value['id']; ?>)" src="<?php echo SITE_PATH.'data/rcs/'.'edit.gif'; ?>"/>
+                       <img title="Delete" onclick="deleteFrom(this,'certifications')" src="<?php echo SITE_PATH.'data/rcs/'.'delete.gif'; ?>"/>
                     </div>
                 </div>
                 <div class="displayDetails" id="div<?php echo $value['id']; ?>">
