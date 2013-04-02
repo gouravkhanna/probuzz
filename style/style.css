@@ -1,6 +1,6 @@
 @font-face {
 	font-family: alba;
-	src: url("../data/font/alba.ttf");
+	src: url("http://localhost/probuzz/trunk/data/font/alba.TTF");
 }
 @font-face {
 	font-family: a1;
@@ -17,7 +17,7 @@
 }
 @font-face {
 	font-family: del;
-	src: url("../data/font/Delicious-Italic.otf");
+	src: url("http://localhost/probuzz/trunk/data/font/Delicious-Italic.otf");
 }
 body {
 	max-height: auto;
@@ -86,11 +86,7 @@ ul.n a:hover, ul.n a.selected {
 	background:url(../data/rcs/templatemo_menu_hover.png) no-repeat left;
 	
 }
-
 */
-.border {
-	border:1px solid lightgray;
-}
 #head1 {
 	/* display:none; */
 	height: 50px;
@@ -531,4 +527,28 @@ hr {
 }
 .oddb {
 	background-color: white;
+}
+#sjbtn{
+	vertical-align:top;
+	height:150px;
+	width: 400px;
+	border: 1;
+	border-radius:10px; 
+	margin-top: 5px;
+	background-color:#f0f0f0;
+	margin-left: 15px;
+	
+	
+	
+	
+}
+#sjresulthead {
+	font-family: del;
+	font-size:1em;
+	font-weight: bold;
+}
+#sjresultcol {
+	font-family: del;
+	font-size:1.2em;
+	height:  20px;
 }
