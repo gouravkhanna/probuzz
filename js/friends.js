@@ -1,3 +1,8 @@
+function openBox() {
+	$('.fancybox').css({"display":"block"}).hide().fadeIn("slow");
+    $('.box').slideDown("slow");
+    $('.fancybox').css({"z-index":"999999"});
+}
 function sendRequest(input) {
 	var id=input.id.split("_");
 	$.ajax({

@@ -86,7 +86,11 @@ ul.n a:hover, ul.n a.selected {
 	background:url(../data/rcs/templatemo_menu_hover.png) no-repeat left;
 	
 }
+
 */
+.border {
+	border:1px solid lightgray;
+}
 #head1 {
 	/* display:none; */
 	height: 50px;

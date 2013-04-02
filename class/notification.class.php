@@ -10,18 +10,24 @@
 			$notifications=array();
 			$result=$ob->executeSQL($sql);
 			while($row=mysql_fetch_assoc($result)) {
-				$user_name=$this->getUserName($row['user_id']);
+				//$user_name=$this->getUserName($row['user_id']);
+				$user_name=loadModel("friend","fetchName",array("id"=>$row['user_id']));
+				$user_pic=loadModel("users","getProfilePic",array("id"=>$row['user_id']));
+				$row['user_pic']=$user_pic;
 				$row['user_name']=$user_name;
 				if($row['notification_type']!="0") {
-					$friend_name=$this->getUserName($row['friend_id']);
+					//$friend_name=$this->getUserName($row['friend_id']);
+					$friend_pic=loadModel("users","getProfilePic",array("id"=>$row['friend_id']));
+					$friend_name=loadModel("friend","fetchName",array("id"=>$row['friend_id']));
 					$row['friend_name']=$friend_name;
+					$row['friend_pic']=$friend_pic;
 				}
 				
 				$notifications[]=$row;
 			}
 			return $notifications;
 		}
-		function getUserName($userId="") 	{
+/* 		function getUserName($userId="") 	{
 			if($userId!="") {
 				$data['tables']	= 'users';
 				$data['columns']= array('users.user_name');
@@ -30,6 +36,6 @@
 				$row = $result->fetch(PDO::FETCH_ASSOC);
 				return $row['user_name'];
 				}
-		}
+		} */
 	}
 ?>

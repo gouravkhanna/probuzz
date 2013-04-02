@@ -208,6 +208,7 @@ function getAppStats() {
 			$path=loadModel("corporate","getProfilePic",$arrData);
 			$corpName=loadModel("corporate","fetchName",$arrData);
 			loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path,'corp_name'=>$corpName,'id'=>$_REQUEST['corpId']));
+			
 
 
 		} else {

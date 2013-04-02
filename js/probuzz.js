@@ -260,6 +260,7 @@ var message_text=$("#message_text").val();
 			  $("#insert").html(data);
 			  $("#message_text").val("");
 			  showMessage();
+			  closeFancy();
 	  }
 	});
 }
