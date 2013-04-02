@@ -1,12 +1,12 @@
 <?php
 include_once 'class/dbAcess.php';
-class buzzin
+class buzzin extends DbConnection
 {
 
 
 function __construct()
 	{
-	
+		parent::__construct();
 	}
 	function loadBuzz($arrArg){
 		$id=$arrArg['id'];
@@ -64,9 +64,9 @@ $id=$arrArgs['id'];
 $sql="insert into probuzz.buzz (user_id,buzztext) values($id,'$buzztext')";
 
 if($ob->executeSQL($sql)){
-	
+	$this->executeSQLP("call addNotification('".$_SESSION['id']."','0','".$_SESSION['id']."',now(),'".$buzztext."')") or die(mysql_error());
 	echo "updated successfully";
- return true;
+	return true;
 
 }
 else {

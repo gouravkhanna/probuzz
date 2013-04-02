@@ -3,7 +3,7 @@
 	class notification extends DbConnection {
 		function fetchNotifications() {
 			$ob=new DbConnection();
-			$sql="select n.user_id,n.notification_type,n.friend_id,n.notification_time,n.content ";
+			$sql="select n.user_id,n.notification_type,n.friend_id,unix_timestamp(n.notification_time) as notification_time,n.content ";
 			$sql.=" from notifications as n join friend as f on n.user_id=f.friend_id where ";
 			$sql.=" f.user_id=".$_SESSION['id']." and f.friendship_status='1' order by n.notification_time desc limit 20;";
 			//echo $sql;
@@ -29,7 +29,7 @@
 				$result=$this->db->select($data);
 				$row = $result->fetch(PDO::FETCH_ASSOC);
 				return $row['user_name'];
+				}
 		}
-	}
 	}
 ?>
