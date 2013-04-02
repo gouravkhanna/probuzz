@@ -1,29 +1,70 @@
 <div id="bigmid">
 <div id="searchjob">
-<script>
+<style>  
+
+#dvformsearchjob input[type=text] {
+	
+	width: 150px;
+	
+}
+
+
+#dvformsearchjob span{
+	
+	margin-left: 35px;
+	padding-left: 26px;
+	
+}
+
+#dvformsearchjob span input[type=text]{
+	
+	margin-left: 16px;
+	float: left;
+
+	
+	
+}
+.marginl10{
+	margin-left: 10px;
+	
+	
+}
+
+#e{
+	
+	float: right;
+	margin-right: 85px;
+	
+}
+#sjsubmit{
+	
+	float: right;
+	-webkit-border-radius:10px; 
+		border-radius:10px;
+	height: 30px;
+	font-size: 16px;
+	font-weight: bold; 
+}
+</style>
 		
-</script>
+
 <h1>SEARCH JOB</h1><hr/>
 
 <form id="formsearchjob" name="formsearchjob" onsubmit="return false;">
-<div id="" class="" >
-DESIGNATION
-<input type="text" name=sjdesignation id=sjdesignation >
-</div>
-<div id="" class="">
-SALARY
-</div>
-<div id="" class="">
-MINIMUM SALARY
-<input type="text" name=sjminsal id=sjminsal>
-</div>
-<div id="" class="">
-MAXIMUM SALARY
-<input type="text" name=sjmaxsal id=sjmaxsal>
-</div>
-<div id="" class="">
-EXPERIANCE
-<select id=sjexp name=sjexp>
+<div id="dvformsearchjob"  >
+<span> DESIGNATION </span> <span> MINIMUM SALARY </span>   <span>  MAXIMUM SALARY </span>
+ <span>LOCATION</span> <span id="e"> 
+EXPERIANCE</span>
+ 
+ 
+ <span><br> 
+ <input type="text" name=sjdesignation id=sjdesignation >
+ 
+  <input type="text" name=sjminsal id=sjminsal> 
+  <input type="text" name=sjmaxsal id=sjmaxsal>
+ 
+  </span>
+<select  id=sjexp class="marginl10" name=sjexp>
 <option></option>
 <option>Fresher</option>
 <option>1</option>
@@ -40,10 +81,10 @@ EXPERIANCE
 <option>12+ years</option>
 
 </select>
-</div>
 
-<div class="floatl">
-LOCATION
+
+<div id="" class="floatl marginl10">
+
 	<aside>		
  	<input type="text" title="Septate City by Comma (,) "
  	id="sjclocation" name="sjclocation" placeholder="Enter City">
