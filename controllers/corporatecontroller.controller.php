@@ -9,10 +9,8 @@ parent::__construct();
 function home() {
 	$arrData=array('id'=>$_SESSION['id']);
 	$this->view->loadView('head/head1.php');
-	$path=loadModel("users","getProfilePic",$arrData);
 	$arrArgs=loadModel("corporate","fetchName",$arrData);
-	$arrArgs["profile_pic_path"]=$path;
-	
+	$arrArgs["profile_pic_path"]=loadModel("users","getProfilePic",$arrData);
 	loadView("navigation/corpnavigation.php",$arrArgs);
 	loadView("head/head2.php");
 	loadView('midpanel/midpanel.php');
@@ -21,7 +19,16 @@ function home() {
     loadView('footer/footer.php');
 }
 function cprofile() {
-
+	$arrData=array('id'=>$_SESSION['id']);
+	$this->view->loadView('head/head1.php');
+	$arrArgs=loadModel("corporate","fetchName",$arrData);
+	$arrArgs["profile_pic_path"]=loadModel("users","getProfilePic",$arrData);
+	loadView("navigation/corpnavigation.php",$arrArgs);
+	loadView("head/head2.php");
+	$arrData=loadModel('corporate',"getProfile",array("id"=>@$_SESSION['id']));
+	loadView('profile/editCorporateProfile.php',$arrData);
+	loadView('rightpanel/rightpanel.php');
+	loadView('footer/footer.php');
 }
 function createjobs() {
 	loadView("head/head1.php");

@@ -227,7 +227,7 @@ class corporate extends DbConnection{
     }
 	function fetchName($arrArg=array()) {
 		
-		if($arrArg) {
+		if(!empty($arrArg)) {
 			$ob=new DbConnection();
 			$sql="select c.company_name,c.company_alias from corporate_profile as c join users as u on u.user_id=c.user_id where u.user_id=".$arrArg['id'].";";
 			$res=$ob->executeSQL($sql);
@@ -238,6 +238,24 @@ class corporate extends DbConnection{
 		} else {
 			//echo "No Id Passed..";
 			return false;
+		}
+	}
+	function getProfile($arrArg=array()) {
+		if(!empty($arrArg)) {
+			$id= $arrArg['id'];
+			$data['tables']="corporate_profile";
+			$data['conditions']=array("user_id"=>$id);
+			$res=$this->db->select($data);
+			if($res) {
+    	  		while($result[]=$res->fetch(PDO::FETCH_ASSOC)) {
+    	  		}	
+    	  		//print_r($result);
+    	  		return $result;
+    	  	}else {
+    	  		echo "Error!!";
+    	  		return false;
+    	  	}
+			
 		}
 	}
 }
