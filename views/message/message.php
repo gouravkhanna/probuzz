@@ -10,6 +10,7 @@
 <div id="insert">
 </div>	
 <script>
-
+setInterval(showMessage,1000);
+setInterval (showSender, 2500);
 
 </script>

@@ -9,8 +9,7 @@ $(document).ready(function(e) {
 	$("#dabackbutton").hide();
 	$( document ).tooltip();
 	showSender();
-	setInterval(showMessage,1000);
-	setInterval (showSender, 2500);
+
 	$("#sendmessage").hide();
 	//setInterval (showMessage,1000);
 	
@@ -36,7 +35,7 @@ $(document).ready(function(e) {
 		        type: 'POST',
 		        data: 'url=search&searcharg='+search,
 		        	beforeSend:function(data){
-		        		$("#dvsearchresult").html("<img src='data/photo/load3.gif' alt='loading' >");		        	},
+		        		$("#dvsearchresult").html("<img src='data/photo/load3.gif' alt='loading' >").end();		        	},
 		        	success:function(data) {
 		        		$("#dvsearchresult").html(data);
 		        	},
