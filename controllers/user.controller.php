@@ -94,7 +94,7 @@ class user extends controller {
 	
 	function showSender() {
 		$arrData=loadModel("messaging", "showSender",array("id"=>@$_SESSION['id']));
-		loadView("message/showSender.php",$arrData);
+		loadView("message/showsender.php",$arrData);
 	}	
 	function getMessage() {
 		$friendId=$_REQUEST['friend_id'];
