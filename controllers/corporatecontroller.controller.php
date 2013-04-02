@@ -7,9 +7,13 @@ parent::__construct();
 }
 /* Will load home when user Login */
 function home() {
-	loadView("head/head1.php");
-	$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
-	loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path));
+	$arrData=array('id'=>$_SESSION['id']);
+	$this->view->loadView('head/head1.php');
+	$path=loadModel("users","getProfilePic",$arrData);
+	$arrArgs=loadModel("corporate","fetchName",$arrData);
+	$arrArgs["profile_pic_path"]=$path;
+	
+	loadView("navigation/corpnavigation.php",$arrArgs);
 	loadView("head/head2.php");
 	loadView('midpanel/midpanel.php');
 	loadView('rightpanel/rightpanel1.php');
@@ -203,12 +207,16 @@ function getAppStats() {
 	}
 	function showProfile() {
 		if($_REQUEST['corpId']!=$_SESSION['id']) {
+			
 			$arrData=array('id'=>$_REQUEST['corpId']);
 			$this->view->loadView('head/head1.php');
-			$path=loadModel("corporate","getProfilePic",$arrData);
-			$corpName=loadModel("corporate","fetchName",$arrData);
-			loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path,'corp_name'=>$corpName,'id'=>$_REQUEST['corpId']));
+			$path=loadModel("users","getProfilePic",$arrData);
+			$arrArgs=loadModel("corporate","fetchName",$arrData);
+			$arrArgs["profile_pic_path"]=$path;
+			$arrArgs["id"]=$_REQUEST['corpId'];
+			loadView("navigation/viewercorpnavigation.php",$arrArgs);
 			
+			loadView("profile/displayCorporateProfile.php");
 
 
 		} else {
@@ -216,4 +224,5 @@ function getAppStats() {
 		}
 
 	}
+	
 }

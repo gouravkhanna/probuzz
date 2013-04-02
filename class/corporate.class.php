@@ -225,22 +225,15 @@ class corporate extends DbConnection{
     	  	}
     	}
     }
-	function getProfilePic($arrArg=array())	{
-		$ob=new DbConnection();
-		$sql="select p.path from photo p join personal_profile pp where pp.user_id='";
-		$sql.=$arrArg['id']."' and pp.profile_pic_id=p.id  ";
-		$res=$ob->executeSQL($sql);
-		$row=mysql_fetch_array($res);
- 		return ROOTPATH.$row['path'];
-	}
 	function fetchName($arrArg=array()) {
 		
 		if($arrArg) {
 			$ob=new DbConnection();
-			$sql="select p.first_name,p.last_name from personal_profile as p join users as u on u.user_id=p.user_id where u.user_id=".$arrArg['id'].";";
+			$sql="select c.company_name,c.company_alias from corporate_profile as c join users as u on u.user_id=c.user_id where u.user_id=".$arrArg['id'].";";
 			$res=$ob->executeSQL($sql);
 			$row=mysql_fetch_array($res);
-			$result=@$row['first_name']." ".@$row['last_name'];
+			$result["company_name"]=@$row['company_name'];
+			$result["company_alias"]=@$row['company_alias'];
 			return $result;
 		} else {
 			//echo "No Id Passed..";
