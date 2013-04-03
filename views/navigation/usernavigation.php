@@ -8,6 +8,9 @@
 	<br/><br/><br/><br/><br/><br/><br/>
 	<div id=usermenu>	
 	<ul>
+	    <li id="umenu">
+			<a href="<?php echo ROOTPATH."user/messages"; ?>">Messaging</a>
+		</li>
 		<li id="umenu">
 			<a href="<?php echo ROOTPATH."index.php?controller=profile"; ?>">Social Profile</a>
 		</li>

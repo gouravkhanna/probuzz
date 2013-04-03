@@ -1,4 +1,4 @@
-<div id="messagepanel" class=round20>
+<div id="dvmessaging"><div id="messagepanel" class=round20>
 </div>
 <div id="showmessage"></div>
 <div id="messagetext">
@@ -9,6 +9,7 @@
 </div>
 <div id="insert">
 </div>	
+</div>
 <script>
 setInterval(showMessage,1000);
 setInterval (showSender, 2500);

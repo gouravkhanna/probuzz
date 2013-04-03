@@ -1,7 +1,7 @@
 
 
 <div id="footer" >
-<footer> Copyright ProBuzZ || All Right Reserved || 2013  </footer>
+<footer> <?php echo COPYRIGHTS;?>  </footer>
 
 </div>
 

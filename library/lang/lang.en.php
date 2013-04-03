@@ -98,6 +98,7 @@ define("MCA","MCA");
 define("MSc","MSc");
 define("MTECH","M.Tech");
 define("PHD","Phd");
+define("COPYRIGHTS","Copyright ProBuzZ || All Right Reserved || 2013");
 define("NRF","NO Result Found!");
 define("MINIMUMSALARY","Minimum Salary");
 define("MAXIMUMSALARY","Maximum Salary");
@@ -110,5 +111,10 @@ define("CREATE_A_NEW_SLOT","CREATE A NEW Slot");
 define("TOP_JOBS","Top Jobs");
 define("ALREADY_APPLIED_FOR_JOB","Already Applied for JOb");
 define("APPLY","Apply");
-define("APPLY_FOR_THE_JOB","Apply For the Job")
+define("APPLY_FOR_THE_JOB","Apply For the Job");
+define("OOPS_U_LOST","Oops We Think you are Lost!!");
+define("WE_LOOKED","We have looked everywhere!!");
+define("FIND_WAY_HOME","Please Find Home! Let us Do This for you by");
+define("CLICKING","Clicking");
+
 ?>

@@ -309,8 +309,7 @@ function showSender() {
 		data: "controller=user&url=showSender",
 		beforeSend:function(data){
     		$("#dvsearchresult").html("<img src='data/photo/load3.gif' alt='loading' >");		        	},
-    	
-		  success: function(data){ 
+    	success: function(data){ 
 			  $("#messagepanel").html(data);
 			  
 	  }

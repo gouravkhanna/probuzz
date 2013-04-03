@@ -443,6 +443,9 @@ margin-right: 5px;
 .floatl {
 	float: left;
 }
+.floatr {
+	float: right;
+}
 #topjobhead {
 	font-size: 1.4em;
 	text-align: center;
@@ -531,9 +534,9 @@ hr {
 .oddb {
 	background-color: white;
 }
-
+/*Meesaging*/
 #messagepanel {
-	margin :20px;
+	margin :10px;
 	padding :10px;
 	width:1000px;
 	margin:0px auto;
@@ -541,7 +544,9 @@ hr {
 	overflow-x: scroll;
 	overflow-y: hidden;
 }
-
+#dvmessaging {
+	margin-top: 55px;
+}
 #sjbtn{
 	vertical-align:top;
 	height:150px;
