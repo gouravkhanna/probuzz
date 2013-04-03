@@ -76,17 +76,21 @@
         </div>
         <h3><?php echo RESUME; ?></h3>
         <div class="wide">
-            
-            <form id="form3" onsubmit="return uploadResume(this.id)" enctype="multipart/form-data" >
-                <table><label for="resume"><?php echo FILE;?></label>
-                    <tr>
-                        <td><input type="file" name="resume" id="file"></td>
-                    </tr>
-                    <tr>
-                        <td class="proSubmit"><input type="submit" value="<?php echo SUBMIT;?>"></td>
-                    </tr>
-                </table>
-            </form>
+            <div id="content">
+                <form action="http://localhost/probuzz/trunk/class/upload.php" method="post" enctype="multipart/form-data" target="upload_target" onsubmit="startUpload();" >
+                         <p id="f1_upload_process" >Loading...<br/><img src="<?php echo ROOTPATH."data/rcs/loader.gif"?>" /><br/></p>
+                         <p id="f1_upload_form" align="center"><br/>
+                             <label>File:  
+                                  <input name="myfile" type="file" size="30" />
+                             </label>
+                             <label>
+                                 <input type="submit" name="submitBtn"  value="Upload" />
+                             </label>
+                         </p>
+                         
+                         <iframe id="upload_target" name="upload_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
+                </form>
+            </div>
           
         </div>
     </div>

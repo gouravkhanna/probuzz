@@ -20,11 +20,11 @@
 }
 .alignright {
     text-align: right;
+	color:blue;
 }
 .alignright, .alignCenter {
 	width: 100%;
 }
 .alignCenter {
-	
 	text-align: center;
 }
