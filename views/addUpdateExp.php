@@ -16,11 +16,10 @@ $(function() {
 		if($_REQUEST['rowId']) {
 			$flag=1;
 			$rowId=$_REQUEST['rowId'];
-			$exp=mysql_fetch_assoc($arrData);
+			//$exp=mysql_fetch_assoc($arrData);
+			$exp=$arrData->fetch(PDO::FETCH_ASSOC);
 			
 		}
-		//echo $rowId."<br/>";
-		//print_r($exp);
 	}
 	
 	

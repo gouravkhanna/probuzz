@@ -5,6 +5,13 @@
 </div>
 
 <div id="bigmid">
+    <?php
+        //echo "<pre>";
+        //print_r($arrData);
+        $pro=$arrData->fetch(PDO::FETCH_ASSOC);
+        //print_r($pro);
+        //die;
+    ?>
     <div class="fright">
             <a href="index.php?controller=proprofile&url=home">BACK</a>
     </div>
@@ -16,37 +23,37 @@
                     <tr>
                         <td><?php echo CAREER_OBJECTIVE;?></td>
                         <td>
-                            <textarea name="career_objective"  rows="3" cols="60"><?php echo $arrData['professional_profile']['career_objective'];
+                            <textarea name="career_objective"  rows="3" cols="60"><?php echo $pro['career_objective'];
                             ?></textarea>
                         </td>
                         <td> </td>
                     </tr>
                     <tr>
                         <td><?php echo COMPANY_NAME ;?></td>
-                        <td><input type="text" value="<?php echo $arrData['professional_profile']['company']; ?>" name="company" maxlength="250"/></td>
+                        <td><input type="text" value="<?php echo $pro['company']; ?>" name="company" maxlength="250"/></td>
                     </tr>
                     <tr>
                         <td><?php echo PRO_DESIGNATION; ?></td>
-                        <td><input type="text" value="<?php echo $arrData['professional_profile']['designation']; ?>" name="designation" maxlength="250"/></td>
+                        <td><input type="text" value="<?php echo $pro['designation']; ?>" name="designation" maxlength="250"/></td>
                     </tr>
                     <tr>
                         <td><?php echo PROFICIENCY; ?> </td>
                         <td>
-                            <textarea name="proficiency" rows="3" cols="60"><?php echo $arrData['professional_profile']['proficiency'];
+                            <textarea name="proficiency" rows="3" cols="60"><?php echo $pro['proficiency'];
                             ?></textarea>
                         </td>
                     </tr>
                     <tr>
                         <td><?php echo SKILLS; ?></td>
                         <td>
-                            <textarea name="skills" rows="3" cols="60"><?php echo $arrData['professional_profile']['skills'];
+                            <textarea name="skills" rows="3" cols="60"><?php echo $pro['skills'];
                             ?></textarea>
                         </td>
                     </tr>
                     <tr>
                         <td><?php echo INFORMATION; ?></td>
                         <td>
-                            <textarea name="information" rows="3" cols="60"><?php echo $arrData['professional_profile']['information'];
+                            <textarea name="information" rows="3" cols="60"><?php echo $pro['information'];
                             ?></textarea>
                         </td>
                     </tr>

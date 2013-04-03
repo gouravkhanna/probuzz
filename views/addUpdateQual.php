@@ -10,17 +10,15 @@ $(function() {
 </script>
 <b><form id="form4" class="qual">
 <?php
-	//echo "<pre>";
 	$flag=0;
 	if(isset($_REQUEST['rowId'])) {
 		if($_REQUEST['rowId']) {
 			$flag=1;
 			$rowId=$_REQUEST['rowId'];
-			$qual=mysql_fetch_assoc($arrData);
+			//$qual=mysql_fetch_assoc($arrData);
+			$qual=$arrData->fetch(PDO::FETCH_ASSOC);
 			
 		}
-		//echo $rowId."<br/>";
-		//print_r($qual);
 	}
 	
 	

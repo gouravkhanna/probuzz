@@ -16,11 +16,9 @@ $(function() {
 		if($_REQUEST['rowId']) {
 			$flag=1;
 			$rowId=$_REQUEST['rowId'];
-			$cert=mysql_fetch_assoc($arrData);
-			
+			//$cert=mysql_fetch_assoc($arrData);
+			$cert=$arrData->fetch(PDO::FETCH_ASSOC);
 		}
-		//echo $rowId."<br/>";
-		//print_r($cert);
 	}
 	
 	

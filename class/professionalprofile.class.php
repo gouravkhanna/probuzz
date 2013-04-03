@@ -89,6 +89,29 @@
             return false;
         }*/
         public function retrieveData($id) {
+            $table=$this->constructFields();
+            foreach($table as $tableKey =>$fieldsKey) {
+                $data['columns']=array();
+                foreach($fieldsKey as $key) {
+                    $data['columns'][]="$key";
+                }
+                $data['tables']="$tableKey";
+                $data['conditions']=array("user_id"=>$id);
+                $temp=$this->db->select($data);
+                if($tableKey!="professional_profile") {
+                    $result[$tableKey]=array();
+                    while($row=$temp->fetch(PDO::FETCH_ASSOC)) {
+                        array_push($result[$tableKey],$row);
+                    }
+                } else {
+                    $result[$tableKey]=$temp->fetch(PDO::FETCH_ASSOC);
+                }
+            }
+            return $result;
+        }
+        
+        /*  old retieveData
+         *public function retrieveData($id) {
             $result;
             $table=$this->constructFields();
             foreach($table as $tableKey =>$fieldsKey) {
@@ -111,7 +134,15 @@
                 }
             }
             return $result;
-        }
+        }*/
+        /*
+        public function insertInto($fields) {
+            if($fields) {
+                
+            } else {
+                return false;
+            }
+        }*/
         public function insertInto($fields) {
             if($fields){
                 $query="insert into ".$fields['table'];
@@ -137,6 +168,15 @@
         }
         public function deleteFrom($arrArgs) {
             if($arrArgs['row_id']) {
+                $data['conditions']=array("id"=>$arrArgs['row_id'],"user_id"=>$_SESSION['id']);
+                $result = $this->db->delete($arrArgs['table'],$data['conditions']);
+                return $result;
+            } else {
+                return false;
+            }
+        }
+        /*public function deleteFrom($arrArgs) {
+            if($arrArgs['row_id']) {
                 $query="delete from ".$arrArgs['table']." where id=".$arrArgs['row_id']." AND user_id=".$_SESSION['id'].";";
                 $this->dbInstance=new DbConnection();
                 $result=$this->dbInstance->executeSQL($query);
@@ -144,10 +184,31 @@
             } else {
                 return false;
             }
-        }
+        }*/
         public function retrieveFrom($arrArgs) {
-            $temp=$this->constructFields();
-            $fields=$temp[$arrArgs['table']];
+            if($arrArgs){
+                $temp=$this->constructFields();
+                $fields=$temp[$arrArgs['table']];
+                $data['tables']=$arrArgs['table'];
+                foreach($fields as $key =>$value) {
+                    $data['columns'][]=$value;
+                }
+                if(!$arrArgs['table']=="professional_profile") {
+                    $data['conditions']=array("id"=>$arrArgs['rowId']);    
+                } else {
+                    $data['conditions']=array("user_id"=>$_SESSION['id']);    
+                }
+                
+                $res =$this->db->select($data);
+                if($res) {
+                    return $res;    
+                } else {
+                    return false;
+                }
+                
+            } else {
+                return false;
+            }
             
         }
         /*public function retrieveFrom($arrArgs) {

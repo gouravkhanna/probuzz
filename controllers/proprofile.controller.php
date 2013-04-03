@@ -34,7 +34,7 @@ class proprofile extends Controller
 		} else {
 			$id=$_SESSION['id'];
 		}
-		$arrArg=loadModel("professionalprofile","retrieveData",$id);
+		$arrArg=loadModel("professionalprofile","retrieveFrom",array("id"=>$id,"table"=>"professional_profile"));
 	  	$this->view->loadView('proprofile.php',$arrArg);
 	  	loadView('footer/footer.php');
 		
