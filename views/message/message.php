@@ -1,4 +1,4 @@
-<div id="messagepanel">
+<div id="messagepanel" class=round20>
 </div>
 <div id="showmessage"></div>
 <div id="messagetext">

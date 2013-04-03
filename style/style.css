@@ -523,11 +523,22 @@ hr {
 	background-color: lightgreen;
 }
 .evenb:HOVER,.oddb:HOVER {
-	background-color: lightblue;
+	background-color: #579BBA;
 }
 .oddb {
 	background-color: white;
 }
+
+#messagepanel {
+	margin :20px;
+	padding :10px;
+	width:1000px;
+	margin:0px auto;
+	background-color: #78bbe6;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
 #sjbtn{
 	vertical-align:top;
 	height:150px;
