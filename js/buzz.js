@@ -24,22 +24,8 @@ $("#statusShow").load("index.php","controller=status&url=displaybuzz");
 });
 
 
-$(".submit").click(function(){
 
-//var comment_text=$("")
-
-});
-	/*	$.ajax({
-		        url:'index.php', //window.location.pathname,
-		        type: 'POST',
-		        data: 'url=search&searcharg='+search,
-		        	beforeSend:function(data){
-		        	//	$("#dvsearchresult").html("<img src='data/photo/load3.gif' alt='loading' >");		        	},
-		        	success:function(data) {
-		        	//	$("#dvsearchresult").html(data);
-		        	},
-			});
-*/
+	
 
 
 

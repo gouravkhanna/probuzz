@@ -1,5 +1,5 @@
 
-<script src="<?php echo ROOTPATH."js/display_profile.js"; ?>"></script>
+
 <div id="bigmid">
 <br /> <br /> <br /> <br /> <br /> <br /> 
 
@@ -30,9 +30,12 @@ Home
    
    <input type=hidden value=edit_Con name=url> 
  <input type=hidden value=profile name=controller><br>
-   <input type="submit" id="submitCon" value="Save Me" name=submit  />
+  <input type="submit" id="submitCon" value="Save Me" name=submit  /> 
+
    </form>
+
 </div>
+
  </div>
  <!-- edit contact ends here    -->
 
@@ -54,7 +57,7 @@ Home
  <?PHP echo $arrData['personal']['favourite_food'];?>
     </textarea> 
    
-        <input type=hidden value=editInfo name=url> 
+       <input type=hidden value=editInfo name=url> 
        <input type=hidden value=profile name=controller><br>
  <br><br>
    <input type="submit" id="subInfo" name=submit value="Save Me" />
@@ -120,9 +123,7 @@ Relationship Status</b><select id="relationship" name="relationship">
 </div>
  </div>
 
-
- 
- <!--    Add education code ends here-->
+<!--    Add education code ends here-->
  <!--  Main div for my profile  -->
  
 <div id="2" class="leftarrowdiv1"> 

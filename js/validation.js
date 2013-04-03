@@ -1,25 +1,5 @@
 // JavaScript Document
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function aa(i) 			//To Check Whether the Number is Alpha NUmeric oR not (return True if it is)
    {
 	var k=1;
