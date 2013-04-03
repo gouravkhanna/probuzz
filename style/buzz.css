@@ -38,7 +38,6 @@ outline: 0;
 
 }
 #subuzz{
-background-color: #0029A3;
 color: #fff;
 height: 25px;
 width: auto;
@@ -115,7 +114,7 @@ a{
 	
 	
 }
-#buzz span{
+.d{
 	float: right;
 	margin-right: 7px;
 	
@@ -130,16 +129,21 @@ a{
 	
 }
 .comments{
-	
-	margin-left:20px;
-	margin-top:2px;
-	padding-top: 5px;
-	border:4px;
-	border-color: red;
-	
+	height: 60px;
+	width: 500px;
+	float: left;
+	margin-top: 2px;
+	border:2px;
+	background-color: #fbf8ef;
+	margin-left: 5px;
+	border-radius: 2px;
+	text-indent:inherit;
+
 
 }
-.x{
-	
-	background-color: gray;
+.s{
+margin-left: 50px;	
+margin-top: -5px;
+padding-top: 2px;
+clear: both;
 }

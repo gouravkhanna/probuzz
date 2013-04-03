@@ -31,10 +31,12 @@ function __construct()
 		 while($row=mysql_fetch_assoc($result)) {
 		 	$row2=array(); 	
 			$buzzId=$row['buzz_id'];
-			$sql1="select comment_text from probuzz.comment where buzz_id='$buzzId'";
+			$sql1="select c.comment_text,p.path from comment
+			 c join  photo p on c.user_id=p.user_id where c.buzz_id=$buzzId";
 			$res=$ob->executeSQL($sql1);
 			while($row2[]=mysql_fetch_assoc($res)) {	
-				
+				              
+
 			}
 
 			$buzz[]=array(
@@ -79,7 +81,8 @@ else {
 function loadComment($arrArgs=array()) {
 	  $ob= new DbConnection();
 	$buzz_id=$arrArgs['buzz_id']; //retive all comments of this buzz ID YO :D
-    $sql="select comment_text from probuzz.comment where buzz_id='$buzz_id'";
+    $sql="select c.comment_text,p.path from comment
+		 c join  photo p on c.user_id=p.user_id where c.buzz_id=$buzz_id";
    $result=$ob->executeSQL($sql);
 
   while($row[]=mysql_fetch_assoc($result)) {	
