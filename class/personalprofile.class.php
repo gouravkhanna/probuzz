@@ -102,16 +102,28 @@ function upCon($arrArgs=array()){
  $city=$arrArgs['city'];
  $state=$arrArgs['state'];
  $country=$arrArgs['country'];
-   $sql = "UPDATE probuzz.address SET
+   /*$sql = "UPDATE probuzz.address SET
            house_number='$house_number', 
            street_number = '$street_number',
            street_name='$street_name',
            state='$state',
            city='$city',
            country='$country'
-           WHERE user_id='$id'";
+           WHERE user_id='$id'";*/
    
-    if( $ob->executeSQL($sql)){
+    $data = array (
+              " house_number"=>"$house_number", 
+           "street_number" => "$street_number",
+           "street_name"=>"$street_name",
+           "state"=>"$state",
+           "city"=>"$city",
+           "country"=>"$country"
+        );
+     $where = array (
+                'user_id' => "$id" 
+        );
+    
+    if($this->db->update ( 'address', $data, $where )){
       echo "updated sucessfully";
       return true;
     }
@@ -131,12 +143,21 @@ $id=$_SESSION['id'];
 $favourite_book=@$arrArgs['fav_book'];
 $favourite_movies=@$arrArgs['fav_movies'];
 $favourite_food=@$arrArgs['fav_food'];
-$sql="update probuzz.personal_profile set 
+/*$sql="update probuzz.personal_profile set 
       favourite_book='$favourite_book',
       favourite_movies='$favourite_movies',
       favourite_food ='$favourite_food'
-      where user_id='$id'";
-      if( $ob->executeSQL($sql)){
+      where user_id='$id'";*/
+ $data = array (
+              " favourite_book"=>"$favourite_book",
+      "favourite_movies"=>"$favourite_movies",
+      "favourite_food" =>"$favourite_food"
+                  );
+ $where = array (
+                'user_id' => "$id" 
+        );
+        
+    if($this->db->update ( 'personal_profile', $data, $where )){
       echo "updated sucessfully";
       return true;
     }
@@ -146,7 +167,6 @@ $sql="update probuzz.personal_profile set
       echo "some problem is occured while updating. We will correct it soon. ";
       return  false;
     }
-
 
 }
 
@@ -157,13 +177,25 @@ $gender=$arrArgs['gender'];
 $relationship_status=$arrArgs['relationship_status'];
 $dob =$arrArgs['dob'];
 $intersted_in=$arrArgs['i_in'];
-$sql="update probuzz.personal_profile set
+/*$sql="update probuzz.personal_profile set
       DOB='$dob',
       gender='$gender',
       relationship_status='$relationship_status',
       intersted_in='$intersted_in'
-      where user_id='$id' ";
-  if( $ob->executeSQL($sql)){
+      where user_id='$id' ";*/
+    
+     $data = array (
+
+     "DOB"=>"$dob",
+      "gender"=>"$gender",
+      "relationship_status"=>"$relationship_status",
+      "intersted_in"=>"$intersted_in"
+      );
+      $where = array (
+                'user_id' => "$id" 
+        );
+        
+    if($this->db->update ( 'personal_profile', $data, $where )){
       echo "updated sucessfully";
       return true;
     }
@@ -172,7 +204,7 @@ $sql="update probuzz.personal_profile set
 
       echo "some problem is occured while updating. We will correct it soon. ";
       return  false;
-    } 
+    }
 
 
 
@@ -189,14 +221,26 @@ $institute=$arrArgs['institute'];
 $start_year=$arrArgs['start_year'];
 $end_year=$arrArgs['end_year'];
 $university=$arrArgs['university'];
-$sql="update probuzz.qualification set
+/*$sql="update probuzz.qualification set
        institute='$institute',
        start_year='$start_year',
         end_year='$end_year',
         university='$university'
         where user_id='$id'";
-        echo $sql;
-if( $ob->executeSQL($sql)){
+        echo $sql;*/
+  
+   $data = array (
+          "institute"=>"$institute",
+       "start_year"=>"$start_year",
+        "end_year"=>"$end_year",
+        "university"=>"$university"
+                  );
+
+    $where = array (
+                'user_id' => "$id" 
+        );
+        
+    if($this->db->update ( 'qualification', $data, $where )){
       echo "updated sucessfully";
       return true;
     }
@@ -205,8 +249,7 @@ if( $ob->executeSQL($sql)){
 
       echo "some problem is occured while updating. We will correct it soon. ";
       return  false;
-    } 
-
+    }
 
 }
 
