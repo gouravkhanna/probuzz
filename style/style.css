@@ -401,6 +401,7 @@ h1 {
 	overflow-y: scroll;
 	overflow-x: hidden;
 	position: fixed;
+	display:none;
 	z-index:4000;
 	background-color: white;	
 

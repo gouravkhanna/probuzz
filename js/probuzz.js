@@ -41,7 +41,7 @@ $(document).ready(function(e) {
 	
 	
 	///////////////////////////////////////
-	//document.getElementById("sbmt").disabled=true;
+	//do
 	
 	
  	//$("button,a,input[type=submit]").button();
@@ -254,7 +254,7 @@ $.ajax({
 /* For Show JOb from topJobs notifications */
 function fnLoadJobUser(a) {
 		//$("#showspecficjob").show();
-	alert(a);
+	
 	$("#midpanel").load("index.php","controller=corporatecontroller&url=showSpecficJob&jobId="+a+"&request_type=user");
 	//$("#showslot").hide();
 	//$("#backjob").show();
@@ -357,3 +357,4 @@ function jsCheckNumber(id) {
 		}
 	}
 }
+

@@ -14,8 +14,8 @@
 
 <li>  <input type="image" title="My Profile" src=<?php echo ROOTPATH."data/rcs/user-icon.png"; ?> id="profile" name="profile">	</li>
 
-<li> <input type="image" id="friend" name="friend"  title="My Friends"  src=<?php echo ROOTPATH."data/rcs/friend-feed-icon.png"; ?> </li>
-<li> <input type="image" id="pics" name="pics"  title="My pics"  src=<?php echo ROOTPATH."data/rcs/picture-icon.png"; ?> </li>
+<li> <input type="image" id="friend" name="friend"  title="My Friends"  src=<?php echo ROOTPATH."data/rcs/friend-feed-icon.png"; ?> > </li>
+<li> <input type="image" id="pics" name="pics"  title="My pics"  src=<?php echo ROOTPATH."data/rcs/picture-icon.png"; ?> ></li>
 
 
 </ul>
