@@ -48,14 +48,17 @@ function alotSlot() {
 		'id'=>@$_SESSION['id'],
 		'designation'=>$_REQUEST['designation'],
 		);
-	if(@$_REQUEST['terms']==true)
-	$result=loadModel("corporate","alotSlot",$arrArgs);
-	if($result) {
-		header("location:index.php?url=createjobs");
+	if(@$_REQUEST['terms']==true) {
+	    $result=loadModel("corporate","alotSlot",$arrArgs);
+	    if($result) {
+    		
+    	}
+	    else {
+		    echo "Failed to create a Slot! Try again";
+	    }
+	   
 	}
-	else {
-		echo "Failed to create a Slot! Try again";
-	}
+	header("location:index.php?url=createjobs");
 }
 /* (ajax) Will load all the jobs posted by the User  */
 function showAllJobs() {

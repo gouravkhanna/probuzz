@@ -12,7 +12,6 @@ class corporate extends DbConnection{
         		);
       //  $sql="INSERT INTO probuzz.jobs (corp_id,designation) VALUES (".$arrArg['id'].",'".$arrArg['designation']."')";
     	   $result=$this->db->insert("jobs",$data);
-							
 			if($result && $result->rowCount()>0) {
 				return true;
 			}

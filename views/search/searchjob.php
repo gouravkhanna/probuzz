@@ -1,97 +1,47 @@
 <div id="bigmid">
-<div id="searchjob">
-<style>  
+	<div id="searchjob">
+		<h1>SEARCH JOB</h1>
+		<hr />
+    	<form id="formsearchjob" name="formsearchjob" onsubmit="return false;">
+			<div id="dvformsearchjob">
+				<span> <?php echo  DESIGNATION; ?></span> <span> <?php echo  MINIMUMSALARY; ?></span>
+				<span> <?php echo  MAXIMUMSALARY; ?></span> <span> <?php echo  LOCATION; ?></span>
+				<span id="e"> <?php echo EXPERIANCE;?></span> <span><br> <input
+					type="text" placeholder="Enter Designation" name=sjdesignation
+					id=sjdesignation> <input type="text"
+					placeholder="Enter Minimum Salary" onblur="jsCheckNumber(this.id)"
+					name=sjminsal id=sjminsal> <input type="text"
+					placeholder="Enter Maximum Salary" onblur="jsCheckNumber(this.id)"
+					name=sjmaxsal id=sjmaxsal> </span> <select id=sjexp
+					class="marginl10" name=sjexp>
+					<option></option>
+					<option><?php echo FRESHER; ?></option>
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+					<option>4</option>
+					<option>5</option>
+					<option>6</option>
+					<option>7</option>
+					<option>8</option>
+					<option>9</option>
+					<option>10</option>
+					<option>11</option>
+					<option><?php echo Y12EARS; ?></option>
 
-#dvformsearchjob input[type=text] {
-	
-	width: 150px;
-	
-}
-
-
-#dvformsearchjob span{
-	
-	margin-left: 35px;
-	padding-left: 26px;
-	
-}
-
-#dvformsearchjob span input[type=text]{
-	
-	margin-left: 16px;
-	float: left;
-
-	
-	
-}
-.marginl10{
-	margin-left: 10px;
-	
-	
-}
-
-#e{
-	
-	float: right;
-	margin-right: 85px;
-	
-}
-#sjsubmit{
-	
-	float: right;
-	-webkit-border-radius:10px; 
-		border-radius:10px;
-	height: 30px;
-	font-size: 16px;
-	font-weight: bold; 
-}
-</style>
-		
-
-<h1>SEARCH JOB</h1><hr/>
-
-<form id="formsearchjob" name="formsearchjob" onsubmit="return false;">
-<div id="dvformsearchjob"  >
-<span> DESIGNATION </span> <span> MINIMUM SALARY </span>   <span>  MAXIMUM SALARY </span>
- <span>LOCATION</span> <span id="e"> 
-EXPERIANCE</span>
- 
- 
- <span><br> 
- <input type="text" name=sjdesignation id=sjdesignation >
- 
-  <input type="text" name=sjminsal id=sjminsal> 
-  <input type="text" name=sjmaxsal id=sjmaxsal>
- 
-  </span>
-<select  id=sjexp class="marginl10" name=sjexp>
-<option></option>
-<option>Fresher</option>
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-<option>5</option>
-<option>6</option>
-<option>7</option>
-<option>8</option>
-<option>9</option>
-<option>10</option>
-<option>11</option>
-<option>12+ years</option>
-
-</select>
+				</select>
 
 
-<div id="" class="floatl marginl10">
+				<div id="" class="floatl marginl10">
 
-	<aside>		
- 	<input type="text" title="Septate City by Comma (,) "
- 	id="sjclocation" name="sjclocation" placeholder="Enter City">
-	</aside> 
-</div>
-<br/><br/>
-<!-- 
+					<aside>
+						<input type="text" title="Septate City by Comma (,) "
+							id="sjclocation" name="sjclocation" placeholder="Enter City">
+					</aside>
+				</div>
+				<br />
+				<br />
+				<!-- 
 <div id=sjcat class="">
 JOB CATEGORY
 - Accounting	 
@@ -168,13 +118,13 @@ JOB CATEGORY
 </div>
  -->
 
-<input type="submit" name="search" id="sjsubmit" value="search">
-</form>
-</div>
+				<input type="submit" name="search" id="sjsubmit" value="search">
+			</form>
+	</div>
 
-<div id="sjsearchres"></div>
-<button id='sjbackbutton'>Back</button> 
+	<div id="sjsearchres"></div>
+	<button id='sjbackbutton'><?php echo BACK;?></button>
 
-<div id="sjappstatus"></div>
-<div id="sjjob"></div>
+	<div id="sjappstatus"></div>
+	<div id="sjjob"></div>
 </div>

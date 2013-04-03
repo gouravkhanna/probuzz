@@ -37,6 +37,9 @@ $(document).ready(function(e) {
 	
 	
 	///////////////////////////////////////
+	//document.getElementById("sbmt").disabled=true;
+	
+	
  	//$("button,a,input[type=submit]").button();
 	$(".juiButton").button();
 	$("#head2").css("text-align","center");

@@ -148,6 +148,7 @@ class users extends DbConnection
 		/*User Search
 		 * BAsed on user name
 		 *  $arrArgs['user']==true */
+	if ($arrArgs['searcharg']!=" ") {
 		$search=explode(" ",$arrArgs['searcharg']);
 		$row=array();
 		$row3=array();
@@ -179,8 +180,9 @@ class users extends DbConnection
 		//$data['conditions'][]=array("u.user_name like"=>$value%);
 		*/
 		foreach ($search as $value) {
-			if($value!="")
-			$sql.=" u.user_name like '$value%' OR";
+			if($value!="" && $value!=" " ) {
+		    	$sql.=" u.user_name like '$value%' OR";
+			}
 		}
 		$sql=rtrim($sql,"OR");
 		$sql.=" )";
@@ -200,8 +202,9 @@ class users extends DbConnection
 		          u.type=1 
 		      AND (";
 		foreach ($search as $value) {
-			if($value!="")
-				$sql.=" p.first_name like '$value%' OR p.last_name like '$value%' OR";
+			if($value!="") {
+				    $sql.=" p.first_name like '$value%' OR p.last_name like '$value%' OR";
+			}
 		}
 		$sql=rtrim($sql,"OR");
 		$sql.=" )";
@@ -230,7 +233,8 @@ class users extends DbConnection
 				"name"=>$row2,
 				"company"=>$row3,
 				);
-		return $row;	 	
+		return $row;
+	}	 	
 	}
 	function topjobs() {
 		
@@ -250,14 +254,7 @@ class users extends DbConnection
 				'conditions' => array('c.profile_pic_id' => 'pp.id')
 		);
 		$data['conditions']=array('j.status'=>'1');
-		$data['order']="created_date desc";
-		/*$sql="select j.id,c.user_id,j.designation,j.location,c.company_name,p.path ";
-		$sql.=" from probuzz.jobs j  join corporate_profile c join photo p ";
-		$sql.=" where c.user_id=j.corp_id AND c.profile_pic_id=p.id AND j.status='1' ";
-		$sql.=" order by created_date desc";
-		//$result=$ob->executeSQL($sql);
-		echo "<br/>";echo "<br/>";echo "<br/>";echo "<br/>";echo "<br/>";echo "<br/>";echo "<br/>";
-		*/
+		$data['order']="created_date desc limit 0,20";
 		$result=$this->db->select($data);
 		if($result) {
 			return $result;

@@ -570,3 +570,30 @@ hr {
 	font-family: del;
 	font-size: 1em;	
 }
+/*searchjob*/
+#dvformsearchjob input[type=text] {
+	width: 150px;
+}
+#dvformsearchjob span{
+	margin-left: 35px;
+	padding-left: 26px;
+}
+#dvformsearchjob span input[type=text]{
+	margin-left: 16px;
+	float: left;
+}
+.marginl10{
+	margin-left: 10px;
+}
+#e{	
+	float: right;
+	margin-right: 85px;
+	}
+#sjsubmit{
+	float: right;
+	-webkit-border-radius:10px; 
+		border-radius:10px;
+	height: 30px;
+	font-size: 16px;
+	font-weight: bold; 
+}

@@ -99,5 +99,16 @@ define("MSc","MSc");
 define("MTECH","M.Tech");
 define("PHD","Phd");
 define("NRF","NO Result Found!");
-
+define("MINIMUMSALARY","Minimum Salary");
+define("MAXIMUMSALARY","Maximum Salary");
+define("FRESHER","Fresher");
+define("Y12EARS","12+ years");
+define("EXPERIANCE","Experiance");
+define("BACK","Back");
+define("CREATE_NEW_JOB","Create New Job");
+define("CREATE_A_NEW_SLOT","CREATE A NEW Slot");
+define("TOP_JOBS","Top Jobs");
+define("ALREADY_APPLIED_FOR_JOB","Already Applied for JOb");
+define("APPLY","Apply");
+define("APPLY_FOR_THE_JOB","Apply For the Job")
 ?>

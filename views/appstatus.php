@@ -1,10 +1,10 @@
 <?php
 if ($arrData ['status'] == true) {
-    echo "Already Applied for JOb";
+    echo ALREADY_APPLIED_FOR_JOB;
 } else {
-    echo "Apply For the Job";
+    echo APPLY_FOR_THE_JOB;
     echo "<button id='sjapplyjob' onclick=fncapplyJob('" . $arrData ['jobid'] . "') >";
-    echo " Apply</button>";
+    echo APPLY."</button>";
 }
 
 ?>
