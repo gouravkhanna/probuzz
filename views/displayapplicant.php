@@ -1,6 +1,6 @@
 <div id="midpanel">
 	<div id="daalljobs">
-		<button id=backjob onclick="fnBackJob()">Back</button>
+		<button id=backjob onclick="fnBackJob()"><?php echo BACK;?></button>
 <?php
 $id = $_SESSION ['id'];
 echo "<table id='showslot'><tr class=height40>";
@@ -25,6 +25,6 @@ echo "<tr class=height20 ></tr></table>";
 
 ?>
 </div>
-	<button id=dabackbutton onclick="dabackbutton()">Back</button>
+	<button id=dabackbutton onclick="dabackbutton()"><?php echo BACK;?></button>
 	<div id="dashowapplicant"></div>
 </div>

@@ -1,6 +1,6 @@
 <h1><?php echo APPLICANTS_FOR_JOB;?></h1>
 <hr />
-<div id=dvresbig>
+<div id=dvrsesbig class=marginl20>
 
 <?php
 if (! empty ( $arrData ) && ! empty ( $arrData ['0'] )) {

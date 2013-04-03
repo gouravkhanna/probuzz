@@ -61,16 +61,13 @@ class Controller
 		$arrArgs=array('error_msg' => 	"Some problem has occured!! Please try again..." );
 		loadView("login1.php",$arrArgs);
 	}
-	
-		 else if(loadModel("users","register",$arrArgs))
-
-		{
+	else if(loadModel("users","register",$arrArgs)) {
 			header('location:index.php');
-		}
-		else {
-			$arrArgs=array('error_msg' => 	"User Already Exist valid" );
-			loadView("login1.php",$arrArgs);
-		}
+	}
+	else {
+		$arrArgs=array('error_msg' => 	"User Already Exist valid" );
+		loadView("login1.php",$arrArgs);
+	}
 			
 	}
 	}

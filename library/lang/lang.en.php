@@ -116,5 +116,10 @@ define("OOPS_U_LOST","Oops We Think you are Lost!!");
 define("WE_LOOKED","We have looked everywhere!!");
 define("FIND_WAY_HOME","Please Find Home! Let us Do This for you by");
 define("CLICKING","Clicking");
+define("CORPORATE_PROFILE","Corporate Profile");
+define("SHOW_APPLICANT","Show Applicant");
+define("SHOW_JOB","Show Job");
+define("SEARCH_PEOPLE","Search People");
+define("CREATE_JOB","Create Job");
 
 ?>
