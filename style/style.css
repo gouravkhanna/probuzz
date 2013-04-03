@@ -440,6 +440,9 @@ margin-right: 5px;
 .imgcenter{
 	vertical-align: top;
 }
+.imgcenterm{
+	vertical-align: middle;
+}
 .floatl {
 	float: left;
 }

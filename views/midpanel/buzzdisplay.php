@@ -22,7 +22,7 @@ if(!empty($arrData)) {
 		echo "<br>";
 		if(is_array($val)){
 	echo '<br><div id="cmmnt'.$c.'"class="comments">';
-	echo "<img class='round5' src='".$val['path']."' height='50px' width='50px'/>";
+	echo "<img class='round5 imgcenterm' src='".$val['path']."' height='50px' width='50px'/>";
     echo "<span class='s'> ";
     echo   $val['comment_text']  ;
 	echo "</span></div><br>";

@@ -10,7 +10,7 @@ foreach(@$arrData as $row){
         echo $value['comment_text'];
        echo "</span><br/></div>";
 	$c++;
-         echo "<br><hr>";
+         echo "<br>";
         } 
 
 			}
