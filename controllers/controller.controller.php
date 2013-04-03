@@ -51,9 +51,7 @@ class Controller
 		'lastName'=>@$_REQUEST["last_name"],
 		'email'=>@$_REQUEST["email"],
 	);
-
-	
-	
+  
 	$validator=loadModel("users","validate",$arrArgs); //cal the validator method for server side validation
 
 	if(!$validator)

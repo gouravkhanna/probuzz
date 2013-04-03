@@ -78,15 +78,11 @@ class validation {
 	}
 }
 
-/* $ob=new validation();
+ $ob=new validation();
 $arr=array(
-		"key"=>"a2554''/*",
-		"key1"=>"a//",
-		"key2"=>"a2554''/*",
-		"key3"=>"a2554''/*",
-		"key4"=>"a2554''/*",
-);
-$res=$ob->addSlash($arr);
+		"key"=>"__ gill@gmail.com",
+		);
+$res=$ob->checkEmail($arr);
 echo "<pre>";
 print_r($res);
 if($res) {
@@ -94,7 +90,7 @@ if($res) {
 } else {
 	echo "SHIt";
 }
- */
+ 
 
 
 ?>
