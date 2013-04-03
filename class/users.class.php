@@ -161,7 +161,7 @@ class users extends DbConnection
 		        join photo pp 
 				on p.profile_pic_id=pp.id
 		        where
-				 u.type=1 AND (";
+				 u.type=0 AND (";
 		/*
 		$data['tables']	= 'personal_profile p';
 		$data['columns']= array('p.user_id as id','p.first_name','p.last_name','pp.path');
@@ -190,7 +190,15 @@ class users extends DbConnection
 		}
 	
 		/*Based on First and Last Name */
-		$sql="select p.user_id as id,p.first_name,p.last_name,pp.path from personal_profile p join photo pp where p.profile_pic_id=pp.id AND (";
+		$sql="select p.user_id as id,p.first_name,p.last_name,pp.path
+		      from personal_profile p 
+		      join users u 
+				  on p.user_id=u.user_id
+		      join photo pp 
+		          on p.profile_pic_id=pp.id
+		      where  
+		          u.type=1 
+		      AND (";
 		foreach ($search as $value) {
 			if($value!="")
 				$sql.=" p.first_name like '$value%' OR p.last_name like '$value%' OR";
