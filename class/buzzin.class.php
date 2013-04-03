@@ -47,10 +47,11 @@ function __construct()
 	//	print_r($buzz);
 		
 		}
-		
-		
-		
-		return $buzz;
+		if(isset($buzz)) {
+			return $buzz;
+		} else {
+		    return false;
+		}
 
 
 	}

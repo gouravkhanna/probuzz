@@ -1,5 +1,42 @@
 // JavaScript Document
 $(document).ready(function(e) {
+	///////////////////////////////////////
+	//VALIDATIONS
+	///////////////////////////////////////
+	/*jobs.php*/
+	$("#createjobform").submit(function(){
+		if($("#designation").val()=="") {
+			alert("Designation Can't Be Empty");
+			$("#designation").focus();
+			return false;
+		}
+		if($("#start_date").val()=="") {
+			alert("Start Date Can't Be Empty");
+			return false;
+		}
+		if($("#last_date").val()=="") {
+			alert("last Date Can't Be Empty");
+			return false;
+		}
+		return true;
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	///////////////////////////////////////
  	//$("button,a,input[type=submit]").button();
 	$(".juiButton").button();
 	$("#head2").css("text-align","center");
@@ -89,18 +126,14 @@ $(document).ready(function(e) {
 	
 	
 	/* JOBS>php*/
-	$("#updateJobDiv input").focus(function(e) {
-		n=e.target.id;
-		n1="#dv"+n;
+	$("#updateJobDiv input,#updateJobDiv textarea").focus(function(e) {
+		n1="#fs"+e.target.id;
 		$(n1).css("background-color","lightblue");
 		$(n).css("border","8px green solid");
-		
 	});
-	$("#updateJobDiv input").blur(function(e) {
-		n=e.target.id;
-		n1="#dv"+n;
-		$(n1).css("background-color","#dfdfdf");
-		
+	$("#updateJobDiv input,#updateJobDiv textarea").blur(function(e) {
+		n1="#fs"+e.target.id;
+		$(n1).css("background-color","white");
 	});
 	
 	
@@ -301,5 +334,20 @@ function showMessage(a) {
 	  
 	}
 	});
+	}
+}
+/////////////////////////////////////////////////////////////
+function jsCheckNumber(id) {
+	if(id!=undefined) {
+		var value=$("#"+id).val();
+		if(isNaN(value)) {
+			$("#"+id).css("background-color","lightblue");
+			$("#"+id).val('');
+			$("#"+id).attr('placeholder','Please Enter a Numeric Value');
+			return false;
+		}
+		else {
+			$("#"+id).css("background-color","white");
+		}
 	}
 }

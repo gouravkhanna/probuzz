@@ -157,11 +157,11 @@ class users extends DbConnection
 				from 
 				personal_profile p 
 				join users u 
-				join photo pp 
-				where
-				p.user_id=u.user_id 
-				AND 
-				p.profile_pic_id=pp.id AND (";
+				on p.user_id=u.user_id
+		        join photo pp 
+				on p.profile_pic_id=pp.id
+		        where
+				 u.type=1 AND (";
 		/*
 		$data['tables']	= 'personal_profile p';
 		$data['columns']= array('p.user_id as id','p.first_name','p.last_name','pp.path');

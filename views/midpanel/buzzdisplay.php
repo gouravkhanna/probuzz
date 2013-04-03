@@ -1,7 +1,7 @@
 
 
 <?php $count=1; 
-
+if(!empty($arrData)) {
 	foreach(@$arrData as $row)
                            {
                             
@@ -49,7 +49,9 @@
  }
      
  
-  
+} else {
+    echo "NO Buzz To display";
+}
  ?>   
 <script >
 

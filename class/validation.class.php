@@ -1,7 +1,4 @@
 <?php
-echo "SDSDsd";
-//set_ini("display_errors",1);
-//include_once 'class/dbAcess.php';
 class validation {
 	function __construct() {
 		
@@ -78,7 +75,7 @@ class validation {
 	}
 }
 
-$ob=new validation();
+/* $ob=new validation();
 $arr=array(
 		"key"=>"a2554''/*",
 		"key1"=>"a//",
@@ -94,7 +91,7 @@ if($res) {
 } else {
 	echo "SHIt";
 }
-
+ */
 
 
 ?>

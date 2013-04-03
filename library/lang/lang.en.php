@@ -85,7 +85,19 @@ define("JOBS_STATS","Job Stats");
 define("TOTAL_JOBS","Total Jobs Posted : ");
 define("TOTAL_ACTIVE_JOBS","Total Active Jobs : "); 
 define("TOTAL_CANDIDATE_APPLIED","Total Candidates Applied");
-
-
+define("APPLICANTS_FOR_JOB","Applicant For the Job : ");
+define("BA","BA");
+define("BCA","BCA");
+define("BBA","BBA");
+define("BCOM","BCom");
+define("BSc","BSc");
+define("BTECh","B.Tech");
+define("BARCH","B.Arch");
+define("MBA","MBA");
+define("MCA","MCA");
+define("MSc","MSc");
+define("MTECH","M.Tech");
+define("PHD","Phd");
+define("NRF","NO Result Found!");
 
 ?>

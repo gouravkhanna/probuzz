@@ -483,6 +483,9 @@ margin-right: 5px;
 .marginl2 {
 	margin-left: 2px;
 }
+.marginl20 {
+	margin-left: 20px;
+}
 
 .calign {
 	text-align: center;
@@ -562,4 +565,8 @@ hr {
 	font-family: del;
 	font-size:1.2em;
 	height:  20px;
+}
+#updateJobDiv input,#updateJobDiv textarea {
+	font-family: del;
+	font-size: 1em;	
 }
