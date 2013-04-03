@@ -1,8 +1,11 @@
+$(document).ready(function(){
+
 $("#home").click(function()
 {
 $(".leftarrowdiv").hide();
 $(".leftarrowdiv2").hide();
 $(".leftarrowdiv3").hide();
+$(".leftarrowdiv1").hide();
 $("#1.leftarrowdiv").show();
 
 
@@ -141,3 +144,4 @@ $("#istart").datepicker({
 $("#iend").datepicker({
         dateFormat : 'yy-mm-dd'
     });
+});

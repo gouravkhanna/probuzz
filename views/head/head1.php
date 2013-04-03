@@ -10,6 +10,7 @@
 <script src="<?php echo ROOTPATH."js/probuzz.js"; ?>"></script>
 <script src="<?php echo ROOTPATH."js/buzz.js"; ?>"></script>
 
+
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/proProfile.css"; ?> " />
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/notifications.css" ; ?>" />
 <script type="text/javascript" src="<?php echo ROOTPATH."js/proProfile.js"; ?> "></script>
