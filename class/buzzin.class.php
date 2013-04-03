@@ -116,15 +116,14 @@ class buzzin extends DbConnection {
             $comment_text = $arrArgs ['comment_text'];
             $buzz_id = $arrArgs ['buzz_id'];
             
-            $sql = "INSERT INTO probuzz.comment ( user_id,) 
-		VALUES ( '$id', '$buzz_id', now(),'$comment_text')";
+     //     $sql = "INSERT INTO probuzz.comment ( user_id,) 
+	//	VALUES ( '$id', '$buzz_id', now(),'$comment_text')";
             $data = array (
                     "user_id" => "$id",
                     "buzz_id" => "$buzz_id",
                     "comment_time" => "now()",
                     "comment_text" => "$comment_text" 
             );
-            
             $result = $this->db->insert ( "comment", $data );
             if ($result && $result->rowCount () > 0) {
                 return true;

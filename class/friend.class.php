@@ -1,17 +1,32 @@
 <?php
 include_once 'class/dbAcess.php';
 class friend  extends DbConnection{
+    function __construct() {
+        parent::__construct ();
+    }
 	function showfriend($arrArg=array()) {
 		
 		$ob=new DbConnection();
-		$sql="select f.friend_id as id,p.first_name,p.last_name from friend f JOIN personal_profile p ";
+		$sql="select f.friend_id as id,p.first_name,p.last_name 
+		        from friend f JOIN personal_profile p ";
 		$sql.=" on f.friend_id=p.user_id ";
 		$sql.=" where f.user_id='".$arrArg['id']."' AND f.friendship_status='1'";
 		$rr=array();
-		$res=$ob->executeSQL($sql);
-		while($row=mysql_fetch_array($res)) {
-			$type=$this->getType(array("id"=>$row['id']));
-			//echo "	type: ".$type."<br/>";
+    		$data['tables']="friend f";
+    		$data['columns']=array("f.friend_id as id","p.first_name","p.last_name");
+    		$data['conditions']=array("f.user_id"=>$arrArg['id'],
+    		                "f.friendship_status"=>'1'
+    		        );
+    		$data ['joins'] [] = array (
+    		        'table' => 'personal_profile p ',
+    		        'type' => 'INNER',
+    		        'conditions' => array (
+    		                "p.user_id" => "f.friend_id"
+    		        ));
+    	    $result = $this->db->select ( $data ); 
+            while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
+            $type=$this->getType(array("id"=>$row['id']));
+			
 			if($type!='1') {
 				$path=$this->getProfilePic(array("id"=>$row['id']));
 				$rr[]=array(
@@ -23,7 +38,6 @@ class friend  extends DbConnection{
 			}
 			
 		}
-		//print_r($rr);
 		if(!empty($rr)) {
 			return $rr;
 		}
@@ -34,12 +48,28 @@ class friend  extends DbConnection{
 	function fetchName($arrArg=array()) {
 		
 		if($arrArg) {
-			$ob=new DbConnection();
-			$sql="select p.first_name,p.last_name from personal_profile as p join users as u on u.user_id=p.user_id where u.user_id=".$arrArg['id'].";";
-			$res=$ob->executeSQL($sql);
-			$row=mysql_fetch_array($res);
-			$result=@$row['first_name']." ".@$row['last_name'];
-			return $result;
+		//	$ob=new DbConnection();
+		//	$sql="select p.first_name,p.last_name 
+		//	        from personal_profile as p 
+	//		        join users as u 
+	//		        on u.user_id=p.user_id 
+	//		        where u.user_id=".$arrArg['id'].";";
+			$data['tables']="personal_profile as p";
+			$data['columns']=array("p.first_name","p.last_name");
+			$data['conditions']=array("u.user_id"=>$arrArg['id'],
+			        	);
+			$data ['joins'] [] = array (
+			        'table' => 'users as u ',
+			        'type' => 'INNER',
+			        'conditions' => array (
+			                "p.user_id" => "u.user_id"
+			        ));
+			 $result = $this->db->select ( $data ); 
+             $row = $result->fetch ( PDO::FETCH_ASSOC ) ;
+           //  $res=$ob->executeSQL($sql);
+		//	$row=mysql_fetch_array($res);
+			$result1=@$row['first_name']." ".@$row['last_name'];
+			return $result1;
 		} else {
 			//echo "No Id Passed..";
 			return false;
@@ -49,10 +79,21 @@ class friend  extends DbConnection{
 		
 		if($arrArg) {
 			$ob=new DbConnection();
-			$sql="select friendship_status as status from friend where friend_id='".$arrArg['id']."' && user_id= '".$_SESSION['id']."';";
-			$res=$ob->executeSQL($sql);
+			$sql="select friendship_status 
+			        as status from friend
+			         where friend_id='".$arrArg['id']."' && 
+			                user_id= '".$_SESSION['id']."';";
+			
+			$data['tables']="friend f";
+			$data['columns']=array("f.friendship_status as status");
+			$data['conditions']=array("f.friend_id"=>$arrArg['id'],
+			        "user_id"=>$_SESSION['id'],
+			);
+			$result = $this->db->select ( $data );
+			 $row = $result->fetch ( PDO::FETCH_ASSOC ) ;
+			//$res=$ob->executeSQL($sql);
 			//echo $sql;
-			$row=mysql_fetch_assoc($res);
+			//$row=mysql_fetch_assoc($res);
 			//print_r($row);
 			//echo $row['status'];
 			if(!$row['status']) {
@@ -64,12 +105,27 @@ class friend  extends DbConnection{
 	function sendRequest($arrArg) {
 		 if($arrArg) {
 			$ob=new DbConnection();
-			$sql="insert into friend (user_id,friend_id,friendship_status,friend_request_date) ";
-			$sql.=" values ('".$_SESSION['id']."','".$arrArg."','2',now())";
-			$result1=$ob->executeSQL($sql);
-			$sql="insert into friend (user_id,friend_id,friendship_status,friend_request_date) ";
+			$data=array(
+			        "user_id"=>$_SESSION['id'],
+			        "friend_id"=>$arrArg,
+			        "friendship_status"=>2,
+			        "friend_request_date"=>"now()"
+			        );
+			$this->db->insert($data);
+			$data1=array(
+			        "user_id"=>$arrArg,
+			        "friend_id"=>$_SESSION['id'],
+			        "friendship_status"=>3,
+			        "friend_request_date"=>"now()"
+			);
+			$result1=$this->db->insert("friend",$data);
+			$result2=$this->db->insert("friend",$data1);
+			//$sql="insert into friend (user_id,friend_id,friendship_status,friend_request_date) ";
+			//$sql.=" values ('".$_SESSION['id']."','".$arrArg."','',now())";
+			//$result1=$ob->executeSQL($sql);
+		/* 	$sql="insert into friend (user_id,friend_id,friendship_status,friend_request_date) ";
 			$sql.=" values ('".$arrArg."','".$_SESSION['id']."','3',now())";
-			$result2=$ob->executeSQL($sql);
+			$result2=$ob->executeSQL($sql); */
 			if($result1 && $result2) {
 				return "Request Sent Successfully";
 			}
@@ -115,12 +171,31 @@ class friend  extends DbConnection{
 		
 		if($arrArg) {
 			$ob=new DbConnection();
-			$sql="select f.user_id,p.first_name,p.last_name from personal_profile as p ";
-			$sql.=" join friend as f on f.user_id=p.user_id where f.friend_id=".$arrArg['id']." and f.friendship_status=3;";
+			$sql="select f.user_id,p.first_name,p.last_name 
+			        from personal_profile as p ";
+			$sql.=" join friend as f 
+			        on f.user_id=p.user_id 
+			        where 
+			        f.friend_id=".$arrArg['id']." and f.friendship_status=3;";
 			//echo $sql;
-			$result=$ob->executeSQL($sql);
+			$data['tables']="friend f";
+    		$data['columns']=array("f.user_id","p.first_name","p.last_name");
+    		$data['conditions']=array("f.friend_id"=>$arrArg['id'],
+    		                "f.friendship_status"=>'3'
+    		        );
+    		$data ['joins'] [] = array (
+    		        'table' => 'personal_profile p ',
+    		        'type' => 'INNER',
+    		        'conditions' => array (
+    		                "p.user_id" => "f.user_id"
+    		        ));
+    	    $result = $this->db->select ( $data ); 
+          
+           //     $result=$ob->executeSQL($sql);
+   
 			$requests=array();
-			while($row=mysql_fetch_assoc($result)) {
+		//	while($row=mysql_fetch_assoc($result)) {
+			while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
 				$path=$this->getProfilePic(array("id"=>$row['user_id']));
 				$requests[]=array(
 					"id"=>$row['user_id'],
@@ -145,10 +220,15 @@ class friend  extends DbConnection{
 	function getType($arrArg=array()) {
 		if($arrArg) {
 			$ob=new DbConnection();
-			$sql="select type from users where user_id='".$arrArg['id']."'";
+			$data['tables']="users";
+			$data['columns']=array("type");
+			$data['conditions']=array("user_id"=>$arrArg['id']);
+//			$sql="select type from users where user_id='".$arrArg['id']."'";
 			//echo $sql;
-			$result=$ob->executeSQL($sql);
-			$row=mysql_fetch_assoc($result);
+			$result = $this->db->select ( $data );
+			$row = $result->fetch ( PDO::FETCH_ASSOC );
+			/* $result=$ob->executeSQL($sql);
+			$row=mysql_fetch_assoc($result); */
 			return $row['type'];
 		}
 	}
