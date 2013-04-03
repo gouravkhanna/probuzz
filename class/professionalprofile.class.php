@@ -1,9 +1,9 @@
 <?php
     require_once('dbAcess.php');
-    class professionalprofile {
+    class professionalprofile extends DbConnection{
         public $dbInstance;
         public function __construct() {
-        
+            parent::__construct();
         }
         private function constructFields() {
             $arr["professional_profile"] = array(
@@ -50,14 +50,34 @@
             );
             return $arr;
         }
-        public function updateProfile($fields){
+        public function updateProfile($fields) {
+            if($fields) {
+                $data=array();
+                foreach($fields as $key => $value) {
+                    if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID') {
+                        $data["$key"]=strip_tags("$value");
+                    }
+                }
+                $where=array("user_id"=>$_SESSION['id']);
+                print_r($data);
+                $table=$fields['table'];
+                $result = $this->db->update($table, $data, $where);
+                return $result;    
+            } else {
+                return false;
+            }
+            
+            
+        }
+        /*  old dbConnection
+         *public function updateProfile($fields){
             
             $query="update ".$fields['table'];
             $set=" set ";
             $result;
             foreach($fields as $key => $value) {
                 if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID') {
-                    $set.="$key = '$value' ,";    
+                    $set.="$key = '".strip_tags($value)."' ,";    
                 }
             }
             $set=rtrim($set,",");
@@ -65,9 +85,9 @@
             //echo $query;
             $this->dbInstance=new DbConnection();
             $result=$this->dbInstance->executeSQL($query);
-            
             return $result;
-        }
+            return false;
+        }*/
         public function retrieveData($id) {
             $result;
             $table=$this->constructFields();
@@ -101,12 +121,13 @@
                 foreach($fields as $key => $value) {
                     if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID') {
                         $columns.="$key ,";
-                        $values.= " '$value' ,";    
+                        $values.= " '".strip_tags($value)."' ,";    
                     }
                 }
                 $columns.="user_id)";
                 $values.="'".$_SESSION['id']."');";
                 $query.=$columns.$values;
+                echo $query;
                 $this->dbInstance=new DbConnection();
                 $result=$this->dbInstance->executeSQL($query);
                 return $result;
@@ -127,6 +148,11 @@
         public function retrieveFrom($arrArgs) {
             $temp=$this->constructFields();
             $fields=$temp[$arrArgs['table']];
+            
+        }
+        /*public function retrieveFrom($arrArgs) {
+            $temp=$this->constructFields();
+            $fields=$temp[$arrArgs['table']];
             $query="select ";
             foreach($fields as $key =>$value) {
                 $query.=$value." ,";
@@ -136,25 +162,43 @@
             $this->dbInstance=new DbConnection();
             $result=$this->dbInstance->executeSQL($query);
             return $result;
-        }
+        }*/
         public function updateInto($fields) {
-                 if($fields) {
+            if($fields) {
+                $data=array();
+                foreach($fields as $key => $value) {
+                    if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID' && $key!='rowId') {
+                        $data["$key"]=strip_tags("$value");
+                    }
+                }
+                $where=array("id"=>$fields['rowId']);
+                print_r($data);
+                $table=$fields['table'];
+                $result = $this->db->update($table, $data, $where);
+                return $result;
+            } else {
+                return false;
+            }
+        }
+        /*  old updateInto()
+         *public function updateInto($fields) {
+                if($fields) {
                 $query="update ".$fields['table']." set ";
                 foreach($fields as $key => $value) {
                     if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID' && $key!='rowId') {
-                        $query.="$key = '$value' ,";    
+                        $query.="$key = '".strip_tags($value)."' ,";    
                     }
                 }
                 $query=chop($query," ,");
                 $query.=" where id=".$fields['rowId'].";";
-                //echo $query;
+                echo $query;
                 $this->dbInstance=new DbConnection();
                 $result=$this->dbInstance->executeSQL($query);
                 return $result;
             } else {
                 return false;
             }
-        }
+        }*/
     }
     
 ?>

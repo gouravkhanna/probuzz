@@ -10,17 +10,15 @@
 	overflow:hidden;
 }
 #notifications {
-    
     height: 315px;
     overflow: auto;
-    
 }
 .padding5 {
     padding:5px;
 }
 .alignright {
-    text-align: right;
-	color:blue;
+    color:blue;
+	float: right;
 }
 .alignright, .alignCenter {
 	width: 100%;

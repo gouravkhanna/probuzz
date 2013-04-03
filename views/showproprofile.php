@@ -1,26 +1,64 @@
 
 <div id="bigmid">
-    <div class="alignright">
+    <div class="fright">
         <a href="index.php?controller=proprofile&url=editView">EDIT</a>
     </div>
     <div id="accordion" >
         <h3><?php echo BASIC_PROFILE;?></h3>
         <div class="wide">
             <!--<?php echo "<pre>";print_r($arrData); ?><br/>-->
-            <?php $pro=$arrData['professional_profile']; ?>
-
+            <?php
+                $pro=$arrData['professional_profile'];
+                $flag=0;
+                if($pro['career_objective']) {
+                    $flag=1;
+            ?>
+            
             <div class="highlight"><?php echo strtoupper(CAREER_OBJECTIVE);?></div>
             <div class="displayDetails"><pre>       <?php echo $pro['career_objective']; ?></pre></div>
+            <?php
+                }
+                if($pro['company']) {
+                    $flag=1;
+            ?>
             <div class="highlight"><?php echo strtoupper(COMPANY_NAME) ;?></div>
             <div class="displayDetails"><pre>       <?php echo $pro['company']; ?></pre></div>
+            <?php
+                }
+                if($pro['designation']) {
+                    $flag=1;
+            ?>
             <div class="highlight"><?php echo strtoupper(PRO_DESIGNATION); ?></div>
             <div class="displayDetails"><pre>       <?php echo $pro['designation']; ?></pre></div>
+            <?php
+                }
+                if($pro['proficiency']) {
+                    $flag=1;
+            ?>
             <div class="highlight"><?php echo strtoupper(PROFICIENCY); ?></div>
             <div class="displayDetails"><pre>       <?php echo $pro['proficiency']; ?></pre></div>
+            <?php
+                }
+                if($pro['skills']) {
+                    $flag=1;
+            ?>
             <div class="highlight"><?php echo strtoupper(SKILLS); ?></div>
             <div class="displayDetails"><pre>       <?php echo $pro['skills']; ?></pre></div>
+            <?php
+                }
+                if($pro['information']) {
+                    $flag=1;
+            ?>
             <div class="highlight"><?php echo strtoupper(INFORMATION); ?></div>
             <div class="displayDetails"><pre>       <?php echo $pro['information']; ?></pre></div>
+            <?php
+                }
+                if($flag==0) {
+            ?>
+            <div class="displayDetails alignCenter"><h3>       <?php echo "No Results To Display";?></h3></pre></div>
+            <?php
+                }
+            ?>
 
 
         </div>

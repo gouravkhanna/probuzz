@@ -5,7 +5,7 @@
 </div>
 
 <div id="bigmid">
-    <div class="alignright">
+    <div class="fright">
             <a href="index.php?controller=proprofile&url=home">BACK</a>
     </div>
     <div id="accordion">

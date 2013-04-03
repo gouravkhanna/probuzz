@@ -3,6 +3,9 @@ class validation {
 	function __construct() {
 		
 	}
+	function spaceRemover($input) {
+		return preg_replace('/\s+/', ' ', $input);
+	}
 	function checkEmpty($arrData = array()) { // check field is empty or not
 		if(!empty($arrData)) {
 			$field = $arrData ['key'];

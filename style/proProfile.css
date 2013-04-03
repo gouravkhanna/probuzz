@@ -8,7 +8,11 @@ pre {
  white-space: -o-pre-wrap;    /* Opera 7 */
  word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
-.proSubmit,.alignright  {
+.fright {
+    font-size: 20px;
+    height: 20px;
+}
+.proSubmit,.fright  {
     text-align: right;
     margin-right: 20px;
 }
