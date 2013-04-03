@@ -2,18 +2,17 @@ $(document).ready(function(){
 
 $("#home").click(function()
 {
-$(".leftarrowdiv").hide();
+$(".leftarrowdiv").show();
 $(".leftarrowdiv2").hide();
 $(".leftarrowdiv3").hide();
 $(".leftarrowdiv1").hide();
-$("#1.leftarrowdiv").show();
 
 
 }
 );
 $("#profile").click(function()
 {
-$(".leftarrowdiv").hide();
+    $(".leftarrowdiv").hide();
 $(".leftarrowdiv2").hide();
 $(".leftarrowdiv3").hide();
 $("#2.leftarrowdiv1").show();
