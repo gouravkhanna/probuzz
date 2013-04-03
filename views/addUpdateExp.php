@@ -28,40 +28,40 @@ $(function() {
 		<caption>
 		<?php
 			if($flag) {
-				echo strtoupper("Update Experience");
+				echo strtoupper(UPDATE_EXPERIENCE);
 			} else {
-				echo strtoupper("Add New Experience");
+				echo strtoupper(ADD_NEW_EXPERIENCE);
 			}
 		?>
 		</caption>
 		<tr>
-		   <td><?php echo strtoupper("Company Name :"); ?></td>
+		   <td><?php echo strtoupper(COMPANY_NAME); ?></td>
 		   <td><input type="text" name="company_name" value="<?php if($flag) { echo $exp['company_name'];} ?>"/></td>
 		</tr></div>
 		<tr>
-			<td><?php echo strtoupper("Position :");?></td>
+			<td><?php echo strtoupper(POSITION);?></td>
 			<td><input type="text" name="position" value="<?php if($flag) { echo $exp['position'];} ?>"/></td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper("From :");?></td>
+			<td><?php echo strtoupper(FROM);?></td>
 			<td><input type="text" id="d4" name="start_date" value="<?php if($flag) { echo $exp['start_date'];} ?>"/></td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper("To :");?></td>
+			<td><?php echo strtoupper(TO);?></td>
 			<td><input type="text" id="d5" name="end_date" value="<?php if($flag) { echo $exp['end_date'];} ?>"/></td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper("Current Job :");?></td>
+			<td><?php echo strtoupper(CURRENT_JOB);?></td>
 			<td><input type="text" id="d5" name="current_job" value="<?php if($flag) { echo $exp['current_job'];} ?>"/></td>
 		</tr>
 		<tr>
 			<td class="proSubmit" >
-				<input type="button" value="<?php if($flag) { echo 'Update Experience';} else {echo 'Add Experience';}?>"
+				<input type="button" value="<?php if($flag) { echo UPDATE_EXPERIENCE;} else {echo ADD_EXPERIENCE;}?>"
 				onclick="<?php if($flag) { echo "updateInto('exp',$rowId)"; } else { echo "insertInto('exp')";}
 				?>" />
 			</td>
 			<td class="proSubmit" >
-				<input type="button" value="<?php echo "CLOSE";?>" onclick="closeFancy()"/>
+				<input type="button" value="<?php echo CLOSE;?>" onclick="closeFancy()"/>
 			</td>
 		</tr>
 	</table>

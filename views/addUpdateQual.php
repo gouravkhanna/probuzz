@@ -27,69 +27,69 @@ $(function() {
 		<caption>
 		<?php
 			if($flag) {
-				echo strtoupper("Update Qualification");
+				echo strtoupper(UPDATE_QUALIFICATION);
 			} else {
-				echo strtoupper("Add New Qualification");
+				echo strtoupper(ADD_NEW_QUALIFICATION);
 			}
 		?>
 		</caption>
 		<tr>
-		   <td><?php echo strtoupper("Class/Degree/Diploma :"); ?></td>
+		   <td><?php echo strtoupper(CLASS/DEGREE/DIPLOMA); ?></td>
 		   <td><input type="text" name="class" value="<?php if($flag) { echo $qual['class'];} ?>"/></td>
 		</tr></div>
 		<tr>
-			<td><?php echo strtoupper("Qualification Type :");?></td>
+			<td><?php echo strtoupper(QUALIFICATION_TYPE);?></td>
 			<td>
 				<select name="qualification_type">
 					<option value="0" <?php if($flag && !$qual['qualification_type']) { echo "selected='selected' ";} ?> >
-					<?php echo strtoupper("Select");?></option>
+					<?php echo strtoupper(SELECT);?></option>
 					<option value="Under Graduation" <?php if($flag && $qual['qualification_type']=="Under Graduation") { echo "selected='selected' ";} ?> >
-						<?php echo strtoupper("Under Graduation");?></option>
+						<?php echo strtoupper(UNDER_GRADUATION);?></option>
 					<option value="Graduation"  <?php if($flag && $qual['qualification_type']=="Graduation") { echo "selected='selected' ";} ?>>
-						<?php echo strtoupper("Graduation");?></option>
+						<?php echo strtoupper(Graduation);?></option>
 					<option value="Post Graduation"  <?php if($flag && $qual['qualification_type']=="Post Graduation") { echo "selected='selected' ";} ?>>
-						<?php echo strtoupper("Post Graduation");?></option>
+						<?php echo strtoupper(POST_GRADUATION);?></option>
 					<option value="Diploma" <?php if($flag && $qual['qualification_type']=="Diploma") { echo "selected='selected' ";} ?>>
-						<?php echo strtoupper("Diploma");?></option>
+						<?php echo strtoupper(Diploma);?></option>
 				</select>	
 			</td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper("School/Institute :");?></td>
+			<td><?php echo strtoupper(SCHOOL/INSTITUTE);?></td>
 			<td><input type="text" name="institute" value="<?php if($flag) { echo $qual['institute'];} ?>"/></td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper("Board/University :");?></td>
+			<td><?php echo strtoupper(BOARD/UNIVERSITY);?></td>
 			<td><input type="text" name ="university" value="<?php if($flag) { echo $qual['university'];} ?>"/></td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper("Start Year :");?></td>
+			<td><?php echo strtoupper(START_YEAR);?></td>
 			<td><input type="text" id="d" name="start_year" value="<?php if($flag) { echo $qual['start_year'];} ?>"/></td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper("End Year :");?></td>
+			<td><?php echo strtoupper(END_YEAR);?></td>
 			<td><input type="text" id="d1" name="end_year" value="<?php if($flag) { echo $qual['end_year'];} ?>"/></td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper("Percentage :");?></td>
+			<td><?php echo strtoupper(PERCENTAGE);?></td>
 			<td><input type="text" name="percentage" value="<?php if($flag) { echo $qual['percentage'];} ?>"/></td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper("Major Subjects :");?></td>
+			<td><?php echo strtoupper(MAJOR_SUBJECTS);?></td>
 			<td><textarea name="subject_studied" rows="3" cols="30"><?php if($flag) { echo $qual['subject_studied'];} ?></textarea></td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper("Field :");?></td>
+			<td><?php echo strtoupper(FIELD);?></td>
 			<td><input type="text" name="field" value="<?php if($flag) { echo $qual['field'];} ?>"/></td>
 		</tr>
 		<tr>
 			<td class="proSubmit" >
-				<input type="button" value="<?php if($flag) { echo 'Update Qualification';} else {echo 'Add Qualification';}?>"
+				<input type="button" value="<?php if($flag) { echo UPDATE_QUALIFICATION;} else {echo ADD_QUALIFICATION;}?>"
 				onclick="<?php if($flag) { echo "updateInto('qual',$rowId)"; } else { echo "insertInto('qual')";}
 				?>" />
 			</td>
 			<td class="proSubmit" >
-				<input type="button" value="<?php echo "CLOSE";?>" onclick="closeFancy()"/>
+				<input type="button" value="<?php echo CLOSE;?>" onclick="closeFancy()"/>
 			</td>
 		</tr>
 	</table>

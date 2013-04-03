@@ -68,9 +68,11 @@
 
             <?php $qual=$arrData['qualification'];
                 if(!$qual) {
+                    echo NO_QUALIFICATION_TO_DISPLAY;
             ?>
-            No Qualifications to display...<br/>
-            Add Qualifications by clicking On Edit..
+            
+            <!--No Qualifications to display...<br/>
+            Add Qualifications by clicking On Edit..-->
             <?php } else {
                 foreach($qual as $key => $value){
             ?>
@@ -112,10 +114,8 @@
         <?php
             $cert=$arrData['certifications'];
             if(!$cert) {
-        ?>
-        No Certifications to display...<br/>
-        Add Certifications...
-        <?php } else {
+                echo NO_CERTIFICATION_TO_DISPLAY;
+            } else {
             foreach($cert as $key => $value){
         ?>
         
@@ -152,10 +152,8 @@
             <?php
             $experience=$arrData['experience'];
             if(!$experience) {
-        ?>
-        No Experience to display...<br/>
-        Add Experience...
-        <?php } else {
+                echo NO_EXPERIENCE_TO_DISPLAY;
+            } else {
             foreach($experience as $key => $value){
         ?>
         

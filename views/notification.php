@@ -51,8 +51,9 @@
 	<?php
 		}
 	} else {
+		echo "<pre>".NO_NOTIFICATIONS_TO_DISPLAY."</pre>";
 	?>
-	<pre>No notifications to display..</pre>
+	
 	<?php
 	
 	}

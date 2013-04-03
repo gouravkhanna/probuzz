@@ -27,11 +27,12 @@ $(function() {
 		<caption>
 		<?php
 			if($flag) {
-				echo strtoupper("Update Certification");
+				echo strtoupper(UPDATE_CERTIFICATION);
 			} else {
-				echo strtoupper("Add New Certification");
+				echo strtoupper(ADD_NEW_CERTIFICATION);
 			}
 		?>
+		
 		</caption>
 		<tr>
 		   <td><?php echo strtoupper("Certification Name :"); ?></td>
@@ -51,12 +52,12 @@ $(function() {
 		</tr>
 		<tr>
 			<td class="proSubmit" >
-				<input type="button" value="<?php if($flag) { echo 'Update Certification';} else {echo 'Add Certification';}?>"
+				<input type="button" value="<?php if($flag) { echo UPDATE_CERTIFICATION;} else {echo ADD_CERTIFICATION;}?>"
 				onclick="<?php if($flag) { echo "updateInto('cert',$rowId)"; } else { echo "insertInto('cert')";}
 				?>" />
 			</td>
 			<td class="proSubmit" >
-				<input type="button" value="<?php echo "CLOSE";?>" onclick="closeFancy()"/>
+				<input type="button" value="<?php echo CLOSE;?>" onclick="closeFancy()"/>
 			</td>
 		</tr>
 	</table>

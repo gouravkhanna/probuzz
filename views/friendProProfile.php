@@ -72,10 +72,8 @@
         <?php
             $cert=$arrData['certifications'];
             if(!$cert) {
-        ?>
-        No Certifications to display...<br/>
-        Add Certifications...
-        <?php } else {
+                echo NO_CERTIFICATION_TO_DISPLAY;
+            } else {
             foreach($cert as $key => $value){
         ?>
         

@@ -3,8 +3,8 @@
                                 
         </div>
         <br/>
-<?php
-$cert=$arrData['certifications'];
+		<?php
+		$cert=$arrData['certifications'];
             if(!$cert) {
         ?>
         No Certifications to display...<br/>

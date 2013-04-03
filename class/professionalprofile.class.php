@@ -69,7 +69,7 @@
             
             
         }
-        /*  old dbConnection
+        /*  old updateProfile
          *public function updateProfile($fields){
             
             $query="update ".$fields['table'];
@@ -135,15 +135,24 @@
             }
             return $result;
         }*/
-        /*
+        
         public function insertInto($fields) {
             if($fields) {
                 
+                foreach($fields as $key => $value) {
+                    if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID') {
+                        $data["$key"]=strip_tags($value);
+                    }
+                }
+                $data['user_id']=$_SESSION['id'];
+                $result=$this->db->insert($fields['table'],$data);
+                return $result;
             } else {
                 return false;
             }
-        }*/
-        public function insertInto($fields) {
+        }
+        /*  old inserInto
+         *public function insertInto($fields) {
             if($fields){
                 $query="insert into ".$fields['table'];
                 $columns="(";
@@ -165,7 +174,7 @@
             } else {
                 return false;
             }
-        }
+        }*/
         public function deleteFrom($arrArgs) {
             if($arrArgs['row_id']) {
                 $data['conditions']=array("id"=>$arrArgs['row_id'],"user_id"=>$_SESSION['id']);
@@ -175,7 +184,8 @@
                 return false;
             }
         }
-        /*public function deleteFrom($arrArgs) {
+        /*      old delete From
+         *public function deleteFrom($arrArgs) {
             if($arrArgs['row_id']) {
                 $query="delete from ".$arrArgs['table']." where id=".$arrArgs['row_id']." AND user_id=".$_SESSION['id'].";";
                 $this->dbInstance=new DbConnection();
@@ -211,7 +221,8 @@
             }
             
         }
-        /*public function retrieveFrom($arrArgs) {
+        /*  old retrieveFrom
+         *public function retrieveFrom($arrArgs) {
             $temp=$this->constructFields();
             $fields=$temp[$arrArgs['table']];
             $query="select ";
