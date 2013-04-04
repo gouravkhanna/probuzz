@@ -25,6 +25,7 @@ body {
 	background-color: #F9F9F9;
 	background-image:url("../data/rcs/bg.jpg");
 	font-family: del,verdana;
+	font-size: 0.8em;
 }
 
 #container {
@@ -147,8 +148,8 @@ ul.n a:hover, ul.n a.selected {
 #bigmid {
 	position:relative;
 	padding: 5px;
-	background-color: #ededed;
-/*	background-color: #FFFFFe;*/
+/*	background-color: #ededed; */
+		background-color: #FFFFFe;
 	margin-top: 50px;
 	float: left;
 	min-width: 857px;
@@ -331,7 +332,7 @@ h1 {
 	background-color:#C8E2F7;
 }
 .even {
-	
+	background-color:#C8E2F7;
 }
 #showslot {
 	
@@ -493,7 +494,12 @@ margin-right: 5px;
 .marginl20 {
 	margin-left: 20px;
 }
-
+.marginr10 {
+	margin-right: 10px;
+}
+.cursor1 {
+	cursor: pointer;
+}
 .calign {
 	text-align: center;
 }

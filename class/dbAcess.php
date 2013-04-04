@@ -1,7 +1,4 @@
  <?php
-
-
-
 include 'data/pdo_lib/cxpdo/cxpdo.php';
 include 'data/pdo_lib/cxpdo/mysql.php';
 //Connection with database! give username and file yourself

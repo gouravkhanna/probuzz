@@ -13,9 +13,13 @@ class profile extends Controller
 	    loadView('head/head1.php');
 	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));	
 	  loadView("navigation/profilenavigation.php",array('profile_pic_path' =>$path));
+	  
 	  $arrData=loadModel("personalprofile","loadProfile",array("id"=>$_SESSION['id']));
+	  loadView('profile/pp.php',$arrData);
+	  
+	  /*$arrData=loadModel("personalprofile","loadProfile",array("id"=>$_SESSION['id']));
 	  loadView('midpanel/bigmid.php',$arrData);
-	  loadView('footer/footer.php');
+	  */loadView('footer/footer.php');
 				
 	}		
         

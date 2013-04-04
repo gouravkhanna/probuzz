@@ -5,7 +5,18 @@ class status extends Controller
 	function __construct() 	{
 		parent::__construct();
 	}
-
+function buzzDelete() {
+    $result=loadModel("buzzin","buzzDelete",array(
+                        "id"=>@$_SESSION['id'],
+                        "buzz_id"=>$_REQUEST['buzz_id'],
+                        ));
+    if ($result = true) {
+        echo "Buzz Deleted";
+    } else {
+        echo "Please Try Again! Later";
+    }
+    
+}
 	function buzz() {
 	echo "string";
    if($_GET['url']=="buzz") {

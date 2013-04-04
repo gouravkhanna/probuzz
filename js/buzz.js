@@ -30,3 +30,12 @@ $("#statusShow").load("index.php","controller=status&url=displaybuzz");
 
 
 });
+function buzzDelete(a) {
+    alert(a);
+       
+    b="#buzz"+a;
+    $(b).slideUp("slow");
+    c="#buzzdel"+a;
+    $(c).html("Buzz Deleted");
+    $(c).load("index.php","controller=status&url=buzzDelete&buzz_id="+a);
+}

@@ -4,6 +4,23 @@ class buzzin extends DbConnection {
     function __construct() {
         parent::__construct ();
     }
+    function buzzDelete($arrArg = array()) {
+     $condition=array(
+             "user_id"=>$arrArg['id'],
+             "id"=>$arrArg['buzz_id'],
+     );
+     $data=array(
+             "buzz_status"=>'1',
+     );
+     $result=$this->db->update("buzz",$data,$condition); 
+     if($result && $result->rowCount() > 0) {
+         return true;
+     } else {
+         return false;
+     }
+     
+}
+    
     function loadBuzz($arrArg = array()) {
         $id = $arrArg ['id'];
         $sql = "select b.user_id as id,b.id as buzz_id,b.buzztext,
@@ -15,11 +32,14 @@ class buzzin extends DbConnection {
         join photo 
             on photo.id=p.profile_pic_id 
         where 
+        ( 
+        b.buzz_status='0'
+        AND
         ( b.user_id='$id' 
         OR 
         b.user_id in 
 	    (select f.friend_id from friend f
-	     where f.user_id='$id') )
+	     where f.user_id='$id') ) )
        	order by buzz_time desc";
         $result = $this->executeSQLP ( $sql );
         while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
@@ -75,9 +95,11 @@ class buzzin extends DbConnection {
         $data ['columns'] = array (
                 'c.comment_text',
                 'pp.path',
-                'c.buzz_id as id',
+                'c.buzz_id',
+                'p.user_id as id',
                 'p.first_name',
-                'p.last_name'     
+                'p.last_name',
+                'unix_timestamp(c.comment_time) as comment_time',     
         );
         $data ['conditions'] = array (
                 'c.buzz_id' => "$buzz_id" 
@@ -119,7 +141,6 @@ class buzzin extends DbConnection {
             $data = array (
                     "user_id" => "$id",
                     "buzz_id" => "$buzz_id",
-                    "comment_time" => "now()",
                     "comment_text" => "$comment_text" 
             );
             $result = $this->db->insert ( "comment", $data );

@@ -129,7 +129,7 @@ a{
 	
 }
 .comments{
-	height: 60px;
+	height: 40px;
 	width: 500px;
 	float: left;
 	margin-top: 2px;
@@ -137,11 +137,12 @@ a{
 	background-color: #fbf8ef;
 	margin-left: 5px;
 	border-radius: 2px;
+	margin-left:30px;
 	text-indent:inherit;
 
 
 }
-.s{
+.spancomment{
 margin-left: 50px;	
 margin-top: -5px;
 padding-top: 2px;
