@@ -6,7 +6,6 @@ class buzzin extends DbConnection {
     }
     function loadBuzz($arrArg = array()) {
         $id = $arrArg ['id'];
-        
         $sql = "select b.user_id as id,b.id as buzz_id,b.buzztext,
         p.first_name,p.last_name,photo.path, b.buzz_time
         from 
@@ -43,18 +42,19 @@ class buzzin extends DbConnection {
     }
     function buzzUpdate($arrArgs = array()) {
         if (! empty ( $arrArgs )) {
-            $buzztext = $arrArgs ['buzztext'];
+            $buzztext = strip_tags ( $arrArgs ['buzztext'] );
             $id = $arrArgs ['id'];
-            // $sql="insert into probuzz.buzz (user_id,buzztext)
-            // values($id,'$buzztext')";
+           
             $data = array (
                     "user_id" => $id,
                     "buzztext" => "$buzztext" 
-            );
-            
+            );            
             $result = $this->db->insert ( "buzz", $data );
             if ($result && $result->rowCount () > 0) {
-                $this->executeSQLP ( "call addNotification('" . $_SESSION ['id'] . "','0','" . $_SESSION ['id'] . "',now(),'" . $buzztext . "')" ) or die ( mysql_error () );
+                $this->executeSQLP ( "call addNotification('
+                        " . $_SESSION ['id'] . "','0','" . $_SESSION ['id'] . "
+                        ',now(),'" . $buzztext . "')" ) 
+                or die ( mysql_error () );
                 return true;
             } else {
                 return false;
@@ -75,7 +75,9 @@ class buzzin extends DbConnection {
         $data ['columns'] = array (
                 'c.comment_text',
                 'pp.path',
-                'c.buzz_id as id' 
+                'c.buzz_id as id',
+                'p.first_name',
+                'p.last_name'     
         );
         $data ['conditions'] = array (
                 'c.buzz_id' => "$buzz_id" 
@@ -94,7 +96,7 @@ class buzzin extends DbConnection {
                         'p.profile_pic_id' => 'pp.id' 
                 ) 
         );
-        $result = $this->db->select ( $data ); // /$ob->executeSQL($sql);
+        $result = $this->db->select ( $data ); 
         while ( $row [] = $result->fetch ( PDO::FETCH_ASSOC ) ) {
         }
         if ($flag) {
@@ -104,8 +106,7 @@ class buzzin extends DbConnection {
                     "comment_text" => $row 
             );
             return $comments;
-        }
-        
+        }        
         // code for retriving comments
         // and return in array
     }
@@ -113,11 +114,8 @@ class buzzin extends DbConnection {
         if (! empty ( $arrArgs )) {
             
             $id = $arrArgs ['id'];
-            $comment_text = $arrArgs ['comment_text'];
+            $comment_text = strip_tags ( $arrArgs ['comment_text'] );
             $buzz_id = $arrArgs ['buzz_id'];
-            
-     //     $sql = "INSERT INTO probuzz.comment ( user_id,) 
-	//	VALUES ( '$id', '$buzz_id', now(),'$comment_text')";
             $data = array (
                     "user_id" => "$id",
                     "buzz_id" => "$buzz_id",
@@ -135,5 +133,4 @@ class buzzin extends DbConnection {
         }
     }
 }
-
 ?>

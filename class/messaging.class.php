@@ -86,14 +86,14 @@ class messaging extends DbConnection {
 			$data=array(
 					"user_id"=>"$id",
 					"friend_id"=>"$friendId",
-					"message"=>"$message_text",
+					"message"=>strip_tags($message_text),
 					"type"=>'0'
 					);
 			$result=$this->db->insert("message",$data);
 			$data1=array(
 					"user_id"=>"$friendId",
 					"friend_id"=>"$id",
-					"message"=>"$message_text",
+					"message"=>strip_tags($message_text),
 					"type"=>'1'
 			);
 			$result1=$this->db->insert("message",$data1);
