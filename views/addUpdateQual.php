@@ -34,7 +34,7 @@ $(function() {
 		?>
 		</caption>
 		<tr>
-		   <td><?php echo strtoupper(CLASS/DEGREE/DIPLOMA); ?></td>
+		   <td><?php echo strtoupper(CLASS_DEGREE_DIPLOMA); ?></td>
 		   <td><input type="text" name="class" value="<?php if($flag) { echo $qual['class'];} ?>"/></td>
 		</tr></div>
 		<tr>
@@ -46,20 +46,20 @@ $(function() {
 					<option value="Under Graduation" <?php if($flag && $qual['qualification_type']=="Under Graduation") { echo "selected='selected' ";} ?> >
 						<?php echo strtoupper(UNDER_GRADUATION);?></option>
 					<option value="Graduation"  <?php if($flag && $qual['qualification_type']=="Graduation") { echo "selected='selected' ";} ?>>
-						<?php echo strtoupper(Graduation);?></option>
+						<?php echo strtoupper(GRADUATION);?></option>
 					<option value="Post Graduation"  <?php if($flag && $qual['qualification_type']=="Post Graduation") { echo "selected='selected' ";} ?>>
 						<?php echo strtoupper(POST_GRADUATION);?></option>
 					<option value="Diploma" <?php if($flag && $qual['qualification_type']=="Diploma") { echo "selected='selected' ";} ?>>
-						<?php echo strtoupper(Diploma);?></option>
+						<?php echo strtoupper(DIPLOMA);?></option>
 				</select>	
 			</td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper(SCHOOL/INSTITUTE);?></td>
+			<td><?php echo strtoupper(SCHOOL_INSTITUTE);?></td>
 			<td><input type="text" name="institute" value="<?php if($flag) { echo $qual['institute'];} ?>"/></td>
 		</tr>
 		<tr>
-			<td><?php echo strtoupper(BOARD/UNIVERSITY);?></td>
+			<td><?php echo strtoupper(BOARD_UNIVERSITY);?></td>
 			<td><input type="text" name ="university" value="<?php if($flag) { echo $qual['university'];} ?>"/></td>
 		</tr>
 		<tr>

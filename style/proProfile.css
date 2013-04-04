@@ -73,14 +73,14 @@ input[type="text"] {
 	background-color:white;
     
 }
-.sbtn,input[type="submit"]{
+.sbtn{
 	border:1px solid #7D1B7E;
 	font-size:0.9em;
 	padding:4px;
 	font-family:verdana;	
 	margin:5px;
 }
-.sbtn,input[type="submit"]:hover{
+.sbtn{
 		color:gray;
 		cursor:pointer;	
 }

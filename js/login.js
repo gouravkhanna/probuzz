@@ -1,30 +1,71 @@
 // JavaScript Document
 
 
-
-
-
 $(document).ready(function() {
-document.getElementById( 'signup' ).addEventListener( 'click', function( event ) {
-    
+	document.getElementById( 'signup' ).addEventListener( 'click', function( event ) {
+		
     event.preventDefault();
     document.getElementById( 'side-2' ).className = 'flip flip-side-1';
     document.getElementById( 'side-1' ).className = 'flip flip-side-2';
     
-}, false );
+	}, false );
 
-document.getElementById( 'login1' ).addEventListener( 'click', function( event ) {
-    
+	document.getElementById( 'login1' ).addEventListener( 'click', function( event ) {
     event.preventDefault();
     document.getElementById( 'side-2' ).className = 'flip';
     document.getElementById( 'side-1' ).className = 'flip';
     
-}, false );
+	}, false );
+	
+	$("#side-1").submit(function(){
+		
+		var uname=valid_uname1();
+		var password=valid_password1();
+		if(uname || password) {
+			return true;
+		} else {
+			//return false;			UNCOMMENT THIS
+		}
+		
+	});
 });
+
+/*	isAlphaNumeric() checks if the input string is alphanumeric or not, returns true if the string is alphanumeric.	*/
+function isAlphaNumeric(input) {
+	var ck_username=/^\d*[a-zA-Z][a-zA-Z0-9]*$/;
+	if(!ck_username.test(input)) {
+		return false;
+	} else {
+		return true;
+	}	
+}
+/*	onlySpaces() check if the input contains only spaces or not, returns true if string contains only spaces.	*/
+function onlySpaces(input) {
+	str=input;
+	temp=str.replace(/\s/g,"");
+	if(temp.length<1) {
+		return true;
+	} else {
+		return false;
+	}
+}
+/*	dateDifference() checks if the start date is less than the end date, returns */
+/*	true if difference between the dates is atleast 1. */
+function dateDifference(start,end) {
+	diff=(new Date(end).getTime()-new Date(start).getTime())/(1000 * 3600 * 24);
+	if(diff>0) {
+		return true;
+	} else {
+		return false;
+	}
+}
+function lengthBetween() {
+	
+}
 
 function valid_uname()
 {
-	var ck_username = /^[A-Za-z0-9_]{1,20}$/;
+	//var ck_username = /^[A-Za-z0-9_]{1,20}$/;
 	var user_name1=document.forms["side-2"]["user_name1"].value;
 	if(user_name1.length<6) 
 	{
@@ -43,7 +84,8 @@ function valid_uname()
 	}
 	
 	
-	else if(!ck_username.test(user_name1))
+//	else if(!ck_username.test(user_name1))
+	else if(!isAlphaNumeric(user_name1))
 		{
 		
 		document.getElementById("w6").style.visibility=" visible";
@@ -56,15 +98,61 @@ function valid_uname()
 		}
 	 else
 	 {
-	 document.getElementById("r6").style.visibility=" visible";
-	 document.getElementById("w6").style.visibility=" hidden";
-	 document.getElementById("e6").style.visibility=" hidden";
+		 document.getElementById("r6").style.visibility=" visible";
+		 document.getElementById("w6").style.visibility=" hidden";
+		 document.getElementById("e6").style.visibility=" hidden";
+		 return true; 
+
+	 }
+
+
+}
+
+function valid_uname1()
+{
+//	var ck_username=/^\d*[a-zA-Z][a-zA-Z0-9]*$/;
+	var user_name1=document.forms["side-1"]["user_name"].value;
+
+	if(user_name1.length<6) 
+	{
+	document.getElementById("w11").style.visibility=" visible";
+	document.getElementById("e11").style.visibility=" visible";
+	document.getElementById("e11").innerHTML="* User Name must contain 6 characters ";
+	return false; 
+	}
+	else if(user_name1.length>20) 
+	{
+	document.getElementById("w11").style.visibility=" visible";
+	document.getElementById("e11").style.visibility=" visible";
+	document.getElementById("e11").innerHTML="* User Name cannot contain more then 20 chracters ";
+
+	return false; 
+	}
+	
+	
+	else if(!isAlphaNumeric(user_name1))
+		{
+		
+		document.getElementById("w11").style.visibility=" visible";
+		document.getElementById("e11").style.visibility=" visible";
+		document.getElementById("e11").innerHTML="* User Name is not in valid format ";
+
+		return false;
+		
+		
+		}
+	 else
+	 {
+	 document.getElementById("r11").style.visibility=" visible";
+	 document.getElementById("w11").style.visibility=" hidden";
+	 document.getElementById("e11").style.visibility=" hidden";
 	 return true; 
 
 	 }
 
 
 }
+
 
 function valid_fname() // to check first name
 {
@@ -183,6 +271,50 @@ if(pwd.length<6 )
 }
 
 
+function valid_password1()
+{
+	var ck_password =  /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
+var pwd=document.forms["side-1"]["password"].value;
+
+if(pwd.length<6 )
+	{
+		document.getElementById("w12").style.visibility=" visible";
+		document.getElementById("e12").style.visibility=" visible";
+		document.getElementById("e12").innerHTML=" * Password must contain 6 characters";
+		return false; 
+
+	}
+	
+	else if (pwd.length>20)
+	{
+	
+		document.getElementById("w12").style.visibility=" visible";
+		document.getElementById("e12").style.visibility=" visible";
+		document.getElementById("e12").innerHTML=" * Password cannot contain more then 20 characters";
+		return false; 
+	
+	}
+	else if(!ck_password.test(pwd))
+		{
+		
+		document.getElementById("w12").style.visibility=" visible";
+		document.getElementById("e12").style.visibility=" visible";
+		document.getElementById("e12").innerHTML=" * Password is not in valid format";
+		return false; 
+		
+		
+		}
+	else 	{
+    	document.getElementById("r12").style.visibility=" visible"; 
+		document.getElementById("w12").style.visibility=" hidden"; 
+		document.getElementById("e12").style.visibility=" hidden";
+		
+		return true;
+	}
+	
+}
+
+
 
 function valid_email()
 {
@@ -258,3 +390,5 @@ true;
 }
 
 
+	
+	

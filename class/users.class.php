@@ -108,6 +108,13 @@ class users extends DbConnection {
         if (empty ( $this->userName ) && empty ( $this->password ) && empty ( $this->lastName ) && empty ( $this->email ) && empty ( $this->firstName )) {
             echo "<script> alert('please fill all the values'); </script>";
         } else {
+        	
+        	
+        	
+        	
+        	
+        	
+        	
             // / $sql="select user_name from users where
             // user_name='$this->userName'";
             $data = array ();
@@ -121,22 +128,12 @@ class users extends DbConnection {
             $res = $this->db->select ( $data );
             $row = $res->fetch ( PDO::FETCH_ASSOC );
             if ($row ['user_name'] == $this->userName) {
-                echo "user already exist";
+                echo "u111111111111ser already exist";
                 return false;
             } else {
                 // Registration for Corpoarte User will be done by Admin or by a
                 // Seprate Registration Page!
                 $this->executeSQLP ( "call insertuser1('$this->userName','$this->password','$this->firstName','$this->lastName','$this->email','0')" ) or die ( mysql_error () );
-                /*
-                 * $sql="insert into users (user_name,password) values
-                 * ('$this->userName','$this->password')" or die("ssss");
-                 * $ob->executeSQL($sql); $iid=$this->getId($this->userName);
-                 * $s2="insert into professional_profile (user_id) values
-                 * ('$iid')"; $ob->executeSQL($s2); $s1="insert into
-                 * personal_profile(user_id,first_name,last_name,email)
-                 * values('$iid','$this->firstName','$this->lastName','$this->email')"
-                 * or die("error on page"); $ob->executeSQL($s1);
-                 */
                 $arrArgs = array (
                         'user_name' => $arrData ['userName'],
                         'password' => $arrData ['password'] 

@@ -2,7 +2,7 @@
 require_once 'library/recaptcha/recaptchalib.php';
 $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from the signup page
 ?>
-<script src="js/jquery-1.9.1.min.js" ></script>
+<script src="js/jquery-1.9.1.min.js"></script>
 <link rel="stylesheet" href="style/f1.css" />
 <script src="js/login.js"></script>
 
@@ -14,19 +14,28 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 
 			<div id="1">
 				<h2> <?php echo LOGIN; ?> </h2>
-				<input type="text" name="user_name" id="user_name"
-					autocomplete="off" placeholder="User Name" /> <br /> <br /> <input
+				<input type="text" name="user_name" id="user_name" autocomplete="off"
+					placeholder="User Name" onblur="return  valid_uname1()" /> <span
+					id="r11" name="r11"> <img src="data/rcs/r.png" height="30px"
+					width="30px" /></span><span id="w11"> <img src="data/rcs/w.png"
+					height="30px" width="30px" />
+				</span><span id="e11" name="e11"> </span> <br /> <br /> 
+				  <input
 					type="password" name="password" id="password"
-					placeholder="Password" /> <br /> <br>
-				<a href="#"> <?php echo FORGET_PASSWORD; ?></a> <input type="submit"
-					id="submit" name="url" value="buzzin" /> <br /> <br />
+					 placeholder="Password" onblur="return  valid_password1()" /> <span
+					id="r12" name="r12"> <img src="data/rcs/r.png" height="30px"
+					width="30px" /></span><span id="w12"> <img src="data/rcs/w.png"
+					height="30px" width="30px" />
+				</span><span id="e12" name="e12"> </span> <br /> <br> <a href="#"> <?php echo FORGET_PASSWORD; ?></a>
+				<input type="submit" id="login" name="url" value="buzzin" /> <br />
+				<br />
 				<p> <?php echo ACCOUNT_INFO; ?> <a id="signup" href="#"><?php echo SIGNUP;?> </a>
 				</p>
 			</div>
 		</form>
 
 		<form id="side-2" class="flip" method="post" name="side-2"
-			onsubmit=" return valid()" action="index.php">
+			onsubmit=" <!-- return valid() -->" action="index.php">
 			<div id="2">
 				<h2>Signup with your email....</h2>
 
@@ -88,6 +97,7 @@ if(isset($arrData))
   echo @$arrData['error_msg'];
 }
 ?>
+
 </div>
 	</div>
 </body>

@@ -3,9 +3,57 @@ class validation {
 	function __construct() {
 		
 	}
+	function register($arrArgs=array()) {
+		
+		$email=$this->checkEmail(array("key"=>$arrArgs['email']));
+   		$password=$this->validPassword(array("key"=>$arrArgs['password']));
+   		$userName=$this->checkSpaces(array("key"=>$arrArgs['userName']));
+   		$firstName=$this->checkSpaces(array("key"=>$arrArgs['firstName']));
+   		$lastName=$this->checkSpaces(array("key"=>$arrArgs['lastName']));
+   		$userNameAlpha=$this->checkAlphaNum(array("key"=>$arrArgs['userName']));
+   		$flag=true;
+   		$msg="";
+		if(!$email){
+			$flag=false;
+			$msg.="Email Entered is invalid<br/>";
+			
+		}
+		if(!$password){
+			$flag=false;
+			$msg.="Password Entered is invalid<br/>";
+		}
+		if(!$userNameAlpha){
+			$flag=false;
+			$msg.="User Name Must Contain Atleast one character<br/>";
+		}
+		if($firstName){
+			$flag=false;
+			$msg.="First Name Can Not Contain Spaces<br/>";
+		}
+		if($userName){
+			$flag=false;
+			$msg.="User Name Can Not Contain Spaces<br/>";
+		}
+		 if($lastName){
+			$flag=false;
+			$msg.="Last Name Can Not Contain Spaces<br/>";
+		} 
+ 		if(!$arrArgs['email'] || !$arrArgs['password'] || !$arrArgs['userName'] || !$arrArgs['firstName'] || !$arrArgs['lastName']){
+ 			$flag=false;
+ 			$msg.="No fields should be empty";
+ 		}
+ 		$arrData=array('flag'=>$flag,
+ 			'msg'=>$msg,
+		);		
+ 		   		
+ 		 return $arrData;
+   
+	}
 	function spaceRemover($input) {
 		return preg_replace('/\s+/', ' ', $input);
 	}
+	
+	
 	function checkEmpty($arrData = array()) { // check field is empty or not
 		if(!empty($arrData)) {
 			$field = $arrData ['key'];
@@ -20,7 +68,7 @@ class validation {
 	function checkSpaces($arrData = array()){
 		$field = $arrData ['key'];
 		if (preg_match("/\\s/", $field)) {
-			echo "space";return true;
+			return true;
 		} else {
 			return false;
 		}
@@ -47,6 +95,7 @@ class validation {
 			return false;
 		}
 	}
+	
 	function checkEmail($arrData = array()) { // function to validate email
 		$field = $arrData ['key'];
 		$email = filter_var ( $field, FILTER_SANITIZE_EMAIL ); // check if the mail is a valid mail or not
@@ -78,18 +127,7 @@ class validation {
 	}
 }
 
- $ob=new validation();
-$arr=array(
-		"key"=>"__ gill@gmail.com",
-		);
-$res=$ob->checkEmail($arr);
-echo "<pre>";
-print_r($res);
-if($res) {
-	echo "yesyes";
-} else {
-	echo "SHIt";
-}
+
  
 
 

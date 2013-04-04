@@ -35,14 +35,15 @@ class Controller
 				$_POST["recaptcha_challenge_field"],
 				$_POST["recaptcha_response_field"]);
 		
-		if (!$resp->is_valid) {
+	/*	if (!$resp->is_valid) {
 			// What happens when the CAPTCHA was entered incorrectly
 			
 			$msg="<div id=wrongcaptcha>The reCAPTCHA wasn't entered correctly. Go back and try it again." .
 					"(reCAPTCHA said: " . $resp->error . ")</div>";
 			loadView("login1.php",array('error_msg'=>$msg));
 		} else {
-			// Your code here to handle a successful verification
+	*/
+	{		// Your code here to handle a successful verification
 		
 		$arrArgs=array(
 		'userName'=>@$_REQUEST["user_name1"],
@@ -52,11 +53,11 @@ class Controller
 		'email'=>@$_REQUEST["email"],
 	);
   
-	$validator=loadModel("users","validate",$arrArgs); //cal the validator method for server side validation
+	$validator=loadModel("validation","register",$arrArgs); //cal the validator method for server side validation
 
-	if(!$validator)
+	if(!$validator['flag'])
 	{
-		$arrArgs=array('error_msg' => 	"Some problem has occured!! Please try again..." );
+		$arrArgs=array('error_msg' => 	$validator['msg'] );
 		loadView("login1.php",$arrArgs);
 	}
 	else if(loadModel("users","register",$arrArgs)) {
