@@ -21,7 +21,7 @@ class friend extends DbConnection {
     		        'table' => 'personal_profile p ',
     		        'type' => 'INNER',
     		        'conditions' => array (
-    		                "p.user_id" => "f.friend_id"
+    		         "p.user_id" => "f.friend_id"
     		        ));
     	    $result = $this->db->select ( $data ); 
             while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {

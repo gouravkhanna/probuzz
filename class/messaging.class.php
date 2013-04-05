@@ -97,8 +97,13 @@ class messaging extends DbConnection {
 					"type"=>'1'
 			);
 			$result1=$this->db->insert("message",$data1);
+			$this->executeSQLP ( "call addNotification(
+				        '". $friendId . "','5','" . $_SESSION ['id'] . "
+                       ',now(),'')" )
+			                       or die ( mysql_error () );
 			if($result && $result->rowCount()>0) {
 				return true;
+				
 			}
 			else {
 				return false;
@@ -120,6 +125,11 @@ class messaging extends DbConnection {
 			$this->db->update("message",$data,$conditions);
 		}
 	}
-	
+	function aac() {
+	    
+	}
+	function createMess() {
+	    
+	}
 		
 }

@@ -134,6 +134,11 @@ class user extends controller {
         );
         $result = loadModel ( "messaging", "messageSeen", $arrArg );
     }
+    function aac() {
+      $arrData=loadModel("friend","showfriend",array("id"=>@$_SESSION['id']));
+     //       $arrData=array("s","1","2","3");
+        return json_encode($arrData);
+    }
 }
 
 ?>
