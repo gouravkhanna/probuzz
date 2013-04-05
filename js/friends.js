@@ -4,12 +4,14 @@ function openBox() {
     $('.fancybox').css({"z-index":"999999"});
 }
 function sendRequest(input) {
+	alert("sendimg");
 	var id=input.id.split("_");
 	$.ajax({
 		type: "GET",
 	    url: "index.php",
 	    data:"controller=friends&url=sendRequest&friendId="+id[1],
 	    success: function(msg){
+			alert(msg);
 			location.reload();
 	    }
 	});

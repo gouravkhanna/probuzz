@@ -18,7 +18,7 @@
     <div id="accordion">
         <h3><?php echo BASIC_PROFILE;?></h3>
         <div class="wide">
-            <form id="form1" >
+            <form id="form1" class="profileForm" >
                 <table>
                     <tr>
                         <td><?php echo CAREER_OBJECTIVE;?></td>

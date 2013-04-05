@@ -8,7 +8,7 @@ $(function() {
     });
 });
 </script>
-<b><form id="form6" class="exp">
+<b><form id="form6" class="exp profileForm">
 <?php
 	//echo "<pre>";
 	$flag=0;
@@ -36,23 +36,45 @@ $(function() {
 		</caption>
 		<tr>
 		   <td><?php echo strtoupper(COMPANY_NAME); ?></td>
-		   <td><input type="text" name="company_name" value="<?php if($flag) { echo $exp['company_name'];} ?>"/></td>
+			<td>
+				<input type="text" id="experience_name" onblur="validateExperienceCompanyName()" name="company_name" value="<?php if($flag) { echo $exp['company_name'];} ?>"/>
+				<span id="experience_name_asterisk" class="asterisk">*</span>
+	      	</td>
 		</tr></div>
 		<tr>
 			<td><?php echo strtoupper(POSITION);?></td>
-			<td><input type="text" name="position" value="<?php if($flag) { echo $exp['position'];} ?>"/></td>
+			<td>
+				<input type="text" name="position" value="<?php if($flag) { echo $exp['position'];} ?>"/>
+				<span id="" class="asterisk">*</span>
+			</td>
 		</tr>
 		<tr>
 			<td><?php echo strtoupper(FROM);?></td>
-			<td><input type="text" id="d4" name="start_date" value="<?php if($flag) { echo $exp['start_date'];} ?>"/></td>
+			<td>
+				<input type="text" id="d4" onchange="validateExperienceDateDifference()" name="start_date" value="<?php if($flag) { echo $exp['start_date'];} ?>"/>
+				<span id="" class="asterisk">*</span>
+			</td>
 		</tr>
 		<tr>
 			<td><?php echo strtoupper(TO);?></td>
-			<td><input type="text" id="d5" name="end_date" value="<?php if($flag) { echo $exp['end_date'];} ?>"/></td>
+			<td>
+				<input type="text" id="d5" onchange="validateExperienceDateDifference()" name="end_date" value="<?php if($flag) { echo $exp['end_date'];} ?>"/>
+				<span id="experience_date_asterisk" class="asterisk">*</span>
+			</td>
 		</tr>
 		<tr>
 			<td><?php echo strtoupper(CURRENT_JOB);?></td>
-			<td><input type="text" id="d5" name="current_job" value="<?php if($flag) { echo $exp['current_job'];} ?>"/></td>
+			<td>
+				<select id="" name="current_job" onblur="">
+					<option value="0" <?php if($flag && $exp['current_job']=="0") { echo "selected='selected' ";} ?> >
+						<?php echo strtoupper("No");?>
+					</option>
+					<option value="1" <?php if($flag && $exp['current_job']=="1") { echo "selected='selected' ";} ?> >
+						<?php echo strtoupper("Yes");?>
+					</option>
+				</select>
+				<span id="" class="asterisk">*</span>
+			</td>
 		</tr>
 		<tr>
 			<td class="proSubmit" >
@@ -65,4 +87,12 @@ $(function() {
 			</td>
 		</tr>
 	</table>
-</form></b>
+</form>
+<div class="errorDiv">
+	<span id="experienceNameError" class="error"></span><br/>
+	<span id="experienceDateDifferenceError" class="error"></span><br/>
+	<span id="" class="error"></span><br/>
+	<span id="" class="error"></span><br/>
+		
+</div>
+</b>

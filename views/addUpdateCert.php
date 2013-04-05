@@ -8,7 +8,7 @@ $(function() {
     });
 });
 </script>
-<b><form id="form5" class="cert">
+<b><form id="form5" class="cert profileForm">
 <?php
 	//echo "<pre>";
 	$flag=0;
@@ -35,20 +35,32 @@ $(function() {
 		
 		</caption>
 		<tr>
-		   <td><?php echo strtoupper("Certification Name :"); ?></td>
-		   <td><input type="text" name="certification_name" value="<?php if($flag) { echo $cert['certification_name'];} ?>"/></td>
+			<td><?php echo strtoupper("Certification Name :"); ?></td>
+			<td>
+				<input type="text" id="certification_name" onblur="validateCertificationName()" name="certification_name" value="<?php if($flag) { echo $cert['certification_name'];} ?>"/>
+				<span id="cert_name_asterisk" class="asterisk">*</span>
+			</td>
 		</tr></div>
 		<tr>
 			<td><?php echo strtoupper("Institution Name :");?></td>
-			<td><input type="text" name="institution" value="<?php if($flag) { echo $cert['institution'];} ?>"/></td>
+			<td>
+				<input type="text" id="certification_institute" onblur="validateCertificationInstitute()"  name="institution" value="<?php if($flag) { echo $cert['institution'];} ?>"/>
+				<span id="certification_institute_asterisk" class="asterisk">*</span>
+			</td>
 		</tr>
 		<tr>
 			<td><?php echo strtoupper("Certification Year :");?></td>
-			<td><input type="text" id="d2" name="certification_year" value="<?php if($flag) { echo $cert['certification_year'];} ?>"/></td>
+			<td>
+				<input type="text" id="d2" name="certification_year" onchange="validateCertificationYear()" value="<?php if($flag) { echo $cert['certification_year'];} ?>"/>
+				<span id="certification_year_asterisk" class="asterisk">*</span>
+			</td>
 		</tr>
 		<tr>
 			<td><?php echo strtoupper("Valid Till :");?></td>
-			<td><input type="text" id="d3" name="validity" value="<?php if($flag) { echo $cert['validity'];} ?>"/></td>
+			<td>
+				<input type="text" id="d3" name="validity" onchange="validateCertificationValidity()" value="<?php if($flag) { echo $cert['validity'];} ?>"/>
+				<span id="certification_validity_asterisk" class="asterisk">*</span>
+			</td>
 		</tr>
 		<tr>
 			<td class="proSubmit" >
@@ -61,4 +73,12 @@ $(function() {
 			</td>
 		</tr>
 	</table>
-</form></b>
+</form>
+	<div class="errorDiv">
+			<span id="certificationNameError" class="error"></span><br/>
+			<span id="certificationInstituteError" class="error"></span><br/>
+			<span id="certificationYearError" class="error"></span><br/>
+			<span id="certificationValidityError" class="error"></span><br/>
+			
+	</div>
+</b>
