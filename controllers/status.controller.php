@@ -44,6 +44,38 @@ class status extends Controller {
             echo "Please Try Again! Later";
        }
     }
+    function buzzLike() {
+        $result = loadModel ( "buzzin", "buzzLike", array (
+                "id" => @$_SESSION ['id'],
+                "buzz_id" => $_REQUEST ['buzz_id'],
+        ) );
+        
+        $result2=loadModel ( "buzzin", "loadLike", array (
+                    "id" => @$_SESSION ['id'],
+                    "buzz_id" => $_REQUEST ['buzz_id'],
+                    ));
+        if ($result = true) {
+            echo "You & ".($result2['total_like']-1)." people like this";
+        } else {
+            echo "Please Try Again! Later";
+        }
+    }
+    function buzzUnLike() {
+        $result = loadModel ( "buzzin", "unLike", array (
+                "id" => @$_SESSION ['id'],
+                "buzz_id" => $_REQUEST ['buzz_id'],
+        ) );
+       
+        $result2=loadModel ( "buzzin", "loadLike", array (
+                "id" => @$_SESSION ['id'],
+                "buzz_id" => $_REQUEST ['buzz_id'],
+        ));
+        if ($result = true) {
+            echo "".$result2['total_like']." people like this";
+        } else {
+            echo "Please Try Again! Later";
+        }
+    }
     function buzzUpdate() {
         if ($_GET ['url'] == "buzzUpdate") {
             $arrArgs = array (

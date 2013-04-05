@@ -22,9 +22,22 @@ if (! empty ( $arrData )) {
         echo '<div id="statusText' . $count . '"class="statusText">' . $row ['buzz'] ['buzztext'];
         echo "<a href='".ROOTPATH."status/buzz/".base64_encode($buzzId)."' class='floatr marginr10 cursor1' >link</a>";
         echo "</div><br>";
-       
+        if($row['like']['user_like']>=1) {
+            echo '<div id=buzzlike' . $buzzId.'>You & '.($row['like']['total_like']-1).' people like this</div>';
+            $visble1="visiblen";
+            $visble2="visibley";
+        } else {
+            echo '<div id=buzzlike' . $buzzId.'>'.$row['like']['total_like'].' people like this</div>';
+            $visble2="visiblen";
+            $visble1="visibley";
+        }
+        echo "<input type=button class=$visble2 id=buzzunlikebtn$buzzId onclick=buzzUnLike('$buzzId') value=UnLike>";
+        echo "<button class=$visble1 id=buzzlikebtn$buzzId onclick=buzzLike('$buzzId') >Like</button>";
+         
+     //   echo "<button id=buzzUnlikebtn2' . $buzzId.' onclick=buzzUnLike('$buzzId') >UnLike</button>";
+     //   echo "<button id=buzzlikebtn2' . $buzzId.' onclick=buzzLike('$buzzId') >Like</button>";
         echo "<div id='dvcomment" . $row ['buzz'] ['buzz_id'] . "' >";
-        
+       
         foreach ( $row ['comment'] as $value ) {
             $c = 1;
             echo "<br>";
@@ -63,7 +76,7 @@ if (! empty ( $arrData )) {
  	                        		  placeholder="Post Comment..." />';
         echo '<input type="button" id="' . $row ['buzz'] ['buzz_id'] . '"
 
- 	       	value="Comment" name=submit onclick=setComment(this.id) class="submit"> ';
+ 	                       	value="Comment" name=submit onclick=setComment(this.id) class="submit"> ';
         
         echo "<hr>";
         $count ++;

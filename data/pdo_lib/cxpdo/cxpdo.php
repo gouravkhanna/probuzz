@@ -53,7 +53,7 @@ class cxpdo extends PDO {
 		. '('. $this->column_list($data). ')'
 		. ' VALUES '
 		. $this->value_list($data);
-		echo $query;
+		//echo $query;
 		//Return the results -or a query string?
 		return $return ? $this->query($query) : $query;
 
@@ -126,7 +126,7 @@ class cxpdo extends PDO {
 
 		$query = 'SELECT COUNT(*) FROM '. $this->table_list($tables)
 		. ($conditions ? $this->where_list($conditions) : '');
-
+//echo $query;
 		//Return the results -or a query string?
 		return $return ? $this->query($query) : $query;
 

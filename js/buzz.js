@@ -55,6 +55,7 @@ function loadMore() {
             },
     });
 }
+//for single link page
 function loadDComment() {
     var a=$("#buzz_id").val();
    // alert(a);
@@ -99,4 +100,23 @@ function commentDelete(a) {
         $(c).html("Comment Deleted").fadeOut("slow");
         $(c).load("index.php","controller=status&url=commentDelete&comment_id="+a);
     }
+}
+function buzzUnLike(a) {
+    b="#buzzlike"+a;
+    $(b).load("index.php","controller=status&url=buzzUnLike&buzz_id="+a);
+    btn1="#buzzlikebtn"+a;
+    btn2="#buzzunlikebtn"+a;
+    $(btn2).hide();
+    $(btn1).show();
+    
+}
+function buzzLike(a) {
+   // alert(a);
+    b="#buzzlike"+a;
+    $(b).load("index.php","controller=status&url=buzzLike&buzz_id="+a);
+  
+    btn1="#buzzlikebtn"+a;
+    btn2="#buzzunlikebtn"+a;
+    $(btn1).hide();
+    $(btn2).show();
 }

@@ -152,3 +152,10 @@ clear: both;
 	width: 100%;
 	height:40px;
 }
+.visiblen {
+	display: none;
+		
+}
+.visibley {
+	display: inline-block;
+}
