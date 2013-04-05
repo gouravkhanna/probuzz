@@ -80,12 +80,22 @@ function setComment(a){
                 });
     }
 function buzzDelete(a) {
-    alert(a);
+   
     if(confirm("Sure You want to Delete,\n It Wont Come Back!")) {   
         b="#buzz"+a;
         $(b).slideUp("slow");
         c="#buzzdel"+a;
-        $(c).html("Buzz Deleted");
+        $(c).html("Buzz Deleted").delay(2000).fadeOut("slow");
         $(c).load("index.php","controller=status&url=buzzDelete&buzz_id="+a);
+    }
+}
+
+function commentDelete(a) {
+    if(confirm("Sure You want to Delete,\n It Wont Come Back!")) { 
+        b="#cmmnt"+a;
+        $(b).slideUp("slow");
+        c="#commentdel"+a;
+        $(c).html("Comment Deleted").delay(2000).fadeOut("slow");
+        $(c).load("index.php","controller=status&url=commentDelete&comment_id="+a);
     }
 }

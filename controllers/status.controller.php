@@ -33,6 +33,17 @@ class status extends Controller {
             echo "Please Try Again! Later";
         }
     }
+    function commentDelete() {
+        $result = loadModel ( "buzzin", "commentDelete", array (
+                "id" => @$_SESSION ['id'],
+                "comment_id" => base64_decode($_REQUEST ['comment_id']),
+        ) );
+        if ($result = true) {
+            echo "Comment Deleted";
+        } else {
+            echo "Please Try Again! Later";
+       }
+    }
     function buzzUpdate() {
         if ($_GET ['url'] == "buzzUpdate") {
             $arrArgs = array (

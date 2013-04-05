@@ -20,6 +20,22 @@ class buzzin extends DbConnection {
      }
      
 }
+function commentDelete($arrArg = array()) {
+    $condition=array(
+            "user_id"=>$arrArg['id'],
+            "id"=>$arrArg['comment_id'],
+    );
+    $data=array(
+            "comment_status"=>'1',
+    );
+    $result=$this->db->update("comment",$data,$condition);
+    if($result && $result->rowCount() > 0) {
+        return true;
+    } else {
+        return false;
+    }
+     
+}
     
     function loadBuzz($arrArg = array()) {
         $id = $arrArg ['id'];
@@ -106,14 +122,16 @@ class buzzin extends DbConnection {
         $data ['columns'] = array (
                 'c.comment_text',
                 'pp.path',
+                'c.id',
                 'c.buzz_id',
-                'p.user_id as id',
+                'p.user_id as user_id',
                 'p.first_name',
                 'p.last_name',
                 'unix_timestamp(c.comment_time) as comment_time',     
         );
         $data ['conditions'] = array (
-                'c.buzz_id' => "$buzz_id" 
+                'c.buzz_id' => "$buzz_id",
+                'c.comment_status'=>'0', 
         );
         $data ['joins'] [] = array (
                 'table' => 'personal_profile p ',
