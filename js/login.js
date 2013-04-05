@@ -65,7 +65,7 @@ function lengthBetween() {
 
 function valid_uname()
 {
-	//var ck_username = /^[A-Za-z0-9_]{1,20}$/;
+	var ck_username = /^[A-Za-z0-9_]{1,20}$/;
 	var user_name1=document.forms["side-2"]["user_name1"].value;
 	if(user_name1.length<6) 
 	{
@@ -110,7 +110,7 @@ function valid_uname()
 
 function valid_uname1()
 {
-//	var ck_username=/^\d*[a-zA-Z][a-zA-Z0-9]*$/;
+	var ck_username=/^\d*[a-zA-Z][a-zA-Z0-9]*$/;
 	var user_name1=document.forms["side-1"]["user_name"].value;
 
 	if(user_name1.length<6) 
@@ -352,6 +352,19 @@ function valid_email()
 	
 
 }
+function validLogin()
+{
+
+var u=valid_uname1();
+var p=valid_password1();
+if(!u && !p){
+	return false;}
+else {
+	return true;
+}
+
+}
+
 
 function valid()
 {

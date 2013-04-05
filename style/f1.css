@@ -89,11 +89,6 @@ border-radius:0.5em;
 height:25px;
 width:20em;
 text-align:center;
-
-
-	
-
-
 }
 img
 {
@@ -101,13 +96,8 @@ img
 	float:right;
 	margin-top:-35px;
 	margin-right :23px;
-	
-
-		
-	
-	
-}
-#submit,#create
+	}
+#login,#create
 {
 float:right;
 

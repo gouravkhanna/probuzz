@@ -8,47 +8,54 @@ class profile extends Controller
 	}
 	function home()
 	{
-	
-	
-	    loadView('head/head1.php');
+	   loadView('head/head1.php');
 	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));	
 	  loadView("navigation/profilenavigation.php",array('profile_pic_path' =>$path));
 	  
 	  $arrData=loadModel("personalprofile","loadProfile",array("id"=>$_SESSION['id']));
-	  loadView('profile/pp.php',$arrData);
-	  
+	  loadView('midpanel/bigmid.php',$arrData);
 	  /*$arrData=loadModel("personalprofile","loadProfile",array("id"=>$_SESSION['id']));
 	  loadView('midpanel/bigmid.php',$arrData);
 	  */loadView('footer/footer.php');
 				
 	}		
         
-        function edit_Con(){
-
-   if($_POST['url']=='edit_Con'){
-
- 
+   function edit_Con(){
+   if($_GET['url']=='edit_Con'){
     $arrArgs=array(
-		'houseNumber'=>@$_POST["ehno"],
-		'street_number'=>@$_POST["estreetNo"],
-		'street_name'=>@$_POST["estreetName"],
-		'city'=>@$_POST["ecity"],
-		'state'=>@$_POST["estate"],
-		'country'=>@$_POST["ecountry"],
+		'houseNumber'=>@$_GET["ehno"],
+		'street_number'=>@$_GET["estreetNo"],
+		'street_name'=>@$_GET["estreetName"],
+		'city'=>@$_GET["ecity"],
+		'state'=>@$_GET["estate"],
+		'country'=>@$_GET["ecountry"],
 	);
 	   
      $arrData=loadModel("personalprofile","upCon",$arrArgs);
      if($arrData){
 
-   $this->home();
+      $this->home();
    }
+ }
+} 
 
+function new_Con(){
+if($_GET['url']=='new_Con'){
+  $arrArgs=array(
+    'houseNumber'=>@$_GET["ehno"],
+    'street_number'=>@$_GET["estreetNo"],
+    'street_name'=>@$_GET["estreetName"],
+    'city'=>@$_GET["ecity"],
+    'state'=>@$_GET["estate"],
+    'country'=>@$_GET["ecountry"],
+  );
+  $arrData=loadModel("personalprofile","insertCon",$arrArgs);
+  if($arrData){
 
-
-       }
-
-
-    } 
+      $this->home();
+   }
+}
+}
 
   function editInfo(){
           if($_POST['url']=='editInfo'){

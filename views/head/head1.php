@@ -12,7 +12,7 @@
 <script src="<?php echo ROOTPATH."js/probuzz.js"; ?>"></script>
 <script src="<?php echo ROOTPATH."js/buzz.js"; ?>"></script>
 <script src="<?php echo ROOTPATH."js/display_profile.js"; ?>"></script>
-<link type="text/css" href="style/pp.css" rel="stylesheet">
+<link type="text/css" href="f2.css" rel="stylesheet">
 
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/proProfile.css"; ?> " />
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/notifications.css" ; ?>" />

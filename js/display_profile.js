@@ -1,54 +1,10 @@
 $(document).ready(function(){
 
-$("#home").click(function()
-{
-$(".leftarrowdiv").show();
-$(".leftarrowdiv2").hide();
-$(".leftarrowdiv3").hide();
-$(".leftarrowdiv1").hide();
-
-
-}
-);
-$("#profile").click(function()
-{
-    $(".leftarrowdiv").hide();
-$(".leftarrowdiv2").hide();
-$(".leftarrowdiv3").hide();
-$("#2.leftarrowdiv1").show();
-}
-);
-
-$("#edit").click(function()
-{
-
-$(".leftarrowdiv").hide();
-$(".leftarrowdiv1").hide();
-
-}
-);
-$("#friend").click(function()
-{
-$(".leftarrowdiv").hide();
-$(".leftarrowdiv1").hide();
-$(".leftarrowdiv3").hide();
-$("#3.leftarrowdiv2").show();
-
-}
-);
-$("#pics").click(function()
-{
-$(".leftarrowdiv").hide();
-$(".leftarrowdiv1").hide();
-$(".leftarrowdiv2").hide();
-$("#4.leftarrowdiv3").show();
-}
-);
-
 
 
 $("#editc").click(function()
 {
+$("#bigmid").css("background-color","lightgray");
 $("#2").fadeTo("fast",0.1);
 $("#edit_contact").show();
 
@@ -57,6 +13,7 @@ $("#edit_contact").show();
 
 $("#editf").click(function()
 {
+$("#bigmid").css("background-color","lightgray");
 $("#2").fadeTo("fast",0.1);
 $("#edit_w").show();
 
@@ -64,6 +21,7 @@ $("#edit_w").show();
 );
 $("#editb").click(function()
 {
+$("#bigmid").css("background-color","lightgray");
 $("#2").fadeTo("fast",0.1);
 $("#edit_b").show();
 
@@ -72,6 +30,7 @@ $("#edit_b").show();
 
 $("#edite").click(function()
 {
+$("#bigmid").css("background-color","lightgray");
 $("#2").fadeTo("fast",0.1);
 $("#edit_e").show();
 
@@ -82,7 +41,15 @@ $("#close").click(function()
 {
 $("#edit_contact").hide();
 $("#2").css("opacity","5");
+$("#bigmid").css("background-color","white");
 
+}
+);
+$("#close5").click(function()
+{
+$("#new_contact").hide();
+$("#2").css("opacity","5");
+$("#bigmid").css("background-color","white");
 
 }
 );
@@ -91,8 +58,8 @@ $("#close1").click(function()
 {
 
 $("#edit_i").hide();
-$("#2").css("opacity","5");
-
+$("#2").css("opacity","1");
+$("#bigmid").css("background-color","white");
 
 }
 );
@@ -101,8 +68,8 @@ $("#close2").click(function()
 {
 
 $("#edit_w").hide();
-$("#2").css("opacity","5");
-
+$("#2").css("opacity","1");
+$("#bigmid").css("background-color","white");
 
 }
 );
@@ -111,8 +78,8 @@ $("#close3").click(function()
 {
 
 $("#edit_e").hide();
-$("#2").css("opacity","5");
-
+$("#2").css("opacity","1");
+$("#bigmid").css("background-color","white");
 
 }
 );
@@ -121,11 +88,24 @@ $("#close4").click(function()
 {
 
 $("#edit_b").hide();
-$("#2").css("opacity","5");
-
+$("#2").css("opacity","1");
+$("#bigmid").css("background-color","white");
 
 }
 );
+
+$("#adde").click(function test(){
+$("#tb").append("<br><b> Insitute </b><br><input type='text' ><br><b> Start Date</b><br><input type='text'  id='i'><br><b> End Date</b><br><input type='text' id='e'><br><b>University</b><br><input type='text' id='u' role='button'>");
+$("#i").datepicker({
+        dateFormat : 'yy-mm-dd'
+    });
+
+$("#e").datepicker({
+        dateFormat : 'yy-mm-dd'
+    });
+
+});
+
 
 $("#dob").datepicker({
         dateFormat : 'yy-mm-dd'
@@ -143,4 +123,12 @@ $("#istart").datepicker({
 $("#iend").datepicker({
         dateFormat : 'yy-mm-dd'
     });
+
+$("#addContact").click(function(){
+ 
+    $("#new_contact").show();
+    $("#2").fadeTo("fast",0.1); 
+    $("#bigmid").css("background-color","lightgray");
 });
+});
+

@@ -1,36 +1,47 @@
-
-
 <div id="bigmid">
-<br /> <br /> <br /> <br /> <br /> <br /> 
 
-<div id="1" class="leftarrowdiv" >
-Home
-</div>
-
+<?php print_r($arrData);?>
 <!--edit Contact code goes here-->
 <div id="edit_contact" name="edit_contact" >
      <div id="editchead" >Contact Information <span id="close"> X</span></div>
    
    <div id="innerc">
-   <form method="post" action="">
+   <form method="get" action="" id="contactform">
    
-   
-    <b>House No </b>  <br><input type="text" id="ehno" name="ehno" width="50px"
-     value= <?PHP echo $arrData['address']['house_number']  ?>  />
+     <b>House No </b>  <br><input type="text" id="ehno" name="ehno" width="50px"
+     value= <?PHP echo $arrData['address']['house_number']  ?>>
    <br><b>Street No</b>  <br> <input type="text" id="estreetNo"
-  name="estreetNo" value= <?PHP echo $arrData['address']['street_number']  ?> />
+  name="estreetNo" value= <?PHP echo $arrData['address']['street_number']  ?> >
  <br><b>Street Name</b> <br><input type="text" id="estreetName"
-    name="estreetName" value=<?PHP echo $arrData['address']['street_name']  ?>  />
+    name="estreetName" value=<?PHP echo $arrData['address']['street_name']  ?>>
  <br><b>City</b>  <br> <input type="text" id="ecity"
-    name="ecity" value=<?PHP echo $arrData['address']['city']  ?>  />
+    name="ecity" value=<?PHP echo $arrData['address']['city']  ?> >
  <br><b>State  </b> <br><input type="text" id="estate" name="estate"
-    value=<?PHP echo $arrData['address']['state']  ?>  />
+    value=<?PHP echo $arrData['address']['state']  ?>  >
  <br><b>Country</b>  <br><input type="text" id="ecountry" name="ecountry" 
-    value= <?PHP echo $arrData['address']['country']  ?>  />
-   
-   <input type=hidden value=edit_Con name=url> 
+    value= <?PHP echo $arrData['address']['country']  ?> >
+     <input type=hidden value=edit_Con name=url> 
  <input type=hidden value=profile name=controller><br>
-  <input type="submit" id="submitCon" value="Save Me" name=submit  /> 
+  <input type="submit" id="submitCon" value="Save Me" name=submit > 
+  </form>
+
+</div>
+
+ </div>
+ <div id="new_contact" name="new_contact" >
+     <div id="editchead" >Contact Information <span id="close5"> X</span></div>
+   
+   <div id="innerc">
+   <form method="get" action="" >
+    <b>House No </b>  <br><input type="text" id="nehno" name="ehno" width="50px">
+   <br><b>Street No</b>  <br> <input type="text" id="nestreetNo" name="nestreetNo">
+ <br><b>Street Name</b> <br><input type="text" id="nestreetName" name="nestreetName">
+ <br><b>City</b>  <br> <input type="text" id="necity" name="necity">
+ <br><b>State  </b> <br><input type="text" id="nestate" name="nestate">
+ <br><b>Country</b>  <br><input type="text" id="necountry" name="necountry">
+     <input type=hidden value=new_Con name=url> 
+ <input type=hidden value=profile name=controller><br>
+  <input type="submit" id="submitCon1" value="Save Me" name=submit  /> 
 
    </form>
 
@@ -110,24 +121,26 @@ Relationship Status</b><select id="relationship" name="relationship">
   
     <b> Institute </b><br><input type="text" id="institute" name="institute"
                 value=<?PHP echo $arrData['education']['institute'];?>
-               ><br>
+              ><br>
     <b> Start Date</b> <br><input type="text" id="istart" name="istart"><br>
      <b>End Date </b><br><input type="text" id="iend" name="iend"><br>
      <b>University</b><br> <input type="text" id="university" name="university"
                 value=<?PHP echo $arrData['education']['university'];?> 
-                 ><br>   
-    <input type=hidden value=edu_up name=url> 
+                ><div id="sb"> </div><div id="tb"></div>
+             
+       <input type=hidden value=edu_up name=url> 
        <input type=hidden value=profile name=controller><br>
    <input type="submit" id="eInfo" name="eInfo" value="Save Me" />
+   <br><br><br>
    </form>
 </div>
  </div>
 
 <!--    Add education code ends here-->
- <!--  Main div for my profile  -->
+ <!--  Main div for   -->
  
 <div id="2" class="leftarrowdiv1"> 
-   My profile
+   
    <div id="me" name="me" class="m">
      About Me 
    <div id="details" >
@@ -155,12 +168,13 @@ Relationship Status</b><select id="relationship" name="relationship">
    Education
       
       <?PHP
-      if($arrData['education']['institute']==NULL)
-      {
-
-          echo "<br> <br>Add Education";
-
-      }
+     if( empty($arrData['education']['institute'])
+     || empty($arrData['education']['university'])
+       ) {
+       
+       echo "<br><span id='su'>No information to display</span>";
+    }  
+    
       else
       {
       echo "<br><span id='su'>Studied At </span><br>";
@@ -183,14 +197,22 @@ Relationship Status</b><select id="relationship" name="relationship">
 
 
     <?PHP 
-      echo "<br> <span id='lb'>Read </span> <span id='rb'>".$arrData['personal']['favourite_book'];
+    if( empty($arrData['personal']['favourite_book'])
+     || empty($arrData['personal']['favourite_movies'])
+     || empty($arrData['personal']['favourite_food'])
+      ) {
+       
+       echo "No information to display";
+    }  
+    else{
+    echo "<br> <span id='lb'>Read </span> <span id='rb'>".$arrData['personal']['favourite_book'];
       echo "</span><br>";
       echo "<span id='lb'> Movies </span>
             <span id='rb'> ".$arrData['personal']['favourite_movies']; 
        echo "</span><br>";
        echo " <span id='lb'> Food </span><span id='rb'>".$arrData['personal']['favourite_food']; 
         echo "</span><br>";
-
+  }
     ?>
 
     <br>
@@ -225,7 +247,20 @@ Relationship Status</b><select id="relationship" name="relationship">
    <div id="contactInfo" name="contactInfo" class="c">
        My Contact Info 
       
-      <?PHP 
+
+      <?PHP
+          if( empty($arrData['address']['house_number'])
+        ||empty($arrData['address']['street_number'])
+        ||empty($arrData['address']['street_name'])
+        ||empty($arrData['address']['city'])
+        ||empty($arrData['address']['country'])
+        ||empty($arrData['address']['state']
+          )
+       ) {
+       
+       echo "<br><span id='su'> No information to display</span>";
+    }  
+    else{
         echo "<br><br> <span id='lb'> Lives in </span><span id='rb'> ";
         echo $arrData['address']['house_number'];
        echo ",". $arrData['address']['street_name'];
@@ -233,29 +268,19 @@ Relationship Status</b><select id="relationship" name="relationship">
         echo "<br>". $arrData['address']['city'];
         echo " ,".$arrData['address']['country'];
          echo "</span>";
-
+ }
 
     ?>
   <br><br>
+     <input type="button" id="addContact" value="Add more contact">
+ 
      <a href="#" id="editc" name="editc"> Edit </a>
   </div> 
   
  
 </div>
 
-<!-- main div for my profile ends here  -->
-
- <!--div for pics  -->
- <div id="3" class="leftarrowdiv2">
-My friends
-</div>
-<div id="4" class="leftarrowdiv3">
-
-</div>
-
-
-
-
+<!-- main div for  ends here  -->
 
 </div>
 

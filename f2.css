@@ -1,22 +1,10 @@
-img
-{
-	height:85px;
-	width:85px;
-	margin-top: 0.5em;
-	
-}
 
 textarea
 {
 float:right;
 margin-right:15px;
 }
-ul
-{
-	list-style-type: none;
-	
-	
-}
+
 
 #editc{
 
@@ -69,12 +57,15 @@ position: relative;
 float: left;
 margin-left: 2px;
 margin-top: 10px;
-
+font-size: 16px;
+font-weight: bold;
 }
 #lb{
 float: left;
 text-align: left;
 margin-left: 4px;
+font-size: 16px;
+font-weight: bold;
 
 
 
@@ -85,86 +76,27 @@ float: right;
 
 
 }
-#tab-3
-{
-	
-	
-	margin-left:7em;
-	padding-left: 10em;
- 	position: relative;
-	
-}
-
-.leftarrowdiv{
-width:auto;
-min-height:inherit;/* min height of DIV should be set to at least 2x the width of the arrow*/
-
-background:white;
-
-border-color:#CCCCCC;
-padding:10px;
-position:relative;
-/*word-wrap:break-word;*/
--moz-border-radius:5px; /*add some nice CSS3 round corners*/
--webkit-border-radius:5px;
-border-radius:5px;
-/*margin-bottom:10em;*/
-border-style:solid;
-display:none;
-margin-top:-7em;
-
-
-}
-
-.leftarrowdiv:after{ /*arrow added to leftarrowdiv DIV*/
-/*content:'';
-display:block;
-position:absolute;
-right:30px; /*should be set to -border-width x 2 */
-/*top:10px;
-width:0;
-height:0;
-border-color: transparent transparent #CCCCCC transparent; /*border color should be same as div div background color*/
-/*border-style:inset;
-border-width: 15px;*/
-
-content:'';
-display:block;
-position:absolute;
-top:153px;
-left:-50px; /*should be set to -border-width x 2 */
-width:0;
-height:0;
-border-color: transparent white transparent transparent; /*border color should be same as div div background color*/
-border-style: solid;
-border-width: 25px;
-}
-
 .leftarrowdiv1{
 width:auto;
 min-height:inherit;/* min height of DIV should be set to at least 2x the width of the arrow*/
 background:white;
-border-color:#CCCCCC;
+border-color:white;
 padding:10px;
 position:relative;
-/*word-wrap:break-word;*/
 -moz-border-radius:5px; /*add some nice CSS3 round corners*/
 -webkit-border-radius:5px;
 border-radius:5px;
-/*margin-bottom:10em;*/
 border-style:solid;
-display:none;
-margin-top:-7em;
-
-
+margin-top:-0.2em;
+margin-right: 0px;
+overflow: none;
 }
 
 .leftarrowdiv1:after{ /*arrow added to leftarrowdiv DIV*/
-
 content:'';
 display:block;
 position:absolute;
-top:248px;
+top:50px;
 left:-50px; /*should be set to -border-width x 2 */
 width:0;
 height:0;
@@ -173,73 +105,19 @@ border-style: solid;
 border-width:25px;
 }
 
-.leftarrowdiv2{
-width:auto;
-min-height:500px;/* min height of DIV should be set to at least 2x the width of the arrow*/
-
-background:white;
-
-border-color:#CCCCCC;
-padding:10px;
-position:relative;
-/*word-wrap:break-word;*/
--moz-border-radius:5px; /*add some nice CSS3 round corners*/
--webkit-border-radius:5px;
-border-radius:5px;
-/*margin-bottom:10em;*/
-border-style:solid;
-display:none;
-margin-top:-7em;
+#eInfo,#bInfo,#subInfo,#submitCon{
+float: right;
+margin-right: 5px;
+font-size: 14px;
+height: 25px;
+background-color:#498af2;
+color:white;
+border:none;
+cursor: pointer;
+border-radius: 2px;
 
 
-}
 
-.leftarrowdiv2:after{ /*arrow added to leftarrowdiv DIV*/
-
-content:'';
-display:block;
-position:absolute;
-top:328px;
-left:-50px; /*should be set to -border-width x 2 */
-width:0;
-height:0;
-border-color: transparent white transparent transparent; /*border color should be same as div div background color*/
-border-style: solid;
-border-width: 25px;
-}
-.leftarrowdiv3{
-width:auto;
-min-height:500px;/* min height of DIV should be set to at least 2x the width of the arrow*/
-max-height: auto;
-background:white;
-
-border-color:#CCCCCC;
-padding:10px;
-position:relative;
-/*word-wrap:break-word;*/
--moz-border-radius:5px; /*add some nice CSS3 round corners*/
--webkit-border-radius:5px;
-border-radius:5px;
-/*margin-bottom:10em;*/
-border-style:solid;
-display:none;
-margin-top:-7em;
-
-
-}
-
-.leftarrowdiv3:after{ /*arrow added to leftarrowdiv DIV*/
-
-content:'';
-display:block;
-position:absolute;
-top:395px;
-left:-50px; /*should be set to -border-width x 2 */
-width:0;
-height:0;
-border-color: transparent white transparent transparent; /*border color should be same as div div background color*/
-border-style: solid;
-border-width: 25px;
 }
 #home,#profile,#friend,#pics,#edit
 {
@@ -247,12 +125,6 @@ height:50px;
 width:50px;
 margin-top:2em;
 }
-
-
-#tabs .tabs-spacer { float: left; height: 200px; }
-.tabs-bottom .ui-tabs-nav { clear: left; padding: 0 .2em .2em .2em; }
-.tabs-bottom .ui-tabs-nav li { top: auto; bottom: 0; margin: 0 .2em 1px 0; border-bottom: auto; border-top: 0; }
-.tabs-bottom .ui-tabs-nav li.ui-tabs-active { margin-top: -1px; padding-top: 1px; }
 
 
 #me
@@ -289,13 +161,8 @@ position:relative;
 }
 
 #spp{
-
 	text-align: left;
 margin-left: 5px;
-
-
-
-
 }
 #sspp{
 margin-left: 40%;
@@ -304,21 +171,18 @@ padding-left: 5px;
 padding: 5px;
 font-size: 14px;
 font-style: italic;
-
-
 }
 #t{
 font-size: 16px;
 padding-left:2px;
 margin-left: 2px; 
-
 }
 
 #myfav
 {
 margin-top: 75%;
 margin-left:26%;
-height:150px;
+height:auto;
 width:300px;
 padding-top: 17px;
 padding-right: 20px;
@@ -329,8 +193,6 @@ border-radius:3px;
 text-align: center;
 font-family:Geneva, Arial, Helvetica, sans-serif;
 font-size:20px;
-
-
 }
 
 .m{
@@ -346,7 +208,6 @@ position:relative;
 }
 
 #dob{
-
 	height: 15px;
 	width: 150px;
 }
@@ -355,7 +216,7 @@ position:relative;
 {
 margin-top:1.5em;
 margin-left:2%;
-height:180px;
+height:auto;
 width:300px;
 padding-top: 17px;
 padding-right: 20px;
@@ -387,7 +248,7 @@ position:relative;
 {
 margin-top:1.5em;
 margin-right:1em;
-height:180px;
+height:auto;
 width:300px;
 padding-top: 17px;
 padding-right: 40px;
@@ -420,7 +281,7 @@ width: 415px;
 {
 margin-top:1.5em;
 margin-left:2%;
-height:180px;
+height:auto ;
 width:300px;
 padding-top: 17px;
 padding-right: 20px;
@@ -454,7 +315,7 @@ width: 415px;
 {
 margin-top:1.5em;
 margin-right:1em;
-height:180px;
+height:auto;
 width:300px;
 padding-top: 17px;
 padding-right: 40px;
@@ -494,7 +355,7 @@ color:#fff;
 
 }
 
-#edit_contact
+#edit_contact,#new_contact
 {
 min-height:500px;
 height:auto;
@@ -504,23 +365,6 @@ margin:0px auto;
 display:none;
 border-radius:20px;
 -webkit-border-radius: 20px;
-
-
-/*border-top-color:#fbcb43;
-border-top-width:55px;
-border-top-style:solid;*/
-/*;
-/*margin-top:1.5em;
-padding-top: 17px;
-padding-right: 40px;
-padding-bottom: 15px;
-
-
-
-
-font-family:Geneva, Arial, Helvetica, sans-serif;
-font-size:20px;
-margin-left:20%;*/
 }
 #editchead {
 	
@@ -532,13 +376,8 @@ margin-left:20%;*/
 	border-radius-top:20px;
 
 }
-
-
-
-
 #edit_i
 {
-
 min-height:350px;
 height:auto;
 width:400px;
@@ -547,14 +386,10 @@ margin:0px auto;
 display:none;
 border-radius:20px;
 -webkit-border-radius: 20px;
-
 }
 
 #editihead
-{
-
-
-	width:auto;
+{	width:auto;
 	padding:10px;
 	height:30px;
 	background-color:#bc5679;
@@ -573,24 +408,18 @@ margin:0px auto;
 display:none;
 border-radius:20px;
 -webkit-border-radius: 20px;
-
 }
 #editbhead
-{
-
-
-	width:auto;
+{	width:auto;
 	padding:10px;
 	height:30px;
 	background-color:#bc5679;
 	font-size:1.4em;
 	border-radius-top:20px;
-
 }
 	
-	#edit_w
+#edit_w
 {
-
 min-height:380px;
 height:auto;
 width:400px;
@@ -601,12 +430,9 @@ border-radius:20px;
 -webkit-border-radius: 20px;
 
 }
-
 #editwhead
 {
-
-
-	width:auto;
+    width:auto;
 	padding:10px;
 	height:30px;
 	background-color:rgb(228, 111, 97);
@@ -614,16 +440,12 @@ border-radius:20px;
 	border-radius-top:20px;
 
 }
-
 #innerw{
-
 font-size: 18px;
 margin-top: 4px;
 margin-left: 10px;
-
 }
 #innerb{
-
 font-size: 18px;
 margin-top: 10px;
 margin-left: 10px;
@@ -646,8 +468,6 @@ padding-top: 0px;
 }
 #edit_e
 {
-
-min-height:380px;
 height:auto;
 width:400px;
 background-color:#FFF;
@@ -658,11 +478,9 @@ border-radius:20px;
 
 }
 #innere{
-
 margin-left: 10px;
 font-size: 18px;
 margin-top: 2px;
-
 }
 
 #innerc{
@@ -674,20 +492,14 @@ margin-top: 2px;
 
 #editehead
 {
-
-
-	width:auto;
+width:auto;
 	padding:10px;
 	height:30px;
 	background-color:rgb(118, 167, 250);
 	font-size:1.4em;
 	border-radius-top:20px;
-
 }
-
-
-
-#close
+#close,#close1,#close2,#close3,#close4,#close5
 {
 float:right ;
 font-weight: bold;
@@ -696,49 +508,4 @@ cursor: pointer;
 margin-top:0.5px;
 font-size:16px;
 
-}
-
-#close1
-{
-float:right ;
-font-weight: bold;
-font-family: sans-serif;
-cursor: pointer;
-margin-top:0.5px;
-font-size:16px;
-		
-
-}
-
-#close2
-{
-float:right ;
-font-weight: bold;
-font-family: sans-serif;
-cursor: pointer;
-margin-top:0.5px;
-font-size:16px;
-
-}
-
-#close3
-{
-float:right ;
-font-weight: bold;
-font-family: sans-serif;
-cursor: pointer;
-margin-top:0.5px;
-font-size:16px;
-
-
-}
-
-#close4
-{
-float:right ;
-font-weight: bold;
-font-family: sans-serif;
-cursor: pointer;
-margin-top:0.5px;
-font-size:16px;
 }

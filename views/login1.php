@@ -10,19 +10,19 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 <body>
 	<div id="tittle"></div>
 	<div id="wrapper">
-		<form id="side-1" class="flip" method="get" action="index.php">
+		<form id="side-1" onsubmit="return valid1()" class="flip" method="get" action="index.php">
 
 			<div id="1">
 				<h2> <?php echo LOGIN; ?> </h2>
-				<input type="text" name="user_name" id="user_name" autocomplete="off"
-					placeholder="User Name" onblur="return  valid_uname1()" /> <span
-					id="r11" name="r11"> <img src="data/rcs/r.png" height="30px"
-					width="30px" /></span><span id="w11"> <img src="data/rcs/w.png"
-					height="30px" width="30px" />
-				</span><span id="e11" name="e11"> </span> <br /> <br /> 
-				  <input
-					type="password" name="password" id="password"
-					 placeholder="Password" onblur="return  valid_password1()" /> <span
+			<input type="text" name="user_name" id="user_name" autocomplete="off"
+				placeholder="User Name" onblur="return  valid_uname1()" /> <span
+				id="r11" name="r11"> <img src="data/rcs/r.png" height="30px"
+				width="30px" /></span><span id="w11"> <img src="data/rcs/w.png"
+				height="30px" width="30px" />
+			</span><span id="e11" name="e11"> </span> <br /> <br /> 
+			  <input
+			type="password" name="password" id="password"
+			placeholder="Password" onblur="return  valid_password1()" /> <span
 					id="r12" name="r12"> <img src="data/rcs/r.png" height="30px"
 					width="30px" /></span><span id="w12"> <img src="data/rcs/w.png"
 					height="30px" width="30px" />
@@ -35,7 +35,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 		</form>
 
 		<form id="side-2" class="flip" method="post" name="side-2"
-			onsubmit=" <!-- return valid() -->" action="index.php">
+			onsubmit=" return valid() " action="index.php">
 			<div id="2">
 				<h2>Signup with your email....</h2>
 

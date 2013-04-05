@@ -63,7 +63,7 @@ if (! empty ( $arrData )) {
  	                        		  placeholder="Post Comment..." />';
         echo '<input type="button" id="' . $row ['buzz'] ['buzz_id'] . '"
 
- 	                       	value="Comment" name=submit onclick=setComment(this.id) class="submit"> ';
+ 	       	value="Comment" name=submit onclick=setComment(this.id) class="submit"> ';
         
         echo "<hr>";
         $count ++;

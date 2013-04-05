@@ -183,6 +183,37 @@ class personalprofile extends DbConnection {
             return false;
         }
     }
+
+    function insertCon($arrArgs = array()){
+        $ob = new DbConnection ();
+
+        $id = $_SESSION ['id'];
+        echo $id;
+        $house_number = $arrArgs ['houseNumber'];
+        $street_number = $arrArgs ['street_number'];
+        $street_name = $arrArgs ['street_name'];
+        $city = $arrArgs ['city'];
+        $state = $arrArgs ['state'];
+        $country = $arrArgs ['country'];
+        $data = array (
+                "house_number" => "$house_number",
+                "street_number" => "$street_number",
+                "street_name" => "$street_name",
+                "state" => "$state",
+                "city" => "$city",
+                "country" => "$country" ,
+                'user_id' => "$id" 
+        );
+       
+       
+     $result=$this->db->insert("address",$data); 
+     if($result && $result->rowCount() > 0) {
+         return true;
+     } else {
+         return false;
+     }
+
+    }
     function up_E($arrArgs = array()) {
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
