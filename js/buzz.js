@@ -22,20 +22,39 @@ $.ajax({
 };
 loadBuzz();
 
+$("#buzzloadmore").hover(function(){
+    loadMore();
+});
+
+//update Buzz
 $("#subuzz").click(function(){
 
 var buzztext=$("#buzztext").val();
-    $("#abc").html("<br/>").show();
-    $("#abc").load("index.php","controller=status&url=buzzUpdate&buzztext="+buzztext);//.fadeOut("veryslow");
-    $("#statusShow").load("index.php","controller=status&url=displaybuzz");
+      $("#abc").load("index.php","controller=status&url=buzzUpdate&buzztext="+buzztext);//.fadeOut("veryslow");
+      $("#statusShow").load("index.php","controller=status&url=displaybuzz");
+      $("#buzztext").val(" ");
+   //   $("#buzztext").prop("placeholder","Updated Status");
 });
 
-
-
-
-
+var i=8;
 
 });
+function loadMore() {
+ //   $("#statusShow").load("index.php","controller=status&url=displaybuzz");
+//alert(i);
+    $.ajax({
+        url:'index.php', //window.location.pathname,
+        type: 'GET',
+        data: 'controller=status&url=displaybuzz&limit='+i,
+            beforeSend:function(data){
+            //$(x).html("<img src='data/photo/load3.gif' alt='loading' >");                   
+            },
+            success:function(data) {
+                $("#statusShow").append(data);
+                i=i+8;
+            },
+    });
+}
 function loadDComment() {
     var a=$("#buzz_id").val();
    // alert(a);
@@ -55,16 +74,18 @@ function setComment(a){
                         $(x).html("<img src='data/photo/load3.gif' alt='loading' >");                   },
                         success:function(data) {
                             //load buzz after Insert
+                            $(b).val(" ");
                            $(x).load("index.php","controller=status&url=displaycomment&buzz_id="+a);
                         },
                 });
     }
 function buzzDelete(a) {
     alert(a);
-       
-    b="#buzz"+a;
-    $(b).slideUp("slow");
-    c="#buzzdel"+a;
-    $(c).html("Buzz Deleted");
-    $(c).load("index.php","controller=status&url=buzzDelete&buzz_id="+a);
+    if(confirm("Sure You want to Delete,\n It Wont Come Back!")) {   
+        b="#buzz"+a;
+        $(b).slideUp("slow");
+        c="#buzzdel"+a;
+        $(c).html("Buzz Deleted");
+        $(c).load("index.php","controller=status&url=buzzDelete&buzz_id="+a);
+    }
 }

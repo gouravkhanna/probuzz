@@ -6,17 +6,19 @@ class status extends Controller {
     }
     function buzz() {
         loadView("head/head1.php");
-
         $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 	    loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
 	    loadView("head/head2.php");
-        $url=explode("/",$_REQUEST['url']);
+
+	    $url=explode("/",$_REQUEST['url']);
         $arrArgs = array (
                 "id" => $_SESSION ["id"], 
                 "buzz_id"=>base64_decode($url[2]),
                );
+           echo "<div id=midpanel>";
            $arrData = loadmodel ( "buzzin", "loadSpecificBuzz", $arrArgs );
            loadView ( "midpanel/buzzdisplay.php", $arrData );
+           echo "</div>";
            loadView ( "rightpanel/rightpanel.php");
            loadView ( "footer/footer.php");
     }
@@ -57,8 +59,10 @@ class status extends Controller {
         // the stuff will be loaded only to specific divison only
     }
     function displayBuzz() {
+       
         $arrArgs = array (
-                "id" => $_SESSION ["id"] 
+                "id" => $_SESSION ["id"],
+                "limit"=>@$_REQUEST['limit'], 
         );
         $arrData = loadmodel ( "buzzin", "loadbuzz", $arrArgs );
         loadView ( "midpanel/buzzdisplay.php", $arrData );

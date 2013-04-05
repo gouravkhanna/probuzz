@@ -23,6 +23,13 @@ class buzzin extends DbConnection {
     
     function loadBuzz($arrArg = array()) {
         $id = $arrArg ['id'];
+        if(isset($arrArg ['limit']))
+        {
+            $limit=$arrArg ['limit'];
+        } else {
+            $limit=0;
+        }
+       
         $sql = "select b.user_id as id,b.id as buzz_id,b.buzztext,
         p.first_name,p.last_name,photo.path, b.buzz_time
         from 
@@ -40,7 +47,9 @@ class buzzin extends DbConnection {
         b.user_id in 
 	    (select f.friend_id from friend f
 	     where f.user_id='$id') ) )
-       	order by buzz_time desc";
+       	order by buzz_time desc
+        limit $limit,8
+        ";
         $result = $this->executeSQLP ( $sql );
         while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
             $row2 = array ();
@@ -68,11 +77,13 @@ class buzzin extends DbConnection {
             $data = array (
                     "user_id" => $id,
                     "buzztext" => "$buzztext" 
-            );            
+            );      
+                  
             $result = $this->db->insert ( "buzz", $data );
+           $lastId=$this->db->lastInsertId();
             if ($result && $result->rowCount () > 0) {
-                $this->executeSQLP ( "call addNotification('
-                        " . $_SESSION ['id'] . "','0','" . $_SESSION ['id'] . "
+                $this->executeSQLP ( "call addNotification(
+                        '" . $id . "','0','" . $lastId . "
                         ',now(),'" . $buzztext . "')" ) 
                 or die ( mysql_error () );
                 return true;
@@ -141,7 +152,7 @@ class buzzin extends DbConnection {
             $data = array (
                     "user_id" => "$id",
                     "buzz_id" => "$buzz_id",
-                    "comment_text" => "$comment_text" 
+                    "comment_text" =>"$comment_text" 
             );
             $result = $this->db->insert ( "comment", $data );
             if ($result && $result->rowCount () > 0) {

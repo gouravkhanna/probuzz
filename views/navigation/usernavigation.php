@@ -1,7 +1,8 @@
 <div id="navigation">
 	<div id="photo">
-		<img class="photo" src="<?php echo $arrData['profile_pic_path']; ?>"
-			height="80" width="80"/> <span class="alignwelcome"> <?php echo WELCOME; ?> <br />
+		<img id="profilepic" title="<a >dsad</a>" 
+		class="photo" src="<?php echo $arrData['profile_pic_path']; ?>"
+			height="80" width="80"/> <span class="alignwelcome" > <?php echo WELCOME; ?> <br />
         <?php echo @$_SESSION['user_name']; ?>
         </span>
 	</div>

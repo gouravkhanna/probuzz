@@ -15,9 +15,11 @@
 
 		<div id="statusShow" name="statusShow">
 			<div id="commentShow"></div>
-		</div>
+			</div>
 	</div>
+	<button id="buzzloadmore" onclick="loadMore()">LOAD MORE</button>
 </div>
+
 <!-- END OF MID2 -->
 <script>
 $("#buzztext").click(function()

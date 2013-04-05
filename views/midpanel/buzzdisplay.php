@@ -1,4 +1,4 @@
-<div id="midpanel">
+<div id="buzzpanel"> 
 <?php
 
 $count = 1;
@@ -15,7 +15,9 @@ if (! empty ( $arrData )) {
         echo "<img class='round5' src='" .ROOTPATH. $pa . "' height='50px' width='50px'/></a></div>";
         echo '<div id="statusName' . $count . '"class="statusName"> <a href="   ">';
         echo $row ['buzz'] ['first_name'] . " " . $row ['buzz'] ['last_name'] . "</a>";
-        echo "<span class='floatr marginr10 cursor1' onclick=buzzDelete('$buzzId')>X   </span>";
+        if( $row ['buzz'] ['id']==@$_SESSION['id']) {
+            echo "<span class='floatr marginr10 cursor1' onclick=buzzDelete('$buzzId')>X   </span>";
+        }
         echo "<span class='date' title='".date('H:i:A',$date)."'>" . date ( 'D-M-Y', $date ) . "</span></div>";
         echo '<div id="statusText' . $count . '"class="statusText">' . $row ['buzz'] ['buzztext'];
         echo "<a href='".ROOTPATH."status/buzz/".base64_encode($buzzId)."' class='floatr marginr10 cursor1' >link</a>";
@@ -63,7 +65,6 @@ if (! empty ( $arrData )) {
 } else {
     echo "NO Buzz To display";
 }
+
 ?>
 </div>
-<script>
-</script>

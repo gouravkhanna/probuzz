@@ -129,6 +129,19 @@ ul.n a:hover, ul.n a.selected {
 	border-radius: 20px;
 	
 }
+#buzzpanel {
+	margin-top: 8px;
+/*	  background-color: #dfdfdf; */
+	background-color: #FFFFFe;
+	height:auto;
+	width: 582px;
+	float: left;
+	margin-right: 5px;
+	overflow:visible;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	
+}
 
 #mid {
 	padding: 5px;
