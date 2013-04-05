@@ -261,9 +261,14 @@ function commentDelete($arrArg = array()) {
             $row2 = $this->loadComment ( array (
                     "buzz_id" => $buzzId
             ), true );
+            $row3=$this->loadLike( array (
+                    "id"=>$id,
+                    "buzz_id" => $buzzId
+            ));
             $buzz [] = array (
                     "buzz" => $row,
-                    "comment" => $row2
+                    "comment" => $row2,
+                    "like"=>$row3,
             );
             $row = array ();
         }
