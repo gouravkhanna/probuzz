@@ -36,7 +36,7 @@ class status extends Controller {
     function commentDelete() {
         $result = loadModel ( "buzzin", "commentDelete", array (
                 "id" => @$_SESSION ['id'],
-                "comment_id" => base64_decode($_REQUEST ['comment_id']),
+                "comment_id" => $_REQUEST ['comment_id'],
         ) );
         if ($result = true) {
             echo "Comment Deleted";

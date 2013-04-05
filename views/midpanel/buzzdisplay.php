@@ -29,7 +29,7 @@ if (! empty ( $arrData )) {
             $c = 1;
             echo "<br>";
             if (is_array ( $value )) {
-                $commentId=base64_encode($value['id']);
+                $commentId=$value['id'];
                 echo '<div id=commentdel' . $commentId.'></div>';
                 echo '<br><div id="cmmnt' . $commentId . '"class="comments"><span class="x">';
                 echo "<img class='round5 imgcenterm' src='" .ROOTPATH. $value ['path'] . "' height='30px' width='30px'/>";
