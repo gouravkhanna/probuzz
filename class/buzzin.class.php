@@ -153,5 +153,40 @@ class buzzin extends DbConnection {
             return false;
         }
     }
+    function loadSpecificBuzz($arrArg = array()) {
+        $id = $arrArg ['id'];
+        $sql = "select b.user_id as id,b.id as buzz_id,b.buzztext,
+        p.first_name,p.last_name,photo.path, b.buzz_time
+        from
+        buzz b
+        join personal_profile p
+            on p.user_id=b.user_id
+        join photo
+            on photo.id=p.profile_pic_id
+         where
+        (
+        b.buzz_status='0' AND 
+        b.id='".$arrArg['buzz_id']."') ";
+        $result = $this->executeSQLP ( $sql );
+        while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
+            $row2 = array ();
+            $buzzId = $row ['buzz_id'];
+            $row2 = $this->loadComment ( array (
+                    "buzz_id" => $buzzId
+            ), true );
+            $buzz [] = array (
+                    "buzz" => $row,
+                    "comment" => $row2
+            );
+            $row = array ();
+        }
+      
+        if (isset ( $buzz )) {
+            return $buzz;  
+        } else {
+             return false;  
+        }
+        
+    }
 }
 ?>
