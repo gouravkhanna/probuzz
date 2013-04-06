@@ -1,71 +1,33 @@
-<!-- <div id="sendmessage"> -->
+<div id="bigmid">
+<
+	<input id="tags">
+	<input id="tags1">
+	<input type='hidden' name='f' id='friendz' value= >"
+	<img id="imgpr" src="images/transparent_1x1.png" class="ui-state-default" alt="" />
+ 	<textarea id="message_text" name="message_text"></textarea> 
+ 	<button id="submitmessage" onclick="insertMessage()">Send A Message</button>
 
-<!-- 	<textarea id="message_text" name="message_text"></textarea> -->
-<!-- 	<button id="submitmessage" onclick="insertMessage()"></button>
-	
-<!-- </div> -->
-<input id="tags">
-<script>
-$(function() {
-    var aa = [
-                         "ActionScript",
-                         "AppleScript",
-                         "Asp",
-                         "BASIC",
-                         "C",
-                         
-                       ];
+</div>
 
-//    $( "#tags" ).autocomplete({
- //       source: aa,//'http://localhost/probuzz/trunk/user/aac',
- $( "#tags" ).autocomplete({
-      source: function( request, response ) {
-        $.ajax({
-          url: "http://localhost/probuzz/trunk/user/aac",
-          dataType: "jsonp",
-          data: {
-            featureClass: "P",
-            style: "full",
-            maxRows: 12,
-            name_startsWith: request
-          },
-          success: function( data ) {
-            
-            }));
-          }
-        });
-      },
-        /*select: function(event, ui) {
-           $('#tags').val(ui.item.first_name);
-               } */
-      });
-
-
-    
-    /*
-var data1;    
-    $.ajax({
-        url:'index.php', //window.location.pathname,
-        type: 'GET',
-        data: 'controller=user&url=aac',
-    //    dataType: 'json',
-        	beforeSend:function(data){
-        		//$("#statusShow").html("<img src='data/photo/load3.gif' alt='loading' >");		        
-        			},
-        	success:function(data) {
-        	    alert(data);
-        	    var availableTags = data.first_name;
-        	//    data1=jquery.parseJSON(data);
-        	    
-        	  //      alert(data1);
-        	    $( "#tags" ).autocomplete({
-        	        source: data
-        	      });
-        	},
-	});
-   
-    	
-   
-         */
-  }); 
+  <script>
+  $(function() {
+    function log( message ) {
+      $( "<div>" ).text( message ).prependTo( "#log" );
+      $( "#log" ).scrollTop( 0 );
+    }
+ 
+    $( "#tags" ).autocomplete({
+      source: "http://localhost/probuzz/trunk/user/loadc",
+      minLength: 1,
+      select: function( event, ui ) {
+        log( ui.item ?
+          "Selected: " + ui.item.value + " aka " + ui.item.id :
+          "Nothing selected, input was " + this.value );
+        $( "#friendz" ).val( ui.item.id );
+          $( "#tags1" ).val( ui.item.id );
+        $( "#imgpr" ).attr( "src", ui.item.path );
+      }
+    });
+  });
+  
 </script>

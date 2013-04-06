@@ -134,10 +134,30 @@ class user extends controller {
         );
         $result = loadModel ( "messaging", "messageSeen", $arrArg );
     }
-    function aac() {
-      $arrData=loadModel("friend","showfriend",array("id"=>@$_SESSION['id']));
-     //       $arrData=array("s","1","2","3");
-        return json_encode($arrData);
+    function createMessage() {
+    	loadView("head/head1.php");
+    	$path = loadModel ( "users", "getProfilePic", array (
+    			'id' => $_SESSION ['id']
+    	) );
+    loadView ( "navigation/usernavigation.php", array (
+                'profile_pic_path' => $path 
+        ) );
+    	loadView("message/createmessage.php");
+    	 
+    }
+  
+    function loadc() {
+    	$arrData=loadModel("friend","showfriend",array("id"=>@$_SESSION['id']));
+	    foreach ($arrData as $key) {
+  		  	$row['value']=$key['first_name']." ".$key['last_name'];
+  		  	$row['id']=$key['id'];
+    		$row['path']=$key['path'];
+    	
+    		$row_set[] = $row;
+    	   }
+    	
+    	echo json_encode($row_set);
+    	
     }
 }
 
