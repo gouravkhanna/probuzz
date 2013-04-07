@@ -54,6 +54,15 @@ $("#bigmid").css("background-color","white");
 }
 );
 
+$("#close6").click(function()
+        {
+        $("#new_education").hide();
+        $("#2").css("opacity","5");
+        $("#bigmid").css("background-color","white");
+
+        }
+        );
+
 $("#close1").click(function()
 {
 
@@ -123,6 +132,13 @@ $("#istart").datepicker({
 $("#iend").datepicker({
         dateFormat : 'yy-mm-dd'
     });
+$("#addEducation").click(function(){
+     
+    $("#new_education").show();
+    $("#2").fadeTo("fast",0.1); 
+    $("#bigmid").css("background-color","lightgray");
+});
+
 
 $("#addContact").click(function(){
  

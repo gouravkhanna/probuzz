@@ -59,13 +59,18 @@ class personalprofile extends DbConnection {
                 'city',
                 'state',
                 'district',
-                'country' 
+                'country' ,
+                'id'
         );
         $data ['conditions'] = array (
                 'user_id' => "$id" 
         );
         $res2 = $this->db->select ( $data );
-        $row2 = $res2->fetch ( PDO::FETCH_ASSOC );
+        while ($row2[] = $res2->fetch ( PDO::FETCH_ASSOC ))
+        {
+            
+            
+        }
         
         /*
          * $sql3="SELECT institute ,university from qualification WHERE user_id='$id' ";
@@ -80,7 +85,10 @@ class personalprofile extends DbConnection {
                 'user_id' => "$id" 
         );
         $res3 = $this->db->select ( $data );
-        $row3 = $res3->fetch ( PDO::FETCH_ASSOC );
+       while ($row3[] = $res3->fetch ( PDO::FETCH_ASSOC )){
+        
+        
+       }
         $arrData = array (
                 'personal' => $row,
                 'experience' => $row1,
@@ -91,6 +99,7 @@ class personalprofile extends DbConnection {
         return $arrData;
     }
     function upCon($arrArgs = array()) {
+
         $ob = new DbConnection ();
         
         $id = $_SESSION ['id'];
@@ -100,6 +109,9 @@ class personalprofile extends DbConnection {
         $city = $arrArgs ['city'];
         $state = $arrArgs ['state'];
         $country = $arrArgs ['country'];
+        $pincode=$arrArgs['pincode'];
+        $district=$arrArgs['district'];
+        $i=$arrArgs['i'];
         /*
          * $sql = "UPDATE probuzz.address SET house_number='$house_number', street_number = '$street_number', street_name='$street_name', state='$state', city='$city', country='$country' WHERE user_id='$id'";
          */
@@ -110,13 +122,19 @@ class personalprofile extends DbConnection {
                 "street_name" => "$street_name",
                 "state" => "$state",
                 "city" => "$city",
-                "country" => "$country" 
+                "country" => "$country", 
+                "pincode"=>"$pincode",
+                "district"=>"$district",
+            
         );
+      
+        print_r($data);
         $where = array (
-                'user_id' => "$id" 
+                'user_id' => "$id",
+                "id"=>"$i",
         );
         
-        if ($this->db->update ( 'address', $data, $where )) {
+        if ($this->db->update ('address',$data, $where )) {
             echo "updated sucessfully";
             return true;
         } else {
@@ -135,7 +153,7 @@ class personalprofile extends DbConnection {
          * $sql="update probuzz.personal_profile set favourite_book='$favourite_book', favourite_movies='$favourite_movies', favourite_food ='$favourite_food' where user_id='$id'";
          */
         $data = array (
-                " favourite_book" => "$favourite_book",
+                "favourite_book" => "$favourite_book",
                 "favourite_movies" => "$favourite_movies",
                 "favourite_food" => "$favourite_food" 
         );
@@ -186,15 +204,15 @@ class personalprofile extends DbConnection {
 
     function insertCon($arrArgs = array()){
         $ob = new DbConnection ();
-
         $id = $_SESSION ['id'];
-        echo $id;
         $house_number = $arrArgs ['houseNumber'];
         $street_number = $arrArgs ['street_number'];
         $street_name = $arrArgs ['street_name'];
         $city = $arrArgs ['city'];
         $state = $arrArgs ['state'];
         $country = $arrArgs ['country'];
+        $pincode=$arrArgs['pincode'];
+        $district=$arrArgs['district'];
         $data = array (
                 "house_number" => "$house_number",
                 "street_number" => "$street_number",
@@ -202,6 +220,8 @@ class personalprofile extends DbConnection {
                 "state" => "$state",
                 "city" => "$city",
                 "country" => "$country" ,
+                "pincode"=>"$pincode",
+                "district"=>"$district",
                 'user_id' => "$id" 
         );
        
@@ -214,6 +234,38 @@ class personalprofile extends DbConnection {
      }
 
     }
+    
+    function insert_Education($arrArgs = array()){
+        $ob = new DbConnection ();
+        $id = $_SESSION ['id'];
+        $institute = $arrArgs ['institute'];
+        $start_year = $arrArgs ['start_year'];
+        $end_year = $arrArgs ['end_year'];
+        $university = $arrArgs ['university'];
+        $data = array (
+                "institute" => "$institute",
+                "start_year" => "$start_year",
+                "end_year" => "$end_year",
+                "university" => "$university",
+                "user_id"=>"$id", 
+        );
+    
+         
+        if ($this->db->insert ( 'qualification', $data)) {
+        echo "inserted sucessfully";
+        return true;
+        } else {
+        
+        echo "some problem is occured while updating. We will correct it soon. ";
+        return false;
+        } 
+        
+        
+        
+        
+        
+    }
+    
     function up_E($arrArgs = array()) {
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
