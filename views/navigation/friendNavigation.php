@@ -44,6 +44,6 @@
 		<div id="spamuser"></div>
        <span class='floatr marginr10 cursor1' onclick=markUserSpam('<?php echo @$_REQUEST['friendId'];?>')>
                   SpAM
-                    </span>"; 
+                    </span> 
      </div>	
    </div>

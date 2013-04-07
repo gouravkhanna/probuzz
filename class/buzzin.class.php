@@ -294,6 +294,7 @@ function markBuzzSpam($arrArg = array()) {
     if($res) {
         return "spam";
     } else {
+        $indata['spam_time']='now()';
         $result=$this->db->insert("spam",$indata);
         if($result && $result->rowCount() > 0) {
              return "newspam";

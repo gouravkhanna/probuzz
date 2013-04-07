@@ -124,6 +124,7 @@ $(document).ready(function(e) {
 	
 	
  	//$("button,a,input[type=submit]").button();
+    
 	$(".juiButton").button();
 	//$("#head2").css("text-align","center");
 //	$("#head2").html("<img src='data/header/h26.jpg'  />");
@@ -132,7 +133,6 @@ $(document).ready(function(e) {
 	$("#dabackbutton").hide();
 	$( document ).tooltip();
 	showSender();
-
 	$("#sendmessage").hide();
 	//setInterval (showMessage,1000);
 	
@@ -423,6 +423,7 @@ function showMessage(a) {
 	});
 	}
 }
+
 /////////////////////////////////////////////////////////////
 function jsCheckNumber(id) {
 	if(id!=undefined) {

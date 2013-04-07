@@ -473,6 +473,7 @@ class users extends DbConnection {
             return "spam";
         } else {
             $result=$this->db->insert("spam",$indata);
+            $indata['spam_time']='now()';
             if($result && $result->rowCount() > 0) {
                 return "newspam";
             } else {
