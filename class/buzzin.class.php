@@ -280,5 +280,27 @@ function commentDelete($arrArg = array()) {
         }
         
     }
+
+function markBuzzSpam($arrArg = array()) {
+    $indata=array(
+            "marked_by"=>$arrArg['id'],
+            "spam_id"=>$arrArg['buzz_id'],
+            "spam_type"=>'0',
+    );
+    $data["tables"]="spam";
+    $data['conditions']=$indata;
+    $sel=$this->db->select($data);
+    $res=$sel->fetch(PDO::FETCH_ASSOC);
+    if($res) {
+        return "spam";
+    } else {
+        $result=$this->db->insert("spam",$indata);
+        if($result && $result->rowCount() > 0) {
+             return "newspam";
+        } else {
+            return false;
+        }
+    }
+    }
 }
 ?>

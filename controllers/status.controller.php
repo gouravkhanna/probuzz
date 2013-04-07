@@ -27,7 +27,7 @@ class status extends Controller {
                 "id" => @$_SESSION ['id'],
                 "buzz_id" => $_REQUEST ['buzz_id'] 
         ) );
-        if ($result = true) {
+        if ($result == true) {
             echo "Buzz Deleted";
         } else {
             echo "Please Try Again! Later";
@@ -54,7 +54,7 @@ class status extends Controller {
                     "id" => @$_SESSION ['id'],
                     "buzz_id" => $_REQUEST ['buzz_id'],
                     ));
-        if ($result = true) {
+        if ($result == true) {
             echo "You & ".($result2['total_like']-1)." people like this";
         } else {
             echo "Please Try Again! Later";
@@ -126,6 +126,20 @@ class status extends Controller {
         } else {
             
             echo "Encountered a Problem Wait for a Second!";
+        }
+    }
+    function markBuzzSpam() {
+        echo "!";
+        $result = loadModel ( "buzzin", "markBuzzSpam", array (
+                "id" => @$_SESSION ['id'],
+                "buzz_id" => $_REQUEST ['buzz_id']
+        ) );
+        if ($result=="spam") {
+            echo "Already Marked Spam By You";
+        } else if($result == "newspam") {
+            echo "Marked Spam";
+        } else {
+            echo "Please Try Again! Later";
         }
     }
 }

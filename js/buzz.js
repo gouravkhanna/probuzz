@@ -90,9 +90,11 @@ function buzzDelete(a) {
         $(c).load("index.php","controller=status&url=buzzDelete&buzz_id="+a);
     }
 }
-
+function preConfirm(input,msg) {
+    $(input).html(msg);
+    $(input).append("are you sure <button>Yes</button><button>No</button>");
+}
 function commentDelete(a) {
-    alert(a);
     if(confirm("Sure You want to Delete,\n It Wont Come Back!")) { 
         b="#cmmnt"+a;
         $(b).slideUp("slow");
@@ -120,3 +122,21 @@ function buzzLike(a) {
     $(btn1).hide();
     $(btn2).show();
 }
+function markBuzzSpam(a) {
+    // alert(a);
+    if(confirm("Sure You want to Mark Spam,\n Review may Take time!")) { 
+        c="#buzzdel"+a;
+        $(c).html("Are You Sure!");
+        alert(a);
+        $(c).load("index.php","controller=status&url=markBuzzSpam&buzz_id="+a);
+      }   
+ }
+function markUserSpam(a) {
+    alert(a);
+    if(confirm("Sure You want to Mark Spam,\n Review may Take time!")) {
+        c="#spamuser";
+        $(c).html("Are You Sure!");
+        $(c).load("index.php","controller=user&url=markUserSpam&spam_id="+a);
+      }   
+ }
+

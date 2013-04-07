@@ -437,7 +437,28 @@ class users extends DbConnection {
             }
         }
     }
-   
+/* mark user Spam  */
+    function markUserSpam($arrArg = array()) {
+        $indata=array(
+                "marked_by"=>$arrArg['id'],
+                "spam_id"=>$arrArg['spam_id'],
+                "spam_type"=>'1',
+        );
+        $data["tables"]="spam";
+        $data['conditions']=$indata;
+        $sel=$this->db->select($data);
+        $res=$sel->fetch(PDO::FETCH_ASSOC);
+        if($res) {
+            return "spam";
+        } else {
+            $result=$this->db->insert("spam",$indata);
+            if($result && $result->rowCount() > 0) {
+                return "newspam";
+            } else {
+                return false;
+            }
+        }
+    }
     // Function for server side validation
     function validate($arrData = array()) {
         $ob = new DbConnection ();

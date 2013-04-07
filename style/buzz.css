@@ -159,3 +159,12 @@ clear: both;
 .visibley {
 	display: inline-block;
 }
+#showba11 {
+	height: 400px;
+	width: 400px;
+	margin: 0px auto;
+	background-color: blue;
+	border:2px black solid;
+	border-radius: 20px;
+	
+}

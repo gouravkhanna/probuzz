@@ -199,6 +199,20 @@ class user extends controller {
         }
         
     }
+    function markUserSpam() {
+        echo "!";
+        $result = loadModel ( "users", "markUserSpam", array (
+                "id" => @$_SESSION ['id'],
+                "spam_id" => $_REQUEST ['spam_id']
+        ) );
+        if ("spam"==$result) {
+            echo "Already Marked Spam By You";
+        } else if($result == "newspam") {
+            echo "Marked Spam";
+        } else {
+            echo "Please Try Again! Later";
+        }
+    }
 }
 
 ?>

@@ -17,6 +17,10 @@ if (! empty ( $arrData )) {
         echo $row ['buzz'] ['first_name'] . " " . $row ['buzz'] ['last_name'] . "</a>";
         if( $row ['buzz'] ['id']==@$_SESSION['id']) {
             echo "<span class='floatr marginr10 cursor1' onclick=buzzDelete('$buzzId')>X   </span>";
+        } else {
+            echo "<span class='floatr marginr10 cursor1' onclick=markBuzzSpam('$buzzId')>
+                  SPAM
+                    </span>";
         }
         echo "<span class='date' title='".date('H:i:A',$date)."'>" . date ( 'D-M-Y', $date ) . "</span></div>";
         echo '<div id="statusText' . $count . '"class="statusText">' . $row ['buzz'] ['buzztext'];
