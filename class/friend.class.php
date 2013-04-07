@@ -45,36 +45,7 @@ class friend extends DbConnection {
 			return false;
 		}
 	} 
-	function fetchName($arrArg=array()) {
-		
-		if($arrArg) {
-		//	$ob=new DbConnection();
-		//	$sql="select p.first_name,p.last_name 
-		//	        from personal_profile as p 
-	//		        join users as u 
-	//		        on u.user_id=p.user_id 
-	//		        where u.user_id=".$arrArg['id'].";";
-			$data['tables']="personal_profile as p";
-			$data['columns']=array("p.first_name","p.last_name");
-			$data['conditions']=array("u.user_id"=>$arrArg['id'],
-			        	);
-			$data ['joins'] [] = array (
-			        'table' => 'users as u ',
-			        'type' => 'INNER',
-			        'conditions' => array (
-			                "p.user_id" => "u.user_id"
-			        ));
-			 $result = $this->db->select ( $data ); 
-             $row = $result->fetch ( PDO::FETCH_ASSOC ) ;
-           //  $res=$ob->executeSQL($sql);
-		//	$row=mysql_fetch_array($res);
-			$result1=@$row['first_name']." ".@$row['last_name'];
-			return $result1;
-		} else {
-			//echo "No Id Passed..";
-			return false;
-		}
-	}
+
 	function fetchStatus($arrArg=array()) {
 		
 		if($arrArg) {

@@ -95,15 +95,22 @@
 .errorDiv {
     float: left;
 }
-#settingsDiv {
+#settingsDiv,#securityQuestionDiv,#deactivateAccount,#displaySecurityQuestionAnswers {
     padding:10px;
     margin-top:20px;
     margin-left: 20px;
     font-family: sans-serif;
 }
-#settingsDiv input {
+#settingsDiv input ,#securityQuestionDiv input{
 	margin:5px;
 }
-#userSettingsResponse {
+#userSettingsResponse,#securityQuestionResponse {
 	color: red;
+}
+.padding3 {
+	padding: 3px;
+}
+.margin5{
+	color:white;
+	margin-top:5px;
 }

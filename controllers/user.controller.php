@@ -192,12 +192,46 @@ class user extends controller {
             $flag=false;
         }
         if($flag) {
-            $result=loadModel("users","changePassword",$_REQUEST);
+            $result=loadModel("users","changePassword");
             echo $result;
         } else {
             echo $msg;    
         }
         
+    }
+    function deactivateAccount() {
+        echo "<script> alert('You Can Reactivate Your Account By Logging ".
+        "In Using The Same User Id And Password');</script>";
+        $result=loadModel("users","deactivateAccount");
+        if($result) {
+            unset($_SESSION['id']);
+            echo "<script>alert('Account Successfully Deactivated. Hope To See You Again..');".
+            "window.location.href='".ROOTPATH."index.php'; </script>";
+        } else {
+            echo "<script>alert('Error Occured While Performing Required Task.');".
+            "window.location.href='".ROOTPATH."index.php?controller=user&url=settings';</script>";
+        }
+    }
+    function setupSecurityQuestion() {
+        $msg="";
+        $flag=true;
+        if(!$_REQUEST['securityQuestion']) {
+            $msg.="Security Question Cannot Be Empty.<br/>";
+            $flag=false;
+        }
+        if(!$_REQUEST['securityAnswer']) {
+            $msg.="Answer Cannot Be Empty.<br/>";
+            $flag=false;
+        }
+        if($flag) {
+            $result=loadModel("users","setupSecurityQuestion");
+            echo $result;
+        } else {
+            echo $msg;
+        }
+    }
+    function fetchSecurityQuestions() {
+        $result=loadModel("users","fetchSecurityQuestions");
     }
     function markUserSpam() {
         echo "!";

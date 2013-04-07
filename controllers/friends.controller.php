@@ -21,7 +21,7 @@ class friends extends Controller
 			$arrData=array('id'=>$_REQUEST['friendId']);
 			$this->view->loadView('head/head1.php');
 			$path=loadModel("friend","getProfilePic",$arrData);
-			$friendName=loadModel("friend","fetchName",$arrData);
+			$friendName=loadModel("users","fetchName",$arrData);
 			loadView("navigation/friendNavigation.php",array('profile_pic_path' =>$path,'friend_name'=>$friendName,'id'=>$_REQUEST['friendId']));
 			$this->view->loadView('head/head2.php');
 			$this->view->loadView('midpanel/midpanel.php');
@@ -46,7 +46,7 @@ class friends extends Controller
 		$arrData=array('id'=>$id);
 		loadView('head/head1.php');
 		$path=loadModel("friend","getProfilePic",$arrData);
-		$friendName=loadModel("friend","fetchName",$arrData);
+		$friendName=loadModel("users","fetchName",$arrData);
 		if($id==$_SESSION['id']) {
 			loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
 		} else {
@@ -67,7 +67,7 @@ class friends extends Controller
 		$arrData=array('id'=>$id);
 		loadView('head/head1.php');
 		$path=loadModel("friend","getProfilePic",$arrData);
-		$friendName=loadModel("friend","fetchName",$arrData);
+		$friendName=loadModel("users","fetchName",$arrData);
 		loadView("navigation/friendNavigation.php",array('profile_pic_path' =>$path,'friend_name'=>$friendName,'id'=>$id));
 		$arrArg=loadModel("professionalprofile","retrieveData",$id);
 		$this->view->loadView('friendProProfile.php',$arrArg);

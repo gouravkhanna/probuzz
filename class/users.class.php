@@ -72,6 +72,27 @@ class users extends DbConnection {
             return $row ['user_name'];
         }
     }
+    function fetchName($arrArg=array()) {
+		if($arrArg) {
+			$data['tables']="personal_profile as p";
+			$data['columns']=array("p.first_name","p.last_name");
+			$data['conditions']=array("u.user_id"=>$arrArg['id'],
+			        	);
+			$data ['joins'] [] = array (
+			        'table' => 'users as u ',
+			        'type' => 'INNER',
+			        'conditions' => array (
+			                "p.user_id" => "u.user_id"
+			        ));
+			 $result = $this->db->select ( $data ); 
+             $row = $result->fetch ( PDO::FETCH_ASSOC ) ;
+        	$result1=@$row['first_name']." ".@$row['last_name'];
+			return $result1;
+		} else {
+			//echo "No Id Passed..";
+			return false;
+		}
+	}
     function getProfilePic($arrArg = array()) {
         $data ['tables'] = 'photo';
         $data ['columns'] = array (
@@ -526,6 +547,56 @@ class users extends DbConnection {
                         "Please Try Again Later.";
             }
         }
+    }
+    function deactivateAccount() {
+        $data=array();
+        $data["current_status"]="1";
+        $where=array(
+                "user_id"=>$_SESSION['id']
+        );
+        return $this->db->update ( "users", $data, $where );
+    }
+    function setupSecurityQuestion() {
+        $data=array(
+            "user_id"=>$_SESSION['id'],
+            "security_question"=>$_REQUEST['securityQuestion'],
+            "answer"=>$_REQUEST['securityAnswer']
+        );
+        $result=$this->db->insert("security_question",$data);
+        if($result) {
+            return "Security Question Added Successfully.";
+        } else {
+            return "Error Adding The Security Question.";
+        }
+    }
+    function fetchSecurityQuestions() {
+        $data['columns']=array(
+            "id",
+            "security_question",
+            "answer"
+        );
+        $data["tables"]="security_question";
+        $data["conditions"]=array(
+            "user_id"=>$_SESSION['id']
+        );
+        $temp=$this->db->select($data);
+        $result=array();
+        while($row=$temp->fetch(PDO::FETCH_ASSOC)) {
+            array_push($result,$row);
+        }
+        //echo "<pre>";
+        //print_r($result);
+        if($result) {
+            foreach($result as $key =>$value) {
+                echo "<div id=".$value['id']." class='highlight margin5 padding3'> ";
+                echo "Question  : ".$value['security_question']."<br/>";
+                echo "Answer    : ".$value['answer'];
+                echo "</div>";
+                
+            }
+            
+        }
+        
     }
 }
 

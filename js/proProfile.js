@@ -412,10 +412,58 @@ function stopUpload(success){
 }
 
 $(document).ready(function () {
+    $("#displaySecurityQuestionAnswers").load("index.php","controller=user&url=fetchSecurityQuestions");
+    $("#setSecurityQuestion").click(function(){
+        if(!$("#securityQuestion").val()) {
+            $("#securityQuestion").attr("placeholder","This Field Cannot Be Left Empty");
+            $("#securityQuestion").css("background-color","#cff993");
+            $("#securityQuestion").focus();
+            return false;
+        } else {
+            $("#securityQuestion").css("background-color","white");
+        }
+        if(onlySpacesA("securityQuestion")) {
+            $("#securityQuestion").attr("placeholder","Only Spaces Are Not Allowed");
+            $("#securityQuestion").css("background-color","#cff993");
+            $("#securityQuestion").focus();
+            return false;
+        } else {
+            $("#old_password").css("background-color","white");    
+        }
+        if(!$("#securityAnswer").val()) {
+            $("#securityAnswer").attr("placeholder","This Field Cannot Be Left Empty");
+            $("#securityAnswer").css("background-color","#cff993");
+            $("#securityAnswer").focus();
+            return false;
+        } else {
+            $("#securityAnswer").css("background-color","white");
+        }
+        if(onlySpacesA("securityAnswer")) {
+            $("#securityAnswer").attr("placeholder","Only Spaces Are Not Allowed");
+            $("#securityAnswer").css("background-color","#cff993");
+            $("#securityAnswer").focus();
+            return false;
+        } else {
+            $("#securityAnswer").css("background-color","white");    
+        }
+        $.ajax({
+            type: "GET",
+            url: "index.php",
+            data:$("#securityQuestionForm").serialize()+"&controller=user&url=setupSecurityQuestion",
+            success: function(msg){
+                $("#securityQuestion").val("");
+                $("#securityAnswer").val("");
+                $("#displaySecurityQuestionAnswers").load("index.php","controller=user&url=fetchSecurityQuestions");
+                
+            }
+        });
+        return true;
+    });
     $("#userSettingsSubmit").click(function () {
         if(!$("#old_password").val()){
             $("#old_password").attr("placeholder","This Field Cannot Be Left Empty");
             $("#old_password").css("background-color","#cff993");
+            $("#old_password").focus();
             return false;
         } else {
             $("#old_password").css("background-color","white");
@@ -423,6 +471,7 @@ $(document).ready(function () {
         if(onlySpacesA("old_password")) {
             $("#old_password").attr("placeholder","Only Spaces Are Not Allowed");
             $("#old_password").css("background-color","#cff993");
+            $("#old_password").focus();
             return false;
         } else {
             $("#old_password").css("background-color","white");    
@@ -430,6 +479,7 @@ $(document).ready(function () {
         if(!$("#new_password").val()) {
             $("#new_password").attr("placeholder","This Field Cannot Be Left Empty");
             $("#new_password").css("background-color","#cff993");
+            $("#new_password").focus();
             return false;
         } else {
             $("#new_password").css("background-color","white");
@@ -437,6 +487,7 @@ $(document).ready(function () {
         if(onlySpacesA("new_password")) {
             $("#new_password").attr("placeholder","Only Spaces Are Not Allowed");
             $("#new_password").css("background-color","#cff993");
+            $("#new_password").focus();
             return false;
         } else {
             $("#new_password").css("background-color","white");    
@@ -446,6 +497,7 @@ $(document).ready(function () {
             $("#new_password").val("");
             $("#new_password").attr("placeholder","Password Too Short");
             $("#new_password").css("background-color","#cff993");
+            $("#new_password").focus();
             return false;
         } else {
             $("#new_password").css("background-color","white");
@@ -454,6 +506,7 @@ $(document).ready(function () {
             $("#new_password_confirm").val("");
             $("#new_password_confirm").attr("placeholder","Typed Password Does Not Match");
             $("#new_password_confirm").css("background-color","#cff993");
+            $("#new_password_confirm").focus();
             return false;
         } else {
             $("#new_password_confirm").css("background-color","white");
@@ -462,9 +515,6 @@ $(document).ready(function () {
             type: "GET",
             url: "index.php",
             data:$("#userSettingsForm").serialize()+"&controller=user&url=changePassword",
-            beforeSuccess: function() {
-                $("#userSettingsResponse").fadeIn();    
-            },
             success: function(msg){
                 //alert( msg );
                 $("#userSettingsResponse").html(msg);
