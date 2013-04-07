@@ -74,16 +74,21 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 					height="30px" width="30px" />
 				</span> <span id="e3" name="e3"> </span> <br /> <input
 					type="password" name="confirm_pass" id="confirm_pass"
-					autocomplete="off" placeholder="Confirm Password"
+					autocomplete="off" placeholder="Confirm Password" role="button"
 					onblur="return  valid_password()" /> <span id="r4" name="r4"> <img
 					src="data/rcs/r.png" height="30px" width="30px" />
 				</span> <span id="w4" name="w4"> <img src="data/rcs/w.png"
 					height="30px" width="30px" />
-				</span><span id="e4" name="e4"> </span> <br />
-   <?php echo recaptcha_get_html($publickey);?>
-    <p>
+				</span><span id="e4" name="e4"> </span> <br /><br />
+				 <div id="captcha">
+                 <?php echo recaptcha_get_html($publickey);?>
+                 </div>
+             
+                 <div id="" >
+                   <p>
 					Already have an account? <a href="" id="login1"> Login </a>
 				</p>
+			</div>
 				<input type="submit" id="create" name="url" value="register" />
 			</div>
 		</form>
@@ -102,3 +107,10 @@ if(isset($arrData))
 	</div>
 </body>
 </html>
+<script >
+$("#confirm_pass").click(function(){
+$("#captcha").show();
+});
+
+
+</script>
