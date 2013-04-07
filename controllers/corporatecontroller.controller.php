@@ -81,15 +81,63 @@ function alotSlot() {
     }
     /* Will update all the Job details! */
     function updateSlot() {
-        foreach ( $_REQUEST as $key => $value ) {
-            if ($key != "controller" && $key != "url" && $key != "submit" && $key != "PHPSESSID")
-                $arrArg [$key] = $value;
+        $msg="";
+        $flag=true;
+        if(!$_REQUEST['designation']) {
+            $msg.="*Designation Can't Be Empty.<br/>";
+            $flag=false;
         }
-        $res = loadModel ( "corporate", "updateSlot", $arrArg );
-        if ($res = true) {
-            $this->createjobs ();
+        if(!$_REQUEST['start_date']) {
+            $msg.="*Start Date Can't Be Empty.<br/>";
+            $flag=false;
+        }
+        if(!$_REQUEST['last_date']) {
+            $msg.="*Last Date Can't Be Empty.<br/>";
+            $flag=false;
+        }
+        if($_REQUEST['start_date'] && $_REQUEST['last_date']) {
+            //$start=$_REQUEST['start_date'];
+            //$end=$_REQUEST['last_date'];
+            $tempflag=true;
+            /*    date format regular expression for yyyy-mm-dd    */
+            $reg="/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/";
+            
+            if(!preg_match($reg,$_REQUEST['start_date'])) {
+                $msg.="*Invalid Date Format For Start Date.<br/>";
+                $flag=false;
+                $tempflag=false;
+            }
+            if(!preg_match($reg,$_REQUEST['last_date'])) {
+                $msg.="*Invalid Date Format For End Date.<br/>";
+                $flag=false;
+                $tempflag=false;
+            }
+            if($tempflag) {
+                $start = DateTime::createFromFormat('Y-m-d', $_REQUEST['start_date']);
+                $end = DateTime::createFromFormat('Y-m-d',$_REQUEST['last_date'] );
+                $interval = $start->diff($end);
+                if($interval->format('%R%d')<0) {
+                    $flag=false;
+                    $msg.="*Start Date Can't Be Less Than End Date ";
+                }
+            }
+        }
+        if(!$flag) {
+            $_SESSION['error']=$msg;
+            header("location:".ROOTPATH."index.php?jobId=".$_REQUEST['jobId']."&url=showUpdateSlot");
         } else {
-            echo "Error";
+            foreach ( $_REQUEST as $key => $value ) {
+                if ($key != "controller" && $key != "url" && $key != "submit" && $key != "PHPSESSID")
+                    $arrArg [$key] = $value;
+                
+            }
+            $res = loadModel ( "corporate", "updateSlot", $arrArg );
+            if ($res = true) {
+                unset($_SESSION['error']);
+                $this->createjobs ();
+            } else {
+                echo "Error";
+            }
         }
     }
     /* Will update the status of the JOb Active or Inactive */

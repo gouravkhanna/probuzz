@@ -1,29 +1,108 @@
 // JavaScript Document
+function onlySpacesA(input,msg) {
+	input="#"+input;
+	str=$(input).val();
+	temp=str.replace(/\s/g,"");
+	if(temp.length<1) {
+		$(input).css("background-color","lightblue");
+		$(input).val('');
+		$(input).attr("placeholder",msg);
+		$(input).focus();
+		return true;
+	   }  else {
+			 return false;
+	}
+}
 $(document).ready(function(e) {
 	///////////////////////////////////////
 	//VALIDATIONS
 	///////////////////////////////////////
 	/*jobs.php*/
+    
+    function filterWhiteSpace(input) {
+        input="#"+input;
+        str=$(input).val();
+        $(input).val(str.replace(/\s\s+/g," "));
+        
+    }
+    
+
+    function correctDate(input,msg) {
+        input="#"+input;
+        str=$(input).val();
+        reg=/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/;
+        if(!reg.test(str)) {        
+            $(input).css("background-color","lightblue");
+            $(input).val('');
+            $(input).attr("placeholder",msg);
+            $(input).focus();
+            return false;
+       
+        }  else {
+            return true;
+        }
+    }
+    function dateDifference1(input1,input2,msg) {
+        input1="#"+input1;
+        input2="#"+input2;
+        start=$(input1).val();
+        end=$(input2).val();
+        diff=(new Date(end).getTime()-new Date(start).getTime())/(1000 * 3600 * 24);
+        if(diff>0) {
+            return true;
+        } else {
+            $(input2).css("background-color","lightblue");
+            $(input2).val('');
+            $(input2).attr("placeholder",msg);
+            $(input2).focus();
+            return false;
+        }
+    }
 	$("#createjobform").submit(function(){
-		if($("#designation").val()=="") {
-			alert("Designation Can't Be Empty");
-			$("#designation").focus();
-			return false;
+	    filterWhiteSpace("designation");
+	    filterWhiteSpace("location");
+	    filterWhiteSpace("role");
+	    filterWhiteSpace("experience");
+	    filterWhiteSpace("responsiblity");
+	    filterWhiteSpace("criteria");
+	    filterWhiteSpace("area_of_work");
+	    filterWhiteSpace("skills_required");
+	    filterWhiteSpace("contact_person");
+	    filterWhiteSpace("keywords");
+	    filterWhiteSpace("process_details");
+	    filterWhiteSpace("other_info");
+	    filterWhiteSpace("salary_range");
+
+	    
+		if(onlySpacesA("designation","Designation Can't Be Empty.")==true) {
+		    return false;
 		}
-		if($("#start_date").val()=="") {
-			alert("Start Date Can't Be Empty");
-			return false;
+		if(onlySpacesA("start_date","Start Date Can't Be Empty")) {
+		    return false;
 		}
-		if($("#last_date").val()=="") {
-			alert("last Date Can't Be Empty");
-			return false;
+		if(!correctDate("start_date","Invalid Format For Start Date")) {
+            return false;
+        }
+		if(!correctDate("last_date","Invalid Format For Last Date")) {
+            return false;
+        }
+		if(onlySpacesA("last_date","Last Date Can't be empty")) {
+		    return false;
 		}
+		if(!dateDifference1("start_date","last_date","Last Date Can't Be Less Than Or Equal To Start Date.")) {
+		    return false;
+		}
+		//if()
 		return true;
 	});
     $("#formalotslot").submit(function(){
-        if($("#designation").val()=="") {
-            alert("Designation Can't Be Empty");
-            $("#designation").focus();
+        filterWhiteSpace("designation");
+        if(onlySpacesA("designation","Designation Can't Be Empty.")==true) {
+            return false;
+        }
+        
+        if(!$("#alotslotcheck").is(":checked")) {
+            alert("You Must Accept TERMS AND CONDITION To Proceed.");
             return false;
         }
         return true;
@@ -46,8 +125,8 @@ $(document).ready(function(e) {
 	
  	//$("button,a,input[type=submit]").button();
 	$(".juiButton").button();
-	$("#head2").css("text-align","center");
-	$("#head2").html("<img src='data/header/h26.jpg'  />");
+	//$("#head2").css("text-align","center");
+//	$("#head2").html("<img src='data/header/h26.jpg'  />");
 	$("#dvsearch").hide();
 	$("#backjob").hide();
 	$("#dabackbutton").hide();
@@ -66,10 +145,12 @@ $(document).ready(function(e) {
 			$("#dvsearch").slideUp();
 			$("#searchbar").val('');
 		}
-		
+		filterWhiteSpace("searchbar");
 		var search=$("#searchbar").val();
-		if(search=="")
+		
+		if(search=="" || search==" ")
 		{
+		    
 			$("#dvsearch").slideUp();
 		}
 		else {
@@ -120,7 +201,7 @@ $(document).ready(function(e) {
 	});
 	$("#searchpeopleform").submit(function(){ $("#searchoptbar").slideUp(); });
 	/*textbox show on chekboz click (NOT DONE)*/
-	$("#searchoptbar input[type=checkbox]").click(function(e){
+	/*$("#searchoptbar input[type=checkbox]").click(function(e){
 		n=e.target.id;
 		//n1=n.split("ls");
 		var x=$("#"+n);
@@ -129,14 +210,14 @@ $(document).ready(function(e) {
 		if($.inArray("other",selectVal)!=-1) {
 			alert("yes");
 		}
-	});	
+	});	*/
 	
 	
 	/* JOBS>php*/
 	$("#updateJobDiv input,#updateJobDiv textarea").focus(function(e) {
 		n1="#fs"+e.target.id;
 		$(n1).css("background-color","lightblue");
-		$(n).css("border","8px green solid");
+	//	$(n1).css("border","8px green solid");
 	});
 	$("#updateJobDiv input,#updateJobDiv textarea").blur(function(e) {
 		n1="#fs"+e.target.id;
@@ -361,4 +442,3 @@ function jsCheckNumber(id) {
 /**
  *  Personal Profile*/
 //function 
-

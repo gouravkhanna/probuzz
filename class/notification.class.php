@@ -7,8 +7,8 @@ class notification extends DbConnection {
                 unix_timestamp(n.notification_time) as notification_time,n.content ";
         $sql .= " from notifications as n join friend as f on n.user_id=f.friend_id where ";
         $sql .= " f.user_id=" . $_SESSION ['id'] . " and 
-                 f.friendship_status='1' order by n.notification_time desc limit 20;";
-        //echo $sql;
+                 f.friendship_status='1' and notification_type <> '5' order by n.notification_time desc limit 40;";
+        //echo $sql."<br/>";
         $notifications = array ();
         $result = $ob->executeSQL ( $sql );
         while ( $row = mysql_fetch_assoc ( $result ) ) {

@@ -34,6 +34,9 @@
 		<li id="umenu">
 			<a href="<?php echo ROOTPATH."user/displayApplication"; ?>">Display Job</a>
 		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."index.php?controller=user&url=settings"; ?>">Settings</a>
+		</li>
 	</ul>
 		<!-- APPLICATION STATUS -->
 		<!-- NOTIFICATION STATUS -->

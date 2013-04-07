@@ -159,6 +159,46 @@ class user extends controller {
     	echo json_encode($row_set);
     	
     }
+    function settings() {
+        loadView('head/head1.php');
+        $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+        loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
+        loadView('head/head2.php');
+        loadView('userSettings.php');
+        loadView('rightpanel/rightpanel.php');
+        loadView('footer/footer.php');
+    }
+    function changePassword() {
+        $msg="";
+        $flag=true;
+        if(!$_REQUEST['old_password']) {
+            $msg.="Old Password Cannot Be Empty.<br/>";
+            $flag=false;
+        }
+        if(!$_REQUEST['new_password']) {
+            $msg.="New Password Cannot Be Empty.<br/>";
+            $flag=false;
+        }
+        if(!$_REQUEST['new_password_confirm']) {
+            $msg.="Confirmation Password For New Password Cannot Be Empty.<br/>";
+            $flag=false;
+        }
+        if(strlen($_REQUEST['new_password'])<6) {
+            $msg.="Password Length Should Be Atleast 6 Characters Long.<br/>";
+            $flag=false;
+        }
+        if($_REQUEST['new_password_confirm']!=$_REQUEST['new_password']) {
+            $msg.="Confirmation Password Does Not Match The Typed In New Password.<br/>";
+            $flag=false;
+        }
+        if($flag) {
+            $result=loadModel("users","changePassword",$_REQUEST);
+            echo $result;
+        } else {
+            echo $msg;    
+        }
+        
+    }
 }
 
 ?>

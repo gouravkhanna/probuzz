@@ -411,3 +411,65 @@ function stopUpload(success){
       return true;   
 }
 
+$(document).ready(function () {
+    $("#userSettingsSubmit").click(function () {
+        if(!$("#old_password").val()){
+            $("#old_password").attr("placeholder","This Field Cannot Be Left Empty");
+            $("#old_password").css("background-color","#cff993");
+            return false;
+        } else {
+            $("#old_password").css("background-color","white");
+        }
+        if(onlySpacesA("old_password")) {
+            $("#old_password").attr("placeholder","Only Spaces Are Not Allowed");
+            $("#old_password").css("background-color","#cff993");
+            return false;
+        } else {
+            $("#old_password").css("background-color","white");    
+        }
+        if(!$("#new_password").val()) {
+            $("#new_password").attr("placeholder","This Field Cannot Be Left Empty");
+            $("#new_password").css("background-color","#cff993");
+            return false;
+        } else {
+            $("#new_password").css("background-color","white");
+        }
+        if(onlySpacesA("new_password")) {
+            $("#new_password").attr("placeholder","Only Spaces Are Not Allowed");
+            $("#new_password").css("background-color","#cff993");
+            return false;
+        } else {
+            $("#new_password").css("background-color","white");    
+        }
+        var temp=$("#new_password").val();
+        if(temp.length<6) {
+            $("#new_password").val("");
+            $("#new_password").attr("placeholder","Password Too Short");
+            $("#new_password").css("background-color","#cff993");
+            return false;
+        } else {
+            $("#new_password").css("background-color","white");
+        }
+        if($("#new_password_confirm").val()!=$("#new_password").val()) {
+            $("#new_password_confirm").val("");
+            $("#new_password_confirm").attr("placeholder","Typed Password Does Not Match");
+            $("#new_password_confirm").css("background-color","#cff993");
+            return false;
+        } else {
+            $("#new_password_confirm").css("background-color","white");
+        }
+        $.ajax({
+            type: "GET",
+            url: "index.php",
+            data:$("#userSettingsForm").serialize()+"&controller=user&url=changePassword",
+            beforeSuccess: function() {
+                $("#userSettingsResponse").fadeIn();    
+            },
+            success: function(msg){
+                //alert( msg );
+                $("#userSettingsResponse").html(msg);
+            }
+        });
+        return true;
+    });
+});

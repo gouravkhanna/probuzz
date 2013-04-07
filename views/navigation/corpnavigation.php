@@ -41,6 +41,9 @@
 	                <?php echo SHOW_APPLICANT?>
 	            </a>
 	        </li>
+			<li id="umenu">
+				<a href="<?php echo ROOTPATH."index.php?controller=user&url=settings"; ?>">Settings</a>
+			</li>
 		</ul>
 	</div>
 </div>

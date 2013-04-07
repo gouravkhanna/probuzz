@@ -481,6 +481,31 @@ class users extends DbConnection {
             return false;
         }
     }
+    function changePassword() {
+        $data['tables']="users";
+        $data['columns']="password";
+        $data['conditions']=array(
+            "user_id"=>$_SESSION['id']
+        );
+        $result=$this->db->select($data);
+        $row=$result->fetch(PDO::FETCH_ASSOC);
+        if($_REQUEST['old_password']!=$row['password']){
+            return "You Entered Wrong Old Password.<br/>";
+        } else {
+            $data=array();
+            $data["password"]=$_REQUEST['new_password'];
+            $where=array(
+                "user_id"=>$_SESSION['id']
+            );
+            $result=$this->db->update ( "users", $data, $where );
+            if($result) {
+                return "Your Password Has Been SuccessFully Updated.<br/>";
+            } else {
+                return "Error Occured While Updating Password..<br/>".
+                        "Please Try Again Later.";
+            }
+        }
+    }
 }
 
 ?>
