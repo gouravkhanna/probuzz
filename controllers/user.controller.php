@@ -231,7 +231,7 @@ class user extends controller {
         }
     }
     function fetchSecurityQuestions() {
-        $result=loadModel("users","fetchSecurityQuestions");
+        loadModel("users","fetchSecurityQuestions");
     }
     function markUserSpam() {
         echo "!";

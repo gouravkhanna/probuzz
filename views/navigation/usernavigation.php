@@ -3,7 +3,9 @@
 		<img id="profilepic" title="<a >dsad</a>" 
 		class="photo" src="<?php echo $arrData['profile_pic_path']; ?>"
 			height="80" width="80"/> <span class="alignwelcome" > <?php echo WELCOME; ?> <br />
-        <?php echo @$_SESSION['user_name']; ?>
+        <?php //echo @$_SESSION['user_name'];
+				echo $arrData['user_name'];
+		?>
         </span>
 	</div>
 	<br/><br/><br/><br/><br/><br/><br/>

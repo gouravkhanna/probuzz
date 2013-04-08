@@ -13,7 +13,7 @@ class notification extends DbConnection {
         $result = $ob->executeSQL ( $sql );
         while ( $row = mysql_fetch_assoc ( $result ) ) {
             // $user_name=$this->getUserName($row['user_id']);
-            $user_name = loadModel ( "friend", "fetchName", array (
+            $user_name = loadModel ( "users", "fetchName", array (
                     "id" => $row ['user_id'] 
             ) );
             $user_pic = loadModel ( "users", "getProfilePic", array (
@@ -26,7 +26,7 @@ class notification extends DbConnection {
                 $friend_pic = loadModel ( "users", "getProfilePic", array (
                         "id" => $row ['friend_id'] 
                 ) );
-                $friend_name = loadModel ( "friend", "fetchName", array (
+                $friend_name = loadModel ( "users", "fetchName", array (
                         "id" => $row ['friend_id'] 
                 ) );
                 $row ['friend_name'] = $friend_name;
@@ -52,7 +52,7 @@ class notification extends DbConnection {
 			$friend_pic = loadModel ( "users", "getProfilePic", array (
 					"id" => $row ['friend_id'] 
 			) );
-			$friend_name = loadModel ( "friend", "fetchName", array (
+			$friend_name = loadModel ( "users", "fetchName", array (
 					"id" => $row ['friend_id'] 
 			) );
             $row ['friend_name'] = $friend_name;
