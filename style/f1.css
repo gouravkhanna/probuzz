@@ -189,6 +189,10 @@ color:yellow;
     font-size: 50px;
     color:#c43531;
 }
+#background{
+    height: 83%;
+    background-image:url(../data/rcs/div_back.jpg);
+  }
 #t{
     position:absolute;
     top: 1px;

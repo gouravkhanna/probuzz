@@ -104,8 +104,9 @@ if(isset($arrData))
 ?>
 
 </div>
-	</div>
-	<br>	<br>	
+	</div><br>
+	<DIV id="background">
+	<br>	
 	<div id="head">At One Place </div>
 <div id="slideshow">
 
@@ -124,7 +125,7 @@ if(isset($arrData))
  <div id="t1" > Search </div>
 </div>
  </div>	
-
+</DIV>
 </body>
 </html>
 <script >
