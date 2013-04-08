@@ -1,3 +1,8 @@
+@font-face {
+    font-family: del;
+    src: url("http://localhost/probuzz/trunk/data/font/Delicious-Italic.otf");
+}
+
 
 .flip {
     backface-visibility:             hidden;
@@ -132,6 +137,7 @@ body
 background-image:url(../data/rcs/pbackground_01.png);
 background-repeat:no-repeat;
 background-size:100%;
+font-family: del;
 
 }
 #wrapper
@@ -178,8 +184,7 @@ color:yellow;
 #head{
     font-size: 24px;
     margin-left: 150px;
-    font-family: cursive;
-    font-weight: bold;
+   font-weight: bold;
     color: #0079c0;
 }
 #text,#t1{

@@ -51,8 +51,6 @@ body {
 	float: left;
 	margin-right: 7px;
 	background-color: #78bbe6; /*darkgrey;*/
-	-webkit-border-radius: 20px;
-	border-radius: 20px;
 	overflow: visible;
 }
 /*
@@ -112,9 +110,8 @@ ul.n a:hover, ul.n a.selected {
 	float: left;
 	overflow: visible;
 	margin-top: 55px;
-	-webkit-border-radius: 20px;
-	border-radius: 20px;
-}
+	margin-left: -4px;
+	}
 
 #midpanel {
 	margin-top: 8px;
@@ -123,10 +120,10 @@ ul.n a:hover, ul.n a.selected {
 	width: 582px;
 	min-height: 727px;
 	float: left;
+	margin-left: -5px;
 	margin-right: 5px;
 	overflow:visible;
-	-webkit-border-radius: 20px;
-	border-radius: 20px;
+	
 	
 }
 #buzzpanel {
@@ -164,6 +161,7 @@ ul.n a:hover, ul.n a.selected {
 /*	background-color: #ededed; */
 		background-color: #FFFFFe;
 	margin-top: 50px;
+	margin-left:-5px;
 	float: left;
 	min-width: 857px;
 	max-width: 857px;
@@ -171,9 +169,7 @@ ul.n a:hover, ul.n a.selected {
 	max-height: 980px;
 	min-height: 980px;
 	height: auto;
-	-webkit-border-radius: 20px;
-	border-radius: 20px;
-	
+		
 }
 
 #rightpanel {
@@ -216,16 +212,15 @@ ul.n a:hover, ul.n a.selected {
 }
 
 #footer {
-	position:inherit;
+	
 	text-align: center;
 	background-size: 100%;
 	padding: 15px;
 	float: left;
-	margin-top: 7px;
+	bottom: 0;
+	margin-top: 1px;
 	height: 25px;
 	width: 994px;
-	-webkit-border-radius: 20px;
-	border-radius: 20px;
 	background-image: url(../data/rcs/g.svg);
 }
 

@@ -124,6 +124,10 @@ if(isset($arrData))
 
  <div id="t1" > Search </div>
 </div>
+<div>
+<img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/chat.jpg"; ?> >   
+ </div>
+
  </div>	
 </DIV>
 </body>

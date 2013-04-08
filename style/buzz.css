@@ -35,8 +35,10 @@ border:0;
 border-color: #fff;	
 outline: 0;
 -webkit-box-sizing: border-box;
-
+margin-left: 5px;
+text-align: center;
 }
+
 #subuzz{
 color:#fff;
 height: 25px;
