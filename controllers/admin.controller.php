@@ -202,7 +202,7 @@ class admin extends controller {
         $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
         loadView("navigation/adminnavigation.php",array('profile_pic_path' =>$path));
         $this->view->loadView('head/head2.php');
-        $arrData=loadModel("adminstrator","deleteAdmin",array("id"=>$_SESSION['id']));
+        $arrData=loadModel("adminstrator","showAllAdmin",array("id"=>$_SESSION['id']));
         $this->view->loadView("admin/deleteAdmin.php",$arrData);
         $this->view->loadView('rightpanel/rightpanel.php');
         $this->view->loadView('footer/footer.php');
@@ -217,6 +217,14 @@ class admin extends controller {
         $this->view->loadView("admin/showAllAdmin.php",$arrData);
         $this->view->loadView('rightpanel/rightpanel.php');
         $this->view->loadView('footer/footer.php');
+    }
+    function activateDeactivateAccount() {
+        $arrData=array(
+            "rowId" => $_REQUEST['rowId'],
+            "status" => $_REQUEST['status']
+        );
+        $result=loadModel("adminstrator","activateDeactivateAccount",$arrData);
+        return false;
     }
 }
 ?>

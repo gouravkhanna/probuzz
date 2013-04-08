@@ -262,7 +262,7 @@ class adminstrator extends DbConnection {
                 "user_name"=>strip_tags($_REQUEST['user_name']),
                 "password" => md5($_REQUEST['password']),
                 "current_status" => strip_tags($_REQUEST['current_status']),
-                "type" => "4"
+                "type" => "2"
             );
             $result=$this->db->insert("users",$data);
             if($result) {
@@ -272,14 +272,33 @@ class adminstrator extends DbConnection {
             }
         }
     }
-    function deleteAdmin($arrArg=array()) {
-        if (! empty ( $arrArg ['id'] )) {
-            //return "in delete Admin";
-        }
-    }
     function showAllAdmin($arrArg=array()) {
         if (! empty ( $arrArg ['id'] )) {
-            //return "in show Admin";
+            $data["tables"]="users";
+            $data["columns"]=array(
+                "user_id",
+                "user_name",
+                "current_status"
+            );
+            $data['conditions']=array(
+                "type" => "2"
+            );
+            $result=array();
+            $temp=$this->db->select($data);
+            while($row=$temp->fetch(PDO::FETCH_ASSOC)) {
+                $result[]=$row;
+            }
+            if($result) {
+                return $result;
+            } else {
+                return false;
+            }
+            
+        }
+    }
+    function activateDeactivateAccount($arrArgs=array()) {
+        if($arrArgs) {
+            print_r($arrArgs);
         }
     }
 }

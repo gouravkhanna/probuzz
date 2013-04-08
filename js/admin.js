@@ -21,6 +21,39 @@ $(document).ready(function(){
     });
     
 });
+function activate(input,rowId) {
+    var status=$(input).val();
+    alert("in activate :"+status+ " " + rowId);
+    $.ajax({
+        type: "GET",
+        url: "index.php",
+        data:"controller=admin&url=activateDeactivateAccount&rowId="+rowId+"&status=0",
+        success: function(msg){
+            alert(msg);
+            $(input).val("Deactivate");
+            $(input).attr("onclick","deactivate(this,"+rowId+")");
+            $("#status_"+rowId).html("Active");
+        }
+    });
+
+}
+function deactivate(input,rowId) {
+    var status=$(input).val();
+    alert("in deactivate :"+status+ " " + rowId);
+    
+    $.ajax({
+        type: "GET",
+        url: "index.php",
+        data:"controller=admin&url=activateDeactivateAccount&rowId="+rowId+"&status=1",
+        success: function(msg){
+            alert(msg);
+            $(input).val("Activate");
+            $(input).attr("onclick","activate(this,"+rowId+")");
+            $("#status_"+rowId).html("Inactive");
+        }
+    });
+    
+}
 function validateNewAdmin() {
     if(!$("#user_name").val()) {
         setErrorMessage("#user_name","This Field Cannot Be Left Empty");
