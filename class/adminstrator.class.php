@@ -147,5 +147,30 @@ class adminstrator extends DbConnection {
             }
         }
     }
+    function loadSpamReview($arrArgs = array()) {
+        if (! empty ( $arrArgs )) {
+            $data ['tables'] = 'spams';
+            $data ['columns'] = array (
+                    'count(spam_id) as spam_count',
+                    'spam_id',
+                    'spam_type',
+                    'spam_review_time',
+                    'spam_action',
+            );
+            $data ['conditions'] = array (
+                    'spam_review'=>'1',
+    
+            );
+            $data ['group'] = "spam_id,spam_type";
+            $result = $this->db->select ( $data );
+            if ($result) {
+                while ( $row [] = $result->fetch ( PDO::FETCH_ASSOC ) ) {
+                }
+                return $row;
+            } else {
+                return false;
+            }
+        }
+    }
 }
 ?>

@@ -165,10 +165,12 @@ define("DELETE_BUZZ","Delete Buzz");
 define("DELETE_USER","Delete User");
 define("BUFOD","Ban User for One Day");
 define("BUP","Ban User Permanently");
-//define("","");
-//define("","");
-//define("","");
-//define("","");
-//define("","");
+define("REVIEW_ACTION","Review Action");
+define("REVIEW_TIME","Review Time");
+define("SPAM_TYPE","SPAM TYPE");
+define("BUZZ_SPAM","Buzz Spam");
+define("USER_SPAM","User Spam");
+
+
 
 ?>

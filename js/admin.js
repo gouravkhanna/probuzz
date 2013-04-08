@@ -1,6 +1,15 @@
 $(document).ready(function(){
     $("#buzztable").dataTable(); 
     $("#showba11").hide();
+    $("#spammanegementmenu").click(function(){ 
+        $("#spammanegementdiv").slideToggle("slow");
+    });
+    $("#adminmanegementmenu").click(function(){ 
+        $("#adminmanegementdiv").slideToggle("slow");
+    });
+    $("#pagemanegementmenu").click(function(){ 
+        $("#pagemanegementdiv").slideToggle("slow");
+    });
 });
 
 function clearSpam(a) {

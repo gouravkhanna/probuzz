@@ -37,6 +37,16 @@ class admin extends controller {
         $this->view->loadView('rightpanel/rightpanel.php');
         $this->view->loadView('footer/footer.php');
     }
+    function review() {
+        $this->view->loadView('head/headadmin.php');
+        $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+        loadView("navigation/adminnavigation.php",array('profile_pic_path' =>$path));
+        $this->view->loadView('head/head2.php');
+        $arrData=loadModel("adminstrator","loadSpamReview",array('id'=>$_SESSION['id']));
+        $this->view->loadView('admin/review.php',$arrData);
+        $this->view->loadView('rightpanel/rightpanel.php');
+        $this->view->loadView('footer/footer.php');
+    }
     function buzzAdminDelete() {
         echo $this->type;
        // if($this->type==2) {
@@ -91,6 +101,12 @@ class admin extends controller {
         } else {
             echo "Please Try Again! Later";
         }
+    }
+    function contactUs() {
+        
+    }
+    function aboutUs() {
+    
     }
     
 }
