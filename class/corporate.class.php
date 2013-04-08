@@ -10,9 +10,7 @@ class corporate extends DbConnection {
                 'corp_id' => $arrArg ['id'],
                 'designation' => strip_tags ( mysql_real_escape_string ( $arrArg ['designation'] ) ) 
         );
-        // $sql="INSERT INTO probuzz.jobs (corp_id,designation) VALUES
-        // (".$arrArg['id'].",'".$arrArg['designation']."')";
-        $result = $this->db->insert ( "jobs", $data );
+         $result = $this->db->insert ( "jobs", $data );
         if ($result && $result->rowCount () > 0) {
             return true;
         } else {
@@ -25,7 +23,7 @@ class corporate extends DbConnection {
         if (isset ( $arrArg ['jobId'] )) {
             $cond = " AND id='" . $arrArg ['jobId'] . "'";
         }
-        $ob = new DbConnection ();
+       
         $sql = "SELECT id,designation,type,status,
                 DATE_FORMAT(created_date, '%M %D, %Y') as createddate,
                 DATE_FORMAT(start_date,'%M %D, %Y') as startdate,

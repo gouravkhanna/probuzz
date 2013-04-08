@@ -1,4 +1,11 @@
 <div id="rightpanel1">
+<div>
+<?php
+    if(isset($_SESSION['alotslot'])) {
+      echo @$_SESSION['alotslot'];
+    }
+?>
+</div>
 	<div id="createSlot">
 	<h1><?php echo CREATE_A_NEW_SLOT;?></h1><hr/>
 	<form id="formalotslot" method="" action="">

@@ -178,6 +178,8 @@ define("READ","Read");
 define("UNREAD","Unread");
 define("DETAILS","Details");
 define("TIME","Time");
+define("EDIT","Edit");
+define("TECHNICAL","Technical");
 
 
 

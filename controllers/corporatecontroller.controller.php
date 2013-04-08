@@ -40,6 +40,8 @@ class corporatecontroller extends controller {
         loadView ( 'rightpanel/alotslot.php' );
         loadView ( 'rightpanel/rightpanel2.php' );
         loadView ( 'footer/footer.php' );
+        unset($_SESSION['alotslot']);
+        unset($_SESSION['updatejob']);
     }
     /* Create Jobs TAB */
 /* Will create a New Job Slot... */
@@ -51,8 +53,9 @@ function alotSlot() {
         if (@$_REQUEST ['terms'] == true) {
             $result = loadModel ( "corporate", "alotSlot", $arrArgs );
             if ($result) {
+                $_SESSION['alotslot']="Alotted Slot";
             } else {
-                echo "Failed to create a Slot! Try again";
+                $_SESSION['alotslot']="Failed to create a Slot! Try again";
             }
         }
         header ( "location:index.php?url=createjobs" );
@@ -134,7 +137,8 @@ function alotSlot() {
             $res = loadModel ( "corporate", "updateSlot", $arrArg );
             if ($res = true) {
                 unset($_SESSION['error']);
-                $this->createjobs ();
+                $_SESSION['updatejob']="Updated Sucessfully";
+                header("location:".ROOTPATH."createjobs");
             } else {
                 echo "Error";
             }
@@ -253,6 +257,7 @@ function alotSlot() {
             if ($arrData) {
                 loadView ( 'search/searchpeople.php', $arrData );
             } else {
+                loadView ( 'search/searchpeople.php' );
                 echo NRF;
             }
         } else {
