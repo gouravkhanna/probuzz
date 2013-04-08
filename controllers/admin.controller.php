@@ -156,6 +156,68 @@ class admin extends controller {
         }
         header('location:'.ROOTPATH.'admin/loadAboutUs');
     }
-    
+    function addAdmin() {
+        $this->type=$_SESSION['type'];
+        $this->view->loadView('head/headadmin.php');
+        $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+        loadView("navigation/adminnavigation.php",array('profile_pic_path' =>$path));
+        $this->view->loadView('head/head2.php');
+        $this->view->loadView("admin/addAdmin.php");
+        $this->view->loadView('rightpanel/rightpanel.php');
+        $this->view->loadView('footer/footer.php');
+    }
+    function addAdminAccount() {
+        //echo "<pre>";
+        //print_r($_REQUEST);
+        $msg="";
+        $flag=true;
+        if(!$_REQUEST['user_name']) {
+            $msg.="User Name Cannot Be Empty.<br/>";
+            $flag=false;
+        }
+        if(strlen($_REQUEST['user_name'])<6) {
+            $msg.="User Name Should Be Atleast 6 Characters Long.<br/>";
+            $flag=false;
+        }
+        if(!$_REQUEST['password']) {
+            $msg.="Password Cannot Be Empty.<br/>";
+            $flag=false;
+        }
+        if($_REQUEST['current_status']!="0" && $_REQUEST['current_status']!="1") {
+            $msg.="Please Select Active Status.<br/>";
+            $flag=false;
+        }
+        if(strlen($_REQUEST['password'])<6) {
+            $msg.="Password Length Should Be Atleast 6 Characters Long.<br/>";
+            $flag=false;
+        }
+        if($flag) {
+            loadModel("adminstrator","addAdmin",$_REQUEST);
+        } else {
+            echo $msg;
+        }
+    }
+    function deleteAdmin() {
+        $this->type=$_SESSION['type'];
+        $this->view->loadView('head/headadmin.php');
+        $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+        loadView("navigation/adminnavigation.php",array('profile_pic_path' =>$path));
+        $this->view->loadView('head/head2.php');
+        $arrData=loadModel("adminstrator","deleteAdmin",array("id"=>$_SESSION['id']));
+        $this->view->loadView("admin/deleteAdmin.php",$arrData);
+        $this->view->loadView('rightpanel/rightpanel.php');
+        $this->view->loadView('footer/footer.php');
+    }
+    function showAllAdmin() {
+        $this->type=$_SESSION['type'];
+        $this->view->loadView('head/headadmin.php');
+        $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+        loadView("navigation/adminnavigation.php",array('profile_pic_path' =>$path));
+        $this->view->loadView('head/head2.php');
+        $arrData=loadModel("adminstrator","showAllAdmin",array("id"=>$_SESSION['id']));
+        $this->view->loadView("admin/showAllAdmin.php",$arrData);
+        $this->view->loadView('rightpanel/rightpanel.php');
+        $this->view->loadView('footer/footer.php');
+    }
 }
 ?>

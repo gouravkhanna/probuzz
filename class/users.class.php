@@ -560,8 +560,8 @@ class users extends DbConnection {
     function setupSecurityQuestion() {
         $data=array(
             "user_id"=>$_SESSION['id'],
-            "security_question"=>$_REQUEST['securityQuestion'],
-            "answer"=>$_REQUEST['securityAnswer']
+            "security_question"=>strip_tags($_REQUEST['securityQuestion']),
+            "answer"=>strip_tags($_REQUEST['securityAnswer'])
         );
         $result=$this->db->insert("security_question",$data);
         if($result) {

@@ -12,7 +12,7 @@
 	    <li id="umenu">
 			<a href="" id="spammanegementmenu" onclick="return false">Spam Management</a>
 		</li>
-	    <aside id="spammanegementdiv" class='marginl20 visiblen'>
+	    <aside id="spammanegementdiv" class="marginl20 visiblen">
 	    <li id="umenu">
 			<a href="<?php echo ROOTPATH."admin/buzzSpam"; ?>">Buzz Spam</a>
 		</li>
@@ -28,13 +28,13 @@
 		</li>
 	    <aside id="adminmanegementdiv" class='marginl20 visiblen'>
 	    <li id="umenu">
-			<a href="<?php echo ROOTPATH."admin/buzzSpam"; ?>">Add Admin</a>
+			<a href="<?php echo ROOTPATH."admin/addAdmin"; ?>">Add Admin</a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."admin/userSpam"; ?>">Delete Admin</a>
+			<a href="<?php echo ROOTPATH."admin/deleteAdmin"; ?>">Delete Admin</a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."admin/review"; ?>">Show Admin</a>
+			<a href="<?php echo ROOTPATH."admin/showAllAdmin"; ?>">Show Admin</a>
 		</li>
 		</aside>
 		<li id="umenu">

@@ -241,5 +241,46 @@ class adminstrator extends DbConnection {
         }
        }
     }
+    function addAdmin($arrArg=array()) {
+        if (! empty ( $arrArg)) {
+            //echo "<pre>";
+            //print_r($arrArg);
+            $data["tables"]="users";
+            $data["columns"]=array(
+                "count(*) as count"
+            );
+            $data['conditions']=array(
+                "user_name" => $_REQUEST['user_name']
+            );
+            $userExists=$this->db->select($data);
+            $row=$userExists->fetch(PDO::FETCH_ASSOC);
+            if($row['count']) {
+                echo "User Name Already Exists.";
+                return ;
+            }
+            $data=array(
+                "user_name"=>strip_tags($_REQUEST['user_name']),
+                "password" => md5($_REQUEST['password']),
+                "current_status" => strip_tags($_REQUEST['current_status']),
+                "type" => "4"
+            );
+            $result=$this->db->insert("users",$data);
+            if($result) {
+                echo "Account Successfully Added.";
+            } else {
+                echo "Error Occured While Adding New Admin Account.";
+            }
+        }
+    }
+    function deleteAdmin($arrArg=array()) {
+        if (! empty ( $arrArg ['id'] )) {
+            //return "in delete Admin";
+        }
+    }
+    function showAllAdmin($arrArg=array()) {
+        if (! empty ( $arrArg ['id'] )) {
+            //return "in show Admin";
+        }
+    }
 }
 ?>

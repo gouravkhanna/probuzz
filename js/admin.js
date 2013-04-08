@@ -13,8 +13,53 @@ $(document).ready(function(){
     $("#contactusmanegementmenu").click(function(){ 
         $("#contactusmanegementdiv").slideToggle("slow");
     });
+    $("#addAdminSubmit").click(function () {
+        if(!validateNewAdmin()) {
+            return false;
+        }
+        return true;
+    });
+    
 });
-
+function validateNewAdmin() {
+    if(!$("#user_name").val()) {
+        setErrorMessage("#user_name","This Field Cannot Be Left Empty");
+        return false;
+    } else {
+        $("#user_name").css("background-color","white");
+    }
+    var temp=$("#user_name").val();
+    if(temp.length<6) {
+        setErrorMessage("#user_name","User Name Should Be Atleast 6 characters");
+        return false;
+    } else {
+        $("#password").css("background-color","white");
+    }
+    if(!$("#password").val()) {
+        setErrorMessage("#password","This Field Cannot Be Left Empty");
+        return false;
+    } else {
+        $("#password").css("background-color","white");
+    }
+    var temp=$("#password").val();
+    if(temp.length<6) {
+        setErrorMessage("#password","Password Too Short,atleast 6 characters");
+        return false;
+    } else {
+        $("#password").css("background-color","white");
+    }
+    $.ajax({
+        type: "GET",
+        url: "index.php",
+        data:$("#addAdminForm").serialize()+"&controller=admin&url=addAdminAccount",
+        success: function(msg){
+            $("#password").val("");
+            $("#user_name").val("");
+            $("#displayResult").html(msg);
+        }
+    });
+    return true;
+}
 function clearSpam(a) {
     alert(a);
     if(confirm("Sure You want to Delete,\n It Wont Come Back!")) {   

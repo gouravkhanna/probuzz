@@ -134,10 +134,7 @@
                     <pre>       <?php echo "Valid Till : ".$value['validity']; ?></pre>
                     <?php } ?>
                     
-					<!-- Reminder to add added_date column to certifications table-->
-					<?php// if($value['added_date']) { ?>
-                    <pre>       <?php //echo "Added On : ".$value['added_date']; ?></pre>
-                    <?php //} ?>
+					
                 </div>
         </div>
         
@@ -172,10 +169,7 @@
                     <pre>       <?php echo "To : ".$value['end_date']; ?></pre>
                     <?php } ?>
                     
-					<!-- Reminder to add this column to certifications table-->
-					<?php// if($value['added_date']) { ?>
-                    <pre>       <?php //echo "Added On : ".$value['added_date']; ?></pre>
-                    <?php //} ?>
+
                 </div>
         </div>
         
