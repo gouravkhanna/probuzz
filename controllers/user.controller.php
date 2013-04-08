@@ -38,8 +38,10 @@ class user extends controller {
         $path = loadModel ( "users", "getProfilePic", array (
                 'id' => $_SESSION ['id'] 
         ) );
+        $userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
         loadView ( "navigation/usernavigation.php", array (
-                'profile_pic_path' => $path 
+                'profile_pic_path' => $path,
+                "user_name" => $userName
         ) );
         // checking if request for search is made or not
         loadView ( 'search/searchjob.php' );
@@ -61,8 +63,10 @@ class user extends controller {
         $path = loadModel ( "users", "getProfilePic", array (
                 'id' => $_SESSION ['id'] 
         ) );
+        $userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
         loadView ( "navigation/usernavigation.php", array (
-                'profile_pic_path' => $path 
+                'profile_pic_path' => $path,
+                "user_name" => $userName
         ) );
         $arrData = loadModel ( "users", "displayApplication", array (
                 'id' => $_SESSION ['id'] 
@@ -162,7 +166,8 @@ class user extends controller {
     function settings() {
         loadView('head/head1.php');
         $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
-        loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
+        $userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
+        loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
         loadView('head/head2.php');
         loadView('userSettings.php');
         loadView('rightpanel/rightpanel.php');

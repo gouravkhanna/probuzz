@@ -49,7 +49,8 @@ class friends extends Controller
 		$path=loadModel("friend","getProfilePic",$arrData);
 		$friendName=loadModel("users","fetchName",$arrData);
 		if($id==$_SESSION['id']) {
-			loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
+			$userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
+			loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
 		} else {
 			loadView("navigation/friendNavigation.php",array('profile_pic_path' =>$path,'friend_name'=>$friendName,'id'=>$id));	
 		}
@@ -94,7 +95,8 @@ class friends extends Controller
 		$arrData=array('id'=>$_SESSION['id']);
 		loadView("head/head1.php");
 		$path=loadModel("friend","getProfilePic",$arrData);
-		loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
+		$userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
+		loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
 		$data=loadModel("friend","showRequests",$arrData);
 		$this->view->loadView('showFriendRequests.php',$data);
 		loadView('footer/footer.php');

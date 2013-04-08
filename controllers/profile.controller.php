@@ -9,8 +9,9 @@ class profile extends Controller
   function home()
   {
      loadView('head/head1.php');
-    $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));  
-    loadView("navigation/profilenavigation.php",array('profile_pic_path' =>$path));
+    $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+    $userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
+    loadView("navigation/profilenavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
     
     $arrData=loadModel("personalprofile","loadProfile",array("id"=>$_SESSION['id']));
     loadView('midpanel/bigmid.php',$arrData);
