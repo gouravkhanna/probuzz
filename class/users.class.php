@@ -599,6 +599,34 @@ class users extends DbConnection {
         }
         
     }
+    function loadAboutUs() {
+        $data ['tables'] = "pb_data";
+        $data ['conditions'] = array (
+                        "id" => '1' 
+            );
+        $result = $this->db->select ( $data );
+        if ($result) {
+          $row = $result->fetch ( PDO::FETCH_ASSOC )  ;
+            return $row;
+        } else {
+            return false;
+        }
+    }
+    function insertContactUs($arrArg = array()) {
+        $data=array(
+                "name"=>$arrArg ['name'],
+                "email"=>$arrArg ['email'],
+                "details"=>$arrArg ['comments']
+        );
+        $result=$this->db->insert("contact_us",$data);
+        if($result) {
+            return "Security Question Added Successfully.";
+        } else {
+            return "Error Adding The Security Question.";
+        }
+    }
+        
+        
 }
 
 ?>

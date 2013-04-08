@@ -73,7 +73,7 @@ class Controller
 
 	function error($key="",$index="")
 	{
-		$s="location:views/error.php?$key=$index";
+		$s="location:".ROOTPATH."views/error.php?$key=$index";
 		header("$s");
 	}
 
@@ -141,6 +141,33 @@ class Controller
 	{
 		$arrArgs=loadModel("users","topjobs");
 		$this->view->loadView("rightpanel/topjobs.php",$arrArgs);
+	}
+	function aboutus() {
+
+	      
+	    if(@$_POST['contactus']=="Submit") {
+	        if($_POST['name']!="" && $_POST['email']!="") {
+	      /*  require_once 'library/recaptcha/recaptchalib.php';
+	        $privatekey = "6LcMKN8SAAAAAFbaKu1_OvaeP1yMaQ7cKT5zxwgQ";
+	        $resp = recaptcha_check_answer ( $privatekey, $_SERVER ["REMOTE_ADDR"], $_POST ["recaptcha_challenge_field"], $_POST ["recaptcha_response_field"] );
+	        echo "Ss";
+	        if (! $resp->is_valid) {
+	            // What happens when the CAPTCHA was entered incorrectly
+	            $msg = "<div id=wrongcaptcha>The reCAPTCHA wasn't entered correctly</div>";
+	          $arrData['error_msg']=$msg;  
+	        } else {
+	        */    
+	                loadModel("users", "insertContactUs",array(
+                            "name"=>@$_POST['name'],
+	                        "email"=>@$_POST['email'],
+	                        "comments"=>@$_POST['comments'],
+	                    ));
+	                echo "Succesfully Submitted";    
+	        }
+	          //  }
+	    }
+	    $arrData=loadModel("users", "loadAboutUs");
+	    loadView("about_us.php",$arrData);
 	}
 	
 	

@@ -25,12 +25,12 @@ if (isset ( $_REQUEST ['url'] ) && ! empty ( $_REQUEST ['url'] )) {
     $url = explode ( "/", @$_REQUEST ['url'] );
     if (count ( $url ) > 1) {
         $controller = $url [0];
-    if(count ( $url ) >3) {
+   /*  if(count ( $url ) >3) {
         	header("location:".ROOTPATH."index.php");
         	$function = 'home';
-        } else {
+        } else  {*/
         	$function = $url [1];
-        }
+    //   }
     }
 } else {
     $function = 'home'; // default method to be called or the first method

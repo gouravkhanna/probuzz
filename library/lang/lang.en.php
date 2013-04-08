@@ -170,6 +170,14 @@ define("REVIEW_TIME","Review Time");
 define("SPAM_TYPE","SPAM TYPE");
 define("BUZZ_SPAM","Buzz Spam");
 define("USER_SPAM","User Spam");
+define("ABOUT_US","About Us");
+define("NAME","Name");
+define("EMail","EMail");
+define("MARK_READ","Mark Read");
+define("READ","Read");
+define("UNREAD","Unread");
+define("DETAILS","Details");
+define("TIME","Time");
 
 
 

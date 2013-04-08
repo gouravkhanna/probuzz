@@ -40,36 +40,24 @@
 		<li id="umenu">
 			<a href="" id="pagemanegementmenu" onclick="return false">Page Management</a>
 		</li>
-		 <aside id="pagemanegementdiv" class='marginl20 visiblen'>
+		<aside id="pagemanegementdiv" class='marginl20 visiblen'>
 	    <li id="umenu">
-			<a href="<?php echo ROOTPATH."admin/contactUs"; ?>">Contact Us</a>
-		</li>
-		<li id="umenu">
 			<a href="<?php echo ROOTPATH."admin/aboutUs"; ?>">About Us</a>
 		</li>
-		<li id="umenu">
-			<a href="<?php echo ROOTPATH."admin/review"; ?>">Show Admin</a>
+	    </aside>
+	    <li id="umenu">
+			<a href="" id="contactusmanegementmenu" onclick="return false">Feedback Management</a>
 		</li>
-		</aside>
-		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showfriend"; ?>">Friends</a>
-		</li>
-		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showRequests"; ?>">Show Requests</a>
+		<aside id="contactusmanegementdiv" class='marginl20 visiblen'>
+	    <li id="umenu">
+			<a href="<?php echo ROOTPATH."admin/contactUs"; ?>">Unread</a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=photos"; ?>">Photos</a>
+			<a href="<?php echo ROOTPATH."admin/contactUsAll"; ?>">All</a>
 		</li>
-
-		<li id="umenu">
-			<a href="<?php echo ROOTPATH."user/searchjob"; ?>">Search Job</a>
-		</li>
-		<li id="umenu">
-			<a href="<?php echo ROOTPATH."user/displayApplication"; ?>">Display Job</a>
-		</li>
-		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=user&url=settings"; ?>">Settings</a>
-		</li>
+		
+	    </aside>
+	
 	</ul>
 		<!-- APPLICATION STATUS -->
 		<!-- NOTIFICATION STATUS -->

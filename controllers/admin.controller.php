@@ -2,6 +2,9 @@
 
 include 'controller.controller.php';
 class admin extends controller {
+    function __construct(){
+        parent::__construct();
+    }
     private $type="X";
     function home()
     {
@@ -44,6 +47,26 @@ class admin extends controller {
         $this->view->loadView('head/head2.php');
         $arrData=loadModel("adminstrator","loadSpamReview",array('id'=>$_SESSION['id']));
         $this->view->loadView('admin/review.php',$arrData);
+        $this->view->loadView('rightpanel/rightpanel.php');
+        $this->view->loadView('footer/footer.php');
+    }
+    function contactUs() {
+        $this->view->loadView('head/headadmin.php');
+        $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+        loadView("navigation/adminnavigation.php",array('profile_pic_path' =>$path));
+        $this->view->loadView('head/head2.php');
+        $arrData=loadModel("adminstrator","loadContactUs",array('read'=>'0'));
+        $this->view->loadView('admin/contactus.php',$arrData);
+        $this->view->loadView('rightpanel/rightpanel.php');
+        $this->view->loadView('footer/footer.php');
+    }
+    function contactUsAll() {
+        $this->view->loadView('head/headadmin.php');
+        $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+        loadView("navigation/adminnavigation.php",array('profile_pic_path' =>$path));
+        $this->view->loadView('head/head2.php');
+        $arrData=loadModel("adminstrator","loadContactUs",array(array('read'=>'1')));
+        $this->view->loadView('admin/contactus.php',$arrData);
         $this->view->loadView('rightpanel/rightpanel.php');
         $this->view->loadView('footer/footer.php');
     }
@@ -102,12 +125,17 @@ class admin extends controller {
             echo "Please Try Again! Later";
         }
     }
-    function contactUs() {
-        
+    function updateFeedback() {
+        $result = loadModel ( "adminstrator", "updateFeedback", array (
+                "id" => $_REQUEST ['read_id'],
+        ) );
+        if ($result == true) {
+                echo "Message Read";
+        } else {
+            echo "Please Try Again! Later";
+        }
     }
-    function aboutUs() {
     
-    }
     
 }
 ?>

@@ -10,6 +10,9 @@ $(document).ready(function(){
     $("#pagemanegementmenu").click(function(){ 
         $("#pagemanegementdiv").slideToggle("slow");
     });
+    $("#contactusmanegementmenu").click(function(){ 
+        $("#contactusmanegementdiv").slideToggle("slow");
+    });
 });
 
 function clearSpam(a) {
@@ -71,4 +74,12 @@ function banUserOnePermanent(a) {
         $(c).load("index.php","controller=admin&url=banUserOnePermanent&spam_id="+a+"&spam_type=1");
       //  $(c).append("Buzz Deleted<br/> Please Find it in Resolved Page");
     }
+}
+function markRead(a) {
+    alert(a);
+    b="#row"+a;
+    $(b).slideUp("slow");
+    c="#usshowmsg";
+    $(c).load("index.php","controller=admin&url=updateFeedback&read_id="+a);
+
 }
