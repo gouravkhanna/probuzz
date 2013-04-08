@@ -42,7 +42,7 @@
 		</li>
 		<aside id="pagemanegementdiv" class='marginl20 visiblen'>
 	    <li id="umenu">
-			<a href="<?php echo ROOTPATH."admin/aboutUs"; ?>">About Us</a>
+			<a href="<?php echo ROOTPATH."admin/loadAboutUs"; ?>">About Us</a>
 		</li>
 	    </aside>
 	    <li id="umenu">

@@ -222,5 +222,24 @@ class adminstrator extends DbConnection {
             }
         }
     }
+ 
+    function updateAboutUs($arrArg = array()){
+       if($arrArg['text']!="") {
+           $condition = array (
+                     "id" => '1',
+        )
+        ;
+        $data = array (
+                "about_us" => $arrArg['text'],
+        );
+        
+        $result = $this->db->update ( "probuzz.pb_data", $data, $condition );
+        if ($result && $result->rowCount () > 0) {
+            return true;
+        } else {
+            return false;
+        }
+       }
+    }
 }
 ?>

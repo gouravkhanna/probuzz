@@ -135,7 +135,27 @@ class admin extends controller {
             echo "Please Try Again! Later";
         }
     }
-    
+    function loadAboutUs() {
+        $this->view->loadView('head/headadmin.php');
+        $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+        loadView("navigation/adminnavigation.php",array('profile_pic_path' =>$path));
+        $this->view->loadView('head/head2.php');
+        $arrData=loadModel("users", "loadAboutUs");
+        loadView("admin/aboutus.php",$arrData);
+        $this->view->loadView('rightpanel/rightpanel.php');
+        $this->view->loadView('footer/footer.php');
+        unset($_SESSION['updateAboutUs']);
+    }
+    function updateAboutUs() {
+        print_r($_POST);
+        $result=loadModel("adminstrator", "updateAboutUs",array("text"=>@$_REQUEST['textbox']));
+        if($result) {
+            $_SESSION['updateAboutUs']="Updated Successfully";
+        } else {
+            $_SESSION['updateAboutUs']="Try AGlly";
+        }
+        header('location:'.ROOTPATH.'admin/loadAboutUs');
+    }
     
 }
 ?>
