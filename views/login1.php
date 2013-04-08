@@ -105,16 +105,23 @@ if(isset($arrData))
 
 </div>
 	</div>
-	<br><br> <br>
+	<br>	<br>	
+	<div id="head">At One Place </div>
 <div id="slideshow">
+
 <div>
 <img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d5.jpg"; ?> >
+   <div id="text"> Find </div>
 </div>
 <div>
 <img class="logImg" id="rotator"src=<?php echo ROOTPATH."data/rcs/d4.jpg"; ?>  >   
+
+ <div id="t"> Meet </div>
 </div>
 <div>
 <img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d6.jpg"; ?> >   
+
+ <div id="t1" > Search </div>
 </div>
  </div>	
 
