@@ -1,5 +1,11 @@
 @charset "utf-8";
 /* CSS Document */
+#side-3 {
+	display: none;
+}
+#side-3f ,#3{
+	display: none;
+}
 
 .login
 {

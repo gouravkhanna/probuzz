@@ -557,17 +557,45 @@ hr {
 }
 /*Meesaging*/
 #messagepanel {
-	margin :10px;
+	
 	padding :10px;
-	width:1000px;
+	width:835px;
 	margin:0px auto;
 	background-color: #78bbe6;
 	overflow-x: scroll;
 	overflow-y: hidden;
 }
-#dvmessaging {
-	margin-top: 55px;
+#msgcontent {
+	margin-bottom: 10px;
 }
+.msgcontent-left {
+	margin-left:120px;
+	width:250px;
+	background-color: lavender;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	padding:10px;
+}
+.msgcontent-right {
+	width:245px;
+		background-color: lavender;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+	padding:10px;	
+}
+#dvmessaging {
+	
+}
+#message1 {
+	min-height:45px;
+	height:auto;
+	margin-top:5px;
+	font-family: del;
+	font-size: 0.8em;
+	width: 350px;
+	margin: 0px auto;
+}
+
 #sjbtn{
 	vertical-align:top;
 	height:150px;
@@ -622,3 +650,4 @@ hr {
 	font-size: 16px;
 	font-weight: bold; 
 }
+
