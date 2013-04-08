@@ -147,7 +147,6 @@ class admin extends controller {
         unset($_SESSION['updateAboutUs']);
     }
     function updateAboutUs() {
-        print_r($_POST);
         $result=loadModel("adminstrator", "updateAboutUs",array("text"=>@$_REQUEST['textbox']));
         if($result) {
             $_SESSION['updateAboutUs']="Updated Successfully";

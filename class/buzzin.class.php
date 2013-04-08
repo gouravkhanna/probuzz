@@ -93,7 +93,8 @@ function commentDelete($arrArg = array()) {
         OR 
         b.user_id in 
 	    (select f.friend_id from friend f
-	     where f.user_id='$id') ) )
+	     where f.user_id='$id' 
+	     AND friendship_status='1') ) )
        	order by buzz_time desc
         limit $limit,8
         ";

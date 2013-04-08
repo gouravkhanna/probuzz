@@ -25,7 +25,7 @@ class friends extends Controller
 			loadView("navigation/friendNavigation.php",array('profile_pic_path' =>$path,'friend_name'=>$friendName,'id'=>$_REQUEST['friendId']));
 			$this->view->loadView('head/head2.php');
 			$arrData1=loadModel("buzzin","loadBuzz",array('id'=>$_REQUEST['friendId']));
-			$this->view->loadView('midpanel/midpanel.php',$arrData1);
+			$this->view->loadView('midpanel/buzzdisplay.php',$arrData1);
 			$status=loadModel("friend","fetchStatus",$arrData);
 			$arrArgs=array("status"=>$status,"friendId"=>$_REQUEST['friendId']);
 			$this->view->loadView('rightpanel/rightpanel1.php',$arrArgs);
