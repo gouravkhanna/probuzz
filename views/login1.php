@@ -106,29 +106,36 @@ if(isset($arrData))
 </div>
 	</div>
 	<br><br> <br>
-<div id="slideImage">
-	<div>
-<img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d5.jpg"; ?> > 
-</div> 
-<DIV class="innerimage"> 
-<img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d4.jpg"; ?> >  
-</DIV>
-<DIV class="innerimage1"> 
-<img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d6.jpg"; ?> >  
-</DIV>
-
-
+<div id="slideshow">
+<div>
+<img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d5.jpg"; ?> >
+</div>
+<div>
+<img class="logImg" id="rotator"src=<?php echo ROOTPATH."data/rcs/d4.jpg"; ?>  >   
+</div>
+<div>
+<img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d6.jpg"; ?> >   
+</div>
  </div>	
 
 </body>
 </html>
 <script >
-
-
+$("document").ready(function(){
 $("#confirm_pass").click(function(){
 $("#captcha").show();
 });
 
-/**/
+});
 
+$("#slideshow > div:gt(0)").hide();
+
+setInterval(function() { 
+  $('#slideshow > div:first')
+    .fadeOut(1000)
+    .next()
+    .fadeIn(1000)
+    .end()
+    .appendTo('#slideshow');
+},  5000);
 </script>

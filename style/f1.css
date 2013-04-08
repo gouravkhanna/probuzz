@@ -72,12 +72,12 @@ margin-left: 30px;
 input {
     display: block;
     margin: 3px 0;
-
     width: 294px;    
 }
-h2{
-
-text-align:center;}
+#wrapper h2{
+text-align:center;
+color:#0079c0;
+}
 
 #user_name,#password,#email,#confirm_pass,#first_name,#last_name,#password1,#user_name1
 {
@@ -91,13 +91,13 @@ height:25px;
 width:20em;
 text-align:center;
 }
-img
+.i
 {
-	
 	float:right;
 	margin-top:-35px;
 	margin-right :23px;
-	}
+
+}
 #login,#create
 {
 float:right;
@@ -142,9 +142,7 @@ background-size:100%;
 span
 {
 visibility: hidden;
-border-color: transparent;
-	
-	
+border-color: transparent;	
 }
 #e1,#e2,#e3,#e4,#e5,#e6
 {
@@ -159,6 +157,33 @@ margin-left:50px;
 font-size: 20px;
 color:yellow;
 }
+#slideshow{
+   
+    height: 400px;
+    width: 425px;
+    float: left;
+    margin-left:25px;
+    margin-top: 20px;
+    position: relative; 
+   box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+   border-radius:4px;
+ }
+.logImg{
+    height: 380px;
+   width: 400px;
+ border:  1px solid #ccc;  
+ background-color: #eee;  
+ }
 
+.innerimage{
+    float: right;
+    
+}
 
-
+#slideshow > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+}
