@@ -8,7 +8,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 
 </head>
 <body>
-	<div id="tittle"></div>
+	
 	<div id="wrapper">
 		<form id="side-1" onsubmit="return valid1()" class="flip" method="get" action="index.php">
 
@@ -37,48 +37,48 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 		<form id="side-2" class="flip" method="post" name="side-2"
 			onsubmit=" return valid() " action="index.php">
 			<div id="2">
-				<h2>Signup with your email....</h2>
+				<h2>Join To meet with new people!</h2>
 
 				<input type="text" name="user_name1" id="user_name1"
 					autocomplete="off" placeholder="User Name"
 					onblur="return  valid_uname()" /> <span id="r6" name="r6"> <img
-					src="data/rcs/r.png" height="30px" width="30px" />
+					src="data/rcs/r.png" height="30px" width="30px" class="i" />
 				</span> <span id="w6"> <img src="data/rcs/w.png" height="30px"
-					width="30px" />
+					width="30px"class="i" />
 				</span><span id="e6" name="e6"> </span> <br /> <input type="text"
 					name="first_name" id="first_name" autocomplete="off"
 					placeholder="First Name" onblur="return  valid_fname()" /> <span
 					id="r1" name="r1"> <img src="data/rcs/r.png" height="30px"
-					width="30px" />
+					width="30px" class="i" />
 				</span> <span id="w1"> <img src="data/rcs/w.png" height="30px"
-					width="30px" />
+					width="30px" class="i" />
 				</span><span id="e1" name="e1"> </span> <br /> <input type="text"
 					name="last_name" id="last_name" autocomplete="off"
 					placeholder="Last Name" onblur="return  valid_lname()" /> <span
 					id="r5" name="r5"> <img src="data/rcs/r.png" height="30px"
-					width="30px" />
+					width="30px" class="i" />
 				</span> <span id="w5" name="w5"> <img src="data/rcs/w.png"
-					height="30px" width="30px" />
+					height="30px" width="30px" class="i" />
 				</span><span id="e5" name="e5"> </span> <br /> <input type="text"
 					name="email" id="email" autocomplete="off" placeholder="Email"
 					onblur="return valid_email()" /> <span id="r2" name="r2" id="r2"> <img
-					src="data/rcs/r.png" height="30px" width="30px" />
+					src="data/rcs/r.png" height="30px" width="30px" class="i" />
 				</span> <span id="w2" name="w2" name="w2"> <img src="data/rcs/w.png"
-					height="30px" width="30px" />
+					height="30px" width="30px" class="i" />
 				</span> <span id="e2" name="e2"> </span> <br /> <input
 					type="password" name="password1" id="password1" autocomplete="off"
 					placeholder="Password" onblur="return  valid_password()" /> <span
 					id="r3" name="r3"> <img src="data/rcs/r.png" height="30px"
-					width="30px" />
+					width="30px" class="i" />
 				</span> <span id="w3" name="w4"> <img src="data/rcs/w.png"
-					height="30px" width="30px" />
+					height="30px" width="30px" class="i" />
 				</span> <span id="e3" name="e3"> </span> <br /> <input
 					type="password" name="confirm_pass" id="confirm_pass"
 					autocomplete="off" placeholder="Confirm Password" role="button"
 					onblur="return  valid_password()" /> <span id="r4" name="r4"> <img
-					src="data/rcs/r.png" height="30px" width="30px" />
-				</span> <span id="w4" name="w4"> <img src="data/rcs/w.png"
-					height="30px" width="30px" />
+					src="data/rcs/r.png" height="30px" width="30px" class="i" />
+				</span> <span id="w4" name="w4" > <img src="data/rcs/w.png"
+					height="30px" width="30px" class="i" />
 				</span><span id="e4" name="e4"> </span> <br /><br />
 				 <div id="captcha">
                  <?php echo recaptcha_get_html($publickey);?>
@@ -105,12 +105,30 @@ if(isset($arrData))
 
 </div>
 	</div>
+	<br><br> <br>
+<div id="slideImage">
+	<div>
+<img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d5.jpg"; ?> > 
+</div> 
+<DIV class="innerimage"> 
+<img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d4.jpg"; ?> >  
+</DIV>
+<DIV class="innerimage1"> 
+<img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d6.jpg"; ?> >  
+</DIV>
+
+
+ </div>	
+
 </body>
 </html>
 <script >
+
+
 $("#confirm_pass").click(function(){
 $("#captcha").show();
 });
 
+/**/
 
 </script>
