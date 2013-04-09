@@ -205,7 +205,29 @@ Relationship Status</b><select id="relationship" name="relationship">
    </div>
    </div>
    </div>
+   <div id="basicInfo" name="basicInfo" class="b">
+
+             Basic Information
+          <div>
+          <?PHP  echo "<br> <span id='lb'> Gender</span>
+                 <span id='rb'>".$arrData['personal']['gender'] ;  
+             echo "</span>";
+             echo "<br><span id='lb'>Birthday</span> 
+              <span id='rb'>".$arrData['personal']['DOB'] ;  
+          echo "</span>";
+         echo "<br><span id='lb'>Relationship Status</span>
+              <span id='rb'> ".$arrData['personal']['relationship_status'] ;  
+       echo "</span>";
+             echo "<br><span id='lb'>Intrested In</span> 
+              <span id='rb'>".$arrData['personal']['intersted_in'] ;  
+       echo "</span>";
       
+        ?>
+          
+      </div>
+ <a href="#" id="editb" name="editb"> Edit </a>
+ </div>
+      <div id="div_left"> 
   <div id="education" name="education" class="e ">
  
    Education
@@ -233,60 +255,7 @@ if(empty($arrData['address'])){
   </div>
   
   
-  <div id="work" name="work" class="w">
-  
-    My Favourites <br>
-
-
-    <?PHP 
-    if( empty($arrData['personal']['favourite_book'])
-     || empty($arrData['personal']['favourite_movies'])
-     || empty($arrData['personal']['favourite_food'])
-      ) {
-       
-       echo "No information to display";
-    }  
-    else{
-    echo "<br> <span id='lb'>Read </span> <span id='rb'>".$arrData['personal']['favourite_book'];
-      echo "</span><br>";
-      echo "<span id='lb'> Movies </span>
-            <span id='rb'> ".$arrData['personal']['favourite_movies']; 
-       echo "</span><br>";
-       echo " <span id='lb'> Food </span><span id='rb'>".$arrData['personal']['favourite_food']; 
-        echo "</span><br>";
-  }
-    ?>
-
-    <br>
-       <a href="#" id="editf" name="editf"> Edit </a>
-  
-  </div> 
-  
-<div id="basicInfo" name="basicInfo" class="b">
-
-             Basic Information
-          <div>
-          <?PHP  echo "<br> <span id='lb'> Gender</span>
-                 <span id='rb'>".$arrData['personal']['gender'] ;  
-             echo "</span>";
-             echo "<br><span id='lb'>Birthday</span> 
-              <span id='rb'>".$arrData['personal']['DOB'] ;  
-          echo "</span>";
-         echo "<br><span id='lb'>Relationship Status</span>
-              <span id='rb'> ".$arrData['personal']['relationship_status'] ;  
-       echo "</span>";
-             echo "<br><span id='lb'>Intrested In</span> 
-              <span id='rb'>".$arrData['personal']['intersted_in'] ;  
-       echo "</span>";
-      
-        ?>
-          
-          
-           </div>
- <a href="#" id="editb" name="editb"> Edit </a>
-  </div>
-    
-   <div id="contactInfo" name="contactInfo" class="c">
+  <div id="contactInfo" name="contactInfo" class="c">
        My Contact Info 
       
 
@@ -315,10 +284,43 @@ if(empty($arrData['address'])){
      <a href="#" id="editc" name="editc"> Edit </a>
   </div> 
   
+ </div> 
+
+   <div id="work" name="work" class="w">
+  
+     My Favourites <br> 
+
+    <?PHP 
+    if( empty($arrData['personal']['favourite_book'])
+     || empty($arrData['personal']['favourite_movies'])
+     || empty($arrData['personal']['favourite_food'])
+      ) {
+       
+       echo "No information to display";
+    }  
+    else{
+    echo "<br> <span id='lb'>Read </span> <span id='rb'>".$arrData['personal']['favourite_book'];
+      echo "</span><br>";
+      echo "<span id='lb'> Movies </span>
+            <span id='rb'> ".$arrData['personal']['favourite_movies']; 
+       echo "</span><br>";
+       echo " <span id='lb'> Food </span><span id='rb'>".$arrData['personal']['favourite_food']; 
+        echo "</span><br>";
+  }
+    ?>
+
+    <br>
+       <a href="#" id="editf" name="editf"> Edit </a>
+  
+  </div> 
+  
+
+    
+   </div>
  
-</div>
+
 
 <!-- main div for  ends here  -->
 
-</div>
+
 

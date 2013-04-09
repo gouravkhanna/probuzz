@@ -23,7 +23,7 @@ body {
 	max-height: auto;
 	max-width: 1285;
 	background-color: #F9F9F9;
-	background-image:url("../data/rcs/bg.jpg");
+/* 	background-image:url("../data/rcs/bg.jpg"); */
 	font-family: del,verdana;
 	font-size: 0.8em;
 }
@@ -41,7 +41,7 @@ body {
 	color:#579BBA;
 }
 #navigation {
-	margin-top: 50px;
+	margin-top: 30px;
 	position: inherit;
 	min-height: 980px;
 	padding-top: 10px;
@@ -50,7 +50,7 @@ body {
 	color:white;
 	float: left;
 	margin-right: 7px;
-	background-color: #78bbe6; /*darkgrey;*/
+	background-color: #2D9BE8; /*darkgrey;*/
 	overflow: visible;
 }
 /*
@@ -111,6 +111,7 @@ ul.n a:hover, ul.n a.selected {
 	overflow: visible;
 	margin-top: 55px;
 	margin-left: -4px;
+	bottom: 0;
 	}
 
 #midpanel {

@@ -16,7 +16,10 @@
 		float:right;
 	}
 	
-	
+.corpouter textarea{
+	float:left;
+	margin-left:4px;
+}	
 </style>
 <div id="midpanel">
 	<?php

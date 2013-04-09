@@ -1,7 +1,7 @@
 <div id="midpanel">
 <div id="usshowmsg"></div>
-
-	<table id="buzztable">
+<br>
+<br>	<table id="buzztable">
 		<thead>
 <?php
 if (isset ( $arrData )) {
@@ -10,6 +10,7 @@ if (isset ( $arrData )) {
 </thead>
 		<tbody>
 <?php
+
     $i = 1;
     foreach ( $arrData as $val ) {
         if (isset ( $val ) && ! empty ( $val ['spam_id'] )) {
