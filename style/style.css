@@ -119,14 +119,16 @@ ul.n a:hover, ul.n a.selected {
 /*	  background-color: #dfdfdf; */
 	background-color: #FFFFFe;
 	width: 582px;
+	
 	min-height: 727px;
 	float: left;
 	margin-left: -5px;
 	margin-right: 5px;
-	overflow:visible;
-	
+
+
 	
 }
+
 #buzzpanel {
 	margin-top: 8px;
 /*	  background-color: #dfdfdf; */
@@ -159,18 +161,38 @@ ul.n a:hover, ul.n a.selected {
 #bigmid {
 	position:relative;
 	padding: 5px;
-/*	background-color: #ededed; */
-		background-color: #FFFFFe;
+	background-color: #FFFFFe;
 	margin-top: 50px;
 	margin-left:-5px;
 	float: left;
 	min-width: 857px;
 	max-width: 857px;
 	 width: 857px;
-	max-height: 980px;
+	
 	min-height: 980px;
 	height: auto;
+	
+ word-wrap: break-word; 
 		
+}
+#buzztable {
+		width: 857px;
+	max-width: 857px;
+}
+#buzztablem {
+		width: 582px;
+	max-width: 582px;
+}
+#buzztable #btdetails {
+	width:480px;
+	max-width:480px;
+}#buzztable #btdetails {
+	width:400px;
+	max-width:400px;
+}
+#buzztable #btname,#btemail {
+	width:75px;
+	max-width:75px;
 }
 
 #rightpanel {

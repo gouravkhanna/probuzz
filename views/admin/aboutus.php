@@ -1,7 +1,5 @@
-<?php
-print_r($_SESSION);
-?>
-<div id="midpanel">
+
+<div id="bigmid">
 <?php
 
 if(isset($_SESSION['updateAboutUs']))

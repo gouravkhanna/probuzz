@@ -1,6 +1,6 @@
 
 <div id="midpanel">
-	<br/><br/><br/><br/>
+
 	<h3>Add Administrator Account.</h3>
 	<hr/>
 	<form id="addAdminForm">

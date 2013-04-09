@@ -1,4 +1,4 @@
-<div id="midpanel">
+<div id="bigmid">
 <div id="usshowmsg"></div>
 
 	<table id="buzztable">
@@ -15,10 +15,10 @@ if (isset ( $arrData )) {
     foreach ( $arrData as $val ) {
         if (isset ( $val ) && ! empty ( $val ['name'] )) {            
             echo "<tr id='row".$val ['id']."'><td>$i</td>";
-            echo "<td>" . $val ['name'] . "</td>";
-            echo "<td>" . $val ['email'] . "</td>";
-            echo "<td>". $val ['details'] ."</td>";
-            echo "<td>". $val ['contact_time'] ."</td>";
+            echo "<td id=btname>" . $val ['name'] . "</td>";
+            echo "<td id=btemail>" . $val ['email'] . "</td>";
+            echo "<td id=btdetails>". $val ['details'] ."</td>";
+            echo "<td >". $val ['contact_time'] ."</td>";
             if($val ['details_read'] ==0) {
                 echo "<td>". UNREAD ."</td>";
             } else {

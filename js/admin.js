@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    $("#buzztable").dataTable(); 
+    $("#buzztable").dataTable();
+    $("#buzztablem").dataTable();
     $("#showba11").hide();
     $("#spammanegementmenu").click(function(){ 
         $("#spammanegementdiv").slideToggle("slow");

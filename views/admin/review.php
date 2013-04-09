@@ -1,7 +1,7 @@
 <div id="midpanel">
 	<div id="usshowmsg"></div>
 
-	<table id="buzztable">
+	<table id="buzztablem">
 		<thead>
 <?php
 if (isset ( $arrData )) {

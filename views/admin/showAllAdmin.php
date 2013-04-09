@@ -1,18 +1,20 @@
 <div id="midpanel">
 	<div id="displayAllAdmin">
-		<br/><br/><br/>
+    
 		<h3>All The Admin Account Users Are Listed Below.</h3>
 		<hr/>
 		<?php
 			$count=1;
 		?>
-		<table>
+		<table id=buzztablem>
+		<thead>
 			<tr>
 				<th>S.No.</th>
 				<th>User Name</th>
 				<th>Status</th>
 			</tr>
-		
+		</thead>
+		<tbody>
 		<?php
 			foreach($arrData as $key => $value) {
 				if($value['current_status']=="0") {
@@ -28,6 +30,7 @@
 				$count++;
 			}
 		?>
+		</tbody>
 		</table>
 	</div>
 </div>
