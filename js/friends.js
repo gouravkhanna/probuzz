@@ -23,9 +23,8 @@ function acceptRequest(input) {
 	    url: "index.php",
 	    data:"controller=friends&url=acceptRequest&friendId="+id[1],
 	    success: function(msg){
-			location.reload();
-			
-	    }
+			$("#friendRequest"+id[1]).html("Friend Request Accepted").fadeOut(2000);//location.reload();
+		 }
 	});
 	
 }

@@ -17,6 +17,7 @@
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/proProfile.css"; ?> " />
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/notifications.css" ; ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/upload.css" ; ?>" />
+<link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/jquery.dataTables.css" ; ?>" />
 <script type="text/javascript" src="<?php echo ROOTPATH."js/proProfile.js"; ?> "></script>
 <script type="text/javascript" src="<?php echo ROOTPATH."js/notifications.js" ;?>" ></script>
 

@@ -6,7 +6,7 @@
 	if (! empty ( $arrData )) {
 
 		foreach ( $arrData  as $key => $value ) {
-			$res = "<div id='friendRequest' ><a href='index.php?controller=friends&url=friendsProfile&friendId=" . $value ['id'] . "' >";
+			$res = "<div id='friendRequest".$value['id']."'><a href='index.php?controller=friends&url=friendsProfile&friendId=" . $value ['id'] . "' >";
 			$res .= "<div id=dvres class=full>";
 			
 			$res .= "<img class='imgcenter floatl round5' src='" . $value ['path'] . "' height='50' width='50' >";
