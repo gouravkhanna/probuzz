@@ -104,7 +104,7 @@ if(isset($arrData))
 ?>
 
 </div>
-	</div><br>
+	</div><br><br><br>
 	<DIV id="background">
 	<br>	
 	<div id="head">At One Place </div>

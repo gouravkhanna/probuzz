@@ -30,6 +30,7 @@ background-image:url(../data/rcs/grey_gradient.jpg);
 border-radius:1em;
 height:auto;   
 margin-top: 20px;  
+margin-right:1px; 
 
 }
 #captcha{
