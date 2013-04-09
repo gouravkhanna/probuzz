@@ -16,7 +16,7 @@
 		float:right;
 	}
 	
-.corpouter textarea{
+.corpinner,.corpouter textarea{
 	float:left;
 	margin-left:4px;
 }	
@@ -62,7 +62,7 @@
 	<div class="corpouter">
 		Company's Website<br/>
 		<textarea rows="2" name="website" cols="" class="corpinner"><?php echo $data['website']; ?></textarea>
-	</div>
+	</div><br><br><br>
 	<div class="corpouter">
 		<div class="corpinner">
 			Upload Company's Display Pic:&emsp;&emsp;&emsp; <input type="file" name="profile_pic_id"/><input type="button" value="Upload"/>
