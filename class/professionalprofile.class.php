@@ -182,6 +182,36 @@ class professionalprofile extends DbConnection {
     /*
      * old updateInto() public function updateInto($fields) { if($fields) { $query="update ".$fields['table']." set "; foreach($fields as $key => $value) { if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID' && $key!='rowId') { $query.="$key = '".strip_tags($value)."' ,"; } } $query=chop($query," ,"); $query.=" where id=".$fields['rowId'].";"; echo $query; $this->dbInstance=new DbConnection(); $result=$this->dbInstance->executeSQL($query); return $result; } else { return false; } }
      */
+    public function processUpload() {
+    	$allowedExts = array("doc", "docx", "rtf", "txt","pdf","tif","jpeg");
+		$extension = end(explode(".", $_FILES['resume']['name']));
+		
+		//return $_FILES["resume"]["name"];
+		if (in_array($extension, $allowedExts)) {
+		    if ($_FILES['resume']['error'] > 0) {
+				return "Error Occured While Uploading";
+		    } else {
+				if (file_exists(UPLOAD_PATH . $_FILES['resume']['name'])) {
+				    return "File Already Exists";
+				} else {
+					//return UPLOAD_PATH.$_FILES["resume"]["name"];
+				    $ok = move_uploaded_file($_FILES["resume"]["tmp_name"],UPLOAD_PATH.$_FILES["resume"]["name"]);
+				    return $ok;
+				    var_dump($ok);die;
+				    if($ok) { 
+	
+					 return "File Successfully Uploaded ";
+				    }
+				    else {
+					    return "File Not Uploaded ".$_FILES["resume"]["name"]."  " .$_FILES["resume"]["tmp_name"];
+				    }
+				}
+		    }
+		}
+		else {
+		  return "File extension not supported";
+		}
+	}
 }
 
 ?>

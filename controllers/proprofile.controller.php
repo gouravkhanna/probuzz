@@ -160,7 +160,14 @@ class proprofile extends Controller
 		$this->view->loadView($view,$arrArg);
 	}
 	
-	
+	public function uploadResume() {
+		//echo "in upload resume";
+		
+		$response=loadModel("professionalprofile","processUpload");
+		echo "<script language='javascript' type='text/javascript'>window.top.window.stopUpload('".$response."');</script>";
+		//echo "<script language='javascript' type='text/javascript'>window.top.window.response( '".$response."' );</script>";
+		
+	}
 	/*public function uploadResume() {
 		echo "in upload resume";
 		$allowedExts = array("doc", "docx", "rtf", "txt","pdf","tif");
