@@ -180,7 +180,9 @@ define("DETAILS","Details");
 define("TIME","Time");
 define("EDIT","Edit");
 define("TECHNICAL","Technical");
-
+define("JOIN","Join To meet with new people!");
+define("ALREADY_ACCOUNT","Already have an account?");
+define("BUZZIN","Login ");
 
 
 ?>

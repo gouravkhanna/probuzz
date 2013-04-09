@@ -37,7 +37,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 		<form id="side-2" class="flip" method="post" name="side-2"
 			onsubmit=" return valid() " action="index.php">
 			<div id="2">
-				<h2>Join To meet with new people!</h2>
+				<h2><?php echo JOIN; ?></h2>
 
 				<input type="text" name="user_name1" id="user_name1"
 					autocomplete="off" placeholder="User Name"
@@ -86,7 +86,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
              
                  <div id="" >
                    <p>
-					Already have an account? <a href="" id="login1"> Login </a>
+					<?php echo ALREADY_ACCOUNT;?> <a href="" id="login1"> <?php echo BUZZIN;?></a>
 				</p>
 			</div>
 				<input type="submit" id="create" name="url" value="register" />
