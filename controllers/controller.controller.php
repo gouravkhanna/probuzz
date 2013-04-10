@@ -20,7 +20,7 @@ class Controller
 			header('location:index.php');
 		}
 		else {
-			$arrArgs=array('error_msg' => 	"Not a Valid User Or Password" );
+    //	$arrArgs=array('error_msg' => 	"Not a Valid User Or Password" );
 			loadView("login1.php",$arrArgs);
 		}
 

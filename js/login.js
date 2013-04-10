@@ -34,7 +34,8 @@ $(document).ready(function() {
 		$.ajax({
             type: "GET",
             url: "index.php",
-            data:"userName="+$("#forget_user_name").val()+"&controller=user&url=forgotPasswordEmail",
+            //data:"userName="+$("#forget_user_name").val()+"&controller=user&url=forgotPasswordEmail",
+            data:"controller=user&url=forgotPasswordEmail",
             success: function(msg){
                 alert(msg);
                 //$("#").html(msg);

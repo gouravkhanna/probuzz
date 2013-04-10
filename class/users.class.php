@@ -8,6 +8,7 @@ class users extends DbConnection {
     private $firstName = "";
     private $lastName = "";
     private $email = "";
+    private $current_status="";
     function __construct() {
         parent::__construct ();
     }
@@ -23,24 +24,35 @@ class users extends DbConnection {
             $data ['columns'] = array (
                     'users.user_name',
                     'users.password',
-                    'users.type' 
+                    'users.type',
+                    'users.current_status' 
             );
             $data ['conditions'] = array (
                     "users.user_name" => "$this->userName" 
             );
+            
             $result = $this->db->select ( $data );
+            
             $row = $result->fetch ( PDO::FETCH_ASSOC );
+
+            $this->current_status = $row ["current_status"];
+            echo $this->current_status;
             if ($row ['user_name'] == $this->userName && md5($row ['password']) == md5($this->password)) {
                 $this->type = $row ["type"];
-                $flag = 1;
+                $flag=1;
             }
         }
-        if ($flag == 1) {
+        if ($this->current_status == 0 && $flag==1) {
             $_SESSION ['id'] = $this->getId ( $this->userName );
             $_SESSION ['user_name'] = $this->userName;
             $_SESSION ['type'] = $this->type;
             return true;
-        } else {
+        } else  if ($this->current_status == '3' && $flag=='1') {
+             $_SESSION['error_msg']=	"You Account is Banned Permanently!
+                                         Due to Suspicious Activities! <br/>
+                                         Contact Admin for any issue!" ; 
+        } else {    
+            $_SESSION['error_msg']=	"Not a Valid User Or Password" ;
             return false;
         }
     }

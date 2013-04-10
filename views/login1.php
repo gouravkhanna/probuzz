@@ -114,9 +114,10 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 		<div id="errmsg" name="errmsg">
 <?php
 
-if(isset($arrData))
+if(isset($_SESSION['error_msg']))
 {
-  echo @$arrData['error_msg'];
+  echo $_SESSION['error_msg'];
+  unset($_SESSION['error_msg']);
 }
 ?>
 
