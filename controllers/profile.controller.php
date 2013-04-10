@@ -11,7 +11,7 @@ class profile extends Controller
      loadView('head/head1.php');
     $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
     $userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
-    loadView("navigation/profilenavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
+   loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path","user_name"=>$userName));
     
     $arrData=loadModel("personalprofile","loadProfile",array("id"=>$_SESSION['id']));
     loadView('midpanel/bigmid.php',$arrData);
@@ -78,8 +78,7 @@ function new_Education(){
         $arrData=loadModel("personalprofile","insert_Education",$arrArgs);
     
       if($arrData){
-    
-    $this->home();
+         $this->home();
       }
     
     }
@@ -94,8 +93,7 @@ function new_Education(){
             
            $arrData=loadModel("personalprofile","upInfo",$arrArgs);
             if($arrData){
-
-         $this->home();
+             $this->home();
             }
 
    
@@ -114,8 +112,7 @@ function new_Education(){
 
      $arrData=loadModel("personalprofile","upbInfo",$arrArgs);
      if($arrData){
-
-   $this->home();
+       $this->home();
    }
 
   }
@@ -136,7 +133,6 @@ function new_Education(){
 
     $arrData=loadModel("personalprofile","up_E",$arrArgs);
    if($arrData){
-
    $this->home();
    }
 

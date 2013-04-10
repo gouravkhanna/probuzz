@@ -261,9 +261,10 @@ position:relative;
 }
 #work
 {
-	margin-top:100px;
+margin-top:30px;
 float:right;
 height:auto;
+min-height:150px;
 width:300px;
 padding-top: 17px;
 padding-right: 40px;

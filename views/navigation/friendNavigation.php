@@ -23,7 +23,7 @@
 	<div id=usermenu>	
 	<ul>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=profile"; ?>">Social Profile</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=personalProfile&id=".$arrData['id']; ?>">Social Profile</a>
 		</li>
 		<li id="umenu">
 			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=professionalProfile&id=".$arrData['id']; ?>">Profesional Profile</a>

@@ -25,10 +25,10 @@ private function dbConnect()
 		//old -  Will be Depriciated
 			$this->hostName='localhost';
 			$this->user='root';
-			$this->password='root';
+			$this->password='';
 			//New
 			$this->config['user'] = 'root';
-			$this->config['pass'] = 'root';
+			$this->config['pass'] = '';
 			$this->config['name'] = 'probuzz';
 			$this->config['host'] = 'localhost';
 			$this->config['type'] = 'mysql';

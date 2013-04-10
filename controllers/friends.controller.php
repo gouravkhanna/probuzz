@@ -76,6 +76,26 @@ class friends extends Controller
 		loadView('footer/footer.php');
 		
 	}
+	function personalProfile(){
+
+		if(isset($_REQUEST['id'])) {
+			$id=$_REQUEST['id'];
+		}
+		else {
+			$id=$_SESSION['id'];
+		}
+		$arrData=array('id'=>$id);
+		loadView('head/head1.php');
+		$path=loadModel("friend","getProfilePic",$arrData);
+		$friendName=loadModel("users","fetchName",$arrData);
+	loadView("navigation/friendNavigation.php",
+				array('profile_pic_path' =>$path,'friend_name'=>$friendName,'id'=>$id));
+        $arrArgs=loadModel("personalprofile","loadProfile",array("id"=>$id));
+       // print_r($arrArgs);
+        $this->view->loadView('midpanel/friendsocialprofile.php',$arrArgs);
+       loadView('footer/footer.php');
+
+	}
 	function sendRequest() {
 		$friendId=$_REQUEST['friendId'];
 		$result=loadModel("friend","sendRequest",$friendId);

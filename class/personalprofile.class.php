@@ -5,6 +5,7 @@ class personalprofile extends DbConnection {
         parent::__construct ();
     }
     function loadProfile($arrArgs = array()) {
+    
         $arrData = array ();
         $id = $arrArgs ['id'];
         
@@ -95,7 +96,7 @@ class personalprofile extends DbConnection {
                 'address' => $row2,
                 'education' => $row3 
         );
-        
+       
         return $arrData;
     }
     function upCon($arrArgs = array()) {
