@@ -39,6 +39,7 @@
 							id="sjclocation" name="sjclocation" placeholder="Enter City">
 					</aside>
 				</div>
+				</div>
 				<br />
 				<br />
 				<!-- 
