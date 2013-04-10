@@ -25,6 +25,7 @@ class users extends DbConnection {
                     'users.user_name',
                     'users.password',
                     'users.type',
+                    'users.user_id',
                     'users.current_status' 
             );
             $data ['conditions'] = array (
@@ -47,10 +48,39 @@ class users extends DbConnection {
             $_SESSION ['user_name'] = $this->userName;
             $_SESSION ['type'] = $this->type;
             return true;
-        } else  if ($this->current_status == '3' && $flag=='1') {
+        } else if ($this->current_status == '3' && $flag=='1') {
              $_SESSION['error_msg']=	"You Account is Banned Permanently!
                                          Due to Suspicious Activities! <br/>
                                          Contact Admin for any issue!" ; 
+        } else if ($this->current_status == '1' && $flag=='1') {
+            $_SESSION['error_msg']=	"Your Account is  Deactivated! 
+                                    Please use Forget Password to reactiate it";         
+        }else if ($this->current_status == '2' && $flag=='1') {
+           
+            $data1['tables']="spams";
+            $data1['columns']=array(
+                    "unix_timestamp(spam_review_time) as ttime");
+            $data1['conditions']=array(
+                    "spam_id"=>$row ['user_id'],
+                    "spam_review"=>'1',
+                    "spam_action"=>'2',
+                    );      
+            $result = $this->db->select ( $data1 );
+            
+            $row = $result->fetch ( PDO::FETCH_ASSOC );
+          echo $s=date("dG",(time()-$row['ttime']));
+           //echo $s;
+           if($s<=24){
+               $_SESSION['error_msg']=	"Your Account is Banned for 1 Day!
+                                    Please Login after 
+                                   ".(24-$s)." hour Left for Ban Lift";
+           } else {
+               $_SESSION ['id'] = $this->getId ( $this->userName );
+               $_SESSION ['user_name'] = $this->userName;
+               $_SESSION ['type'] = $this->type;
+               return true;
+           }
+            
         } else {    
             $_SESSION['error_msg']=	"Not a Valid User Or Password" ;
             return false;
@@ -469,14 +499,14 @@ class users extends DbConnection {
                 "spam_id"=>$arrArg['spam_id'],
                 "spam_type"=>'1',
         );
-        $data["tables"]="spam";
+        $data["tables"]="spams";
         $data['conditions']=$indata;
         $sel=$this->db->select($data);
         $res=$sel->fetch(PDO::FETCH_ASSOC);
         if($res) {
             return "spam";
         } else {
-            $result=$this->db->insert("spam",$indata);
+            $result=$this->db->insert("spams",$indata);
             $indata['spam_time']='now()';
             if($result && $result->rowCount() > 0) {
                 return "newspam";
