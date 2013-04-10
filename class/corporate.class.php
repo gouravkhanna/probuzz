@@ -305,9 +305,24 @@ class corporate extends DbConnection {
 				on 
 					c.user_id=j.corp_id
 				where
-					j.status='1' ";
-           
-            $res = $this->executeSQLP ( $sql );
+					j.status='1' 
+                 ";
+           $data['tables']="jobs j";
+           $data['columns']=array(
+               "j.id as jobid","j.designation",
+               "DATE_FORMAT(j.start_date,'%M %D, %Y') as startdate",
+               "DATE_FORMAT(j.last_date, '%M %D, %Y') as lastdate ",
+               "j.location","j.experience","c.company_name"
+                       );
+           $data['conditions']=array("j.corp_id"=>$arrArgs['id']);
+           $data ['joins'] [] = array (
+                    'table' => 'corporate_profile c',
+                    'type' => 'INNER',
+                    'conditions' => array (
+                            'c.user_id' => 'j.corp_id' 
+                    ) 
+            );
+            $res = $this->db->select ( $data );
             if ($res) {
                 while ( $row [] = $res->fetch ( PDO::FETCH_ASSOC ) ) {
                 }

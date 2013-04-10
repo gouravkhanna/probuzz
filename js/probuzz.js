@@ -315,13 +315,16 @@ $.ajax({
 	
 /* For Show JObs from  search for user $ searchjob.php*/
 	function fnLoadJobSearch(a) {
+	    
 		//check the status of the job and show button or message accordingly
 		$("#sjappstatus").show();
 		$("#sjappstatus").load("index.php","controller=user&url=loadAppStatus&jobId="+a);
+		
 		//load the details of the job the divison
 		$("#sjjob").show();
 		$("#sjjob").load("index.php","controller=corporatecontroller&url=showSpecficJob&jobId="+a+"&request_type=user");
 		$("#sjsearchres").hide();
+	
 		$("#sjbackbutton").show();
 		
 	}
