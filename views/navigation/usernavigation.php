@@ -41,7 +41,7 @@
 		</li>
 
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."user/searchjob"; ?>"><?php echo Search_Job;?></a>
+			<a href="<?php echo ROOTPATH."user/searchjob"; ?>"><?php echo SEARCH_JOB;?></a>
 		</li>
 		<li id="umenu">
 			<a href="<?php echo ROOTPATH."user/displayApplication"; ?>"><?php echo DISPLAY_JOB;?></a>

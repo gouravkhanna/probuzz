@@ -42,7 +42,7 @@
 		</li>
 	    <aside id="usermanegementdiv" class='marginl20 visiblen'>
 	    <li id="umenu">
-			<a href="<?php echo ROOTPATH."admin/addAdmin"; ?>"><?php echo MANAGE_USERS;?></a>
+			<a href="<?php echo ROOTPATH."admin/manageUsers"; ?>"><?php echo MANAGE_USERS;?></a>
 		</li>
 		<li id="umenu">
 			<a href="<?php echo ROOTPATH."admin/deleteAdmin"; ?>"><?php echo MANAGE_CORPORATE;?></a>

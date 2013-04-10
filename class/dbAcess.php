@@ -24,10 +24,10 @@ class DbConnection {
         // old - Will be Depriciated
         $this->hostName = 'localhost';
         $this->user = 'root';
-        $this->password = '';
+        $this->password = 'root';
         // New
         $this->config ['user'] = 'root';
-        $this->config ['pass'] = '';
+        $this->config ['pass'] = 'root';
         $this->config ['name'] = 'probuzz';
         $this->config ['host'] = 'localhost';
         $this->config ['type'] = 'mysql';

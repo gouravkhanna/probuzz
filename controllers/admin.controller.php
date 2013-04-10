@@ -212,13 +212,35 @@ class admin extends controller {
         $this->view->loadView('rightpanel/rightpanel.php');
         $this->view->loadView('footer/footer.php');
     }
-    function activateDeactivateAccount() {
+    function manageUsers() {
+        $this->type=$_SESSION['type'];
+        $this->view->loadView('head/headadmin.php');
+        $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+        loadView("navigation/adminnavigation.php",array('profile_pic_path' =>$path));
+        $this->view->loadView('head/head2.php');
+        
+        $arrData=loadModel("adminstrator","showAllUsers",array("id"=>$_SESSION['id']));
+        $this->view->loadView("admin/showAllUsers.php",$arrData);
+        
+        $this->view->loadView('rightpanel/rightpanel.php');
+        $this->view->loadView('footer/footer.php');
+    }
+    function deactivateAccount() {
         $arrData=array(
             "rowId" => $_REQUEST['rowId'],
             "status" => $_REQUEST['status']
         );
-        $result=loadModel("adminstrator","activateDeactivateAccount",$arrData);
-        return false;
+        $result=loadModel("adminstrator","deactivateAccount",$arrData);
+        echo $result;
     }
+    function activateAccount() {
+        $arrData=array(
+            "rowId" => $_REQUEST['rowId'],
+            "status" => $_REQUEST['status']
+        );
+        $result=loadModel("adminstrator","activateAccount",$arrData);
+        echo $result;
+    }
+    
 }
 ?>

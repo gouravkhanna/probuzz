@@ -296,10 +296,48 @@ class adminstrator extends DbConnection {
             
         }
     }
-    function activateDeactivateAccount($arrArgs=array()) {
+    function showAllUsers($arrArgs=array()) {
         if($arrArgs) {
-            print_r($arrArgs);
+            $data['columns']=array(
+                "user_id",
+                "user_name",
+                "current_status"
+            );
+            $data['tables']="users";
+            $data['conditions']=array(
+                "type"=>"0"
+            );
+            $temp=$this->db->select($data);
+            $result=array();
+            while($row=$temp->fetch(PDO::FETCH_ASSOC)) {
+                $result[]=$row;
+            }
+            return $result;
         }
+    }
+    function deactivateAccount($arrArgs=array()) {
+           if($arrArgs){
+            $data=array(
+                "current_status"=>$arrArgs['status']
+            );
+            $where=array(
+                "user_id"=>$arrArgs['rowId']
+            );
+            $this->db->update("users",$data,$where);
+        }
+        return "User Account Deactivated.";
+    }
+    function activateAccount($arrArgs=array()) {
+        if($arrArgs){
+            $data=array(
+                "current_status"=>$arrArgs['status']
+            );
+            $where=array(
+                "user_id"=>$arrArgs['rowId']
+            );
+            $this->db->update("users",$data,$where);
+        }
+        return "User Account Activated.";
     }
 }
 ?>

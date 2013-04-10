@@ -21,10 +21,10 @@
 				if($value['current_status']=="0") {
 					$status=ACTIVE;
 					$buttonValue=DEACTIVATE;
-					$method=DEACTIVATE."(this,".$value['user_id'].")";
+					$method="deactivate(this,".$value['user_id'].")";
 				} else if($value['current_status']=="1") {
 					$status=INACTIVE;
-					$buttonValue=ACITVATE;
+					$buttonValue=ACTIVATE;
 					$method="activate(this,".$value['user_id'].")";
 				}
 				echo "<tr id=".$value['user_id'].">";

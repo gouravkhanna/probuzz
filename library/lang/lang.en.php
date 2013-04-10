@@ -200,7 +200,7 @@ define("ACTIVATE_DEACTIVATE","Activate/Deactivate");
 define("ACTIVE","Active");
 define("DEACTIVATE","Deactivate");
 define("INACTIVE","Inactive");
-define("ACITVATE","Acitvate");
+define("ACTIVATE","Activate");
 define("NO_SPAM","Hurray NO SPAM");
 define("EVEN","even");
 define("ODD","odd");
@@ -329,4 +329,7 @@ define("EMAIL_ADDRESS","Email Address :");
 define("WHAT_UP","What's Up?");
 define("BUZZIN","Login ");
 define("TOTAL_SUBSCRIBER","Total Subscriber : ");
+define("NO_USERS_TO_DISPLAY","No Users To Display.");
+define("USER_NAME","User Name");
+define("BAN_4_1_DAY","Ban For 1 Day");
 ?>

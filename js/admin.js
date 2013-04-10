@@ -27,11 +27,10 @@ $(document).ready(function(){
 });
 function activate(input,rowId) {
     var status=$(input).val();
-    alert("in activate :"+status+ " " + rowId);
     $.ajax({
         type: "GET",
         url: "index.php",
-        data:"controller=admin&url=activateDeactivateAccount&rowId="+rowId+"&status=0",
+        data:"controller=admin&url=activateAccount&rowId="+rowId+"&status=0",
         success: function(msg){
             alert(msg);
             $(input).val("Deactivate");
@@ -43,12 +42,10 @@ function activate(input,rowId) {
 }
 function deactivate(input,rowId) {
     var status=$(input).val();
-    alert("in deactivate :"+status+ " " + rowId);
-    
     $.ajax({
         type: "GET",
         url: "index.php",
-        data:"controller=admin&url=activateDeactivateAccount&rowId="+rowId+"&status=1",
+        data:"controller=admin&url=deactivateAccount&rowId="+rowId+"&status=1",
         success: function(msg){
             alert(msg);
             $(input).val("Activate");
