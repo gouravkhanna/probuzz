@@ -18,8 +18,7 @@ class corporatecontroller extends controller {
         $this->loadNavigation ();
         loadView ( "head/head2.php" );
         loadView ( 'midpanel/midpanel.php' );
-        loadView ( 'rightpanel/rightpanel1.php' );
-        loadView ( 'rightpanel/rightpanel2.php' );
+        $this->getAppStats ();
         loadView ( 'footer/footer.php' );
     }
     function cprofile() {
@@ -310,5 +309,15 @@ function alotSlot() {
         } else {
             header ( "Location: http://localhost/probuzz/trunk/index.php" );
         }
+    }
+    function settings() {
+        loadView('head/head1.php');
+        $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+        $userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
+        loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
+        loadView('head/head2.php');
+        loadView('userSettings.php');
+        loadView('rightpanel/rightpanel.php');
+        loadView('footer/footer.php');
     }
 }

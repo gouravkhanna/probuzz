@@ -179,7 +179,8 @@ class corporate extends DbConnection {
             print_r($row3);
             $arrData = array (
                     "total_jobs" => $row1 ['COUNT(*)'],
-                    "total_active_jobs" => $row2 ['COUNT(*)'] 
+                    "total_active_jobs" => $row2 ['COUNT(*)'],
+                    "total_subscriber" => $row3 ['COUNT(*)']
             );
             return ($arrData);
         }
@@ -200,8 +201,8 @@ class corporate extends DbConnection {
 			personal_profile p 
 			left join address a on p.user_id=a.user_id
 			left join qualification q on q.user_id=p.user_id
-			left join photo photo on p.profile_pic_id=photo.id";
-        
+			left join photo photo on p.profile_pic_id=photo.id
+            left join users u on u.user_id=p.user_id  ";
         $cond = " ";
         // Based on City
         if (! empty ( $arrArg ['city'] )) {
@@ -235,7 +236,7 @@ class corporate extends DbConnection {
         $cond = rtrim ( $cond, "AND (" );
         
         if ($cond != "") {
-            $sql .= " where ( " . $cond . " group by id";
+            $sql .= " where u.type='0' AND ( " . $cond . " group by id";
            // echo $sql;
             $res = $this->executeSQLP ( $sql );
             if ($res) {

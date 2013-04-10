@@ -10,12 +10,38 @@
              ?>
              </span> 
         </div>   
-<div id="dropdown" name="dropdown">
-  <ul>
+<br/><br/><br/><br/><br/><br/><br/>
+	<div id=usermenu>	
+	<ul>
+	    <li id="umenu">
+			<a href="<?php echo ROOTPATH."user/messages"; ?>">Messaging</a>
+		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."index.php?controller=profile"; ?>">Social Profile</a>
+		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."index.php?controller=proprofile"; ?>">Profesional Profile</a>
+		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showfriend"; ?>">Friends</a>
+		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showRequests"; ?>">Show Requests</a>
+		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."index.php?controller=photos"; ?>">Photos</a>
+		</li>
 
-
-
-</ul>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."user/searchjob"; ?>">Search Job</a>
+		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."user/displayApplication"; ?>">Display Job</a>
+		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."index.php?controller=user&url=settings"; ?>">Settings</a>
+		</li>
+	</ul>
 
 </div> 
 </div>

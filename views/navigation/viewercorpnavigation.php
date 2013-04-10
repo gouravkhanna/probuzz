@@ -25,7 +25,7 @@
 	<div id="divsubstatus"></div>
     	<?php
     
-if ($arrData ['substatus'] ['subscribe_status'] == 0) {
+if ($arrData ['substatus'] ['subscribe_status'] == '0') {
         $visble1 = "visiblen";
         $visble2 = "visibley";
     } else {

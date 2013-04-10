@@ -189,6 +189,6 @@ define("MIN_SALARY","Minimum Salary");
 define("JOIN","Join To meet with new people!");
 define("ALREADY_ACCOUNT","Already have an account?");
 define("BUZZIN","Login ");
-
+define("TOTAL_SUBSCRIBER","Total Subscriber : ");
 
 ?>
