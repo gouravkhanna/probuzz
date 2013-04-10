@@ -2,6 +2,7 @@
 <?php
 
 echo "<div id='sjresdata'>";
+
 if (! empty ( $arrData[0] )) {
 	
 	foreach ( $arrData as $key => $val ) {

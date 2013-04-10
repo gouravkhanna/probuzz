@@ -286,11 +286,37 @@ class corporate extends DbConnection {
         }
     }
     function countSubscriber($corpId){
+        if (! empty ( $corpId )) {
         $result = $this->db->count ( "subscription", array (
                 "corp_id" => $corpId,
                 "subscribe_status" => '0'
         ) );
         $row3 = $result->fetch ( PDO::FETCH_ASSOC );
         return $row3['COUNT(*)'];
+        }
+    }
+    function getJobs($arrArgs=array()) {
+      //  if (! empty ( $arrArg )) {
+     if (! empty ( $arrArgs )) {
+            $sql = "SELECT j.id as jobid,j.designation, DATE_FORMAT(j.start_date, ";
+            $sql .= "'%M %D, %Y'" . ") as startdate,DATE_FORMAT(j.last_date, '%M %D, %Y') as lastdate ";
+            $sql .= ",j.location, j.experience, c.company_name ";
+            $sql .= " from jobs j JOIN corporate_profile c 
+				on 
+					c.user_id=j.corp_id
+				where
+					j.status='1' ";
+           
+            $res = $this->executeSQLP ( $sql );
+            if ($res) {
+                while ( $row [] = $res->fetch ( PDO::FETCH_ASSOC ) ) {
+                }
+                return $row;
+            } else {
+                return "Can't Search! TryAgain! ";
+            }
+        }
+        //}
+        
     }
 }

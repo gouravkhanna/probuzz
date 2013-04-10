@@ -415,14 +415,6 @@ class users extends DbConnection {
     function displayApplication($arrArgs = array()) {
         if (! empty ( $arrArgs )) {
             $id = $arrArgs ['id'];
-            /* $sql = "select 
-            c.company_name, j.id , ja.appliying_date,j.designation,j.location
- 			from job_applicant ja 
- 			join jobs j 
-			    on ja.job_id=j.id 
-			join corporate_profile c 
-		    	on c.user_id=j.corp_id 
-			where ja.user_id='$id'"; */
             $data ['tables'] = 'job_applicant ja';
             $data ['columns'] = array (
                     'c.company_name',

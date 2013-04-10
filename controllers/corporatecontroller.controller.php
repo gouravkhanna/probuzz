@@ -266,6 +266,7 @@ function alotSlot() {
         
         loadView ( 'footer/footer.php' );
     }
+    /*For other user to view Corporate profile*/
     function showProfile() {
         if ($_REQUEST ['corpId'] != $_SESSION ['id']) {
              $arrData = array (
@@ -282,6 +283,29 @@ function alotSlot() {
             $arrArgs['subscibers']=loadModel("corporate","countSubscriber",$_REQUEST['corpId']);
             loadView ( "navigation/viewercorpnavigation.php", $arrArgs );
             loadView ( "profile/displayCorporateProfile.php" );
+        } else {
+            header ( "Location: http://localhost/probuzz/trunk/index.php" );
+        }
+    }
+    /*For other user to view Corporate Jobs*/
+    function displayJob() {
+        if ($_REQUEST ['corpId'] != $_SESSION ['id']) {
+            $arrData = array (
+                    'id' => $_REQUEST ['corpId'] ,
+                    'user_id'=>@$_SESSION['id'],
+            );
+            $this->view->loadView ( 'head/head1.php' );
+            $path = loadModel ( "users", "getProfilePic", $arrData );
+            $arrArgs = loadModel ( "corporate", "fetchName", $arrData );
+            $arrArgs ["profile_pic_path"] = $path;
+            $arrArgs ["id"] = $_REQUEST ['corpId'];
+            //subscription status
+            $arrArgs['substatus']=loadModel("subscription","checkSubscriptionStatus",$arrData);
+            //no of subscriber
+            $arrArgs['subscibers']=loadModel("corporate","countSubscriber",$_REQUEST['corpId']);
+            loadView ( "navigation/viewercorpnavigation.php", $arrArgs );
+            $arrData=loadModel("corporate","getJobs",$arrArgs);
+            loadView ("displayjob.php",$arrData);
         } else {
             header ( "Location: http://localhost/probuzz/trunk/index.php" );
         }
