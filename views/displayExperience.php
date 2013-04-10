@@ -7,8 +7,7 @@
 $experience=$arrData['experience'];
             if(!$experience) {
         ?>
-        No Experience to display...<br/>
-        Add Experience...
+        <?php echo NO_EXPERIENCE_TO_DISPLAY;?>
         <?php } else {
             foreach($experience as $key => $value){
         ?>
@@ -23,13 +22,13 @@ $experience=$arrData['experience'];
                 </div>
                 <div class="displayDetails" id="div<?php echo $value['id']; ?>">
                     <?php if($value['position']) { ?>
-                    <pre>       <?php echo "Postition : ".$value['position']; ?></pre>
+                    <pre>       <?php echo POSTITION." : ".$value['position']; ?></pre>
                     <?php } ?>
                     <?php if($value['start_date']) { ?>
-                    <pre>       <?php echo "From : ".$value['start_date']; ?></pre>
+                    <pre>       <?php echo FROM." ".$value['start_date']; ?></pre>
                     <?php } ?>
                     <?php if($value['end_date']) { ?>
-                    <pre>       <?php echo "To : ".$value['end_date']; ?></pre>
+                    <pre>       <?php echo TO." ".$value['end_date']; ?></pre>
                     <?php } ?>
                     
 					<!-- Reminder to add this column to certifications table-->

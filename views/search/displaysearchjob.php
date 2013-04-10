@@ -16,7 +16,7 @@ if (! empty ( $arrData[0] )) {
 				$res .= "<div id='sjresultcol' > Start Date ".$val['startdate']." ";
 			}
 			if(!empty($val['lastdate'])) {
-				$res .= "  End Date ".$val['lastdate']."</div> ";
+				$res .= END_DATE." ".$val['lastdate']."</div> ";
 			}
 			$res .= "</button>";
 			$res .= "</div>";

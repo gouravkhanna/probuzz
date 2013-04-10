@@ -2,20 +2,19 @@
 <div id="2" class="leftarrowdiv1"> 
    
    <div id="me" name="me" class="m">
-     About Me 
+     <?php echo ABOUT_ME;?> 
    <div id="details" >
 
    <div id="spp" > 
     <?PHP  
-                             echo $arrData['personal']['first_name']." "
-                            .$arrData['personal']['last_name'] ;
-                        
-       echo " <span id='sspp'> <b>  Lives in </b>  </span> &nbsp <span id='t'>". $arrData['address'][0]['city'];
+      echo $arrData['personal']['first_name']." "
+      .$arrData['personal']['last_name'] ;
+      echo " <span id='sspp'> <b>  Lives in </b>  </span> &nbsp <span id='t'>". $arrData['address'][0]['city'];
           
-       echo " <br> <b> Attented </b></span> <span id='t'>". $arrData['education'][0]['institute'];
-       echo "</span>"; 
-        echo "<br>  Tagline <span id='t'>" .$arrData['personal']['about_myself'];
-         echo "</span>";  
+      echo " <br> <b> Attented </b></span> <span id='t'>". $arrData['education'][0]['institute'];
+      echo "</span>"; 
+      echo "<br>  Tagline <span id='t'>" .$arrData['personal']['about_myself'];
+      echo "</span>";  
 
        ?>
 
@@ -24,7 +23,7 @@
    </div>
    <div id="basicInfo" name="basicInfo" class="b">
 
-             Basic Information
+             <?php echo BASIC_INFORMATION;?>
           <div>
           <?PHP  echo "<br> <span id='lb'> Gender</span>
                  <span id='rb'>".$arrData['personal']['gender'] ;  
@@ -47,7 +46,7 @@
       <div id="div_left"> 
   <div id="education" name="education" class="e ">
  
-   Education
+   <?php echo EDUCATION;?>
       
       <?PHP
       $len=count($arrData['education']);
@@ -71,7 +70,7 @@
   
   
   <div id="contactInfo" name="contactInfo" class="c">
-       My Contact Info 
+       <?php echo CONTACT_INFO;?>
       
 
       <?PHP
@@ -103,7 +102,7 @@
 
    <div id="work" name="work" class="w">
   
-     My Favourites <br> 
+     <?php echo MY_FAVOURITES;?><br> 
 
     <?PHP 
     if( empty($arrData['personal']['favourite_book'])
@@ -111,7 +110,7 @@
      || empty($arrData['personal']['favourite_food'])
       ) {
        
-       echo "No information to display";
+       echo NO_INFO_TO_DISPLAY;
     }  
     else{
     echo "<br> <span id='lb'>Read </span> <span id='rb'>".$arrData['personal']['favourite_book'];

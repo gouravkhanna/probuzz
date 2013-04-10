@@ -19,7 +19,7 @@ class view {
                */
             include_once ($view_path);
         } else {
-            die ( $templateName . ' Template Not Found under View Folder' );
+            die ( $templateName . " ".TEMPLATE_NOT_FOUND );
         }
     }
 }

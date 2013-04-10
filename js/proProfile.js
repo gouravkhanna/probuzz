@@ -171,6 +171,7 @@ function openFancyBox(table,rowId) {
 
 function closeFancy() {
     $('.fancybox').css({"display":"none"});
+    $('.fancybox1').css({"display":"none"});
 }
 function validateQualifications() {
     var flag=1;

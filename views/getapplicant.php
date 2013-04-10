@@ -15,7 +15,7 @@ if (! empty ( $arrData ) && ! empty ( $arrData ['0'] )) {
         }
     }
 } else {
-    echo "No Application Recived";
+    echo NO_APPLICATION_RECIEVED;
 }
 
 ?>

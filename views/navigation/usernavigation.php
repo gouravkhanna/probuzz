@@ -22,32 +22,32 @@
 	<div id=usermenu>	
 	<ul>
 	    <li id="umenu">
-			<a href="<?php echo ROOTPATH."user/messages"; ?>">Messaging</a>
+			<a href="<?php echo ROOTPATH."user/messages"; ?>"><?php echo MESSAGING;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=profile"; ?>">Social Profile</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=profile"; ?>"><?php echo SOCIAL_PROFILE;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=proprofile"; ?>">Profesional Profile</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=proprofile"; ?>"><?php echo PROFESSIONAL_PROFILE;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showfriend"; ?>">Friends</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showfriend"; ?>"><?php echo FRIENDS;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showRequests"; ?>">Show Requests</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showRequests"; ?>"><?php echo SHOW_REQUESTS;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=photos"; ?>">Photos</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=photos"; ?>"><?php echo PHOTOS;?></a>
 		</li>
 
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."user/searchjob"; ?>">Search Job</a>
+			<a href="<?php echo ROOTPATH."user/searchjob"; ?>"><?php echo Search_Job;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."user/displayApplication"; ?>">Display Job</a>
+			<a href="<?php echo ROOTPATH."user/displayApplication"; ?>"><?php echo DISPLAY_JOB;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=user&url=settings"; ?>">Settings</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=user&url=settings"; ?>"><?php echo SETTINGS;?></a>
 		</li>
 	</ul>
 		<!-- APPLICATION STATUS -->

@@ -21,7 +21,7 @@ if (! empty ( $arrData )) {
 	
 	} 
 } else {
-	echo "No results to display";
+	echo NO_RESULTS_TO_DISPLAY;
 }
 echo "</div>";
 ?>

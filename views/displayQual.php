@@ -7,8 +7,7 @@
 $qual=$arrData['qualification'];
             if(!$qual) {
         ?>
-        No Qualifications to display...<br/>
-        Add Qualification...
+        <?php echo NO_QUALIFICATION_TO_DISPLAY;?><br/>
         <?php } else {
             foreach($qual as $key => $value){
         ?>
@@ -23,25 +22,25 @@ $qual=$arrData['qualification'];
                 </div>
                 <div class="displayDetails" id="div<?php echo $value['id']; ?>">
                     <?php if($value['institute']) { ?>
-                    <pre>       <?php echo "Institute : ".$value['institute']; ?></pre>
+                    <pre>       <?php echo INSTITUTE." : ".$value['institute']; ?></pre>
                     <?php } ?>
                     <?php if($value['university']) { ?>
-                    <pre>       <?php echo "University : ".$value['university']; ?></pre>
+                    <pre>       <?php echo UNIVERSITY." : ".$value['university']; ?></pre>
                     <?php } ?>
                     <?php if($value['percentage']) { ?>
-                    <pre>       <?php echo "Percentage : ".$value['percentage']; ?></pre>
+                    <pre>       <?php echo PERCENTAGE." ".$value['percentage']; ?></pre>
                     <?php } ?>
                     <?php if($value['start_year']) { ?>
-                    <pre>       <?php echo "Start Year : ".$value['start_year']; ?></pre>
+                    <pre>       <?php echo START_YEAR." ".$value['start_year']; ?></pre>
                     <?php } ?>
                     <?php if($value['end_year']) { ?>
-                    <pre>       <?php echo "End Year : ".$value['end_year']; ?></pre>
+                    <pre>       <?php echo END_YEAR." ".$value['end_year']; ?></pre>
                     <?php } ?>
                     <?php if($value['subject_studied']) { ?>
-                    <pre>       <?php echo "Major Subjects : ".$value['subject_studied']; ?></pre>
+                    <pre>       <?php echo MAJOR_SUBJECTS." ".$value['subject_studied']; ?></pre>
                     <?php } ?>
                     <?php if($value['added_date']) { ?>
-                    <pre>       <?php echo "Added On : ".$value['added_date']; ?></pre>
+                    <pre>       <?php echo ADDED_ON.$value['added_date']; ?></pre>
                     <?php } ?>
                 </div>
         </div>

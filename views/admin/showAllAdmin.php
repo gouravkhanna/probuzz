@@ -1,7 +1,7 @@
 <div id="midpanel">
 	<div id="displayAllAdmin">
     
-		<h3>All The Admin Account Users Are Listed Below.</h3>
+		<h3><?php echo ADMINACCOUNTLIST;?></h3>
 		<hr/>
 		<?php
 			$count=1;
@@ -9,18 +9,18 @@
 		<table id=buzztablem>
 		<thead>
 			<tr>
-				<th>S.No.</th>
-				<th>User Name</th>
-				<th>Status</th>
+				<th><?php echo S_NO;?></th>
+				<th><?php echo USERNAME;?></th>
+				<th><?php echo STATUS;?></th>
 			</tr>
 		</thead>
 		<tbody>
 		<?php
 			foreach($arrData as $key => $value) {
 				if($value['current_status']=="0") {
-					$status="Active";
+					$status=ACTIVE;
 				} else if($value['current_status']=="1") {
-					$status="Inactive";
+					$status=INACTIVE;
 				}
 				echo "<tr>";
 				echo "<td>".$count."</td>";

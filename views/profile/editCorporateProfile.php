@@ -32,45 +32,45 @@
 	</h3>
 	<form id="updateCorporate">
 	<div class="corpouter">
-		Company Name<br/>
+		<?php echo COMPANY_NAME;?><br/>
 		<textarea rows="1" name="company_name" cols="" class="corpinner"><?php echo $data['company_name']; ?></textarea>
 	</div>
 	<div class="corpouter">
-		Company Alias<br/>
+		<?php echo COMPANY_ALIAS;?><br/>
 		<textarea rows="1" name="company_alias" cols="" class="corpinner"><?php echo $data['company_alias']; ?></textarea>
 	</div>
 	<div class="corpouter">
-		Company's Tagline<br/>
+		<?php echo COMPANY_TAGLINE;?><br/>
 		<textarea rows="2" name="tagline" cols="" class="corpinner"><?php echo $data['tagline']; ?></textarea>
 	</div>
 	<div class="corpouter">
-		Number of Employees<br/>
+		<?php echo NO_OF_EMPLOYEES;?><br/>
 		<textarea rows="1" name="number_of_employee" cols="" class="corpinner"><?php echo $data['number_of_employee']; ?></textarea>
 	</div>
 	<div class="corpouter">
-		Branches At<br/>
+		<?php echo BRANCHES_AT;?><br/>
 		<textarea rows="5" name="locations" cols="" class="corpinner"><?php echo $data['locations']; ?></textarea>
 	</div>
 	<div class="corpouter">
-		A Little About<br/>
+		<?php echo LITTLE_ABOUT;?><br/>
 		<textarea rows="5" name="summary" cols="" class="corpinner"><?php echo $data['summary']; ?></textarea>
 	</div>
 	<div class="corpouter">
-		Contact Number<br/>
+		<?php echo CONTACT_NO;?><br/>
 		<textarea rows="2" name="phone_number" cols="" class="corpinner"><?php echo $data['phone_number']; ?></textarea>
 	</div>
 	<div class="corpouter">
-		Company's Website<br/>
+		<?php echo COMPANY_WEBSITE;?><br/>
 		<textarea rows="2" name="website" cols="" class="corpinner"><?php echo $data['website']; ?></textarea>
 	</div><br><br><br>
 	<div class="corpouter">
 		<div class="corpinner">
-			Upload Company's Display Pic:&emsp;&emsp;&emsp; <input type="file" name="profile_pic_id"/><input type="button" value="Upload"/>
+			<?php echo UPLOAD_COMPANY_DISPLAY_PIC;?>&emsp;&emsp;&emsp; <input type="file" name="profile_pic_id"/><input type="button" value="Upload"/>
 			<br/>
 		</div>
 	</div>
 	<div class="corpouter">
-		Company's Email Id<br/>
+		<?php echo COMPANY_EMAIL_ID;?><br/>
 		<textarea rows="2" name="email_id" cols="" class="corpinner"><?php echo $data['email_id']; ?></textarea>
 	</div>
 	<input type="submit" class="corpSubmit"/>

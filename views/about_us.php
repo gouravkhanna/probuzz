@@ -86,17 +86,17 @@ if(isset($arrData))
 	<form action="#" method="post">
 		<ul>
 			<li>
-				<label for="name">Name: </label>
+				<label for="name"><?php echo NAME;?> </label>
 	 			<input name="name" id="name" value="<?php @$_RESQUEST['name'];?>">
 			</li>
 
 			<li>
-				<label for="email">Email Address: </label>
+				<label for="email"><?php echo EMAIL_ADDRESS;?> </label>
 		 		<input name="email" id="email" value="<?php @$_REQUEST['email'];?>">
 			</li>
 
 			<li>
-				<label for="comments">What's Up?</label>
+				<label for="comments"><?php echo WHAT_UP;?></label>
 				<textarea name="comments" id="comments" cols="30" rows="10"><?php @$_REQUEST['comments'];?></textarea>
 			</li>
 			<li>

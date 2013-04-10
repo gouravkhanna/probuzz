@@ -16,6 +16,6 @@ if(!empty($arrData) && !empty($arrData['0'])) {
 	}
 }
 else {
-echo "NO MESSEGES!! Start MEssaging";
+echo NO_MESSEGES;
 }
 ?>

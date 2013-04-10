@@ -24,8 +24,8 @@ class buzzin extends DbConnection {
                 "like_status"=>'1',
      );
      $condition=array(
-             "user_id"=>$arrArgs['id'],
-             "buzz_id"=>$arrArgs['buzz_id'],
+             "user_id"=>strip_tags($arrArgs['id']),
+             "buzz_id"=>strip_tags($arrArgs['buzz_id']),
              );
      $result=$this->db->update("probuzz.like",$data,$condition); 
      if($result && $result->rowCount() > 0) {
@@ -37,8 +37,8 @@ class buzzin extends DbConnection {
     } 
     function buzzDelete($arrArg = array()) {
      $condition=array(
-             "user_id"=>$arrArg['id'],
-             "id"=>$arrArg['buzz_id'],
+             "user_id"=>strip_tags($arrArg['id']),
+             "id"=>strip_tags($arrArg['buzz_id']),
      );
      $data=array(
              "buzz_status"=>'1',
@@ -53,8 +53,8 @@ class buzzin extends DbConnection {
 }
 function commentDelete($arrArg = array()) {
     $condition=array(
-            "user_id"=>$arrArg['id'],
-            "id"=>$arrArg['comment_id'],
+            "user_id"=>strip_tags($arrArg['id']),
+            "id"=>strip_tags($arrArg['comment_id']),
     );
     $data=array(
             "comment_status"=>'1',
@@ -294,8 +294,8 @@ function commentDelete($arrArg = array()) {
 
 function markBuzzSpam($arrArg = array()) {
     $indata=array(
-            "marked_by"=>$arrArg['id'],
-            "spam_id"=>$arrArg['buzz_id'],
+            "marked_by"=>strip_tags($arrArg['id']),
+            "spam_id"=>strip_tags($arrArg['buzz_id']),
             "spam_type"=>'0',
     );
     $data["tables"]="spam";

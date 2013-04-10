@@ -2,7 +2,7 @@
 	<div id="dvsearchpeople">
 
 
-		<h1 class=calign>SEACRH PEOPLE</h1>
+		<h1 class=calign><?php echo SEACRH_PEOPLE;?></h1>
 		<hr />
 		<button id="showoption">Hide</button>
 		<div id="searchcriteria"></div>
@@ -29,7 +29,7 @@
 							id="spccityother" name="spccityother" placeholder="Enter City">
 					</aside>
 				</div>
-				<br /> <br /> <label id=lxdegree>DEGREE <?php  echo ""; ?></label>
+				<br /> <br /> <label id=lxdegree><?php echo DEGREE;?> <?php  echo ""; ?></label>
 				<hr />
 				<div id=spddegree>
 					<select class="vcenter floatl"
@@ -79,7 +79,9 @@ if (! empty ( $arrData )) {
     
     foreach ( $arrData as $key => $val ) {
         if ($val ['id'] != "") {
-            $res = "<a href='" . ROOTPATH . "index.php?controller=friends&url=friendsProfile&friendId=" . $val ['id'] . "' >";$res = "<a href='" . ROOTPATH . "index.php?controller=friends&url=friendsProfile&friendId=" . $val ['id'] . "' >";            $res .= "<div id=dvres class='round20'>";
+            $res = "<a href='" . ROOTPATH . "index.php?controller=friends&url=friendsProfile&friendId=" . $val ['id'] . "' >";
+			$res = "<a href='" . ROOTPATH . "index.php?controller=friends&url=friendsProfile&friendId=" . $val ['id'] . "' >";
+			$res .= "<div id=dvres class='round20'>";
             $res .= "<img class='imgcenter floatl round5' src=" . ROOTPATH . $val ['path'] . " height=50 width=50 >";
             $res .= "<aside >" . $val ['first_name'] . "</aside><aside> " . $val ['last_name'] . "<aside></div>";
             $res .= "</a>";

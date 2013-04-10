@@ -495,8 +495,8 @@ class users extends DbConnection {
 /* mark user Spam  */
     function markUserSpam($arrArg = array()) {
         $indata=array(
-                "marked_by"=>$arrArg['id'],
-                "spam_id"=>$arrArg['spam_id'],
+                "marked_by"=>strip_tags($arrArg['id']),
+                "spam_id"=>strip_tags($arrArg['spam_id']),
                 "spam_type"=>'1',
         );
         $data["tables"]="spams";
@@ -570,7 +570,7 @@ class users extends DbConnection {
             return "You Entered Wrong Old Password.<br/>";
         } else {
             $data=array();
-            $data["password"]=$_REQUEST['new_password'];
+            $data["password"]=strip_tags($_REQUEST['new_password']);
             $where=array(
                 "user_id"=>$_SESSION['id']
             );
@@ -648,9 +648,9 @@ class users extends DbConnection {
     }
     function insertContactUs($arrArg = array()) {
         $data=array(
-                "name"=>$arrArg ['name'],
-                "email"=>$arrArg ['email'],
-                "details"=>$arrArg ['comments']
+                "name"=>strip_tags($arrArg ['name']),
+                "email"=>strip_tags($arrArg ['email']),
+                "details"=>strip_tags($arrArg ['comments'])
         );
         $result=$this->db->insert("contact_us",$data);
         if($result) {

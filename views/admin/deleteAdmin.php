@@ -1,7 +1,7 @@
 <div id="midpanel">
 	<div id="displayAllAdmin">
 
-		<h3>All The Admin Account Users Are Listed Below.</h3>
+		<h3><?php echo ADMINACCOUNTLIST;?></h3>
 		<hr/>
 		<?php
 			$count=1;
@@ -9,22 +9,22 @@
 		<table id=buzztablem>
 		<thead>
 			<tr>
-				<th>S.No.</th>
-				<th>User Name</th>
-				<th>Status</th>
-				<th>Activate/Deactivate</th>
+				<th><?php echo S_NO;?></th>
+				<th><?php echo USERNAME;?></th>
+				<th><?php echo STATUS;?></th>
+				<th><?php echo ACTIVATE_DEACTIVATE;?></th>
 			</tr>
 		</thead>
 		<tbody>
 		<?php
 			foreach($arrData as $key => $value) {
 				if($value['current_status']=="0") {
-					$status="Active";
-					$buttonValue="Deactivate";
-					$method="deactivate(this,".$value['user_id'].")";
+					$status=ACTIVE;
+					$buttonValue=DEACTIVATE;
+					$method=DEACTIVATE."(this,".$value['user_id'].")";
 				} else if($value['current_status']=="1") {
-					$status="Inactive";
-					$buttonValue="Acitvate";
+					$status=INACTIVE;
+					$buttonValue=ACITVATE;
 					$method="activate(this,".$value['user_id'].")";
 				}
 				echo "<tr id=".$value['user_id'].">";

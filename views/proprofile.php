@@ -85,13 +85,13 @@
         <h3><?php echo RESUME; ?></h3>
         <div class="wide">
             <div id="content">
-				You Can Upload Only One Resume..
+				<?php echo ONLY_ONE_RESUME;?>
                 <form action="<?php echo ROOTPATH;?>index.php?controller=proprofile&url=uploadResume" method="post"
                  enctype="multipart/form-data" target="upload_target" onsubmit="startUpload()" >
-                         <p id="f1_upload_process" >Loading...<br/>
+                         <p id="f1_upload_process" ><?php echo LOADING;?><br/>
                          <img src="<?php echo ROOTPATH."data/rcs/loader.gif"?>" /><br/></p>
                          <p id="f1_upload_form" align="center"><br/>
-                             <label>File:  
+                             <label><?php echo FILE;?>  
                                   <input name="resume" type="file" size="30" />
                              </label>
                              <label>

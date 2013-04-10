@@ -67,8 +67,8 @@ class adminstrator extends DbConnection {
     }
     function updateReview($arrArg = array()) {
         if (! empty ( $arrArg ['spam_id'] )) {
-            $spamAction = $arrArg ['spam_action'];
-            $spamType = $arrArg ['spam_type'];
+            $spamAction = strip_tags($arrArg ['spam_action']);
+            $spamType = strip_tags($arrArg ['spam_type']);
             $condition = array (
                     "spam_id" => $arrArg ['spam_id'],
                     "spam_type" => "$spamType" 
@@ -107,7 +107,7 @@ class adminstrator extends DbConnection {
                 if ($res) {
                     $row = $res->fetch ( PDO::FETCH_ASSOC );
                     $condition = array (
-                            "user_id" => $row ['user_id'] 
+                            "user_id" => strip_tags($row ['user_id']) 
                     );
                 } else {
                     return false;
@@ -130,7 +130,7 @@ class adminstrator extends DbConnection {
     function banUserOnePermanent($arrArg = array()) {
         if (! empty ( $arrArg ['spam_id'] )) {
             $condition = array (
-                    "user_id" => $arrArg ['spam_id'] 
+                    "user_id" => strip_tags($arrArg ['spam_id'])
             );
             $data = array (
                     "current_status" => '3' 
@@ -230,7 +230,7 @@ class adminstrator extends DbConnection {
         )
         ;
         $data = array (
-                "about_us" => $arrArg['text'],
+                "about_us" => strip_tags($arrArg['text']),
         );
         
         $result = $this->db->update ( "probuzz.pb_data", $data, $condition );

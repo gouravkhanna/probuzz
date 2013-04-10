@@ -41,7 +41,7 @@ if (! empty ( $arrData ) && ! empty ( $arrData ['0'] )) {
         }
     }
 } else {
-    echo "No mEssages!!";
+    echo NO_MESSEGES;
 }
 
 ?>

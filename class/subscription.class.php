@@ -6,8 +6,8 @@ class subscription extends DbConnection {
     }
     function addSubscription($arrArg=array()) {
         $data=array(
-                "user_id"=>$arrArg['id'],
-                "corp_id"=>$arrArg['corp_id'],
+                "user_id"=>strip_tags($arrArg['id']),
+                "corp_id"=>strip_tags($arrArg['corp_id']),
                 "subscribe_status"=>'0',
                 );
         $result=$this->db->insert("subscription",$data,true);

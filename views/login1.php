@@ -37,7 +37,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 				<form id="forgotPasswordForm">
 					<hr/>
 					<div id="aelo1">
-						Type In Your Registered User Name
+						<?php echo TYPE_REGISTERED_USER_NAME;?>
 						<input type="text" name="forget_user_name" id="forget_user_name" />
 					</div>
 					<!--<div id="aelo2">
@@ -125,22 +125,22 @@ if(isset($_SESSION['error_msg']))
 	</div><br><br><br>
 	<DIV id="background">
 	<br>	
-	<div id="head">At One Place </div>
+	<div id="head"><?php echo AT_ONE_PLACE;?> </div>
 <div id="slideshow">
 
 <div>
 <img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d5.jpg"; ?> >
-   <div id="text"> Find </div>
+   <div id="text"> <?php echo FIND;?> </div>
 </div>
 <div>
 <img class="logImg" id="rotator"src=<?php echo ROOTPATH."data/rcs/d4.jpg"; ?>  >   
 
- <div id="t"> Meet </div>
+ <div id="t"> 	<?php echo MEET;?> </div>
 </div>
 <div>
 <img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d6.jpg"; ?> >   
 
- <div id="t1" > Search </div>
+ <div id="t1" > <?php echo SEARCH;?> </div>
 </div>
 <div>
 <img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/chat.jpg"; ?> >   

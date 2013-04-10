@@ -3,8 +3,8 @@
 		<div >
 		<textarea id="message_text" name="message_text" class="border" placeholder="Type your message here.." ></textarea>
 		<br/>
-		<button id="submitmessage" onclick="insertMessage()">Send</button>
-		<button onclick="closeFancy()">Close</button>
+		<button id="submitmessage" onclick="insertMessage()"><?php echo SEND;?></button>
+		<button onclick="closeFancy()"><?php echo CLOSE;?></button>
 		</div>
 	</div>
 	
@@ -23,27 +23,27 @@
 	<div id=usermenu>	
 	<ul>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=personalProfile&id=".$arrData['id']; ?>">Social Profile</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=personalProfile&id=".$arrData['id']; ?>"><?php echo SOCIAL_PROFILE;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=professionalProfile&id=".$arrData['id']; ?>">Profesional Profile</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=professionalProfile&id=".$arrData['id']; ?>"><?php echo PROFESSIONAL_PROFILE;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showfriend&id=".$arrData['id']; ?>">Friends</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showfriend&id=".$arrData['id']; ?>"><?php echo FRIENDS;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=photos"; ?>">Photos</a>
+			<a href="<?php echo ROOTPATH."index.php?controller=photos"; ?>"><?php echo PHOTOS;?></a>
 		</li>
 		<li id="umenu">
 		</li>
-			<a onclick="openBox()">Message</a>
+			<a onclick="openBox()"><?php echo MESSAGE;?></a>
 		</ul>
 		<!-- APPLICATION STATUS -->
 		<!-- NOTIFICATION STATUS -->
 		<!-- -->
 		<div id="spamuser"></div>
        <span class='floatr marginr10 cursor1' onclick=markUserSpam('<?php echo @$_REQUEST['friendId'];?>')>
-                  SpAM
+                  <?php echo SPAM;?>
                     </span> 
      </div>	
    </div>

@@ -22,7 +22,8 @@
                 if($pro['company']) {
                     $flag=1;
             ?>
-            <div class="highlight"><?php echo strtoupper(COMPANY_NAME) ;?></div>
+            <div class="highlight">
+            <?php echo strtoupper(COMPANY_NAME) ;?></div>
             <div class="displayDetails"><pre>       <?php echo $pro['company']; ?></pre></div>
             <?php
                 }
@@ -36,7 +37,8 @@
                 if($pro['proficiency']) {
                     $flag=1;
             ?>
-            <div class="highlight"><?php echo strtoupper(PROFICIENCY); ?></div>
+            <div class="highlight">
+            <?php echo strtoupper(PROFICIENCY); ?></div>
             <div class="displayDetails"><pre>       <?php echo $pro['proficiency']; ?></pre></div>
             <?php
                 }
@@ -56,7 +58,8 @@
                 }
                 if($flag==0) {
             ?>
-            <div class="displayDetails alignCenter"><h3>       <?php echo "No Results To Display";?></h3></pre></div>
+            <div class="displayDetails alignCenter"><h3>
+            <?php echo NO_RESULTS_TO_DISPLAY;?></h3></pre></div>
             <?php
                 }
             ?>
@@ -65,15 +68,11 @@
         </div>
         <h3><?php echo QUALIFICATIONS; ?></h3>
         <div class="wide">
-
-
             <?php $qual=$arrData['qualification'];
                 if(!$qual) {
                     echo NO_QUALIFICATION_TO_DISPLAY;
             ?>
             
-            <!--No Qualifications to display...<br/>
-            Add Qualifications by clicking On Edit..-->
             <?php } else {
                 foreach($qual as $key => $value){
             ?>
@@ -83,25 +82,25 @@
             </div>
             <div class="displayDetails" id="div<?php echo $value['id']; ?>">
                 <?php if($value['institute']) { ?>
-                <pre>       <?php echo "Institute : ".$value['institute']; ?></pre>
+                <pre>       <?php echo INSTITUTE." : ".$value['institute']; ?></pre>
                 <?php } ?>
                 <?php if($value['university']) { ?>
-                <pre>       <?php echo "University : ".$value['university']; ?></pre>
+                <pre>       <?php echo UNIVERSITY." : ".$value['university']; ?></pre>
                 <?php } ?>
                 <?php if($value['percentage']) { ?>
-                <pre>       <?php echo "Percentage : ".$value['percentage']; ?></pre>
+                <pre>       <?php echo PERCENTAGE." ".$value['percentage']; ?></pre>
                 <?php } ?>
                 <?php if($value['start_year']) { ?>
-                <pre>       <?php echo "Start Year : ".$value['start_year']; ?></pre>
+                <pre>       <?php echo START_YEAR." ".$value['start_year']; ?></pre>
                 <?php } ?>
                 <?php if($value['end_year']) { ?>
-                <pre>       <?php echo "End Year : ".$value['end_year']; ?></pre>
+                <pre>       <?php echo END_YEAR." ".$value['end_year']; ?></pre>
                 <?php } ?>
                 <?php if($value['subject_studied']) { ?>
-                <pre>       <?php echo "Major Subjects : ".$value['subject_studied']; ?></pre>
+                <pre>       <?php echo MAJOR_SUBJECTS." ".$value['subject_studied']; ?></pre>
                 <?php } ?>
                 <?php if($value['added_date']) { ?>
-                <pre>       <?php echo "Added On : ".$value['added_date']; ?></pre>
+                <pre>       <?php echo ADDED_ON.$value['added_date']; ?></pre>
                 <?php } ?>
             </div>
             <?php
@@ -126,13 +125,13 @@
                 </div>
                 <div class="displayDetails" id="div<?php echo $value['id']; ?>">
                     <?php if($value['institution']) { ?>
-                    <pre>       <?php echo "Institution : ".$value['institution']; ?></pre>
+                    <pre>       <?php echo INSTITUTION." : ".$value['institution']; ?></pre>
                     <?php } ?>
                     <?php if($value['certification_year']) { ?>
-                    <pre>       <?php echo "Certification Year : ".$value['certification_year']; ?></pre>
+                    <pre>       <?php echo CERTIFICATION_YEAR." : ".$value['certification_year']; ?></pre>
                     <?php } ?>
                     <?php if($value['validity']) { ?>
-                    <pre>       <?php echo "Valid Till : ".$value['validity']; ?></pre>
+                    <pre>       <?php echo VALID_TILL." : ".$value['validity']; ?></pre>
                     <?php } ?>
                     
 					
@@ -161,13 +160,13 @@
                 </div>
                 <div class="displayDetails" id="div<?php echo $value['id']; ?>">
                     <?php if($value['position']) { ?>
-                    <pre>       <?php echo "Postition : ".$value['position']; ?></pre>
+                    <pre>       <?php echo POSTITION." : ".$value['position']; ?></pre>
                     <?php } ?>
                     <?php if($value['start_date']) { ?>
-                    <pre>       <?php echo "From : ".$value['start_date']; ?></pre>
+                    <pre>       <?php echo FROM." ".$value['start_date']; ?></pre>
                     <?php } ?>
                     <?php if($value['end_date']) { ?>
-                    <pre>       <?php echo "To : ".$value['end_date']; ?></pre>
+                    <pre>       <?php echo TO." ".$value['end_date']; ?></pre>
                     <?php } ?>
                     
 

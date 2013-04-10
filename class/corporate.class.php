@@ -7,7 +7,7 @@ class corporate extends DbConnection {
     function alotSlot($arrArg = array()) {
         // if(!$designation!="")
         $data = array (
-                'corp_id' => $arrArg ['id'],
+                'corp_id' => strip_tags($arrArg ['id']),
                 'designation' => strip_tags ( mysql_real_escape_string ( $arrArg ['designation'] ) ) 
         );
          $result = $this->db->insert ( "jobs", $data );
@@ -82,7 +82,7 @@ class corporate extends DbConnection {
     }
     function updateStatusJob($arrArg) {
         $status = @$arrArg ['status'] == 0 ? 1 : 0;
-        $jobId = $arrArg ['jobId'];
+        $jobId = strip_tags($arrArg ['jobId']);
         $data = array (
                 "status" => "$status" 
         );

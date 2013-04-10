@@ -2,7 +2,7 @@
 <?php
 
 echo "<div id=dvresbig >";
-echo "<hr/>Based on User Name <hr/>";
+echo "<hr/>".BASED_ON_USER_NAME." <hr/>";
 if (! empty ( $arrData )) {
     foreach ( $arrData ["username"] as $key => $val ) {
         if ($val ['id'] != "") {
@@ -17,7 +17,7 @@ if (! empty ( $arrData )) {
 }
 echo "</div>";
 echo "<div id=dvresbig >";
-echo "<hr/>Based on Name <hr/>";
+echo "<hr/>".BASED_ON_NAME." <hr/>";
     if (! empty ( $arrData )) {
     foreach ( $arrData ["name"] as $key => $val ) {
         if ($val ['id'] != "") {
@@ -33,7 +33,7 @@ echo "<hr/>Based on Name <hr/>";
 }
 echo "</div>";
 echo "<div id=dvresbig >";
-echo "<hr/>Based on Company <hr/>";
+echo "<hr/>".BASED_ON_COMPANY." <hr/>";
 if (! empty ( $arrData )) {
     foreach ( $arrData ["company"] as $key => $val ) {
         if ($val ['id'] != "") {

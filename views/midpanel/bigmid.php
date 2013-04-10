@@ -3,7 +3,7 @@
    
 <!--edit Contact code goes here-->
 <div id="edit_contact" name="edit_contact" >
-     <div id="editchead" >Contact Information <span id="close"> X</span></div>
+     <div id="editchead" ><?php echo CONTACT_INFORMATION;?><span id="close"> X</span></div>
    
    <div id="innerc">
    <?php 
@@ -14,21 +14,23 @@
      ?>
    <form method="get" action="" id="contactform">
     
-     <b>House No </b>  <br><input type="text" id="ehno" name="ehno" width="50px"
-     value= <?PHP echo $arrData['address'][$i]['house_number']  ?>>
-   <br><b>Street No</b>  <br> <input type="text" id="estreetNo"
-  name="estreetNo" value= <?PHP echo $arrData['address'][$i]['street_number']  ?> >
- <br><b>Street Name</b> <br><input type="text" id="estreetName"
-    name="estreetName" value=<?PHP echo $arrData['address'][$i]['street_name']  ?>>
-    <br><b>Pincode </b> <br><input type="text" id="epincode" name="epincode">
- <br><b>District</b>  <br><input type="text" id="edistrict" name="edistrict">
- <br><b>City</b>  <br> <input type="text" id="ecity"
-    name="ecity" value=<?PHP echo $arrData['address'][$i]['city']  ?> >
- <br><b>State  </b> <br><input type="text" id="estate" name="estate"
-    value=<?PHP echo $arrData['address'][$i]['state']  ?>  >
- <br><b>Country</b>  <br><input type="text" id="ecountry" name="ecountry" 
-    value= <?PHP echo $arrData['address'][$i]['country']  ?> >
-    <input type=hidden value=<?php  echo $arrData['address'][$i]['id']; ?> id='neid'name ='neid'> 
+     <b><?php echo HOUSE_NO;?> </b>  <br>
+     <input type="text" id="ehno" name="ehno" width="50px"
+     value= "<?PHP echo $arrData['address'][$i]['house_number']; ?>" > <br>
+     <b><?php echo STREET_NO;?></b>
+     <br> <input type="text" id="estreetNo"
+     name="estreetNo" value= "<?PHP echo $arrData['address'][$i]['street_number']; ?>" > <br>
+     <b><?php echo STREET_NAME;?></b> <br><input type="text" id="estreetName"
+     name="estreetName" value="<?PHP echo $arrData['address'][$i]['street_name']; ?>" > <br>
+     <b><?php echo PINCODE;?></b> <br><input type="text" id="epincode" name="epincode"> <br>
+     <b><?php echo DISTRICT; ?></b>  <br><input type="text" id="edistrict" name="edistrict"><br>
+     <b><?php echo CITY;?></b>  <br> <input type="text" id="ecity"
+     name="ecity" value="<?PHP echo $arrData['address'][$i]['city']; ?>" > <br>
+     <b><?php echo STATE;?></b> <br><input type="text" id="estate" name="estate"
+    value="<?PHP echo $arrData['address'][$i]['state']; ?>"  >
+ <br><b><?php echo COUNTRY;?></b>  <br><input type="text" id="ecountry" name="ecountry" 
+    value= "<?PHP echo $arrData['address'][$i]['country']; ?>" >
+    <input type=hidden value="<?php  echo $arrData['address'][$i]['id']; ?>" id='neid'name ='neid'> 
      <input type=hidden value=edit_Con name=url> 
    <input type=hidden value=profile name=controller><br>
    <input type="submit" id="submitCon" value="Save Me" name=submit > 
@@ -40,18 +42,18 @@
 
  </div>
  <div id="new_contact" name="new_contact" >
-     <div id="editchead" >Contact Information <span id="close5"> X</span></div>
+     <div id="editchead" ><?php echo CONTACT_INFORMATION;?><span id="close5"> X</span></div>
    
    <div id="innerc">
    <form method="get" action="" >
-    <b>House No </b>  <br><input type="text" id="nehno" name="nehno" width="50px">
-   <br><b>Street No</b>  <br> <input type="text" id="nestreetNo" name="nestreetNo">
- <br><b>Street Name</b> <br><input type="text" id="nestreetName" name="nestreetName">
- <br><b>Pincode </b> <br><input type="text" id="nepincode" name="nepincode">
- <br><b>District</b>  <br><input type="text" id="nedistrict" name="nedistrict">
- <br><b>City</b>  <br> <input type="text" id="necity" name="necity">
- <br><b>State  </b> <br><input type="text" id="nestate" name="nestate">
- <br><b>Country</b>  <br><input type="text" id="necountry" name="necountry">
+    <b><?php echo HOUSE_NO;?></b>  <br><input type="text" id="nehno" name="nehno" width="50px">
+   <br><b><?php echo STREET_NO;?></b>  <br> <input type="text" id="nestreetNo" name="nestreetNo">
+ <br><b><?php echo STREET_NAME;?></b> <br><input type="text" id="nestreetName" name="nestreetName">
+ <br><b><?php echo PINCODE;?> </b> <br><input type="text" id="nepincode" name="nepincode">
+ <br><b><?php echo DISTRICT;?></b>  <br><input type="text" id="nedistrict" name="nedistrict">
+ <br><b><?php echo CITY;?></b>  <br> <input type="text" id="necity" name="necity">
+ <br><b><?php echo STATE;?></b> <br><input type="text" id="nestate" name="nestate">
+ <br><b><?php echo COUNTRY;?></b>  <br><input type="text" id="necountry" name="necountry">
  
  
      <input type=hidden value=new_Con name=url> 
@@ -69,17 +71,17 @@
   
  
  <div id="edit_w" name="edit_w" >
-     <div id="editwhead" >My Faourites<span id="close2"> X</span></div>
+     <div id="editwhead" ><?php echo MY_FAVOURITES;?><span id="close2"> X</span></div>
      <div id="innerw">
     <form method="post" action="#">
   
-  <b>  Favourite Books</b> <textarea rows="2" cols="35" id="fav_book" name="fav_book" > 
+  <b>  <?php echo FAVOURITE_BOOKS;?></b> <textarea rows="2" cols="35" id="fav_book" name="fav_book" > 
     <?PHP echo $arrData['personal']['favourite_book'];?>
     </textarea> <br>
-   <br> <br>  <b> Favourite Movies</b><br> <textarea rows="2" cols="35" id="fav_mv" name="fav_mv">
+   <br> <br>  <b> <?php echo FAVOURITE_MOVIES;?></b><br> <textarea rows="2" cols="35" id="fav_mv" name="fav_mv">
  <?PHP echo $arrData['personal']['favourite_movies'];?>
      </textarea><br> 
-   <br>  <b>  Favourite Food</b> <br> <textarea rows="2" cols="35" id="fav_food" name="fav_food"> 
+   <br>  <b>  <?php echo FAVOURITE_FOOD;?></b> <br> <textarea rows="2" cols="35" id="fav_food" name="fav_food"> 
  <?PHP echo $arrData['personal']['favourite_food'];?>
     </textarea> 
    
@@ -93,30 +95,29 @@
   <!-- edit favourite ends here    -->
  <!--  edit basic info code goes here-->
   <div id="edit_b" name="edit_b" >
-     <div id="editbhead" > Basic Info <span id="close4"> X</span></div>
+     <div id="editbhead" > <?php echo BASIC_INFORMATION;?> <span id="close4"> X</span></div>
    <div id="innerb">
       <form method="post" action="#">
-      <b> Gender</b> <select id="gender" name="gender">
-            <option>  Male</option>
-            <option> Female </option>
-            <option>  Gay   </option>
-            <option> Lesbian</option>
-            <option>Not to mention </option>
+      <b> <?php echo GENDER;?></b> <select id="gender" name="gender">
+            <option>  <?php echo MALE;?></option>
+            <option> <?php echo FEMALE;?> </option>
+            <option>  <?php echo GAY;?>   </option>
+            <option> <?php echo LESBIAN;?></option>
+            <option><?php echo NOT_TO_MENTION;?></option>
 
 
 
     </select>
 <br><br> <b>
-Relationship Status</b><select id="relationship" name="relationship">
-   <option>Single</option>
-   <option> Commited</option>
-   <option>Prefer Not to Say</option>
+<?php echo RELATIONSHIP_STATUS;?></b><select id="relationship" name="relationship">
+   <option><?php echo Single;?></option>
+   <option> <?php echo COMMITED;?></option>
+   <option><?php echo PREFER_NOT_TO_SAY;?></option>
     </select>
-    <br><br> <b>DOB</b><input type="text" id="dob" name="dob" value=
-           <?PHP echo $arrData['personal']['DOB'] ;?>
-            >
+    <br><br> <b><?php echo DOB;?></b><input type="text" id="dob" name="dob"
+          value="<?PHP echo $arrData['personal']['DOB'] ;?>">
    
-  <br><br> <b>Intersted In</b> <input type="text" id="i_in" name="i_in"
+  <br><br> <b><?php echo INTERSTED_IN;?></b> <input type="text" id="i_in" name="i_in"
                     value= <?PHP echo $arrData['personal']['intersted_in'] ;?>
                       > 
     <input type=hidden value=basicInfoUp name=url> 
@@ -130,7 +131,7 @@ Relationship Status</b><select id="relationship" name="relationship">
  <!-- edit basic info ends here    -->
   <!-- Add Education code here   -->
 <div id="edit_e" name="edit_e" >
-     <div id="editehead" > Add Education <span id="close3"> X</span></div>
+     <div id="editehead" > <?php echo ADD_EDUCATION;?> <span id="close3"> X</span></div>
    <div id="innere">
     <?php 
 
@@ -140,12 +141,12 @@ Relationship Status</b><select id="relationship" name="relationship">
      ?>
     <form method="post" action="#">
   
-    <b> Institute </b><br><input type="text" id="institute" name="institute"
+    <b> <?php echo INSTITUTE;?></b><br><input type="text" id="institute" name="institute"
                 value=<?PHP echo $arrData['education'][$i]['institute'];?>
               ><br>
-    <b> Start Date</b> <br><input type="text" id="istart" name="istart"><br>
-     <b>End Date </b><br><input type="text" id="iend" name="iend"><br>
-     <b>University</b><br> <input type="text" id="university" name="university"
+    <b> <?php echo START_DATE;?></b> <br><input type="text" id="istart" name="istart"><br>
+     <b><?php echo END_DATE;?> </b><br><input type="text" id="iend" name="iend"><br>
+     <b><?php echo UNIVERSITY;?></b><br> <input type="text" id="university" name="university"
                 value=<?PHP echo $arrData['education'][$i]['university'];?> 
                 >
              
@@ -160,13 +161,13 @@ Relationship Status</b><select id="relationship" name="relationship">
  </div>
 
   <div id="new_education" name="new_education" >
-     <div id="editehead" >Add Education <span id="close6"> X</span></div>
+     <div id="editehead" ><?php echo ADD_EDUCATION;?><span id="close6"> X</span></div>
       <div id="innere">
    <form method="get" action="" name="newE" >
-    <b> Insitute</b><br> <input type="text" id="newinstitute" name="newinstitute"><br>
-   <b> Start Date</b> <br><input type="text" id="newistart" name="newistart"><br>
-     <b>End Date </b><br><input type="text" id="newiend" name="newiend"><br>
-     <b>University</b><br> <input type="text" id="newuniversity" name="newuniversity">
+    <b> <?php echo INSTITUTE;?></b><br> <input type="text" id="newinstitute" name="newinstitute"><br>
+   <b> <?php echo START_DATE;?></b> <br><input type="text" id="newistart" name="newistart"><br>
+     <b><?php echo END_DATE;?> </b><br><input type="text" id="newiend" name="newiend"><br>
+     <b><?php echo UNIVERSITY;?></b><br> <input type="text" id="newuniversity" name="newuniversity">
       <input type=hidden value=new_Education name=url> 
  <input type=hidden value=profile name=controller><br>
   <input type="submit" id="submitCon1" value="Save Me" name=submit  /> 
@@ -185,20 +186,20 @@ Relationship Status</b><select id="relationship" name="relationship">
 <div id="2" class="leftarrowdiv1"> 
    
    <div id="me" name="me" class="m">
-     About Me 
+     <?php echo ABOUT_ME;?>
    <div id="details" >
 
    <div id="spp" > 
     <?PHP  
-                             echo $arrData['personal']['first_name']." "
-                            .$arrData['personal']['last_name'] ;
+          echo $arrData['personal']['first_name']." "
+          .$arrData['personal']['last_name'] ;
                         
-       echo " <span id='sspp'> <b>  Lives in </b>  </span> &nbsp <span id='t'>". $arrData['address'][0]['city'];
+     echo " <span id='sspp'> <b>  Lives in </b>  </span> &nbsp <span id='t'>". $arrData['address'][0]['city'];
           
-       echo " <br> <b> Attented </b></span> <span id='t'>". $arrData['education'][0]['institute'];
-       echo "</span>"; 
-        echo "<br>  Tagline <span id='t'>" .$arrData['personal']['about_myself'];
-         echo "</span>";  
+     echo " <br> <b> Attented </b></span> <span id='t'>". $arrData['education'][0]['institute'];
+     echo "</span>"; 
+     echo "<br>  Tagline <span id='t'>" .$arrData['personal']['about_myself'];
+     echo "</span>";  
 
        ?>
 
@@ -207,7 +208,7 @@ Relationship Status</b><select id="relationship" name="relationship">
    </div>
    <div id="basicInfo" name="basicInfo" class="b">
 
-             Basic Information
+             <?php echo BASIC_INFORMATION;?>
           <div>
           <?PHP  echo "<br> <span id='lb'> Gender</span>
                  <span id='rb'>".$arrData['personal']['gender'] ;  
@@ -230,7 +231,7 @@ Relationship Status</b><select id="relationship" name="relationship">
       <div id="div_left"> 
   <div id="education" name="education" class="e ">
  
-   Education
+   <?php echo EDUCATION;?>
       
       <?PHP
       $len=count($arrData['education']);
@@ -256,7 +257,7 @@ if(empty($arrData['address'])){
   
   
   <div id="contactInfo" name="contactInfo" class="c">
-       My Contact Info 
+       <?php echo CONTACT_INFO;?> 
       
 
       <?PHP
@@ -288,7 +289,7 @@ if(empty($arrData['address'])){
 
    <div id="work" name="work" class="w">
   
-     My Favourites <br> 
+     <?php echo MY_FAVOURITES;?> <br> 
 
     <?PHP 
     if( empty($arrData['personal']['favourite_book'])
@@ -296,7 +297,7 @@ if(empty($arrData['address'])){
      || empty($arrData['personal']['favourite_food'])
       ) {
        
-       echo "No information to display";
+       echo NO_INFO_TO_DISPLAY;
     }  
     else{
     echo "<br> <span id='lb'>Read </span> <span id='rb'>".$arrData['personal']['favourite_book'];

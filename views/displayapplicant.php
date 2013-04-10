@@ -12,9 +12,9 @@ echo "<th>LAST_DATE</th><th>STATUS</th><th>DESIGNATION</th></tr>
 $i = 1;
 while ( $row = $arrData->fetch ( PDO::FETCH_ASSOC ) ) {
     if ($i % 2 == 0) {
-        $cClass = "even";
+        $cClass = EVEN;
     } else {
-        $cClass = "odd";
+        $cClass = ODD;
     }
     echo "<tr id='table" . $row ['id'] . "'";
     echo " class=$cClass><td>$i</td><td>" . $row ['createddate'];

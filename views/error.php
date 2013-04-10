@@ -1,12 +1,12 @@
 <link href="../style/style.css" type="text/css" rel="stylesheet">
 <div id="dvErrorPage">
-Oops We Think you are Lost!!<br/>
-We have looked everywhere!!
+<?php echo OOPS_U_LOST;?><br/>
+<?php echo WE_LOOKED;?>
 <!--  But the thing you are looking is No Longer Here!! -->
 <br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <br/><br/><br/><br/>
-Please Find Home! Let us Do This for you by<br/>
-Clicking <a href="../index.php">HOME</a>
+<?php echo FIND_WAY_HOME;?><br/>
+<?php echo CLICKING;?><a href="../index.php"><?php echo HOME;?></a>
 </div>
 <!-- 
 <div id="dvErrorPage">

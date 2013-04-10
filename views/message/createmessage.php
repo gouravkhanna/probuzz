@@ -5,7 +5,7 @@
 	<input type='hidden' name='f' id='friendz' value= >"
 	<img id="imgpr" src="images/transparent_1x1.png" class="ui-state-default" alt="" />
  	<textarea id="message_text" name="message_text"></textarea> 
- 	<button id="submitmessage" onclick="insertMessage()">Send A Message</button>
+ 	<button id="submitmessage" onclick="insertMessage()"><?php echo SEND_MESSAGE;?></button>
 
 </div>
 

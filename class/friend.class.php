@@ -83,8 +83,8 @@ class friend extends DbConnection {
 			        );
 			//$this->db->insert($data);
 			$data1=array(
-			        "user_id"=>$arrArg,
-			        "friend_id"=>$_SESSION['id'],
+			        "user_id"=>strip_tags($arrArg),
+			        "friend_id"=>strip_tags($_SESSION['id']),
 			        "friendship_status"=>3,
 			        "friend_request_date"=>"now()"
 			);

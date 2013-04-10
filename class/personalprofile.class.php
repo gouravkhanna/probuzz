@@ -104,14 +104,14 @@ class personalprofile extends DbConnection {
         $ob = new DbConnection ();
         
         $id = $_SESSION ['id'];
-        $house_number = $arrArgs ['houseNumber'];
-        $street_number = $arrArgs ['street_number'];
-        $street_name = $arrArgs ['street_name'];
-        $city = $arrArgs ['city'];
-        $state = $arrArgs ['state'];
-        $country = $arrArgs ['country'];
-        $pincode=$arrArgs['pincode'];
-        $district=$arrArgs['district'];
+        $house_number = strip_tags($arrArgs ['houseNumber']);
+        $street_number = strip_tags($arrArgs ['street_number']);
+        $street_name = strip_tags($arrArgs ['street_name']);
+        $city = strip_tags($arrArgs ['city']);
+        $state = strip_tags($arrArgs ['state']);
+        $country = strip_tags($arrArgs ['country']);
+        $pincode=strip_tags($arrArgs['pincode']);
+        $district=strip_tags($arrArgs['district']);
         $i=$arrArgs['i'];
         /*
          * $sql = "UPDATE probuzz.address SET house_number='$house_number', street_number = '$street_number', street_name='$street_name', state='$state', city='$city', country='$country' WHERE user_id='$id'";
@@ -147,9 +147,9 @@ class personalprofile extends DbConnection {
     function upInfo($arrArgs = array()) {
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
-        $favourite_book = @$arrArgs ['fav_book'];
-        $favourite_movies = @$arrArgs ['fav_movies'];
-        $favourite_food = @$arrArgs ['fav_food'];
+        $favourite_book = strip_tags(@$arrArgs ['fav_book']);
+        $favourite_movies =strip_tags( @$arrArgs ['fav_movies']);
+        $favourite_food =strip_tags( @$arrArgs ['fav_food']);
         /*
          * $sql="update probuzz.personal_profile set favourite_book='$favourite_book', favourite_movies='$favourite_movies', favourite_food ='$favourite_food' where user_id='$id'";
          */
@@ -174,9 +174,9 @@ class personalprofile extends DbConnection {
     function upbInfo($arrArgs = array()) {
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
-        $gender = $arrArgs ['gender'];
-        $relationship_status = $arrArgs ['relationship_status'];
-        $dob = $arrArgs ['dob'];
+        $gender =strip_tags($arrArgs ['gender']);
+        $relationship_status = strip_tags($arrArgs ['relationship_status']);
+        $dob = strip_tags($arrArgs ['dob']);
         $intersted_in = $arrArgs ['i_in'];
         /*
          * $sql="update probuzz.personal_profile set DOB='$dob', gender='$gender', relationship_status='$relationship_status', intersted_in='$intersted_in' where user_id='$id' ";
@@ -206,14 +206,14 @@ class personalprofile extends DbConnection {
     function insertCon($arrArgs = array()){
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
-        $house_number = $arrArgs ['houseNumber'];
-        $street_number = $arrArgs ['street_number'];
-        $street_name = $arrArgs ['street_name'];
-        $city = $arrArgs ['city'];
-        $state = $arrArgs ['state'];
-        $country = $arrArgs ['country'];
-        $pincode=$arrArgs['pincode'];
-        $district=$arrArgs['district'];
+        $house_number = strip_tags($arrArgs ['houseNumber']);
+        $street_number = strip_tags($arrArgs ['street_number']);
+        $street_name = strip_tags($arrArgs ['street_name']);
+        $city = strip_tags($arrArgs ['city']);
+        $state = strip_tags($arrArgs ['state']);
+        $country = strip_tags($arrArgs ['country']);
+        $pincode=strip_tags($arrArgs['pincode']);
+        $district=strip_tags($arrArgs['district']);
         $data = array (
                 "house_number" => "$house_number",
                 "street_number" => "$street_number",
@@ -239,10 +239,10 @@ class personalprofile extends DbConnection {
     function insert_Education($arrArgs = array()){
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
-        $institute = $arrArgs ['institute'];
-        $start_year = $arrArgs ['start_year'];
-        $end_year = $arrArgs ['end_year'];
-        $university = $arrArgs ['university'];
+        $institute = strip_tags($arrArgs ['institute']);
+        $start_year = strip_tags($arrArgs ['start_year']);
+        $end_year = strip_tags($arrArgs ['end_year']);
+        $university = strip_tags($arrArgs ['university']);
         $data = array (
                 "institute" => "$institute",
                 "start_year" => "$start_year",
@@ -270,10 +270,10 @@ class personalprofile extends DbConnection {
     function up_E($arrArgs = array()) {
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
-        $institute = $arrArgs ['institute'];
-        $start_year = $arrArgs ['start_year'];
-        $end_year = $arrArgs ['end_year'];
-        $university = $arrArgs ['university'];
+        $institute = strip_tags($arrArgs ['institute']);
+        $start_year = strip_tags($arrArgs ['start_year']);
+        $end_year = strip_tags($arrArgs ['end_year']);
+        $university = strip_tags($arrArgs ['university']);
         /*
          * $sql="update probuzz.qualification set institute='$institute', start_year='$start_year', end_year='$end_year', university='$university' where user_id='$id'"; echo $sql;
          */

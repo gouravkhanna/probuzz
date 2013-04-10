@@ -1,6 +1,6 @@
 <div id="bigmid">
 	<div id="searchjob">
-		<h1>SEARCH JOB</h1>
+		<h1><?php echo SEARCH_JOB;?></h1>
 		<hr />
     	<form id="formsearchjob" name="formsearchjob" onsubmit="return false;">
 			<div id="dvformsearchjob">
@@ -16,17 +16,17 @@
 					class="marginl10" name=sjexp>
 					<option></option>
 					<option><?php echo FRESHER; ?></option>
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-					<option>9</option>
-					<option>10</option>
-					<option>11</option>
+					<option><?php echo _1;?></option>
+					<option><?php echo _2;?></option>
+					<option><?php echo _3;?></option>
+					<option><?php echo _4;?></option>
+					<option><?php echo _5;?></option>
+					<option><?php echo _6;?></option>
+					<option><?php echo _7;?></option>
+					<option><?php echo _8;?></option>
+					<option><?php echo _9;?></option>
+					<option><?php echo _10;?></option>
+					<option><?php echo _11;?></option>
 					<option><?php echo Y12EARS; ?></option>
 
 				</select>

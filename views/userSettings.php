@@ -1,6 +1,6 @@
 <div id="midpanel">
 	<div id="accordion">
-		<h3>Change Password</h3>
+		<h3><?php echo CHANGE_PASSWORD;?></h3>
 		<div id="settingsDiv">
 			
 			<form name="userSettingsForm" id="userSettingsForm">
@@ -13,7 +13,7 @@
 				
 			</div>
 		</div>
-		<h3>Set Up A Custom Security Question Here..</h3>
+		<h3><?php echo SETUP_SECURITY_QUESTION;?></h3>
 		<div id="securityQuestionDiv">
 			<form name="securityQuestionForm" id="securityQuestionForm">
 				<div id="displaySecurityQuestionAnswers">
@@ -28,11 +28,11 @@
 				
 			</div>
 		</div>
-		<h3>Deactivate Your Account</h3>
+		<h3><?php echo DEACTIVATE_ACCOUNT;?></h3>
 		<div id="deactivateAccount">
 			<a href="<?php echo ROOTPATH."index.php?controller=user&url=deactivateAccount"; ?>"
-				onclick="return confirm('Are You Sure, You Want To Deactivate Your Account??');">
-			To Deactivate Your account Click Here..</a>
+				onclick="return confirm('<?php echo DELETION_CONFIRMATION;?>');">
+			<?php echo DEACTIVATE_LINK;?></a>
 		</div>
 	</div>
 </div>

@@ -30,7 +30,7 @@ if (isset ( $arrData )) {
         }
     }
 } else {
-    echo "All Information Read";
+    echo ALL_INFORMATION_READ;
 }
 ?>
 </tbody>

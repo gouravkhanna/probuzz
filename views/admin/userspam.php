@@ -26,7 +26,7 @@ if (isset ( $arrData )) {
         }
     }
 } else {
-    echo "Hurray NO SPAM";
+    echo NO_SPAM;
 }
 ?>
 </tbody>

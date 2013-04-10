@@ -7,8 +7,7 @@
 		$cert=$arrData['certifications'];
             if(!$cert) {
         ?>
-        No Certifications to display...<br/>
-        Add Certifications...
+        <?php echo NO_CERTIFICATION_TO_DISPLAY;?>
         <?php } else {
             foreach($cert as $key => $value){
         ?>
@@ -23,13 +22,13 @@
                 </div>
                 <div class="displayDetails" id="div<?php echo $value['id']; ?>">
                     <?php if($value['institution']) { ?>
-                    <pre>       <?php echo "Institution : ".$value['institution']; ?></pre>
+                    <pre>       <?php echo INSTITUTION." : ".$value['institution']; ?></pre>
                     <?php } ?>
                     <?php if($value['certification_year']) { ?>
-                    <pre>       <?php echo "Certification Year : ".$value['certification_year']; ?></pre>
+                    <pre>       <?php echo CERTIFICATION_YEAR." : ".$value['certification_year']; ?></pre>
                     <?php } ?>
                     <?php if($value['validity']) { ?>
-                    <pre>       <?php echo "Valid Till : ".$value['validity']; ?></pre>
+                    <pre>       <?php echo VALID_TILL." : ".$value['validity']; ?></pre>
                     <?php } ?>
                     
 					<!-- Reminder to add this column to certifications table-->

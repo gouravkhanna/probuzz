@@ -79,15 +79,14 @@ if (! empty ( $arrData )) {
                    		  class="comment" 
  	                        		  placeholder="Post Comment..." />';
         echo '<input type="button" id="' . $row ['buzz'] ['buzz_id'] . '"
-
- 	                       	value="Comment" name=submit onclick=setComment(this.id) class="submit"> ';
+		value="Comment" name=submit onclick=setComment(this.id) class="submit"> ';
         
         echo "<hr>";
         $count ++;
         echo "</div>";
     }
 } else {
-    echo "NO Buzz To display";
+    echo NO_BUZZ_TO_DISPLAY;
 }
 
 ?>

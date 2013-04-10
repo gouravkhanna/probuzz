@@ -16,7 +16,7 @@
 			echo $res;
 	} 
 } else {
-	echo "You have no requests..";
+	echo NO_REQUESTS;
 }
 	?>
 </div>
