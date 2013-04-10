@@ -13,7 +13,7 @@
 <script src="<?php echo ROOTPATH."js/buzz.js"; ?>"></script>
 <script src="<?php echo ROOTPATH."js/display_profile.js"; ?>"></script>
 <link type="text/css" href="f2.css" rel="stylesheet">
-
+<link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/jquery.dataTables.css" ; ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/proProfile.css"; ?> " />
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/notifications.css" ; ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/upload.css" ; ?>" />

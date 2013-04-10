@@ -135,7 +135,6 @@ $(document).ready(function(e) {
 	showSender();
 	$("#sendmessage").hide();
 	//setInterval (showMessage,1000);
-	
 //	$("#showAllSlot").load("index.php","url=showAllJobs");	
 
 	//Search Bar
@@ -356,12 +355,13 @@ function dabackbutton() {
 /* For Show JOb tab */
 function fnLoadJob(a) {
 		//$("#showspecficjob").show();
-	alert(a);
 	$("#showspecficjob").load("index.php","controller=corporatecontroller&url=showSpecficJob&jobId="+a);
+	$("#dvshowslot").hide();
 	$("#showslot").hide();
 	$("#backjob").show();
 }
 function fnBackJob() {
+    $("#dvshowslot").show();
 	$("#showslot").show();
 	$("#backjob").hide();
 	$("#showspecficjob").html("");
@@ -369,7 +369,7 @@ function fnBackJob() {
 function fnOnLoadJobs() {
 		$("#backjob").hide();
 }
-
+/*Send messege from user to reciver*/
 function insertMessage() {
 var message_text=$("#message_text").val();
 	a=$("#friendz").val();
@@ -385,7 +385,7 @@ var message_text=$("#message_text").val();
 	  }
 	});
 }
-
+/*Display the list of the senders*/
 function showSender() {
 	
 	$.ajax({
@@ -401,6 +401,7 @@ function showSender() {
 	});
 	
 }
+/*Display trhe message of the particulkar user*/
 function showMessage(a) {
 	
 	if(a==undefined) {
@@ -440,6 +441,4 @@ function jsCheckNumber(id) {
 	}
 }
 /////////////////////////////////////////////////////////////////
-/**
- *  Personal Profile*/
-//function 
+

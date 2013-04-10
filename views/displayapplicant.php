@@ -3,9 +3,11 @@
 		<button id=backjob onclick="fnBackJob()"><?php echo BACK;?></button>
 <?php
 $id = $_SESSION ['id'];
-echo "<table id='showslot'><tr class=height40>";
+echo "<table id='showslot' class='buzztablem'>
+	        <thead><tr class=height40>";
 echo "<th>SNO</th><th>CREATED_ON</th>";
-echo "<th>LAST_DATE</th><th>STATUS</th><th>DESIGNATION</th></tr>";
+echo "<th>LAST_DATE</th><th>STATUS</th><th>DESIGNATION</th></tr>
+        </thead><tbody>";
 
 $i = 1;
 while ( $row = $arrData->fetch ( PDO::FETCH_ASSOC ) ) {
@@ -18,13 +20,16 @@ while ( $row = $arrData->fetch ( PDO::FETCH_ASSOC ) ) {
     echo " class=$cClass><td>$i</td><td>" . $row ['createddate'];
     $status = $row ['status'] == '0' ? "INACTIVE" : "ACTIVE";
     echo "</td><td>" . $row ['lastdate'] . "</td><td>" . $status . "</td>";
-    echo "<td><button id=" . $row ['id'] . " onclick=fnLoadApplicants(this.id) >" . $row ['designation'] . "</a></td></tr>";
+    echo "<td class='btmdesignation'><button id=" . $row ['id'] . " onclick=fnLoadApplicants(this.id) >" . $row ['designation'] . "</a></td></tr>";
     $i ++;
 }
-echo "<tr class=height20 ></tr></table>";
+echo "</tbody></table>";
 
 ?>
 </div>
 	<button id=dabackbutton onclick="dabackbutton()"><?php echo BACK;?></button>
 	<div id="dashowapplicant"></div>
 </div>
+<script>
+$(".buzztablem").dataTable();
+</script>

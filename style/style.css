@@ -124,7 +124,7 @@ ul.n a:hover, ul.n a.selected {
 	float: left;
 	margin-left: -5px;
 	margin-right: 5px;
-
+	word-wrap: break-word; 
 
 	
 }
@@ -186,7 +186,8 @@ ul.n a:hover, ul.n a.selected {
 #buzztable #btdetails {
 	width:480px;
 	max-width:480px;
-}#buzztable #btdetails {
+}
+#buzztable #btdetails {
 	width:400px;
 	max-width:400px;
 }
@@ -194,7 +195,12 @@ ul.n a:hover, ul.n a.selected {
 	width:75px;
 	max-width:75px;
 }
-
+.buzztablem .btmdesignation {
+	width:125px;
+	max-width:125px;
+		
+ word-wrap: break-word; 
+}
 #rightpanel {
 	margin-top: 8px;
 	background-color: #dfdfdf;
@@ -672,5 +678,20 @@ hr {
 	height: 30px;
 	font-size: 16px;
 	font-weight: bold; 
+}
+.bluebutton {
+cursor:pointer;
+border-radius:4px;
+border:none;
+
+height:auto;
+width: 100%;
+background-color:#498af2;
+color:white;
+font-weight: bold;
+font-size: 16;
+font-family: cursive;
+ word-wrap: break-word; 
+
 }
 
