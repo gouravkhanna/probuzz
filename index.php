@@ -36,7 +36,7 @@ if (isset ( $_REQUEST ['url'] ) && ! empty ( $_REQUEST ['url'] )) {
     $function = 'home'; // default method to be called or the first method
 }
 
-if ($function != "forgotPasswordEmail" &&  $function != "register" && (@$_SESSION ['id'] == "" || ! isset ( $_SESSION ['id'] ))) {
+if ($function != "forgotPasswordEmail" &&      $function != "register" && (@$_SESSION ['id'] == "" || ! isset ( $_SESSION ['id'] ))) {
     if (! isset ( $arrData )) { // arrData used for display message on login(Server
                            // Side)
         $function = "buzzin"; // method if user is not login

@@ -3,7 +3,9 @@
     src: url("http://localhost/probuzz/trunk/data/font/Delicious-Italic.otf");
 }
 
-
+#aelo{
+	display: none;
+}
 .flip {
     backface-visibility:             hidden;
         -moz-backface-visibility:    hidden;
