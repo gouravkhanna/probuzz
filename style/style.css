@@ -38,7 +38,7 @@ body {
 	font-size: 28px;
 	padding:2px;
 	font-family:"alba";
-	color:#579BBA;
+	color:#fff;
 }
 #navigation {
 	margin-top: 30px;
@@ -47,10 +47,12 @@ body {
 	padding-top: 10px;
 	width: 130px;
 	height: auto;
-	color:white;
+	color:blue;
 	float: left;
+	border-right:1px solid lightgray;
+	/*background-image: url("..data/rcs/div_back.jpg");*/
 	margin-right: 7px;
-	background-color: #2D9BE8; /*darkgrey;*/
+	background-color:#f1f1f1; /*darkgrey;*/
 	overflow: visible;
 }
 /*
@@ -92,7 +94,8 @@ ul.n a:hover, ul.n a.selected {
 	width: 100%;
 	position: fixed;
 	top: 0;
-	background-image: url(../data/rcs/g.svg);
+	background-color: #2d9be8;
+/*	background-image: url(../data/rcs/g.svg);*/
 	background-size: 100%;
 	left: 0;
 	
@@ -250,7 +253,9 @@ ul.n a:hover, ul.n a.selected {
 	margin-top: 1px;
 	height: 25px;
 	width: 994px;
-	background-image: url(../data/rcs/g.svg);
+	background-color: #2d9be8;
+	color: white;
+	/*background-image: url(../data/rcs/g.svg);*/
 }
 
 h1 {
@@ -409,7 +414,7 @@ h1 {
 }
 #usermenu a {
 	text-decoration: none;
-	color: white;
+	color: #4a8df8;
 	font-family: alba;
 }
 #umenu:HOVER {
@@ -428,9 +433,10 @@ h1 {
 	width:450px;
 	font-family: alba;
 	text-align: center;
-	background-image: url("../data/rcs/g.svg");
+
+	/*background-image: url("../data/rcs/g.svg");*/
 	background-size: 100%;
-	color: white;
+	color: black;
 }
 #dvsearch {
 	margin-top: 50px;
