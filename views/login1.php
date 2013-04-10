@@ -34,18 +34,19 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 				</p>
 			</div>
 			<div id="aelo">
-			<form>
-			Forget password
-			<div id="aelo1">
-			Please Enter your User Name  
-			<input type="text" name="a">
-			</div>
-			<div id="aelo2">
-			<input type="text" name="b">
-			Email ID
-			</div>
-			<input type="button" id="forgetnext" value=next>
-			</form>
+				<form id="forgotPasswordForm">
+					<hr/>
+					<div id="aelo1">
+						Type In Your Registered User Name
+						<input type="text" name="forget_user_name" id="forget_user_name" />
+					</div>
+					<!--<div id="aelo2">
+						Email ID
+						<input type="text" name="b">
+					</div>-->
+					<br/>
+					<input type="button" name="forgetnext" id="forgetnext" value="Next" />
+				</form>
 			</div>
 		</form>
 

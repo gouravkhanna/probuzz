@@ -617,8 +617,9 @@ class users extends DbConnection {
             return "Error Adding The Security Question.";
         }
     }
-        
-        
+    function forgotPasswordEmail() {
+        //return "fortjasdljgflas";
+    }
 }
 
 ?>

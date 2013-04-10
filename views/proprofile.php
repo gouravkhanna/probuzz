@@ -84,6 +84,7 @@
         <h3><?php echo RESUME; ?></h3>
         <div class="wide">
             <div id="content">
+				You Can Upload Only One Resume..
                 <form action="<?php echo ROOTPATH;?>index.php?controller=proprofile&url=uploadResume" method="post"
                  enctype="multipart/form-data" target="upload_target" onsubmit="startUpload()" >
                          <p id="f1_upload_process" >Loading...<br/>

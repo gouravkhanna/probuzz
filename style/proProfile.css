@@ -115,5 +115,6 @@
 	margin-top:5px;
 }
 #f1_upload_process {
-	
+	visibility: hidden;
 }
+

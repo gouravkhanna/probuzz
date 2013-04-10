@@ -28,7 +28,8 @@ class proprofile extends Controller
 	function editView() {
 		loadView('head/head1.php');
 	  	$path=ROOTPATH.'data/photo/g.jpg';
-	  	loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path"));
+	  	$userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
+	  	loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path","user_name"=>$userName));
 		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
 			

@@ -183,7 +183,7 @@ class professionalprofile extends DbConnection {
      * old updateInto() public function updateInto($fields) { if($fields) { $query="update ".$fields['table']." set "; foreach($fields as $key => $value) { if($key!='table' && $key!='controller' && $key!='url' && $key!='PHPSESSID' && $key!='rowId') { $query.="$key = '".strip_tags($value)."' ,"; } } $query=chop($query," ,"); $query.=" where id=".$fields['rowId'].";"; echo $query; $this->dbInstance=new DbConnection(); $result=$this->dbInstance->executeSQL($query); return $result; } else { return false; } }
      */
     public function processUpload() {
-    	$allowedExts = array("doc", "docx", "rtf", "txt","pdf","tif","jpeg");
+    	$allowedExts = array("doc", "docx", "rtf", "txt","pdf","tif");
 		$extension = end(explode(".", $_FILES['resume']['name']));
 		
 		//return $_FILES["resume"]["name"];
@@ -191,25 +191,24 @@ class professionalprofile extends DbConnection {
 		    if ($_FILES['resume']['error'] > 0) {
 				return "Error Occured While Uploading";
 		    } else {
-				if (file_exists(UPLOAD_PATH . $_FILES['resume']['name'])) {
-				    return "File Already Exists";
-				} else {
-					//return UPLOAD_PATH.$_FILES["resume"]["name"];
-				    $ok = move_uploaded_file($_FILES["resume"]["tmp_name"],UPLOAD_PATH.$_FILES["resume"]["name"]);
-				    return $ok;
-				    var_dump($ok);die;
-				    if($ok) { 
-	
-					 return "File Successfully Uploaded ";
-				    }
-				    else {
-					    return "File Not Uploaded ".$_FILES["resume"]["name"]."  " .$_FILES["resume"]["tmp_name"];
-				    }
-				}
+				$ok = move_uploaded_file($_FILES["resume"]["tmp_name"],UPLOAD_PATH.$_SESSION['id']);
+				if($ok) {
+                    
+                    $data=array(
+                        "user_id"=>$_SESSION['id'],
+                        "resume_path"=>UPLOAD_PATH.$_SESSION['id']
+                    );
+                    $this->db->insert("resume",$data);
+                    return "File Successfully Uploaded ";
+                }
+                else {
+                    return "Error Occurred While Uploading File.";
+                }
 		    }
 		}
 		else {
-		  return "File extension not supported";
+		  return "asdf ".$extension." File extension not supported.".
+          "<br/>Only .doc, .docx, .rtf, .txt, .pdf and .tif formats allowed.";
 		}
 	}
 }

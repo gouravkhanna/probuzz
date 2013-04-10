@@ -259,6 +259,12 @@ class user extends controller {
             echo "Please Try Again! Later";
         }
     }
+    function forgotPasswordEmail() {
+        //$result=loadModel("users","forgotPasswordEmail");
+        echo "hello";
+        //echo $result;
+    }
+
 }
 
 ?>

@@ -8,7 +8,40 @@ $(document).ready(function() {
         $("#aelo").slideToggle();
        
     });
-    
+    $("#forgetnext").click(function () {
+        if(!$("#forget_user_name").val()) {
+			$("#forget_user_name").val("");
+			$("#forget_user_name").attr("placeholder","User Name Can't Be Empty");
+			$("#forget_user_name").css("background-color","#cff993");
+			$("#forget_user_name").focus();
+			return false;
+		}
+		if(onlySpaces($("#forget_user_name").val())) {
+			$("#forget_user_name").val("");
+			$("#forget_user_name").attr("placeholder","User Name Can't Contain Only Spaces");
+			$("#forget_user_name").css("background-color","#cff993");
+			$("#forget_user_name").focus();
+			return false;
+		}
+		var temp=$("#forget_user_name").val();
+		if(temp.length<6) {
+			$("#forget_user_name").val("");
+			$("#forget_user_name").attr("placeholder","User Name Too Short");
+			$("#forget_user_name").css("background-color","#cff993");
+			$("#forget_user_name").focus();
+			return false;
+		}
+		$.ajax({
+            type: "GET",
+            url: "index.php",
+            data:"userName="+$("#forget_user_name").val()+"&controller=user&url=forgotPasswordEmail",
+            success: function(msg){
+                alert(msg);
+                //$("#").html(msg);
+            }
+        });
+		return true;
+    });
     
 	document.getElementById( 'signup' ).addEventListener( 'click', function( event ) {
 		

@@ -404,9 +404,7 @@ function stopUpload(success){
       document.getElementById('f1_upload_form').style.visibility = 'visible';      
       return true;   
 }
-function response(msg) {
-	alert( msg);
-}
+
 function setErrorMessage(id,message) {
     $(id).val("");
     $(id).attr("placeholder",message);
@@ -502,4 +500,5 @@ $(document).ready(function () {
         });
         return true;
     });
+    
 });
