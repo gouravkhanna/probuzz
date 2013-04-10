@@ -152,7 +152,7 @@ function alotSlot() {
                 'jobId' => @$_REQUEST ['jobId'] 
         );
         $res = loadModel ( "corporate", "updateStatusJob", $arrArgs );
-        if ($res = true) {
+        if ($res == true) {
             echo "updated Status";
         } else {
             echo "Error";
@@ -269,13 +269,17 @@ function alotSlot() {
     function showProfile() {
         if ($_REQUEST ['corpId'] != $_SESSION ['id']) {
              $arrData = array (
-                    'id' => $_REQUEST ['corpId'] 
+                    'id' => $_REQUEST ['corpId'] ,
+                     'user_id'=>@$_SESSION['id'],
             );
             $this->view->loadView ( 'head/head1.php' );
             $path = loadModel ( "users", "getProfilePic", $arrData );
             $arrArgs = loadModel ( "corporate", "fetchName", $arrData );
             $arrArgs ["profile_pic_path"] = $path;
             $arrArgs ["id"] = $_REQUEST ['corpId'];
+            
+            $arrArgs['substatus']=loadModel("subscription","checkSubscriptionStatus",$arrData);
+            
             loadView ( "navigation/viewercorpnavigation.php", $arrArgs );
             loadView ( "profile/displayCorporateProfile.php" );
         } else {

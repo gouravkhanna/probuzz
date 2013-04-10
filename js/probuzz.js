@@ -441,4 +441,15 @@ function jsCheckNumber(id) {
 	}
 }
 /////////////////////////////////////////////////////////////////
-
+/**Handle The Subscription Request*/
+function addSubscription(a){
+  $("#divsubstatus").load("index.php","controller=subscribe&url=addSubscription&corp_id="+a);
+  $("#subscriptionbtn").hide();
+  $("#unsubscriptionbtn").show();
+  
+}
+function removeSubscription(a){
+  $("#divsubstatus").load("index.php","controller=subscribe&url=removeSubscription&corp_id="+a);
+  $("#subscriptionbtn").show();
+  $("#unsubscriptionbtn").hide();
+ }

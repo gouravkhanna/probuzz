@@ -89,15 +89,25 @@ function commentDelete($arrArg = array()) {
         ( 
         b.buzz_status='0'
         AND
-        ( b.user_id='$id' 
+        ( 
+            b.user_id='$id' 
+        OR  
+            b.user_id in 
+            (select s.corp_id from subscription s
+            where s.user_id='$id'
+            AND s.subscribe_status='0') 
+        OR  
+            b.user_id in 
+            (select u.user_id from users u
+            where u.type='2')            
         OR 
         b.user_id in 
-	    (select f.friend_id from friend f
-	     where f.user_id='$id' 
-	     AND friendship_status='1') ) )
-       	order by buzz_time desc
-        limit $limit,8
-        ";
+	        (select f.friend_id from friend f
+	         where f.user_id='$id' 
+	         AND friendship_status='1') ) )
+       	    order by buzz_time desc
+            limit $limit,8
+         ";
         $result = $this->executeSQLP ( $sql );
         while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
             $row2 = array ();
