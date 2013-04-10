@@ -42,7 +42,7 @@
 	            </a>
 	        </li>
 			<li id="umenu">
-				<a href="<?php echo ROOTPATH."settings"; ?>">Settings</a>
+				<a href="<?php echo ROOTPATH."settings"; ?>"><?php echo SETTINGS;?></a>
 			</li>
 		</ul>
 	</div>
