@@ -282,7 +282,9 @@ function alotSlot() {
             $arrArgs['substatus']=loadModel("subscription","checkSubscriptionStatus",$arrData);
             $arrArgs['subscibers']=loadModel("corporate","countSubscriber",$_REQUEST['corpId']);
             loadView ( "navigation/viewercorpnavigation.php", $arrArgs );
-            loadView ( "profile/displayCorporateProfile.php" );
+            $arrArg = loadModel ( 'corporate', "getProfile", $arrData);
+            loadView ( "profile/displayCorporateProfile.php",$arrArg  );
+            print_r($arrArg);
         } else {
             header ( "Location: http://localhost/probuzz/trunk/index.php" );
         }
