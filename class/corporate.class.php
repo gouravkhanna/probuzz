@@ -171,6 +171,12 @@ class corporate extends DbConnection {
                     "status" => '1' 
             ) );
             $row2 = $result->fetch ( PDO::FETCH_ASSOC );
+            $result = $this->db->count ( "subscription", array (
+                    "corp_id" => @$_SESSION ['id'],
+                    "subscribe_status" => '0'
+            ) );
+            $row3 = $result->fetch ( PDO::FETCH_ASSOC );
+            print_r($row3);
             $arrData = array (
                     "total_jobs" => $row1 ['COUNT(*)'],
                     "total_active_jobs" => $row2 ['COUNT(*)'] 
@@ -278,5 +284,13 @@ class corporate extends DbConnection {
                 return false;
             }
         }
+    }
+    function countSubscriber($corpId){
+        $result = $this->db->count ( "subscription", array (
+                "corp_id" => $corpId,
+                "subscribe_status" => '0'
+        ) );
+        $row3 = $result->fetch ( PDO::FETCH_ASSOC );
+        return $row3['COUNT(*)'];
     }
 }

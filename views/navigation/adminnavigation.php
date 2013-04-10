@@ -38,6 +38,20 @@
 		</li>
 		</aside>
 		<li id="umenu">
+			<a href="" id="usermanegementmenu" onclick="return false">User Management</a>
+		</li>
+	    <aside id="usermanegementdiv" class='marginl20 visiblen'>
+	    <li id="umenu">
+			<a href="<?php echo ROOTPATH."admin/addAdmin"; ?>">Manage users</a>
+		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."admin/deleteAdmin"; ?>">manage Corporate</a>
+		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."admin/showAllAdmin"; ?>">Show All Users</a>
+		</li>
+		</aside>
+		<li id="umenu">
 			<a href="" id="pagemanegementmenu" onclick="return false">Page Management</a>
 		</li>
 		<aside id="pagemanegementdiv" class='marginl20 visiblen'>

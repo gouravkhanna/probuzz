@@ -279,7 +279,7 @@ function alotSlot() {
             $arrArgs ["id"] = $_REQUEST ['corpId'];
             
             $arrArgs['substatus']=loadModel("subscription","checkSubscriptionStatus",$arrData);
-            
+            $arrArgs['subscibers']=loadModel("corporate","countSubscriber",$_REQUEST['corpId']);
             loadView ( "navigation/viewercorpnavigation.php", $arrArgs );
             loadView ( "profile/displayCorporateProfile.php" );
         } else {

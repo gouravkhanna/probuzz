@@ -14,6 +14,9 @@ $(document).ready(function(){
     $("#contactusmanegementmenu").click(function(){ 
         $("#contactusmanegementdiv").slideToggle("slow");
     });
+    $("#usermanegementmenu").click(function(){ 
+        $("#usermanegementdiv").slideToggle("slow");
+    });
     $("#addAdminSubmit").click(function () {
         if(!validateNewAdmin()) {
             return false;
