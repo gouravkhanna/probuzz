@@ -284,8 +284,7 @@ function alotSlot() {
             loadView ( "navigation/viewercorpnavigation.php", $arrArgs );
             $arrArg = loadModel ( 'corporate', "getProfile", $arrData);
             loadView ( "profile/displayCorporateProfile.php",$arrArg  );
-            print_r($arrArg);
-        } else {
+                   } else {
             header ( "Location: http://localhost/probuzz/trunk/index.php" );
         }
     }

@@ -118,6 +118,33 @@ border-color: transparent white transparent transparent; /*border color should b
 border-style: solid;
 border-width:25px;
 }
+.leftarrowdiv{
+width:auto;
+height:700px;/* min height of DIV should be set to at least 2x the width of the arrow*/
+background:white;
+border-color:white;
+padding:10px;
+-moz-border-radius:5px; /*add some nice CSS3 round corners*/
+-webkit-border-radius:5px;
+border-radius:5px;
+border-style:solid;
+margin-top:-0.2em;
+margin-right: 0px;
+overflow: none;
+}
+
+.leftarrowdiv:after{ /*arrow added to leftarrowdiv DIV*/
+content:'';
+display:block;
+position:absolute;
+top:50px;
+left:-50px; /*should be set to -border-width x 2 */
+width:0;
+height:0;
+border-color: transparent white transparent transparent; /*border color should be same as div div background color*/
+border-style: solid;
+border-width:25px;
+}
 
 #eInfo,#bInfo,#subInfo,#submitCon{
 float: right;

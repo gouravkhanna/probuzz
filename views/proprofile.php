@@ -5,6 +5,7 @@
 </div>
 
 <div id="bigmid">
+    <div class="leftarrowdiv"> 
     <?php
         //echo "<pre>";
         //print_r($arrData);
@@ -104,4 +105,5 @@
           
         </div>
     </div>
+</div>
 </div>

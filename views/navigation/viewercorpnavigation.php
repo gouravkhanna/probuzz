@@ -39,7 +39,7 @@ if ($arrData ['substatus'] ['subscribe_status'] == 0) {
     ?>
     
     <a href="index.php?url=cprofile">Corporate Profile</a>
-    <a href="index.php?controller=corporatecontroller&url=displayJob&corpId=<?php echo $_REQUEST ['corpId'];?>">
+  <br>  <a href="index.php?controller=corporatecontroller&url=displayJob&corpId=<?php echo $_REQUEST ['corpId'];?>">
     Display Job</a>
     </div>
 

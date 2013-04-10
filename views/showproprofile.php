@@ -1,5 +1,6 @@
 
 <div id="bigmid">
+       <div class="leftarrowdiv"> 
     <div class="fright">
         <a href="index.php?controller=proprofile&url=editView">EDIT</a>
     </div>
@@ -185,4 +186,5 @@
           <?php echo "<pre>";print_r($arrData['resume']); ?>
         </div>
     </div>
+</div>
 </div>
