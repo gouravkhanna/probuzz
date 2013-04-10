@@ -26,11 +26,26 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 					id="r12" name="r12"> <img src="data/rcs/r.png" height="30px"
 					width="30px" /></span><span id="w12"> <img src="data/rcs/w.png"
 					height="30px" width="30px" />
-				</span><span id="e12" name="e12"> </span> <br /> <br> <a href="#"> <?php echo FORGET_PASSWORD; ?></a>
+				</span><span id="e12" name="e12"> </span> <br /> <br> 
+				<a id="forgetpassword"  > <?php echo FORGET_PASSWORD; ?></a>
 				<input type="submit" id="login" name="url" value="buzzin" /> <br />
 				<br />
 				<p> <?php echo ACCOUNT_INFO; ?> <a id="signup" href="#"><?php echo SIGNUP;?> </a>
 				</p>
+			</div>
+			<div id="aelo">
+			<form>
+			Forget password
+			<div id="aelo1">
+			Please Enter your User Name  
+			<input type="text" name="a">
+			</div>
+			<div id="aelo2">
+			<input type="text" name="b">
+			Email ID
+			</div>
+			<input type="button" id="forgetnext" value=next>
+			</form>
 			</div>
 		</form>
 
@@ -92,6 +107,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 				<input type="submit" id="create" name="url" value="register" />
 			</div>
 		</form>
+		
 	</div>
 	<div id="wrongcaptcha">
 		<div id="errmsg" name="errmsg">

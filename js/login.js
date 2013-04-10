@@ -2,6 +2,14 @@
 
 
 $(document).ready(function() {
+    $("#aelo").hide();
+   
+    $("#forgetpassword").click(function(){
+        $("#aelo").slideToggle();
+       
+    });
+    
+    
 	document.getElementById( 'signup' ).addEventListener( 'click', function( event ) {
 		
     event.preventDefault();
