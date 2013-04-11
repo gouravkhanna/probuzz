@@ -42,6 +42,7 @@ var i=8;
 function loadMore() {
  //   $("#statusShow").load("index.php","controller=status&url=displaybuzz");
 //alert(i);
+i=i+8;
     $.ajax({
         url:'index.php', //window.location.pathname,
         type: 'GET',
@@ -51,7 +52,7 @@ function loadMore() {
             },
             success:function(data) {
                 $("#statusShow").append(data);
-                i=i+8;
+                
             },
     });
 }

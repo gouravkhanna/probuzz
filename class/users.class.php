@@ -648,6 +648,25 @@ class users extends DbConnection {
     function forgotPasswordEmail() {
         //return "fortjasdljgflas";
     }
+    function getCorpProfilePic($arrArg = array()) {
+        $data ['tables'] = 'photo';
+        $data ['columns'] = array (
+                'photo.path'
+        );
+        $data ['conditions'] = array (
+                "corporate_profile.user_id" => $arrArg ['id']
+        );
+        $data ['joins'] [] = array (
+                'table' => 'corporate_profile',
+                'type' => 'INNER',
+                'conditions' => array (
+                        'photo.id' => 'corporate_profile.profile_pic_id'
+                )
+        );
+        $result = $this->db->select ( $data );
+        $row = $result->fetch ( PDO::FETCH_ASSOC );
+        return ROOTPATH . $row ['path'];
+    }
 }
 
 ?>

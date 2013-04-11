@@ -188,7 +188,7 @@ class personalprofile extends DbConnection {
         $relationship_status = strip_tags($arrArgs ['relationship_status']);
         
         $dob = strip_tags($arrArgs ['dob']);
-        $intersted_in = $arrArgs ['i_in'];
+        $intersted_in = strip_tags($arrArgs ['i_in']);
         /*
          * $sql="update probuzz.personal_profile set DOB='$dob', gender='$gender', relationship_status='$relationship_status', intersted_in='$intersted_in' where user_id='$id' ";
          */
