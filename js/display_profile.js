@@ -128,96 +128,96 @@ $(document)
                     });
 // //////////////////////////////////////////////
 // /////////////////RAHUL
-                    //$("#submitCon1").click(function () {
-                    //    if(!$("#newinstitute").val()) {
-                    //        setErrorMessage("#newinstitute","This Field Can't Be Empty.");
-                    //        return false;
-                    //    }
-                    //    if(onlySpacesA("newinstitute")) {
-                    //        setErrorMessage("#newinstitute","Only Spaces Not Allowed.");
-                    //        return false;                            
-                    //    }
-                    //    if(!correctDate("newistart","Date Format Invalid(yyyy-mm-dd)")) {
-                    //        return false;
-                    //    }
-                    //    if(!correctDate("newiend","Date Format Invalid(yyyy-mm-dd)")) {
-                    //        return false;
-                    //    }
-                    //    var start=$("#newistart").val();
-                    //    var end=$("#newiend").val();
-                    //    if(!dateDifference(start,end)) {
-                    //        setErrorMessage("#newiend","End Date Can't Be Less Than Start Date");
-                    //        return false;
-                    //    }
-                    //    if(!$("#newuniversity").val()) {
-                    //        setErrorMessage("#newuniversity","This Field Can't Be Empty.");
-                    //        return false;
-                    //    }
-                    //    if(onlySpacesA("newuniversity")) {
-                    //        setErrorMessage("#newuniversity","Only Spaces Not Allowed.");
-                    //        return false;                            
-                    //    }
-                    //    return true;
-                    //    
-                    //});
-                    //$("#submitCon2").click(function () {
-                    //    if(isNaN($("#nepincode").val())) {
-                    //        setErrorMessage("#nepincode","Only Numbers Allowed.");
-                    //        return false;
-                    //    }
-                    //    
-                    //    return true;
-                    //});
-                    //$("#bInfo").click(function (){
-                    //    if(!correctDate("dob","Date Format Invalid(yyyy-mm-dd)")) {
-                    //        return false;
-                    //    }
-                    //    return true;
-                    //});
+                    $("#submitCon1").click(function () {
+                        if(!$("#newinstitute").val()) {
+                            setErrorMessage("#newinstitute","This Field Can't Be Empty.");
+                            return false;
+                        }
+                        if(onlySpacesA("newinstitute")) {
+                            setErrorMessage("#newinstitute","Only Spaces Not Allowed.");
+                            return false;                            
+                        }
+                        if(!correctDate("newistart","Date Format Invalid(yyyy-mm-dd)")) {
+                            return false;
+                        }
+                        if(!correctDate("newiend","Date Format Invalid(yyyy-mm-dd)")) {
+                            return false;
+                        }
+                        var start=$("#newistart").val();
+                        var end=$("#newiend").val();
+                        if(!dateDifference(start,end)) {
+                            setErrorMessage("#newiend","End Date Can't Be Less Than Start Date");
+                            return false;
+                        }
+                        if(!$("#newuniversity").val()) {
+                            setErrorMessage("#newuniversity","This Field Can't Be Empty.");
+                            return false;
+                        }
+                        if(onlySpacesA("newuniversity")) {
+                            setErrorMessage("#newuniversity","Only Spaces Not Allowed.");
+                            return false;                            
+                        }
+                        return true;
+                        
+                    });
+                    $("#submitCon2").click(function () {
+                        if(isNaN($("#nepincode").val())) {
+                            setErrorMessage("#nepincode","Only Numbers Allowed.");
+                            return false;
+                        }
+                        
+                        return true;
+                    });
+                    $("#bInfo").click(function (){
+                        if(!correctDate("dob","Date Format Invalid(yyyy-mm-dd)")) {
+                            return false;
+                        }
+                        return true;
+                    });
 
                     
                 });
-//function validateEditEducation(id) {
-//    //var institute=$("#institute_"+id).val();
-//    if(!$("#institute_"+id).val()) {
-//        setErrorMessage("#institute_"+id,"This Field Can't Be Empty.");
-//        return false;
-//    }
-//    if(onlySpacesA("institute_"+id)) {
-//        setErrorMessage("#institute_"+id,"Only Spaces Not Allowed.");
-//        return false;                            
-//    }
-//    if(!correctDate("istart_"+id,"Date Format Invalid(yyyy-mm-dd)")) {
-//        return false;
-//    }
-//    if(!correctDate("iend_"+id,"Date Format Invalid(yyyy-mm-dd)")) {
-//        return false;
-//    }
-//    var start=$("#istart_"+id).val();
-//    var end=$("#iend_"+id).val();
-//    if(!dateDifference(start,end)) {
-//        setErrorMessage("#iend_"+id,"End Date Can't Be Less Than Start Date");
-//        return false;
-//    }
-//    if(!$("#university_"+id).val()) {
-//        setErrorMessage("#university_"+id,"This Field Can't Be Empty.");
-//        return false;
-//    }
-//    if(onlySpacesA("university_"+id)) {
-//        setErrorMessage("#university_"+id,"Only Spaces Not Allowed.");
-//        return false;                            
-//    }
-//    return true;
-//    
-//}
-//function validateEditAddress(id) {
-//    if(isNaN($("#epincode_"+id).val())) {
-//        setErrorMessage("#epincode_"+id,"Only Numbers Allowed.");
-//        return false;
-//    }
-//    if(!$("#epincode_"+id).val()) {
-//        setErrorMessage("#epincode_"+id,"Can't Be Empty.");
-//        return false;
-//    }
-//    return true;
-//}
+function validateEditEducation(id) {
+    //var institute=$("#institute_"+id).val();
+    if(!$("#institute_"+id).val()) {
+        setErrorMessage("#institute_"+id,"This Field Can't Be Empty.");
+        return false;
+    }
+    if(onlySpacesA("institute_"+id)) {
+        setErrorMessage("#institute_"+id,"Only Spaces Not Allowed.");
+        return false;                            
+    }
+    if(!correctDate("istart_"+id,"Date Format Invalid(yyyy-mm-dd)")) {
+        return false;
+    }
+    if(!correctDate("iend_"+id,"Date Format Invalid(yyyy-mm-dd)")) {
+        return false;
+    }
+    var start=$("#istart_"+id).val();
+    var end=$("#iend_"+id).val();
+    if(!dateDifference(start,end)) {
+        setErrorMessage("#iend_"+id,"End Date Can't Be Less Than Start Date");
+        return false;
+    }
+    if(!$("#university_"+id).val()) {
+        setErrorMessage("#university_"+id,"This Field Can't Be Empty.");
+        return false;
+    }
+    if(onlySpacesA("university_"+id)) {
+        setErrorMessage("#university_"+id,"Only Spaces Not Allowed.");
+        return false;                            
+    }
+    return true;
+    
+}
+function validateEditAddress(id) {
+    if(isNaN($("#epincode_"+id).val())) {
+        setErrorMessage("#epincode_"+id,"Only Numbers Allowed.");
+        return false;
+    }
+    if(!$("#epincode_"+id).val()) {
+        setErrorMessage("#epincode_"+id,"Can't Be Empty.");
+        return false;
+    }
+    return true;
+}
