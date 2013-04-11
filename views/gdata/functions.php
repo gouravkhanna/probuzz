@@ -1,3 +1,4 @@
+
 <?php
 //ffunction return time diffrence from current time
 function time_elapsed($time) {

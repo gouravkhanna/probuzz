@@ -705,7 +705,7 @@ hr {
 	float: right;
 	margin-right: 85px;
 	}
-#sjsubmit{
+#sjsubmit,#alotslot{
 float: right;
 cursor:pointer;
 border-radius:4px;
@@ -731,7 +731,7 @@ background-color:#498af2;
 color:white;
 font-family:del;
 font-weight: bold;
-font-size: 16;
+font-size:16;
 word-wrap: break-word; 
 
 }

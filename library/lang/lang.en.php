@@ -107,7 +107,7 @@ define("Y12EARS","12+ years");
 define("EXPERIANCE","Experiance");
 define("BACK","Back");
 define("CREATE_NEW_JOB","Create New Job");
-define("CREATE_A_NEW_SLOT","CREATE A NEW Slot");
+define("CREATE_A_NEW_SLOT","Create A New Slot");
 define("TOP_JOBS","Top Jobs");
 define("ALREADY_APPLIED_FOR_JOB","Already Applied for JOb");
 define("APPLY","Apply");

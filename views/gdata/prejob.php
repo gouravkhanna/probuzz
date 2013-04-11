@@ -1,5 +1,5 @@
 <div id="midpanel">
-<div class="bluebutton">sdsadasdsa</div>
+<div class="bluebutton"><span class="fontsize20 marginl10">Available Job Slots</span><br><br></div>
 	<div id="smsg"></div>
 	<div id="a11"></div>
 	<div id="errorDiv">
