@@ -1,17 +1,17 @@
 function openBox() {
-	$('.fancybox1').css({"display":"block"}).hide().fadeIn("slow");
+    $('.fancybox1').css({"display":"block"}).hide().fadeIn("slow");
     $('.box').slideDown("slow");
     $('.fancybox1').css({"z-index":"999999"});
 }
 function sendRequest(input) {
-	alert("sendimg");
+	//alert("sendimg");
 	var id=input.id.split("_");
 	$.ajax({
 		type: "GET",
 	    url: "index.php",
 	    data:"controller=friends&url=sendRequest&friendId="+id[1],
 	    success: function(msg){
-			alert(msg);
+			//alert(msg);
 			location.reload();
 	    }
 	});
@@ -23,7 +23,8 @@ function acceptRequest(input) {
 	    url: "index.php",
 	    data:"controller=friends&url=acceptRequest&friendId="+id[1],
 	    success: function(msg){
-			$("#friendRequest"+id[1]).html("Friend Request Accepted").fadeOut(2000);//location.reload();
+			$("#friendRequest"+id[1]).html("Friend Request Accepted").fadeOut(2000);
+			location.reload();
 		 }
 	});
 	
