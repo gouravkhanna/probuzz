@@ -4,8 +4,9 @@
 <a href="<?php echo ROOTPATH."user/createMessage"; ?>" > <?php echo CREATE_MESSAGE;?></a> 
 		<div id="showmessage"></div>
 	<div id="messagetext">
+	<br>
 		<div id="sendmessage">
-			<textarea id="message_text" name="message_text"></textarea>
+			<center><textarea id="message_text" name="message_text" class="marginr10" placeholder="Type your message here"></textarea></center>
 			<button id="submitmessage" onclick="insertMessage()"><?php echo SEND_MESSAGE;?></button>
 		</div>
 	</div>

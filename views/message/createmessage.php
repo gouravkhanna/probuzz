@@ -1,12 +1,16 @@
 <div id="bigmid">
-<
-	<input id="tags">
-	<input id="tags1">
-	<input type='hidden' name='f' id='friendz' value= >"
-	<img id="imgpr" src="images/transparent_1x1.png" class="ui-state-default" alt="" />
- 	<textarea id="message_text" name="message_text"></textarea> 
- 	<button id="submitmessage" onclick="insertMessage()"><?php echo SEND_MESSAGE;?></button>
 
+<div id="showfrnddiv" class="fontsize16"><br>Send Message To Friends.<br></div><br><br>
+	
+	<br>
+	<div id="msgbox">
+	
+	<img id="imgpr" src=<?php echo ROOTPATH."data/rcs/profile.jpg"; ?> height="75px" width="75px" class="ui-state-default" alt="" />
+	<input id="tags" placeholder="Search Friend" class="floatr marginr10 round5" >
+	<input type='hidden' name='f' id='friendz' value= > 	
+ <br><br><textarea id="message_text" name="message_text" placeholder="Type your message here" row="3" cols="45"></textarea> 
+<br>	<button id="submitmessage"  onclick="insertMessage()"><?php echo SEND_MESSAGE;?></button>
+</div>
 </div>
 
   <script>
@@ -24,7 +28,7 @@
           "Selected: " + ui.item.value + " aka " + ui.item.id :
           "Nothing selected, input was " + this.value );
         $( "#friendz" ).val( ui.item.id );
-          $( "#tags1" ).val( ui.item.id );
+       
         $( "#imgpr" ).attr( "src", ui.item.path );
       }
     });

@@ -499,8 +499,9 @@ margin-right: 5px;
 	color: black;
 }
 .fontsize14{
-	font-size: 16px;
+	font-size: 14px;
 }
+
 
 .fontsize16{
 	font-size: 18px;
@@ -626,21 +627,23 @@ hr {
 }
 #msgcontent {
 	margin-bottom: 10px;
+	height: 40px;
+	border:1px ;
+	box-shadow: 2px 2px 2px 1px #e2e2e4;
+	
 }
 .msgcontent-left {
 	margin-left:120px;
 	width:250px;
-	background-color: lavender;
-	border-radius: 20px;
-	-webkit-border-radius: 20px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
 	padding:10px;
 }
 .msgcontent-right {
 	width:245px;
-		background-color: lavender;
-	border-radius: 20px;
-	-webkit-border-radius: 20px;
-	padding:10px;	
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	padding:8px;	
 }
 #dvmessaging {
 	
@@ -713,7 +716,6 @@ hr {
 cursor:pointer;
 border-radius:4px;
 border:none;
-
 height:auto;
 width: 100%;
 background-color:#498af2;
@@ -731,4 +733,37 @@ font-family: cursive;
 	
 	
 }
-
+#msgbox{
+	height: 250px;
+	width: 700px;
+	border:1px ;
+	margin-left: 50px;
+	margin-top: 10px;
+	box-shadow: 2px 2px 2px 2px #e2e2e4;
+	}
+ #sendmessage #message_text{
+	border:0.5px;
+	box-shadow: 1px 1px 1px 1px gray;
+	height:100px;
+	border-radius:2px; 
+ 	width: 400px;
+ }
+	#message_text{
+	border:0.5px;
+	box-shadow: 1px 1px 1px 1px gray;
+	height:100px;
+	border-radius:2px; 
+	}
+#submitmessage{
+float: right;
+margin-right: 15px;
+cursor:pointer;
+border-radius:4px;
+border:none;
+background-color:#498af2;
+color:white;
+font-weight: bold;
+font-size: 16;
+font-family: cursive;
+height: 30px;
+}
