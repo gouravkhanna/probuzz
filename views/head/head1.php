@@ -11,7 +11,7 @@
 <script src="<?php echo ROOTPATH."js/jqueryui/js/jquery-ui-1.10.1.custom.js"; ?>"></script>
 <script src="<?php echo ROOTPATH."js/probuzz.js"; ?>"></script>
 <script src="<?php echo ROOTPATH."js/buzz.js"; ?>"></script>
-<script src="<?php echo ROOTPATH."js/display_profile.js"; ?>"></script>
+
 <link type="text/css" href="f2.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/jquery.dataTables.css" ; ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/proProfile.css"; ?> " />
@@ -22,7 +22,7 @@
 <script type="text/javascript" src="<?php echo ROOTPATH."library/jquery.dataTables.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo ROOTPATH."js/friends.js"  ; ?>"></script>
 <script type="text/javascript" src="<?php echo ROOTPATH."js/photos.js"  ; ?>"></script>
-
+<script src="<?php echo ROOTPATH."js/display_profile.js"; ?>"></script>
 </head>
 <body>
 

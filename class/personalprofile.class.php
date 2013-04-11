@@ -80,7 +80,8 @@ class personalprofile extends DbConnection {
         $data ['tables'] = "qualification";
         $data ['columns'] = array (
                 'institute',
-                'university' 
+                'university',
+                 'id'
         );
         $data ['conditions'] = array (
                 'user_id' => "$id" 
@@ -102,8 +103,17 @@ class personalprofile extends DbConnection {
     function upCon($arrArgs = array()) {
 
         $ob = new DbConnection ();
-        
         $id = $_SESSION ['id'];
+                $msg="";
+        $flag=true;
+        if(gettype($arrArgs['pincode'])!="integer") {
+            $msg.="Pincode Value Not Integer";
+            $flag=false;
+        }
+        if(!$flag) {
+            $_SESSION['profile_error']=$msg;    
+            return false;
+        }
         $house_number = strip_tags($arrArgs ['houseNumber']);
         $street_number = strip_tags($arrArgs ['street_number']);
         $street_name = strip_tags($arrArgs ['street_name']);
@@ -176,6 +186,7 @@ class personalprofile extends DbConnection {
         $id = $_SESSION ['id'];
         $gender =strip_tags($arrArgs ['gender']);
         $relationship_status = strip_tags($arrArgs ['relationship_status']);
+        
         $dob = strip_tags($arrArgs ['dob']);
         $intersted_in = $arrArgs ['i_in'];
         /*
@@ -204,8 +215,13 @@ class personalprofile extends DbConnection {
     }
 
     function insertCon($arrArgs = array()){
-        $ob = new DbConnection ();
+        
         $id = $_SESSION ['id'];
+        
+        if(!is_int($arrArgs['pincode'])) {
+            $_SESSION['profile_error']="Pincode Can Only Be Integer";
+            return false;
+        }
         $house_number = strip_tags($arrArgs ['houseNumber']);
         $street_number = strip_tags($arrArgs ['street_number']);
         $street_name = strip_tags($arrArgs ['street_name']);
@@ -274,6 +290,7 @@ class personalprofile extends DbConnection {
         $start_year = strip_tags($arrArgs ['start_year']);
         $end_year = strip_tags($arrArgs ['end_year']);
         $university = strip_tags($arrArgs ['university']);
+        $i=$arrArgs['id'];
         /*
          * $sql="update probuzz.qualification set institute='$institute', start_year='$start_year', end_year='$end_year', university='$university' where user_id='$id'"; echo $sql;
          */
@@ -286,7 +303,8 @@ class personalprofile extends DbConnection {
         );
         
         $where = array (
-                'user_id' => "$id" 
+                'user_id' => "$id" ,
+                'id'=>"$i"
         );
         
         if ($this->db->update ( 'qualification', $data, $where )) {

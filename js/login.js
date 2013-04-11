@@ -1,5 +1,34 @@
 // JavaScript Document
 
+/*	dateDifference() checks if the start date is less than the end date, returns */
+/*	true if difference between the dates is atleast 1. */
+function dateDifference(start,end) {
+	diff=(new Date(end).getTime()-new Date(start).getTime())/(1000 * 3600 * 24);
+	if(diff>0) {
+		return true;
+	} else {
+		return false;
+	}
+}
+/*	isAlphaNumeric() checks if the input string is alphanumeric or not, returns true if the string is alphanumeric.	*/
+function isAlphaNumeric(input) {
+	var ck_username=/^\d*[a-zA-Z][a-zA-Z0-9]*$/;
+	if(!ck_username.test(input)) {
+		return false;
+	} else {
+		return true;
+	}	
+}
+/*	onlySpaces() check if the input contains only spaces or not, returns true if string contains only spaces.	*/
+function onlySpaces(input) {
+	str=input;
+	temp=str.replace(/\s/g,"");
+	if(temp.length<1) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 $(document).ready(function() {
     $("#aelo").hide();

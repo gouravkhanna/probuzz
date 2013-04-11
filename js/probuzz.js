@@ -13,6 +13,22 @@ function onlySpacesA(input,msg) {
 			 return false;
 	}
 }
+
+function correctDate(input,msg) {
+    input="#"+input;
+    str=$(input).val();
+    reg=/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/;
+    if(!reg.test(str)) {        
+	$(input).css("background-color","#cff993");
+	$(input).val('');
+	$(input).attr("placeholder",msg);
+	$(input).focus();
+	return false;
+   
+    }  else {
+	return true;
+    }
+}
 $(document).ready(function(e) {
 	///////////////////////////////////////
 	//VALIDATIONS
@@ -27,21 +43,6 @@ $(document).ready(function(e) {
     }
     
 
-    function correctDate(input,msg) {
-        input="#"+input;
-        str=$(input).val();
-        reg=/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/;
-        if(!reg.test(str)) {        
-            $(input).css("background-color","lightblue");
-            $(input).val('');
-            $(input).attr("placeholder",msg);
-            $(input).focus();
-            return false;
-       
-        }  else {
-            return true;
-        }
-    }
     function dateDifference1(input1,input2,msg) {
         input1="#"+input1;
         input2="#"+input2;

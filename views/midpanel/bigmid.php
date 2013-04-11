@@ -1,5 +1,12 @@
 <div id="bigmid">
-
+<div id="errorDiv">
+     <?php
+          if(isset($_SESSION['profile_error'])) {
+               echo $_SESSION['profile_error'];
+               unset($_SESSION['profile_error']);
+          }
+     ?>
+</div>
    
 <!--edit Contact code goes here-->
 <div id="edit_contact" name="edit_contact" >
@@ -15,25 +22,32 @@
    <form method="get" action="" id="contactform">
     
      <b><?php echo HOUSE_NO;?> </b>  <br>
-     <input type="text" id="ehno" name="ehno" width="50px"
+     <input type="text" id="ehno_<?php echo $i;?>" name="ehno" width="50px"
      value= "<?PHP echo $arrData['address'][$i]['house_number']; ?>" > <br>
      <b><?php echo STREET_NO;?></b>
-     <br> <input type="text" id="estreetNo"
+     <br>
+     <input type="text" id="estreetNo_<?php echo $i;?>"
      name="estreetNo" value= "<?PHP echo $arrData['address'][$i]['street_number']; ?>" > <br>
-     <b><?php echo STREET_NAME;?></b> <br><input type="text" id="estreetName"
+     <b><?php echo STREET_NAME;?></b> <br>
+     <input type="text" id="estreetName_<?php echo $i;?>"
      name="estreetName" value="<?PHP echo $arrData['address'][$i]['street_name']; ?>" > <br>
-     <b><?php echo PINCODE;?></b> <br><input type="text" id="epincode" name="epincode"> <br>
-     <b><?php echo DISTRICT; ?></b>  <br><input type="text" id="edistrict" name="edistrict"><br>
-     <b><?php echo CITY;?></b>  <br> <input type="text" id="ecity"
+     <b><?php echo PINCODE;?></b> <br>
+     <input type="text" id="epincode_<?php echo $i;?>" name="epincode"> <br>
+     <b><?php echo DISTRICT; ?></b>  <br>
+     <input type="text" id="edistrict_<?php echo $i;?>" name="edistrict"><br>
+     <b><?php echo CITY;?></b>  <br>
+     <input type="text" id="ecity_<?php echo $i;?>"
      name="ecity" value="<?PHP echo $arrData['address'][$i]['city']; ?>" > <br>
-     <b><?php echo STATE;?></b> <br><input type="text" id="estate" name="estate"
+     <b><?php echo STATE;?></b> <br>
+     <input type="text" id="estate_<?php echo $i;?>" name="estate"
     value="<?PHP echo $arrData['address'][$i]['state']; ?>"  >
- <br><b><?php echo COUNTRY;?></b>  <br><input type="text" id="ecountry" name="ecountry" 
+ <br><b><?php echo COUNTRY;?></b>  <br>
+ <input type="text" id="ecountry_<?php echo $i;?>" name="ecountry" 
     value= "<?PHP echo $arrData['address'][$i]['country']; ?>" >
     <input type=hidden value="<?php  echo $arrData['address'][$i]['id']; ?>" id='neid'name ='neid'> 
      <input type=hidden value=edit_Con name=url> 
    <input type=hidden value=profile name=controller><br>
-   <input type="submit" id="submitCon" value="Save Me" name=submit > 
+   <input type="submit" id="submitCon" value="Save Me" onclick="return validateEditAddress(<?php echo $i;?>)" name=submit > 
    <br> <br> 
   </form>
   
@@ -58,7 +72,7 @@
  
      <input type=hidden value=new_Con name=url> 
  <input type=hidden value=profile name=controller><br>
-  <input type="submit" id="submitCon1" value="Save Me" name=submit  /> 
+  <input type="submit" id="submitCon2" value="Save Me" name=submit  /> 
 
    </form>
 
@@ -110,7 +124,7 @@
     </select>
 <br><br> <b>
 <?php echo RELATIONSHIP_STATUS;?></b><select id="relationship" name="relationship">
-   <option><?php echo Single;?></option>
+   <option><?php echo SINGLE;?></option>
    <option> <?php echo COMMITED;?></option>
    <option><?php echo PREFER_NOT_TO_SAY;?></option>
     </select>
@@ -141,18 +155,17 @@
      ?>
     <form method="post" action="#">
   
-    <b> <?php echo INSTITUTE;?></b><br><input type="text" id="institute" name="institute"
+    <b> <?php echo INSTITUTE;?></b><br><input type="text" id="institute_<?php echo $i;?>" name="institute"
                 value=<?PHP echo $arrData['education'][$i]['institute'];?>
               ><br>
-    <b> <?php echo START_DATE;?></b> <br><input type="text" id="istart" name="istart"><br>
-     <b><?php echo END_DATE;?> </b><br><input type="text" id="iend" name="iend"><br>
-     <b><?php echo UNIVERSITY;?></b><br> <input type="text" id="university" name="university"
-                value=<?PHP echo $arrData['education'][$i]['university'];?> 
-                >
-             
+    <b> <?php echo START_DATE;?></b> <br><input type="text" id="istart_<?php echo $i;?>" name="istart"><br>
+     <b><?php echo END_DATE;?> </b><br><input type="text" id="iend_<?php echo $i;?>" name="iend"><br>
+     <b><?php echo UNIVERSITY;?></b><br> <input type="text" id="university_<?php echo $i;?>" name="university"
+                value=<?PHP echo $arrData['education'][$i]['university'];?> >
+          <input type=hidden value="<?php  echo $arrData['education'][$i]['id']; ?>" id='eeid'name ='eeid'> 
        <input type=hidden value=edu_up name=url> 
        <input type=hidden value=profile name=controller><br>
-   <input type="submit" id="eInfo" name="eInfo" value="Save Me" />
+   <input type="submit" onclick="return validateEditEducation(<?php echo $i;?>)" id="eInfo" name="eInfo" value="Save Me" />
    <br><br><br>
    </form>
   <?php  } ?> 
