@@ -9,7 +9,7 @@ define("SUBMIT","Submit");
 define("BASIC_PROFILE","Basic Profile");
 define("QUALIFICATIONS","Qualifications");
 define("RESUME","Resume");
-define("FILE","File :");
+/*define("FILE","File :");*/
 define("CERTIFICATIONS","Certifications");
 
 ?>

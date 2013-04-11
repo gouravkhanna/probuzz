@@ -326,11 +326,11 @@ define("MEET","Meet");
 define("NO_APPLICATION_RECIEVED","No Application Recieved");
 define("CERTIFICATION_NAME","Certification Name");
 define("INSTITUTION_NAME","Institution Name :");
-define("NAME","Name :");
+/*define("NAME","Name :");*/
 define("EMAIL_ADDRESS","Email Address :");
 define("WHAT_UP","What's Up?");
-define("BUZZIN","Login ");
-define("TOTAL_SUBSCRIBER","Total Subscriber : ");
+/*define("BUZZIN","Login ");
+*/define("TOTAL_SUBSCRIBER","Total Subscriber : ");
 define("NO_USERS_TO_DISPLAY","No Users To Display.");
 define("USER_NAME","User Name");
 define("BAN_4_1_DAY","Ban For 1 Day");
