@@ -60,7 +60,8 @@
    filter: alpha(opacity=9);
 	z-index:0;
 	text-align:center;
-	}
+	
+}
 .box{
     opacity: 1;
     margin:20% auto;	

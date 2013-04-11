@@ -21,7 +21,7 @@
 <script type="text/javascript" src="<?php echo ROOTPATH."js/notifications.js" ;?>" ></script>
 <script type="text/javascript" src="<?php echo ROOTPATH."library/jquery.dataTables.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo ROOTPATH."js/friends.js"  ; ?>"></script>
-<script type="text/javascript" src="<?php echo ROOTPATH."js/photo.js"  ; ?>"></script>
+<script type="text/javascript" src="<?php echo ROOTPATH."js/photos.js"  ; ?>"></script>
 
 </head>
 <body>

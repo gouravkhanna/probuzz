@@ -1,7 +1,7 @@
 function openBox() {
-	$('.fancybox').css({"display":"block"}).hide().fadeIn("slow");
+	$('.fancybox1').css({"display":"block"}).hide().fadeIn("slow");
     $('.box').slideDown("slow");
-    $('.fancybox').css({"z-index":"999999"});
+    $('.fancybox1').css({"z-index":"999999"});
 }
 function sendRequest(input) {
 	alert("sendimg");
