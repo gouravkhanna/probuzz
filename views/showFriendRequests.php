@@ -1,4 +1,4 @@
-<div id="bigmid">
+.<div id="bigmid">
 	<?php
 		//echo "<pre>";
 			//print_r($arrData);
@@ -16,7 +16,7 @@
 			echo $res;
 	} 
 } else {
-	echo NO_REQUESTS;
+	echo "<div id='showfrnddiv'><h1>".NO_REQUESTS ."</h1> <br><br></div>";
 }
 	?>
 </div>

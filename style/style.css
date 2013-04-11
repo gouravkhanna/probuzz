@@ -624,9 +624,10 @@ hr {
 	padding :10px;
 	width:835px;
 	margin:0px auto;
-	background-color: #78bbe6;
+	background-color:#f1f1f1;
 	overflow-x: scroll;
 	overflow-y: hidden;
+	border-radius: 3px;
 }
 #msgcontent {
 	margin-bottom: 10px;

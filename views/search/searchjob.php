@@ -1,8 +1,9 @@
 <div id="bigmid">
 	<div id="searchjob">
-		<h1><?php echo SEARCH_JOB;?></h1>
-		<hr />
+			<?php echo "<div id='showfrnddiv'><h1>".SEARCH_JOB ."</h1> <br><br></div>"; ?>
+		
     	<form id="formsearchjob" name="formsearchjob" onsubmit="return false;">
+			<br><br><br>
 			<div id="dvformsearchjob">
 				<span> <?php echo  DESIGNATION; ?></span> <span> <?php echo  MINIMUMSALARY; ?></span>
 				<span> <?php echo  MAXIMUMSALARY; ?></span> <span> <?php echo  LOCATION; ?></span>

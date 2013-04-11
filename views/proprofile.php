@@ -17,8 +17,8 @@
      
     ?>
     
-    <div id='showfrnddiv'>	ghjfgjhfjhg</div>
-        <div class="fright">
+  <div id='showfrnddiv'><h1>Professional Profile</h1> <br><br></div>
+       <br><br><br><br> <div class="fright">
             <a href="index.php?controller=proprofile&url=home">BACK</a>
     </div>
     <div id="accordion">
