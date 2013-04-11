@@ -4,7 +4,7 @@
 			//print_r($arrData);
 			
 	if (! empty ( $arrData )) {
-
+echo "<div id='showfrnddiv'><h1>".FRIEND_REQUEST."</h1> <br><br></div>";
 		foreach ( $arrData  as $key => $value ) {
 			$res = "<div id='friendRequest".$value['id']."'><a href='index.php?controller=friends&url=friendsProfile&friendId=" . $value ['id'] . "' >";
 			$res .= "<div id=dvres class=full>";
