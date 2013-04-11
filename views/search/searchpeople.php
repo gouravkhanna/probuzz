@@ -2,7 +2,7 @@
 	<div id="dvsearchpeople">
 
 
-		<div class=bluebutton><?php echo SEACRH_PEOPLE;?></div>
+		<div class=bluebutton ><span class='fontsize20 marginl10'><?php echo SEACRH_PEOPLE;?><span><br></div>
 		<hr />
 		<button id="showoption">Hide</button>
 		<div id="searchcriteria"></div>
