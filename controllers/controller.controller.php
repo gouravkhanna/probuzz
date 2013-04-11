@@ -171,7 +171,12 @@ class Controller
 	    loadView("about_us.php",$arrData);
 	}
 	
-	
+	function corporates(){
+	    loadView("corprateregistration.php");
+	}
+	function corprateRegister() {
+	    echo "Sdsd";
+	}
 	/*function displayAddress()
 	{
 	
