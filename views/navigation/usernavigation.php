@@ -1,6 +1,6 @@
 <div id="navigation">
 		<div class="fancybox1">
-				<div class="box">
+				<div class="box1">
 					<form id="imageUploadForm">
 					<input type="file" name="profile_pic"  />
 					<input type="button" onclick="" id="profile_pic_change" value="Set Profile Pic" /> <br/>

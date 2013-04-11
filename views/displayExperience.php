@@ -31,10 +31,7 @@ $experience=$arrData['experience'];
                     <pre>       <?php echo TO." ".$value['end_date']; ?></pre>
                     <?php } ?>
                     
-					<!-- Reminder to add this column to certifications table-->
-					<?php// if($value['added_date']) { ?>
-                    <pre>       <?php //echo "Added On : ".$value['added_date']; ?></pre>
-                    <?php //} ?>
+					
                 </div>
         </div>
         
