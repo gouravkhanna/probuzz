@@ -36,7 +36,7 @@ $(function() {
 		</caption>
 		<tr>
 		   <td><?php echo strtoupper(CLASS_DEGREE_DIPLOMA); ?></td>
-		   <td><input type="text" id="q_class" onblur="validateQualificationClass()" name="class" value="<?php if($flag) { echo $qual['class'];} ?>" />
+		   <td><input type="text" id="q_class" name="class" value="<?php if($flag) { echo $qual['class'];} ?>" />
 		   <span id="class_asterisk" class="asterisk">*</span>
 		   </td>
 		</tr>
@@ -44,7 +44,7 @@ $(function() {
 		<tr>
 			<td><?php echo strtoupper(QUALIFICATION_TYPE);?></td>
 			<td>
-				<select id="q_type" name="qualification_type" onblur="validateQualificationType()">
+				<select id="q_type" name="qualification_type" ">
 					<option value="0" <?php if($flag && !$qual['qualification_type']) { echo "selected='selected' ";} ?> >
 					<?php echo strtoupper(SELECT);?></option>
 					<option value="Under Graduation" <?php if($flag && $qual['qualification_type']=="Under Graduation") { echo "selected='selected' ";} ?> >
@@ -76,14 +76,14 @@ $(function() {
 		<tr>
 			<td><?php echo strtoupper(START_YEAR);?></td>
 			<td>
-				<input type="text" id="d" onchange="validateQualificationDate()" name="start_year" value="<?php if($flag) { echo $qual['start_year'];} ?>"/>
+				<input type="text" id="d"  name="start_year" value="<?php if($flag) { echo $qual['start_year'];} ?>"/>
 				<span id="" class="asterisk">*</span>
 			</td>
 		</tr>
 		<tr>
 			<td><?php echo strtoupper(END_YEAR);?></td>
 			<td>
-				<input type="text" id="d1" name="end_year" onchange="validateDate()" value="<?php if($flag) { echo $qual['end_year'];} ?>"/>
+				<input type="text" id="d1" name="end_year" value="<?php if($flag) { echo $qual['end_year'];} ?>"/>
 				<span id="date_asterisk" class="asterisk">*</span>
 			</td>
 		</tr>
@@ -123,8 +123,6 @@ $(function() {
 	
 </form>
 <div class="errorDiv">
-		<span id="classError" class="error"></span><br/>
 		<span id="typeError" class="error"></span><br/>
-		<span id="dateError" class="error"></span><br/>
 </div>
 </b>

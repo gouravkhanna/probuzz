@@ -102,10 +102,75 @@ class proprofile extends Controller
 			$fields[$key]=$value;
 		}
 		if($_REQUEST['table']=="qualification") {
+			$flag=true;
+			$msg="";
+			if(!$_REQUEST['class']) {
+				$msg="Qualification Can't Be Empty.<br/>";
+				$flag=false;
+			}
+			if($_REQUEST['qualification_type']=="0") {
+				$msg.="Please Select A Qualification Type.<br/>";
+				$flag=false;
+			}
+			if(!$_REQUEST['start_year']) {
+				$msg.="Must Provide Start Year.<br/>";
+				$flag=false;
+			}
+			if(!$_REQUEST['end_year']) {
+				$msg.="Must Provide End Year.<br/>";
+				$flag=false;
+			}
+			if(!$flag) {
+				$_SESSION['qual_error']=$msg;
+				echo "Qualification Addition Failure.";
+				return false;
+			}
 			$message="Qualification";
 		} else if($_REQUEST['table']=="certifications") {
+			$flag=true;
+			$msg="";
+			if(!$_REQUEST['certification_name']) {
+				$msg.="Certification Name Can't Be Empty.<br/>";
+				$flag=false;
+			}
+			if(!$_REQUEST['institution']) {
+				$msg.="Institution Name Can't Be Empty.<br/>";
+				$flag=false;
+			}
+			if(!$_REQUEST['certification_year']) {
+				$msg.="Certification Year Can't Be Empty.<br/>";
+				$flag=false;
+			}
+			if(!$_REQUEST['validity']) {
+				$msg.="Certification Validity Can't Be Empty.<br/>";
+				$flag=false;
+			}
+			if(!$flag) {
+				$_SESSION['cert_error']=$msg;
+				echo "Certification Addition Failure.";
+				return false;
+			}
 			$message="Certification";
 		} else if($_REQUEST['table']=="experience") {
+			$flag=true;
+			$msg="";
+			if(!$_REQUEST['company_name']) {
+				$msg.="Company Name Can't Be Empty.<br/>";
+				$flag=false;
+			}
+			if(!$_REQUEST['position']) {
+				$msg.="Position Can't Be Empty.<br/>";
+				$flag=false;
+			}
+			if(!$_REQUEST['start_date']) {
+				$msg.="Joining Date Can't Be Empty.<br/>";
+				$flag=false;
+			}
+			if(!$flag) {
+				$_SESSION['exp_error']=$msg;
+				echo "Experience Addition Failure.";
+				return false;
+			}
 			$message="Experience";
 		}
 		$method="insertInto";
@@ -124,6 +189,28 @@ class proprofile extends Controller
 			$fields[$key]=$value;
 		}
 		if($_REQUEST['table']=="qualification") {
+				$flag=true;
+			if(!$_REQUEST['class']) {
+				$msg="Qualification Can't Be Empty.<br/>";
+				$flag=false;
+			}
+			if($_REQUEST['qualification_type']=="0") {
+				$msg.="Please Select A Qualification Type.<br/>";
+				$flag=false;
+			}
+			if(!$_REQUEST['start_year']) {
+				$msg.="Must Provide Start Year.<br/>";
+				$flag=false;
+			}
+			if(!$_REQUEST['end_year']) {
+				$msg.="Must Provide End Year.<br/>";
+				$flag=false;
+			}
+			if(!$flag) {
+				$_SESSION['qual_error']=$msg;
+				echo "Qualification Addition Failure.";
+				return false;
+			}
 			$method="updateQualification";
 			$message="Qualification";
 		} else if($_REQUEST['table']=="certifications") {
@@ -162,44 +249,10 @@ class proprofile extends Controller
 	}
 	
 	public function uploadResume() {
-		//echo "in upload resume";
-		
 		$response=loadModel("professionalprofile","processUpload");
 		echo "<script language='javascript' type='text/javascript'>window.top.window.stopUpload('".$response."');</script>";
-		//echo "<script language='javascript' type='text/javascript'>window.top.window.response( '".$response."' );</script>";
-		
 	}
-	/*public function uploadResume() {
-		echo "in upload resume";
-		$allowedExts = array("doc", "docx", "rtf", "txt","pdf","tif");
-		$extension = end(explode(".", $_FILES["resume"]["name"]));
-		if ((($_FILES["resume"]["type"] == "application/msword")
-		|| ($_FILES["resume"]["type"] == "application/rtf")
-		|| ($_FILES["resume"]["type"] == "application/pdf")
-		|| ($_FILES["resume"]["type"] == "text/plain"))
-		&& ($_FILES["resume"]["size"] < 5242880)
-		&& in_array($extension, $allowedExts)) {
-		    if ($_FILES["resume"]["error"] > 0) {
-			echo "Return Code: " . $_FILES["resume"]["error"] . "<br>";
-		    } else {
-			if (file_exists(UPLOAD_PATH . $_FILES["resume"]["name"])) {
-			    echo $_FILES["resume"]["name"] . " already exists. ";
-			} else {
-			    $ok = move_uploaded_file($_FILES["resume"]["tmp_name"],UPLOAD_PATH.$_FILES["resume"]["name"]);
-			    if($ok) { 
-				echo "Stored in: " . UPLOAD_PATH . $_FILES["resume"]["name"];
-				echo "File Uploaded Successfully";
-			    }
-			    else {
-				    echo "File Upload Failed.";
-			    }
-			}
-		    }
-		}
-		else {
-		  echo "Invalid file";
-		}
-	}*/
+
 }
 
 

@@ -37,35 +37,35 @@ $(function() {
 		<tr>
 		   <td><?php echo strtoupper(COMPANY_NAME); ?></td>
 			<td>
-				<input type="text" id="experience_name" onblur="validateExperienceCompanyName()" name="company_name" value="<?php if($flag) { echo $exp['company_name'];} ?>"/>
+				<input type="text" id="experience_name" name="company_name" value="<?php if($flag) { echo $exp['company_name'];} ?>"/>
 				<span id="experience_name_asterisk" class="asterisk">*</span>
 	      	</td>
-		</tr></div>
+		</tr>
 		<tr>
 			<td><?php echo strtoupper(POSITION);?></td>
 			<td>
-				<input type="text" name="position" value="<?php if($flag) { echo $exp['position'];} ?>"/>
+				<input type="text" id="experience_position" name="position" value="<?php if($flag) { echo $exp['position'];} ?>"/>
 				<span id="" class="asterisk">*</span>
 			</td>
 		</tr>
 		<tr>
 			<td><?php echo strtoupper(FROM);?></td>
 			<td>
-				<input type="text" id="d4" onchange="validateExperienceDateDifference()" name="start_date" value="<?php if($flag) { echo $exp['start_date'];} ?>"/>
+				<input type="text" id="d4" name="start_date" value="<?php if($flag) { echo $exp['start_date'];} ?>"/>
 				<span id="" class="asterisk">*</span>
 			</td>
 		</tr>
 		<tr>
 			<td><?php echo strtoupper(TO);?></td>
 			<td>
-				<input type="text" id="d5" onchange="validateExperienceDateDifference()" name="end_date" value="<?php if($flag) { echo $exp['end_date'];} ?>"/>
+				<input type="text" id="d5" name="end_date" value="<?php if($flag) { echo $exp['end_date'];} ?>"/>
 				<span id="experience_date_asterisk" class="asterisk">*</span>
 			</td>
 		</tr>
 		<tr>
 			<td><?php echo strtoupper(CURRENT_JOB);?></td>
 			<td>
-				<select id="" name="current_job" onblur="">
+				<select id="" name="current_job" >
 					<option value="0" <?php if($flag && $exp['current_job']=="0") { echo "selected='selected' ";} ?> >
 						<?php echo strtoupper("No");?>
 					</option>

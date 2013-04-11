@@ -1,11 +1,13 @@
 <div id="navigation">
 		<div class="fancybox1">
 				<div class="box1">
-					<form id="imageUploadForm">
+				<form id="imageUploadForm" action="<?php echo ROOTPATH;?>index.php?controller=proprofile&url=uploadResume"
+				method="post" enctype="multipart/form-data" target="photo_upload_target" onsubmit="" >
 					<input type="file" name="profile_pic"  />
-					<input type="button" onclick="" id="profile_pic_change" value="Set Profile Pic" /> <br/>
+					<input type="submit" onclick="" id="profile_pic_change" value="Set Profile Pic" /> <br/>
 				    <input type="button" class="floatr" value="Close" onclick="closeFancy()" />
 					</form>
+					<iframe id="photo_upload_target" name="upload_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
 				</div>
 		</div>
 	<div id="photo">

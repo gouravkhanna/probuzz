@@ -116,29 +116,6 @@ function isAlphaNumeric(input) {
 		return true;
 	}	
 }
-/*	onlySpaces() check if the input contains only spaces or not, returns true if string contains only spaces.	*/
-function onlySpaces(input) {
-	str=input;
-	temp=str.replace(/\s/g,"");
-	if(temp.length<1) {
-		return true;
-	} else {
-		return false;
-	}
-}
-/*	dateDifference() checks if the start date is less than the end date, returns */
-/*	true if difference between the dates is atleast 1. */
-function dateDifference(start,end) {
-	diff=(new Date(end).getTime()-new Date(start).getTime())/(1000 * 3600 * 24);
-	if(diff>0) {
-		return true;
-	} else {
-		return false;
-	}
-}
-function lengthBetween() {
-	
-}
 
 function valid_uname()
 {

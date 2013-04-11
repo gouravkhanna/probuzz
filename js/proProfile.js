@@ -174,170 +174,14 @@ function closeFancy() {
     $('.fancybox1').css({"display":"none"});
 }
 function validateQualifications() {
-    var flag=1;
-    if(!validateQualificationClass()) {
-        flag=0;
-    }
-    if(!validateQualificationType()) {
-        flag=0;
-    }
-    if(!validateQualificationDate()) {
-        flag=0;
-    }
-    if(flag) {
-        return true;
-    } else {
+    if(!$("#q_class").val()) {
+        setErrorMessage("#q_class","This Field Can't Be Empty.")
         return false;
     }
-}
-function validateExperience() {
-    var flag=1;
-    if(!validateExperienceCompanyName()) {
-        flag=0;
+    if(onlySpacesA("q_class")) {
+        setErrorMessage("#q_class","Only Spaces Not Allowed.");
+        return false;                            
     }
-    if(!validateExperienceDateDifference()) {
-        flag=0;
-    }
-    if(flag) {
-        return true;
-    } else {
-        return false;
-    }
-}
-function validateExperienceDateDifference() {
-    var start=$("#d4").val();
-    var end=$("#d5").val();
-    if(start && end) {
-        if(!dateDifference(start,end)) {
-            $("#experienceDateDifferenceError").html("* Leaving Date Cannot Be Less Than Or Equal To Joining Date.");
-            $("#experienceDateDifferenceError").css("visibility","visible");
-            $("#experience_date_asterisk").css("visibility","visible");
-            return false;
-        } else {
-            $("#experienceDateDifferenceError").html("");
-            $("#experienceDateDifferenceError").css("visibility","hidden");
-            $("#experience_date_asterisk").css("visibility","hidden");
-            return true;
-        }
-    } else {
-        return true;    
-    }
-}
-function validateExperienceCompanyName() {
-    var result=$("#experience_name").val();
-    if(!result){
-        $("#experienceNameError").html("* Company Name Cannot Be Left Empty.");
-        $("#experienceNameError").css("visibility","visible");
-        $("#experience_name_asterisk").css("visibility","visible");
-        return false;
-    } else {
-        $("#experienceNameError").html("");
-        $("#experienceNameError").css("visibility","hidden");
-        $("#experience_name_asterisk").css("visibility","hidden");
-    }
-    return true;
-}
-
-function validateCertification() {
-    var flag=1;
-    if(!validateCertificationName()) {
-        flag=0;
-    }
-    if(!validateCertificationYear()) {
-        flag=0;
-    }
-    if(!validateCertificationValidity()) {
-        flag=0;
-    }
-    if(!validateCertificationInstitute()) {
-        flag=0;
-    }
-    if(!validateCertificationDateDifference()) {
-        flag=0;
-    }
-    if(flag) {
-        return true;
-    } else {
-        return false;
-    }
-}
-function validateCertificationDateDifference() {
-    var start=$("#d2").val();
-    var end=$("#d3").val();
-    if(start && end) {
-        if(!dateDifference(start,end)) {
-            $("#certificationValidityError").html("* Validity Date Cannot Be Less Than Or Equal To Certification Date.");
-            $("#certificationValidityError").css("visibility","visible");
-            $("#certification_validity_asterisk").css("visibility","visible");
-            return false;
-        } else {
-            $("#certificationValidityError").html("");
-            $("#certificationValidityError").css("visibility","hidden");
-            $("#certification_validity_asterisk").css("visibility","hidden");
-            return true;
-        }
-    } else {
-        return true;    
-    }
-}
-function validateCertificationInstitute() {
-    var result=$("#certification_institute").val();
-    if(!result){
-        $("#certificationInstituteError").html("* Certification Institute Cannot Be Left Empty.");
-        $("#certificationInstituteError").css("visibility","visible");
-        $("#certification_institute_asterisk").css("visibility","visible");
-        return false;
-    } else {
-        $("#certificationInstituteError").html("");
-        $("#certificationInstituteError").css("visibility","hidden");
-        $("#certification_institute_asterisk").css("visibility","hidden");
-    }
-    return true;
-}
-function validateCertificationValidity() {
-    var result=$("#d3").val();
-    if(!result){
-        $("#certificationValidityError").html("* Certification Validity Cannot Be Left Empty.");
-        $("#certificationValidityError").css("visibility","visible");
-        $("#certification_validity_asterisk").css("visibility","visible");
-        return false;
-    } else {
-        $("#certificationValidityError").html("");
-        $("#certificationValidityError").css("visibility","hidden");
-        $("#certification_validity_asterisk").css("visibility","hidden");
-    }
-    return true;
-}
-function validateCertificationYear() {
-    var result=$("#d2").val();
-    if(!result){
-        $("#certificationYearError").html("* Certification Year Cannot Be Left Empty.");
-        $("#certificationYearError").css("visibility","visible");
-        $("#certification_year_asterisk").css("visibility","visible");
-        return false;
-    } else {
-        $("#certificationYearError").html("");
-        $("#certificationYearError").css("visibility","hidden");
-        $("#certification_year_asterisk").css("visibility","hidden");
-    }
-    return true;
-}
-function validateCertificationName() {
-    var result=$("#certification_name").val();
-    if(!result){
-        $("#certificationNameError").html("* Certification Name Cannot Be Left Empty.");
-        $("#certificationNameError").css("visibility","visible");
-        $("#cert_name_asterisk").css("visibility","visible");
-        return false;
-    } else {
-        $("#certificationNameError").html("");
-        $("#certificationNameError").css("visibility","hidden");
-        $("#cert_name_asterisk").css("visibility","hidden");
-    }
-    return true;
-
-}
-function validateQualificationType() {
     var result=$("#q_type").val();
     if(result=="0"){
         $("#typeError").html("* Please Select Qualification type.");
@@ -349,22 +193,105 @@ function validateQualificationType() {
         $("#typeError").css("visibility","hidden");
         $("#type_asterisk").css("visibility","hidden");
     }
-    return true;
-}
-function validateQualificationClass(){
-    var result=$("#q_class").val();
-    if(!result){
-        $("#classError").html("* Class/Degree/Diploma Cannot Be Left Empty.");
-        $("#classError").css("visibility","visible");
-        $("#class_asterisk").css("visibility","visible");
+    if(!$("#d").val()) {
+        setErrorMessage("#d","This Field Can't Be Empty.")
         return false;
-    } else {
-        $("#classError").html("");
-        $("#classError").css("visibility","hidden");
-        $("#class_asterisk").css("visibility","hidden");
+    }
+    if(!correctDate("d","Date Format Invalid(yyyy-mm-dd)")) {
+        return false;
+    }
+    if(!$("#d1").val()) {
+        setErrorMessage("#d1","This Field Can't Be Empty.")
+        return false;
+    }
+    if(!correctDate("d1","Date Format Invalid(yyyy-mm-dd)")) {
+        return false;
+    }
+    var start=$("#d").val();
+    var end=$("#d1").val();
+    if(!dateDifference(start,end)) {
+        setErrorMessage("#d1","End Date Can't Be Less Than Start Date");
+        return false;
     }
     return true;
 }
+function validateExperience() {
+    if(!$("#experience_name").val()) {
+        setErrorMessage("#experience_name","This Field Can't Be Empty.")
+        return false;
+    }
+    if(onlySpacesA("experience_name")) {
+        setErrorMessage("#experience_name","Only Spaces Not Allowed.");
+        return false;                            
+    }
+       if(!$("#experience_position").val()) {
+        setErrorMessage("#experience_position","This Field Can't Be Empty.")
+        return false;
+    }
+    if(onlySpacesA("experience_position")) {
+        setErrorMessage("#experience_position","Only Spaces Not Allowed.");
+        return false;                            
+    }
+    if(!$("#d4").val()) {
+        setErrorMessage("#d4","This Field Can't Be Empty.")
+        return false;
+    }
+    if(!correctDate("d4","Date Format Invalid(yyyy-mm-dd)")) {
+        return false;
+    }
+    var start=$("#d4").val();
+    var end=$("#d5").val();
+    if(end) {
+        if(!dateDifference(start,end)) {
+            setErrorMessage("#d5","End Date Can't Be Less Than Start Date");
+            return false;
+        }            
+    }
+    
+    return true;
+}
+
+
+function validateCertification() {
+    if(!$("#certification_name").val()) {
+        setErrorMessage("#certification_name","This Field Can't Be Empty.")
+        return false;
+    }
+    if(onlySpacesA("certification_name")) {
+        setErrorMessage("#certification_name","Only Spaces Not Allowed.");
+        return false;                            
+    }
+    if(!$("#certification_institute").val()) {
+        setErrorMessage("#certification_institute","This Field Can't Be Empty.")
+        return false;
+    }
+    if(onlySpacesA("certification_institute")) {
+        setErrorMessage("#certification_institute","Only Spaces Not Allowed.");
+        return false;                            
+    }
+    if(!$("#d2").val()) {
+        setErrorMessage("#d2","This Field Can't Be Empty.")
+        return false;
+    }
+    if(!correctDate("d2","Date Format Invalid(yyyy-mm-dd)")) {
+        return false;
+    }
+    if(!$("#d3").val()) {
+        setErrorMessage("#d3","This Field Can't Be Empty.")
+        return false;
+    }
+    if(!correctDate("d3","Date Format Invalid(yyyy-mm-dd)")) {
+        return false;
+    }
+    var start=$("#d2").val();
+    var end=$("#d3").val();
+    if(!dateDifference(start,end)) {
+        setErrorMessage("#d3","Validity Date Can't Be Less Than Start Date");
+        return false;
+    }
+    return true;
+}
+
 function dateDifference(start,end) {
 	diff=(new Date(end).getTime()-new Date(start).getTime())/(1000 * 3600 * 24);
 	if(diff>0) {
@@ -373,25 +300,7 @@ function dateDifference(start,end) {
 		return false;
 	}
 }
-function validateQualificationDate() {
-    var start=$("#d").val();
-    var end=$("#d1").val();
-    if(start && end) {
-        if(!dateDifference(start,end)) {
-            $("#dateError").html("* End Date Cannot Be Less Than Or Equal To Start Date.");
-            $("#dateError").css("visibility","visible");
-            $("#date_asterisk").css("visibility","visible");
-            return false;
-        } else {
-            $("#dateError").html("");
-            $("#dateError").css("visibility","hidden");
-            $("#date_asterisk").css("visibility","hidden");
-            return true;
-        }
-    } else {
-        return true;    
-    }
-}
+
 function startUpload(){
       document.getElementById('f1_upload_process').style.visibility = 'visible';
       document.getElementById('f1_upload_form').style.visibility = 'hidden';

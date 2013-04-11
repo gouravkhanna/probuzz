@@ -17,12 +17,13 @@
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/proProfile.css"; ?> " />
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/notifications.css" ; ?>" />
 <link rel="stylesheet" type="text/css" href="<?php echo ROOTPATH."style/upload.css" ; ?>" />
-<script type="text/javascript" src="<?php echo ROOTPATH."js/proProfile.js"; ?> "></script>
+
 <script type="text/javascript" src="<?php echo ROOTPATH."js/notifications.js" ;?>" ></script>
 <script type="text/javascript" src="<?php echo ROOTPATH."library/jquery.dataTables.min.js"; ?>"></script>
 <script type="text/javascript" src="<?php echo ROOTPATH."js/friends.js"  ; ?>"></script>
 <script type="text/javascript" src="<?php echo ROOTPATH."js/photos.js"  ; ?>"></script>
 <script src="<?php echo ROOTPATH."js/display_profile.js"; ?>"></script>
+<script type="text/javascript" src="<?php echo ROOTPATH."js/proProfile.js"; ?> "></script>
 </head>
 <body>
 

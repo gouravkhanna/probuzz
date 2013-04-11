@@ -96,23 +96,25 @@ $(document)
                                         });
 
                                     });
-
-                    $("#dob").datepicker({
+                $(".personal_datepicker").datepicker({
                         dateFormat : 'yy-mm-dd'
-                    });
-                    $("#start_date").datepicker({
-                        dateFormat : 'yy-mm-dd'
-                    });
-                    $("#end_date").datepicker({
-                        dateFormat : 'yy-mm-dd'
-                    });
-                    $("#istart").datepicker({
-                        dateFormat : 'yy-mm-dd'
-                    });
-
-                    $("#iend").datepicker({
-                        dateFormat : 'yy-mm-dd'
-                    });
+                });
+                    //$("#dob").datepicker({
+                    //    dateFormat : 'yy-mm-dd'
+                    //});
+                    //$("#start_date").datepicker({
+                    //    dateFormat : 'yy-mm-dd'
+                    //});
+                    //$("#end_date").datepicker({
+                    //    dateFormat : 'yy-mm-dd'
+                    //});
+                    //$("#istart").datepicker({
+                    //    dateFormat : 'yy-mm-dd'
+                    //});
+                    //
+                    //$("#iend").datepicker({
+                    //    dateFormat : 'yy-mm-dd'
+                    //});
                     $("#addEducation").click(function() {
 
                         $("#new_education").show();

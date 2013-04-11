@@ -62,7 +62,7 @@
 	text-align:center;
 	
 }
-.box{
+.box,.box1{
     opacity: 1;
     margin:20% auto;	
 	display: inline-block;
@@ -118,4 +118,6 @@
 #f1_upload_process {
 	visibility: hidden;
 }
-
+.red {
+	color: red;
+}

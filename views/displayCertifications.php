@@ -1,8 +1,16 @@
-        <div class="align">
-                <input type="button" class="b1" value="Add Certifications" onclick="openFancyBox('certifications',-1)">
-                                
-        </div>
-        <br/>
+<div class="align">
+		<input type="button" class="b1" value="Add Certifications" onclick="openFancyBox('certifications',-1)">
+						
+</div>
+<div class="red">
+<?php
+	if(isset($_SESSION['cert_error'])) {
+		echo $_SESSION['cert_error'];
+		unset($_SESSION['cert_error']);
+	}
+?>
+</div>
+<br/>
 		<?php
 		$cert=$arrData['certifications'];
             if(!$cert) {

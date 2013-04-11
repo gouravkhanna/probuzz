@@ -1,8 +1,15 @@
-        <div class="align">
-                <input type="button" class="b1" value="Add Qualification" onclick="openFancyBox('qualification',-1)">
-                                
-        </div>
-        <br/>
+<div class="align">
+    <input type="button" class="b1" value="Add Qualification" onclick="openFancyBox('qualification',-1)">        
+</div>
+<div class="red">
+    <?php
+        if(isset($_SESSION['qual_error'])) {
+            echo $_SESSION['qual_error'];
+            unset($_SESSION['qual_error']);
+        }
+    ?>
+</div>
+<br/>
 <?php
 $qual=$arrData['qualification'];
             if(!$qual) {
@@ -13,6 +20,7 @@ $qual=$arrData['qualification'];
         ?>
         
         <div id="mainQualDisplay<?php echo $value['id']; ?>">
+        
                 <div class="highlight" id="divhead<?php echo $value['id']; ?>">
                     <?php echo strtoupper($value['qualification_type']." : ".$value['class']);?>
                     <div class="deleteQual" id="<?php echo $value['id']; ?>">

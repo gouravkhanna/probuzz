@@ -1,8 +1,15 @@
-        <div class="align">
-                <input type="button" class="b1" value="Add Experience" onclick="openFancyBox('experience',-1)">
-                                
-        </div>
-        <br/>
+<div class="align">
+	<input type="button" class="b1" value="Add Experience" onclick="openFancyBox('experience',-1)">
+</div>
+<div class="red">
+<?php
+	if(isset($_SESSION['exp_error'])) {
+		echo $_SESSION['exp_error'];
+		unset($_SESSION['exp_error']);
+	}
+?>
+</div>
+<br/>
 <?php
 $experience=$arrData['experience'];
             if(!$experience) {

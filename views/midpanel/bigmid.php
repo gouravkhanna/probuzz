@@ -128,7 +128,7 @@
    <option> <?php echo COMMITED;?></option>
    <option><?php echo PREFER_NOT_TO_SAY;?></option>
     </select>
-    <br><br> <b><?php echo DOB;?></b><input type="text" id="dob" name="dob"
+    <br><br> <b><?php echo DOB;?></b><input type="text" class="personal_datepicker" id="dob" name="dob"
           value="<?PHP echo $arrData['personal']['DOB'] ;?>">
    
   <br><br> <b><?php echo INTERSTED_IN;?></b> <input type="text" id="i_in" name="i_in"
@@ -158,8 +158,8 @@
     <b> <?php echo INSTITUTE;?></b><br><input type="text" id="institute_<?php echo $i;?>" name="institute"
                 value=<?PHP echo $arrData['education'][$i]['institute'];?>
               ><br>
-    <b> <?php echo START_DATE;?></b> <br><input type="text" id="istart_<?php echo $i;?>" name="istart"><br>
-     <b><?php echo END_DATE;?> </b><br><input type="text" id="iend_<?php echo $i;?>" name="iend"><br>
+    <b> <?php echo START_DATE;?></b> <br><input class="personal_datepicker" type="text" id="istart_<?php echo $i;?>" name="istart"><br>
+     <b><?php echo END_DATE;?> </b><br><input class="personal_datepicker" type="text" id="iend_<?php echo $i;?>" name="iend"><br>
      <b><?php echo UNIVERSITY;?></b><br> <input type="text" id="university_<?php echo $i;?>" name="university"
                 value=<?PHP echo $arrData['education'][$i]['university'];?> >
           <input type=hidden value="<?php  echo $arrData['education'][$i]['id']; ?>" id='eeid'name ='eeid'> 
@@ -178,8 +178,8 @@
       <div id="innere">
    <form method="get" action="" name="newE" >
     <b> <?php echo INSTITUTE;?></b><br> <input type="text" id="newinstitute" name="newinstitute"><br>
-   <b> <?php echo START_DATE;?></b> <br><input type="text" id="newistart" name="newistart"><br>
-     <b><?php echo END_DATE;?> </b><br><input type="text" id="newiend" name="newiend"><br>
+   <b> <?php echo START_DATE;?></b> <br><input type="text" class="personal_datepicker" id="newistart" name="newistart"><br>
+     <b><?php echo END_DATE;?> </b><br><input type="text" class="personal_datepicker" id="newiend" name="newiend"><br>
      <b><?php echo UNIVERSITY;?></b><br> <input type="text" id="newuniversity" name="newuniversity">
       <input type=hidden value=new_Education name=url> 
  <input type=hidden value=profile name=controller><br>
