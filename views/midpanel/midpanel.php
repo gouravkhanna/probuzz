@@ -1,5 +1,8 @@
 <div id="midpanel">
 	<br /> <br />
+	<button class=visiblen id="showbuzzbackbtn" 
+	onclick="showbuzzback()" ><?php echo BACK;?></button>
+	<div id="topjobview"></div>
 	<div id="buzz">
 		<div id="abc"></div>
 		<form action="" method="get">

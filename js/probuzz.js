@@ -30,20 +30,14 @@ function correctDate(input,msg) {
     }
 }
 $(document).ready(function(e) {
-	///////////////////////////////////////
-	//VALIDATIONS
-	///////////////////////////////////////
+	
 	/*jobs.php*/
-    
-    function filterWhiteSpace(input) {
+   function filterWhiteSpace(input) {
         input="#"+input;
         str=$(input).val();
         $(input).val(str.replace(/\s\s+/g," "));
-        
-    }
-    
-
-    function dateDifference1(input1,input2,msg) {
+   }
+  function dateDifference1(input1,input2,msg) {
         input1="#"+input1;
         input2="#"+input2;
         start=$(input1).val();
@@ -101,17 +95,27 @@ $(document).ready(function(e) {
         if(onlySpacesA("designation","Designation Can't Be Empty.")==true) {
             return false;
         }
-        
+       
         if(!$("#alotslotcheck").is(":checked")) {
             alert("You Must Accept TERMS AND CONDITION To Proceed.");
             return false;
         }
         return true;
     });
-	
-	
-	
-	
+    /*Validation of Corporate PRofile*/
+	$("#updateCorporateProfile").submit(function(){
+	    filterWhiteSpace("company_name");
+	    if(onlySpacesA("company_name","Company Name Can't Be Empty.")==true) {
+            return false;
+        }
+	    if($("#phone_number").val().length<8 || $("#phone_number").val().length>12) {
+	        if($("#phone_number").val().length!=0) {
+	            setErrorMessage("#phone_number","Phone Number Must be Of 8-12 Digit")
+	            return false;
+	        }	            
+	     }
+	   return true;
+	});
 	
 	
 	
@@ -337,11 +341,16 @@ $.ajax({
 
 /* For Show JOb from topJobs notifications */
 function fnLoadJobUser(a) {
-		//$("#showspecficjob").show();
-	
-	$("#midpanel").load("index.php","controller=corporatecontroller&url=showSpecficJob&jobId="+a+"&request_type=user");
-	//$("#showslot").hide();
-	//$("#backjob").show();
+    $("#showbuzzbackbtn").show();
+    $("#topjobview").show();
+    $("#topjobview").load("index.php","controller=corporatecontroller&url=showSpecficJob&jobId="+a+"&request_type=user");
+    $("#buzz").hide();
+}
+function showbuzzback() {
+    $("#showbuzzbackbtn").hide();
+    $("#topjobview").hide();
+    $("#buzz").show();
+    
 }
 /* get the applicants for the particular job in showapplicant*/
 function fnLoadApplicants(a) {
@@ -434,7 +443,7 @@ function jsCheckNumber(id) {
 	if(id!=undefined) {
 		var value=$("#"+id).val();
 		if(isNaN(value)) {
-			$("#"+id).css("background-color","lightblue");
+			$("#"+id).css("background-color","#cff993");
 			$("#"+id).val('');
 			$("#"+id).attr('placeholder','Please Enter a Numeric Value');
 			return false;

@@ -645,9 +645,30 @@ class users extends DbConnection {
             return "Error Adding The Security Question.";
         }
     }
-    function forgotPasswordEmail() {
+    function forgotPasswordEmail($arrArg = array()) {
+      /*  ini_set('SMTP','localhost');
+        ini_set('sendmail_from', 'gnxtstar007@gmail.com');
         //return "fortjasdljgflas";
-    }
+        $userName=$arrArg['userName'];
+        $email=$arrArg['email'];
+        //request is correct
+        
+        echo $id=$this->getId($userName);
+        /*$data['tables']="users";
+        $data['columns']=array("password");
+        $data['conditions']=array("user_id"=>$id);
+        $result = $this->db->select ( $data );
+        $row = $result->fetch ( PDO::FETCH_ASSOC );
+        echo $pass=$row ['password'];
+        echo md5($pass);*/
+       // $newPass=time().$id;
+       /*
+        $message="Your NEw Password is ";
+        $message = wordwrap($message, 70, "\r\n");
+        
+               mail('gnxtstar007@gmail.com', 'Your Password is Now Changed', $message) or die("NOooooooooooooooo");
+           echo "mail Sent";*/
+   }
     function getCorpProfilePic($arrArg = array()) {
         $data ['tables'] = 'photo';
         $data ['columns'] = array (

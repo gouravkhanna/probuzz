@@ -22,18 +22,23 @@
 }	
 </style>
 <div id="midpanel">
+	<div id="errorDiv">
+	<?php 
+	    if (isset ( $_SESSION ['error'] )) {
+               echo $_SESSION ['error'];
+            unset ( $_SESSION ['error'] );
+        }
+     ?>
+	</div>
 	<?php
-		//echo "<pre>";
-	$data=$arrData[0]; 
-	//print_r($data);
-	
-	?>
+		$data=$arrData[0]; 
+    ?>
 	<div class="bluebutton"><?php echo strtoupper("Corporate Profile");?>
 	</div>
-	<form id="updateCorporate">
+	<form id="updateCorporateProfile">
 	<div class="corpouter">
 		<?php echo COMPANY_NAME;?><br/>
-		<textarea rows="1" name="company_name" cols="" class="corpinner"><?php echo $data['company_name']; ?></textarea>
+		<textarea rows="1" name="company_name" id="company_name" cols="" class="corpinner"><?php echo $data['company_name']; ?></textarea>
 	</div>
 	<div class="corpouter">
 		<?php echo COMPANY_ALIAS;?><br/>
@@ -45,7 +50,9 @@
 	</div>
 	<div class="corpouter">
 		<?php echo NO_OF_EMPLOYEES;?><br/>
-		<textarea rows="1" name="number_of_employee" cols="" class="corpinner"><?php echo $data['number_of_employee']; ?></textarea>
+		<textarea rows="1" name="number_of_employee" 
+		id="number_of_employee" cols="" 
+		class="corpinner" onblur="jsCheckNumber(this.id)"><?php echo $data['number_of_employee']; ?></textarea>
 	</div>
 	<div class="corpouter">
 		<?php echo BRANCHES_AT;?><br/>
@@ -57,7 +64,10 @@
 	</div>
 	<div class="corpouter">
 		<?php echo CONTACT_NO;?><br/>
-		<textarea rows="2" name="phone_number" cols="" class="corpinner"><?php echo $data['phone_number']; ?></textarea>
+		<textarea rows="2" name="phone_number" 
+		id="phone_number" cols=""
+		onblur="jsCheckNumber(this.id)"
+		class="corpinner"><?php echo $data['phone_number']; ?></textarea>
 	</div>
 	<div class="corpouter">
 		<?php echo COMPANY_WEBSITE;?><br/>
@@ -71,9 +81,9 @@
 	</div>
 	<div class="corpouter">
 		<?php echo COMPANY_EMAIL_ID;?><br/>
-		<textarea rows="2" name="email_id" cols="" class="corpinner"><?php echo $data['email_id']; ?></textarea>
+		<textarea rows="2" name="email_id" id="corpemail_id" cols="" class="corpinner"><?php echo $data['email_id']; ?></textarea>
 	</div>
-	<input type="submit" class="corpSubmit"/>
+	<input type="submit" value="update" name="corpSubmit" class="corpSubmit"/>
 	
 	</form>
 </div>

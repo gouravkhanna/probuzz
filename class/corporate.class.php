@@ -4,19 +4,22 @@ class corporate extends DbConnection {
     function __construct() {
         parent::__construct ();
     }
+    /*Create a Slot for Corporate User*/
     function alotSlot($arrArg = array()) {
-        // if(!$designation!="")
-        $data = array (
-                'corp_id' => strip_tags($arrArg ['id']),
-                'designation' => strip_tags ( mysql_real_escape_string ( $arrArg ['designation'] ) ) 
-        );
-         $result = $this->db->insert ( "jobs", $data );
-        if ($result && $result->rowCount () > 0) {
-            return true;
-        } else {
-            return false;
+        if ($arrArg ['id'] != "") {
+            $data = array (
+                    'corp_id' => strip_tags ( $arrArg ['id'] ),
+                    'designation' => strip_tags ( mysql_real_escape_string ( $arrArg ['designation'] ) ) 
+            );
+            $result = $this->db->insert ( "jobs", $data );
+            if ($result && $result->rowCount () > 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
+    /*Show All the Slots created by the User*/
     function showSlot($arrArg = array()) {
         $cond = "";
         
@@ -43,15 +46,14 @@ class corporate extends DbConnection {
         $result = $this->executeSQLP ( $sql );
         return $result;
     }
+    /*Update The Details anout the Slot(Project)*/
     function updateSlot($arrData = array()) {
         $data = array ();
-        $sql = "update probuzz.jobs SET ";
         foreach ( $arrData as $key => $value ) {
             if ($key == "jobId") {
                 $jobId = ($value);
             } else {
-                // $sql.="$key='$value', ";
-                $data ["$key"] = strip_tags ( ($value) );
+                 $data ["$key"] = strip_tags ( ($value) );
             }
         }
         
@@ -59,27 +61,14 @@ class corporate extends DbConnection {
                 'id' => "$jobId" 
         );
         $result = $this->db->update ( 'jobs', $data, $where );
-        /*
-         * $sql="UPDATE probuzz.jobs SET
-         * designation='".$arrData['designation']."',";
-         * $sql.="type='".$arrData['type']."',location='".$arrData['location']."',role=".$arrData['role']."',start_date='".$arrData['start_date']."',";
-         * $sql.="last_date='".$arrData['last_date']."',area_of_work='".$arrData['area_of_work]."'',description='$arrData['description']."'";
-         * $sql.="skills_required='".$arrData['skills_required']."',responsiblity=']."'".$arrData['responsiblity']."'";
-         * $sql.="experience='".$arrData['experience']."',contact_person='".$arrData['contact_person']."'";
-         * $sql.="phone_number='".$arrData['phone_number']."',keywords='".$arrData['keywords']."'";
-         * $sql.="qualification='".$arrData['qualification']."',number_of_vacancy='".$arrData['number_of_vacancy']."'";
-         * $sql.="process_details='".$arrData['process_details]."'',salary_expected='".$arrData['salary_expected']."'";
-         * $sql.="other_info='".$arrData['other_info']."',criteria='".$arrData['criteria']."'";
-         * $sql.="salary_range='".$arrData['salary_range']."',status='".$arrData['status']."'";
-         * $sql.=WHERE id='".$arrData['corp_id']".'";
-         */
-        
+               
         if ($result && $result->rowCount () > 0) {
             return true;
         } else {
             return false;
         }
     }
+    /*Will Update the status of the job*/
     function updateStatusJob($arrArg) {
         $status = @$arrArg ['status'] == 0 ? 1 : 0;
         $jobId = strip_tags($arrArg ['jobId']);
@@ -95,15 +84,12 @@ class corporate extends DbConnection {
         } else {
             return false;
         }
-        // $sql="update probuzz.jobs set status='".$status."' where
-    // id=".$arrArg['jobId'];
-        // $res=$ob->executeSQL($sql);
-    }
+     }
     
     /* Show the Applciant for the jobs */
     function getApplicant($arrArgs = array()) {
         if (! empty ( $arrArgs )) {
-            // print_r($_REQUEST);
+           
             $jobId = @$arrArgs ['jobId'];
             $ob = new DbConnection ();
             $sql = "SELECT p.first_name, p.last_name, p.user_id AS id,photo.path
@@ -139,7 +125,6 @@ class corporate extends DbConnection {
             );
             
             $result = $this->db->select ( $data );
-            // $result=$ob->executeSQL($sql);
             if ($result) {
                 while ( $row [] = $result->fetch ( PDO::FETCH_ASSOC ) ) {
                 }
@@ -249,6 +234,7 @@ class corporate extends DbConnection {
             }
         }
     }
+    /*Fetch The company_name of the corporate user*/
     function fetchName($arrArg = array()) {
         if (! empty ( $arrArg )) {
             $ob = new DbConnection ();
@@ -267,6 +253,7 @@ class corporate extends DbConnection {
             return false;
         }
     }
+    /*Get The profile of the corporate user */
     function getProfile($arrArg = array()) {
         if (! empty ( $arrArg )) {
             $id = $arrArg ['id'];
@@ -278,7 +265,6 @@ class corporate extends DbConnection {
             if ($res) {
                 while ( $result [] = $res->fetch ( PDO::FETCH_ASSOC ) ) {
                 }
-                // print_r($result);
                 return $result;
             } else {
                 echo "Error!!";
@@ -286,6 +272,7 @@ class corporate extends DbConnection {
             }
         }
     }
+    /*Count the number of subscriber for the paticular corporate*/
     function countSubscriber($corpId){
         if (! empty ( $corpId )) {
         $result = $this->db->count ( "subscription", array (
@@ -296,9 +283,10 @@ class corporate extends DbConnection {
         return $row3['COUNT(*)'];
         }
     }
+    /*Will list all the jobs beong to particular
+     *  corporate on corprate view page*/
     function getJobs($arrArgs=array()) {
-      //  if (! empty ( $arrArg )) {
-     if (! empty ( $arrArgs )) {
+        if (! empty ( $arrArgs )) {
             $sql = "SELECT j.id as jobid,j.designation, DATE_FORMAT(j.start_date, ";
             $sql .= "'%M %D, %Y'" . ") as startdate,DATE_FORMAT(j.last_date, '%M %D, %Y') as lastdate ";
             $sql .= ",j.location, j.experience, c.company_name ";
@@ -335,43 +323,67 @@ class corporate extends DbConnection {
         //}
         
     }
-    function corporateRegistration($arrArgs=array()) {
-     if (! empty ( $arrArgs )) {
-        
-        $companyName=$arrArgs['company_name'];
-        $userName=$arrArgs['user_name'];
-        $location=$arrArgs['location'];
-        $corpEmail=$arrArgs['corp_email'];
-        $password=md5($arrArgs['company_password']);
-        $compConfirmPass=$arrArgs['comp_confirm_pass'];
-        if (empty($companyName) && empty ($userName) && empty ($location) && empty ($corpEmail) && empty ($password) && empty ($compConfirmPass) ) 
-        {
-            echo "<script> alert('please fill all the values'); </script>";
-        } else {
-            $data = array ();
-            $data ['tables'] = 'users';
-            $data ['columns'] = array (
-                    'user_name' 
-            );
-            $data ['conditions'] = array (
-                    'user_name' => $userName, 
-            );
-            $res = $this->db->select ( $data );
-            $row = $res->fetch ( PDO::FETCH_ASSOC );
-            if ($row ['user_name'] == $arrArgs['user_name']) {
-                $_SESSION['error_msg']="user already exist";
-                return false;
+        /* For Registration of the Corporate Users */
+    function corporateRegistration($arrArgs = array()) {
+        if (! empty ( $arrArgs )) {
+            
+            $companyName = $arrArgs ['company_name'];
+            $userName = $arrArgs ['user_name'];
+            $location = $arrArgs ['location'];
+            $corpEmail = $arrArgs ['corp_email'];
+            $password = md5 ( $arrArgs ['company_password'] );
+            $compConfirmPass = $arrArgs ['comp_confirm_pass'];
+            if (empty ( $companyName ) && empty ( $userName ) && empty ( $location ) && empty ( $corpEmail ) && empty ( $password ) && empty ( $compConfirmPass )) {
+                echo "<script> alert('please fill all the values'); </script>";
             } else {
-                // Registration for Corpoarte User will be done by Admin or by a
-                // Seprate Registration Page!
-                $this->executeSQLP ( "call insertcorpuser('$userName','$password','$companyName','$location','$corpEmail','1')" ) or die ( mysql_error () );
-                
-                $_SESSION['error_msg']="Corporate User Registered !! Please Continue with Login!!";
-                return true;
-            } // else
+                $data = array ();
+                $data ['tables'] = 'users';
+                $data ['columns'] = array (
+                        'user_name' 
+                );
+                $data ['conditions'] = array (
+                        'user_name' => $userName 
+                );
+                $res = $this->db->select ( $data );
+                $row = $res->fetch ( PDO::FETCH_ASSOC );
+                if ($row ['user_name'] == $arrArgs ['user_name']) {
+                    $_SESSION ['error_msg'] = "user already exist";
+                    return false;
+                } else {
+                    // Registration for Corpoarte User will be done by Admin or
+                    // by a
+                    // Seprate Registration Page!
+                    $this->executeSQLP ( "call insertcorpuser('$userName','$password','$companyName','$location','$corpEmail','1')" ) or die ( mysql_error () );
+                    
+                    $_SESSION ['error_msg'] = "Corporate User Registered !! Please Continue with Login!!";
+                    return true;
+                } // else
+            }
         }
-        
-     }
-  
-     }
+    }
+     /*Update the profile of the corporate USer*/
+    function UpdateCorpProfile($arrArgs = array()) {
+        if (! empty ( $arrArgs )) {
+            foreach ( $arrArgs as $key => $value ) {
+                if ($key == "id") {
+                    $userId = ($value);
+                } else {
+                    $data ["$key"] = strip_tags ( ($value) );
+                }
+            }
+            $where = array (
+                    'user_id' => "$userId" 
+            );
+            $result = $this->db->update ( 'corporate_profile', $data, $where );
+            
+            if ($result && $result->rowCount () > 0) {
+                return true;
+            } else {
+                return false;
+            }
+            return true;
+            
+        }
+    }
+     
 }

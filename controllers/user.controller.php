@@ -257,7 +257,12 @@ class user extends controller {
         }
     }
     function forgotPasswordEmail() {
-        //$result=loadModel("users","forgotPasswordEmail");
+        $arrArgs=array(
+                "userName"=>@$_REQUEST['userName'],
+                "email"=>@$_REQUEST['email'],
+                );
+        $result=loadModel("users","forgotPasswordEmail",$arrArgs);
+        print_r($_REQUEST);
         echo "hello";
         //echo $result;
     }

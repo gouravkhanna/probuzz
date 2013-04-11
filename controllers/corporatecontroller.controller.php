@@ -21,7 +21,32 @@ class corporatecontroller extends controller {
         $this->getAppStats ();
         loadView ( 'footer/footer.php' );
     }
-    function cprofile() {
+    function corpProfile() {
+        if(@$_REQUEST['corpSubmit']=="update") {
+            $arrArgs=array(
+              "id"=>@$_SESSION['id'],
+            "company_name" =>strip_tags($_REQUEST['company_name']),
+            "company_alias" =>strip_tags($_REQUEST['company_alias']),
+            "tagline" =>strip_tags($_REQUEST['tagline']),
+            "number_of_employee" => strip_tags($_REQUEST['number_of_employee']),
+            "locations" => strip_tags($_REQUEST['locations']),
+            "summary" =>strip_tags($_REQUEST['summary']),
+            "phone_number" =>strip_tags($_REQUEST['phone_number']),
+            "website" =>strip_tags($_REQUEST['website']),
+            "email_id" => strip_tags($_REQUEST['email_id']),
+            );
+            if(strip_tags($_REQUEST['company_name'])=="") {
+                $_SESSION ['error']="*Company Name Can't Be empty";
+            } else {
+                $result=loadModel("corporate","updateCorpProfile",$arrArgs);
+                if ($result == true) {
+                     $_SESSION ['error']="Updated Profile";
+                     header("location".ROOTPATH."corpProfile");
+                } else {
+                     $_SESSION ['error']="Error Try Again";
+                }
+            }    
+        }
         $this->loadNavigation ();
         loadView ( "head/head2.php" );
         $arrData = loadModel ( 'corporate', "getProfile", array (

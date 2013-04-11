@@ -15,7 +15,7 @@
 	<div id=usermenu>
 	    <ul>
 			<li id="umenu">
-			    <a href="<?php echo ROOTPATH."cprofile";?>">
+			    <a href="<?php echo ROOTPATH."corpProfile";?>">
            	        <?php echo CORPORATE_PROFILE;?>
        	        </a>
        	    </li>

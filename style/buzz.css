@@ -1,173 +1,159 @@
-.uparrowdiv, .downarrowdiv, .leftarrowdiv, .rightarrowdiv{
-width:auto;
-min-height:40px; /*min height of DIV should be set to at least 2x the width of the arrow*/
-background:white;
-color:black;
-padding:5px;
-position:relative;
-word-wrap:break-word;
--moz-border-radius:5px; /*add some nice CSS3 round corners*/
--webkit-border-radius:5px;
-border-style: groove;
-border-width: 1px;
-border-color:#666699;
-border-radius:5px;
-margin-top: 10px;
-margin-bottom:2em;
+.uparrowdiv,.downarrowdiv,.leftarrowdiv,.rightarrowdiv {
+	width: auto;
+	min-height: 40px;
+	/*min height of DIV should be set to at least 2x the width of the arrow*/
+	background: white;
+	color: black;
+	padding: 5px;
+	position: relative;
+	word-wrap: break-word;
+	-moz-border-radius: 5px; /*add some nice CSS3 round corners*/
+	-webkit-border-radius: 5px;
+	border-style: groove;
+	border-width: 1px;
+	border-color: #666699;
+	border-radius: 5px;
+	margin-top: 10px;
+	margin-bottom: 2em;
 }
 
-.uparrowdiv:after{ /*arrow added to uparrowdiv DIV*/
-content:'';
-display:block;
-position:absolute;
-top:-20px; /*should be set to -border-width x 2 */
-left:30px;
-width:0;
-height:0;
-border-color: transparent transparent #666699 transparent; /*border color should be same as div div background color*/
-border-style: solid;
-border-width: 10px;
-
-}
-#buzz textarea{
-background-color: transparent;
-border:0;
-border-color: #fff;	
-outline: 0;
--webkit-box-sizing: border-box;
-margin-left: 5px;
-text-align: center;
+.uparrowdiv:after { /*arrow added to uparrowdiv DIV*/
+	content: '';
+	display: block;
+	position: absolute;
+	top: -20px; /*should be set to -border-width x 2 */
+	left: 30px;
+	width: 0;
+	height: 0;
+	border-color: transparent transparent #666699 transparent;
+	/*border color should be same as div div background color*/
+	border-style: solid;
+	border-width: 10px;
 }
 
-#subuzz{
-
-height: 25px;
-width: auto;
-float: right;
-margin-right: 4px;
-margin-top: -22px;
-position: relative;	
-display:none;	
-font-size: 14px;
-background-color:#498af2;
-color:white;
-border:none;
-cursor: pointer;
-border-radius: 2px;
+#buzz textarea {
+	background-color: transparent;
+	border: 0;
+	border-color: #fff;
+	outline: 0;
+	-webkit-box-sizing: border-box;
+	margin-left: 5px;
+	text-align: center;
 }
-#statusShow{
 
-
-height: auto;
-width: auto;
-	  
-
-
-	
+#subuzz {
+	height: 25px;
+	width: auto;
+	float: right;
+	margin-right: 4px;
+	margin-top: -22px;
+	position: relative;
+	display: none;
+	font-size: 14px;
+	background-color: #498af2;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 2px;
 }
-#statusD{
-	
+
+#statusShow {
+	height: auto;
+	width: auto;
+}
+
+#statusD {
 	height: 50px;
-	width:auto;
- -moz-border-radius:5px; /*add some nice CSS3 round corners*/
- -webkit-border-radius:5px;
-	border-radius:5px;
-	border-bottom-style:groove;
+	width: auto;
+	-moz-border-radius: 5px; /*add some nice CSS3 round corners*/
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	border-bottom-style: groove;
 	border-color: maroon;
-	margin-top:1px;
+	margin-top: 1px;
 	padding-top: 1px;
-border-width: 1px;
-	
-	
+	border-width: 1px;
 }
 
-.statusimg{
-	
-	float:left;
+.statusimg {
+	float: left;
 	height: 50px;
 	width: 50px;
 	margin-top: 5px;
 	ma
-	
-	
-	
 }
-.statusName{
+
+.statusName {
 	margin-top: 10px;
-	margin-left:60px;
+	margin-left: 60px;
 	min-height: 50px;
 	min-width: 50px;
-	
-	
-	
 }
-.statusText{
-	
-	
-width:auto;
 
-margin-top:-20px;
-margin-left: 60px;
-	
-	
+.statusText {
+	width: auto;
+	margin-top: -20px;
+	margin-left: 60px;
 }
-a{
+
+a {
 	text-decoration: none;
 	color: olive;
-	
-	
 }
-.date{
+
+.date {
 	float: right;
 	margin-right: 7px;
-	
 }
-.comment{
-	
+
+.comment {
 	margin-top: 20px;
-	height: 40px;
+	min-height: 40px;
+	height:auto;
 	width: 400px;
 	border-radius: 5px;
- -webkit-border-radius:5px;
-	
+	-webkit-border-radius: 5px;
 }
-.comments{
-	height: 40px;
+
+.comments {
+		min-height: 40px;
+	height:auto;
 	width: 500px;
 	float: left;
 	margin-top: 2px;
-	border:2px;
+	border: 2px;
 	background-color: #fbf8ef;
 	margin-left: 5px;
 	border-radius: 2px;
-	margin-left:30px;
-	text-indent:inherit;
-
-
+	margin-left: 30px;
+	text-indent: inherit;
 }
-.spancomment{
-margin-left: 50px;	
-margin-top: -5px;
-padding-top: 2px;
-clear: both;
+
+.spancomment {
+	margin-left: 50px;
+	margin-top: -5px;
+	padding-top: 2px;
+	clear: both;
 }
+
 #buzzloadmore {
 	width: 100%;
-	height:40px;
+	height: 40px;
 }
+
 .visiblen {
 	display: none;
-		
 }
+
 .visibley {
 	display: inline-block;
 }
+
 #showba11 {
 	height: 400px;
 	width: 400px;
 	margin: 0px auto;
 	background-color: blue;
-	border:2px black solid;
+	border: 2px black solid;
 	border-radius: 20px;
-	
 }

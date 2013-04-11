@@ -46,7 +46,10 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 					<div id="aelo1">
 						<?php echo TYPE_REGISTERED_USER_NAME;?>
 						<input type="text" name="forget_user_name" id="forget_user_name" />
+					    <input type="text" name="forget_email" id="forget_email" />
+					
 					</div>
+					
 					<!--<div id="aelo2">
 						Email ID
 						<input type="text" name="b">
@@ -103,7 +106,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 				</span> <span id="w4" name="w4" > <img src="data/rcs/w.png"
 					height="30px" width="30px" class="i" />
 				</span><span id="e4" name="e4"> </span> <br /><br />
-				 <div id="corp_captcha">
+				 <div id="captcha">
                  <?php echo recaptcha_get_html($publickey);?>
                     </div>
              

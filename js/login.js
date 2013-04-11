@@ -40,7 +40,6 @@ $(document).ready(function() {
 
     $("#forgetpassword").click(function(){
         $("#aelo").slideToggle();
-       
     });
     $("#forgetnext").click(function () {
         if(!$("#forget_user_name").val()) {
@@ -68,8 +67,8 @@ $(document).ready(function() {
 		$.ajax({
             type: "GET",
             url: "index.php",
-            //data:"userName="+$("#forget_user_name").val()+"&controller=user&url=forgotPasswordEmail",
-            data:"controller=user&url=forgotPasswordEmail",
+            data:"email="+$("#forget_email").val()+"&userName="+$("#forget_user_name").val()+"&controller=user&url=forgotPasswordEmail",
+            //data:"controller=user&url=forgotPasswordEmail",
             success: function(msg){
                 alert(msg);
                 //$("#").html(msg);
