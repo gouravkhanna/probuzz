@@ -1,5 +1,5 @@
 <div id="rightpanel1">
-<div>
+<div id="errorDiv">
 <?php
     if(isset($_SESSION['alotslot'])) {
       echo @$_SESSION['alotslot'];
@@ -7,7 +7,7 @@
 ?>
 </div>
 	<div id="createSlot">
-	<h1><?php echo CREATE_A_NEW_SLOT;?></h1><hr/>
+	<div class=bluebutton><?php echo CREATE_A_NEW_SLOT;?></div><hr/>
 	<form id="formalotslot" method="" action="">
 	<?php echo DESIGNATION; ?>
 	<input type="text" id="designation" name="designation"> 	<br/>

@@ -28,8 +28,8 @@
 	//print_r($data);
 	
 	?>
-	<h3 class="calign"><?php echo strtoupper("Corporate Profile");?>
-	</h3>
+	<div class="bluebutton"><?php echo strtoupper("Corporate Profile");?>
+	</div>
 	<form id="updateCorporate">
 	<div class="corpouter">
 		<?php echo COMPANY_NAME;?><br/>
