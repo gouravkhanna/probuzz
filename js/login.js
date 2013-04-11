@@ -3,7 +3,12 @@
 
 $(document).ready(function() {
     $("#aelo").hide();
-   
+    $("#corp_account").click(function(){
+window.location.href("corporates");
+     	
+    	
+    });
+
     $("#forgetpassword").click(function(){
         $("#aelo").slideToggle();
        
@@ -71,6 +76,8 @@ $(document).ready(function() {
 		
 	});
 });
+
+
 
 /*	isAlphaNumeric() checks if the input string is alphanumeric or not, returns true if the string is alphanumeric.	*/
 function isAlphaNumeric(input) {

@@ -12,7 +12,6 @@
         -ms-backface-visibility:     hidden;
         -o-backface-visibility:      hidden;
         -webkit-backface-visibility: hidden;
-   
     position: absolute;
     transform-origin:             50% 50% 0px;
         -moz-transform-origin:    50% 50% 0px;
@@ -35,7 +34,20 @@ margin-top: 20px;
 margin-right:1px; 
 
 }
-#captcha{
+#side-3{
+height:300px;
+width:400px;
+border-style: ridge;
+background-image:url(../data/rcs/grey_gradient.jpg);
+-webkit-border-radius:1em;
+border-radius:1em;
+height:auto;   
+margin-top: 20px;  
+margin-right:1px; 
+
+	
+}
+#captcha,#corp_captcha{
 display: none;
 margin-left: 30px;
 
@@ -87,7 +99,8 @@ text-align:center;
 color:#0079c0;
 }
 
-#user_name,#password,#email,#confirm_pass,#first_name,#last_name,#password1,#user_name1
+#user_name,#password,#email,#confirm_pass,#first_name,#last_name,#password1,#user_name1,#company_name,#company_alias,#company_password,#location
+,#corp_email,#website,#comp_confirm_pass
 {
 
 padding-right:40px;
@@ -122,7 +135,21 @@ font-weight: bold;
 font-size: 16;
 font-family: cursive;
 }
-
+.leftc{
+margin-left:10px;
+float: left;
+cursor:pointer;
+border-radius:4px;
+border:none;
+cursor:pointer;     
+height: 30px;
+width: auto;
+background-color:#498af2;
+color:white;
+font-weight: bold;
+font-size: 16;
+font-family: cursive;
+}
 a:link{
 margin-left:5px;
 color:#2d9be8;

@@ -287,6 +287,7 @@ define("REQUEST_RECIEVED","Request Recieved :");
 define("NOTIFICATIONS","Notifications");
 define("SEACRH_PEOPLE","Search People");
 define("DEGREE","Degree");
+define("JOIN_CORP","Corporate Create Account Here!");
 define("_1","1");
 define("_2","2");
 define("_3","3");
