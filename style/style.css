@@ -501,7 +501,10 @@ margin-right: 5px;
 .fontsize14{
 	font-size: 14px;
 }
-
+.fontsize20{
+	font-size: 20px;
+	font-weight: bold;
+}
 
 .fontsize16{
 	font-size: 18px;
@@ -667,9 +670,6 @@ hr {
 	margin-top: 5px;
 	margin-left: 15px;
 	
-	
-	
-	
 }
 #sjresulthead {
 	font-family: del;
@@ -723,7 +723,7 @@ color:white;
 font-weight: bold;
 font-size: 16;
 font-family: cursive;
- word-wrap: break-word; 
+word-wrap: break-word; 
 
 }
 
@@ -754,7 +754,7 @@ font-family: cursive;
 	height:100px;
 	border-radius:2px; 
 	}
-#submitmessage{
+#submitmessage,#aboutbutton{
 float: right;
 margin-right: 15px;
 cursor:pointer;
@@ -766,4 +766,14 @@ font-weight: bold;
 font-size: 16;
 font-family: cursive;
 height: 30px;
+}
+#aboutdiv{
+	
+	
+}
+#aboutustext{
+border:0.5px;
+box-shadow: 1px 1px 1px 1px gray;
+font-family:del;
+font-size: 1.3em; 
 }

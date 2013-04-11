@@ -7,7 +7,7 @@
 echo "<div id=bige >";
 
 if (! empty ( $arrData )) {
-		echo "<div id='showfrnddiv'><h2>Friends </h2></div> ";
+		echo "<div id='showfrnddiv'><h1>" .FRIENDS." </h1><br></div> ";
 		foreach ( $arrData  as $key => $val ) {
 		if ($val ['id'] != "") {
 			$res = "<a href='index.php?controller=friends&url=friendsProfile&friendId=" . $val ['id'] . "' >";
@@ -21,7 +21,7 @@ if (! empty ( $arrData )) {
 	
 	} 
 } else {
-	echo NO_RESULTS_TO_DISPLAY;
+		echo "<div id='showfrnddiv'><h2>" . No_FRIENDS. "</h2></div> ";
 }
 echo "</div>";
 ?>

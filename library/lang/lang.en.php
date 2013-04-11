@@ -251,6 +251,7 @@ define("MESSAGING","Messaging");
 define("SOCIAL_PROFILE","Social Profile");
 define("PROFESSIONAL_PROFILE","Professional Profile");
 define("FRIENDS","Friends");
+define("No_FRIENDS","No Friends Yet");
 define("SHOW_REQUESTS","Show Requests");
 define("PHOTOS","Photos");
 define("SEARCH_JOB","Search Job");
@@ -333,4 +334,6 @@ define("TOTAL_SUBSCRIBER","Total Subscriber : ");
 define("NO_USERS_TO_DISPLAY","No Users To Display.");
 define("USER_NAME","User Name");
 define("BAN_4_1_DAY","Ban For 1 Day");
+define("FRND_MESSAGE","Send Message To Friend. ");
+define("PROFFESIONAL _PROFILE","Proffesional Profile ");
 ?>

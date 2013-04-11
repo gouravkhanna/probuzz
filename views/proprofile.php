@@ -5,15 +5,20 @@
 </div>
 
 <div id="bigmid">
+
     <div class="leftarrowdiv"> 
+    	
     <?php
         //echo "<pre>";
         //print_r($arrData);
         $pro=$arrData->fetch(PDO::FETCH_ASSOC);
         //print_r($pro);
         //die;
+     
     ?>
-    <div class="fright">
+    
+    <div id='showfrnddiv'>	ghjfgjhfjhg</div>
+        <div class="fright">
             <a href="index.php?controller=proprofile&url=home">BACK</a>
     </div>
     <div id="accordion">

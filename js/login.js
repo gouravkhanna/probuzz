@@ -33,7 +33,7 @@ function onlySpaces(input) {
 $(document).ready(function() {
     $("#aelo").hide();
     $("#corp_account").click(function(){
-window.location.href("corporates");
+    window.location.href("corporates");
      	
     	
     });

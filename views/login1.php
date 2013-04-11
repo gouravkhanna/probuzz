@@ -2,9 +2,16 @@
 require_once 'library/recaptcha/recaptchalib.php';
 $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from the signup page
 ?>
-<script src="js/jquery-1.9.1.min.js"></script>
-<link rel="stylesheet" href="style/f1.css" />
-<script src="js/login.js"></script>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>ProBuzZ</title>
+<link rel="stylesheet" href='<?php echo ROOTPATH."style/f1.css"; ?>' />
+<script src="<?php echo ROOTPATH."js/jquery-1.9.1.min.js"; ?>"> </script>
+
+<script type="text/javascript" src="<?php echo ROOTPATH."js/login.js"; ?> "></script>
+
 
 </head>
 <body>

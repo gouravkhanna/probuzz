@@ -1,6 +1,6 @@
 <div id="bigmid">
 
-<div id="showfrnddiv" class="fontsize16"><br>Send Message To Friends.<br></div><br><br>
+<div id="showfrnddiv" class="fontsize16"><br><?php echo FRND_MESSAGE; ?><br></div><br><br>
 	
 	<br>
 	<div id="msgbox">

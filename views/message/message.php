@@ -1,5 +1,6 @@
 <div id="bigmid">
 <div id="dvmessaging">
+<?php echo "<div id='showfrnddiv'><h1>" .MESSAGE." </h1><br><br></div> "; ?>
 	<div id="messagepanel" class=round20></div>
 <a href="<?php echo ROOTPATH."user/createMessage"; ?>" > <?php echo CREATE_MESSAGE;?></a> 
 		<div id="showmessage"></div>
