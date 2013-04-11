@@ -117,6 +117,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 		
 		
 	</div>
+
 	<div id="wrongcaptcha">
 		<div id="errmsg" name="errmsg">
 <?php
@@ -127,7 +128,7 @@ if(isset($_SESSION['error_msg']))
   unset($_SESSION['error_msg']);
 }
 ?>
-
+	
 </div>
 	</div><br><br><br>
 	<DIV id="background">

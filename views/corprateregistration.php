@@ -12,7 +12,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 	<div id="wrapper">
 		
 		<form id="side-3"  method="post" name="side-3" class="flip"
-			onsubmit=" return valid() " action="index.php">
+			onsubmit="return valid()" action="#">
 			<div id="2">
 				<h2><?php echo JOIN_CORP; ?></h2>
 
@@ -23,8 +23,8 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 				</span> <span id="w6"> <img src="data/rcs/w.png" height="30px"
 					width="30px"class="i" />
 				</span><span id="e6" name="e6"> </span> <br /> <input type="text"
-					name="company_alias" id="company_alias" autocomplete="off"
-					placeholder="Company Aslias" onblur="return  valid_fname()" /> <span
+					name="user_name" id="user_name" autocomplete="off"
+					placeholder="User Name" onblur="return  valid_fname()" /> <span
 					id="r1" name="r1"> <img src="data/rcs/r.png" height="30px"
 					width="30px" class="i" />
 				</span> <span id="w1"> <img src="data/rcs/w.png" height="30px"
@@ -75,8 +75,8 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 					<?php echo ALREADY_ACCOUNT;?> <a href="index.php" id="login1"> <?php echo BUZZIN;?></a>
 				</p>
 			</div>
-			 
-				<input type="submit" id="create" name="url" value="register" />
+			 <input type="hidden" name=url value=corporates>
+				<input type="submit" id="create" name="corporateregister" value="register" />
 			</div>
 		</form>
 		
@@ -87,8 +87,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 		<div id="errmsg" name="errmsg">
 <?php
 
-if(isset($_SESSION['error_msg']))
-{
+if(isset($_SESSION['error_msg'])) {
   echo $_SESSION['error_msg'];
   unset($_SESSION['error_msg']);
 }

@@ -171,12 +171,51 @@ class Controller
 	    loadView("about_us.php",$arrData);
 	}
 	
-	function corporates(){
-	    loadView("corprateregistration.php");
-	}
-	function corprateRegister() {
-	    echo "Sdsd";
-	}
+	
+	function corporates() {
+        require_once 'library/recaptcha/recaptchalib.php';
+        $privatekey = "6LcMKN8SAAAAAFbaKu1_OvaeP1yMaQ7cKT5zxwgQ";
+        
+        if (@$_REQUEST ['corporateregister'] == "register") {
+            
+            $resp = recaptcha_check_answer ( $privatekey, $_SERVER ["REMOTE_ADDR"], $_POST ["recaptcha_challenge_field"], $_POST ["recaptcha_response_field"] );
+            
+            if (! $resp->is_valid) {
+                // What happens when the CAPTCHA was entered incorrectly
+                
+                $_SESSION['error_msg'] = "<div id=wrongcaptcha>The reCAPTCHA wasn't entered correctly. 
+                        Go back and try it again." . "(reCAPTCHA said: " . $resp->error . ")</div>";
+      
+            } else {
+               // print_r ( $_REQUEST );
+                $arrArgs = array (
+                        "company_name"=>$_REQUEST['company_name'],
+                        "user_name" =>$_REQUEST['user_name'],
+                        "location" =>$_REQUEST['Location'],
+                        "corp_email" =>$_REQUEST['corp_email'],
+                        "website" =>$_REQUEST['website'],
+                        "company_password" =>$_REQUEST['company_password'],
+                        "comp_confirm_pass" =>$_REQUEST['comp_confirm_pass'],
+                );
+                                               
+                loadModel("corporate","corporateRegistration",$arrArgs);
+                // $validator=loadModel("validation","register",$arrArgs); //cal the validator method for server side validation
+                
+                /*
+                 * if(!$validator['flag']) { $arrArgs=array('error_msg' => 	$validator['msg'] ); 
+                 * loadView("login1.php",$arrArgs); } 
+                 * else if(loadModel("users","register",$arrArgs)) 
+                 * { header('location:index.php'); }
+                 *  else { $arrArgs=array('error_msg' => 	"User Already Exist valid" ); 
+                 *  loadView("login1.php",$arrArgs); } } }
+                 */
+            }
+        }
+        loadView ( "corprateregistration.php" );
+    }
+    function corprateRegister() {
+        echo "Sdsd";
+    }
 	/*function displayAddress()
 	{
 	

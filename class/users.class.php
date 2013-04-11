@@ -38,7 +38,7 @@ class users extends DbConnection {
 
             $this->current_status = $row ["current_status"];
             echo $this->current_status;
-            if ($row ['user_name'] == $this->userName && md5($row ['password']) == md5($this->password)) {
+            if ($row ['user_name'] == $this->userName && ($row ['password']) == md5($this->password)) {
                 $this->type = $row ["type"];
                 $flag=1;
             }
@@ -165,21 +165,10 @@ class users extends DbConnection {
         $this->firstName = $arrData ['firstName'];
         $this->lastName = $arrData ['lastName'];
         $this->email = $arrData ['email'];
-        
-        // echo
-        // "$this->userName,$this->password,$this->lastName,$this->email,$this->firstName";
         if (empty ( $this->userName ) && empty ( $this->password ) && empty ( $this->lastName ) && empty ( $this->email ) && empty ( $this->firstName )) {
             echo "<script> alert('please fill all the values'); </script>";
         } else {
-        	
-        	
-        	
-        	
-        	
-        	
-        	
-            // / $sql="select user_name from users where
-            // user_name='$this->userName'";
+         
             $data = array ();
             $data ['tables'] = 'users';
             $data ['columns'] = array (
@@ -191,23 +180,20 @@ class users extends DbConnection {
             $res = $this->db->select ( $data );
             $row = $res->fetch ( PDO::FETCH_ASSOC );
             if ($row ['user_name'] == $this->userName) {
-                echo "u111111111111ser already exist";
+                echo "user already exist";
                 return false;
             } else {
                 // Registration for Corpoarte User will be done by Admin or by a
                 // Seprate Registration Page!
-                $this->executeSQLP ( "call insertuser1('$this->userName','$this->password','$this->firstName','$this->lastName','$this->email','0')" ) or die ( mysql_error () );
-                $arrArgs = array (
-                        'user_name' => $arrData ['userName'],
-                        'password' => $arrData ['password'] 
-                );
-                $this->login ( $arrArgs );
+                $password=md5($this->password);
+                $this->executeSQLP ( "call insertuser1('$this->userName','$password','$this->firstName','$this->lastName','$this->email','0')" ) or die ( mysql_error () );
+          
+                $_SESSION['error_msg']=" User Registered !! Please Continue with Login!!";
+         
                 return true;
-            } // else
+            } 
         }
-        // }
-        
-        // if*/
+       
     }
     function search($arrArgs = array()) {
         

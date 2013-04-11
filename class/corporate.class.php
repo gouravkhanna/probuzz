@@ -335,4 +335,43 @@ class corporate extends DbConnection {
         //}
         
     }
+    function corporateRegistration($arrArgs=array()) {
+     if (! empty ( $arrArgs )) {
+        
+        $companyName=$arrArgs['company_name'];
+        $userName=$arrArgs['user_name'];
+        $location=$arrArgs['location'];
+        $corpEmail=$arrArgs['corp_email'];
+        $password=md5($arrArgs['company_password']);
+        $compConfirmPass=$arrArgs['comp_confirm_pass'];
+        if (empty($companyName) && empty ($userName) && empty ($location) && empty ($corpEmail) && empty ($password) && empty ($compConfirmPass) ) 
+        {
+            echo "<script> alert('please fill all the values'); </script>";
+        } else {
+            $data = array ();
+            $data ['tables'] = 'users';
+            $data ['columns'] = array (
+                    'user_name' 
+            );
+            $data ['conditions'] = array (
+                    'user_name' => $userName, 
+            );
+            $res = $this->db->select ( $data );
+            $row = $res->fetch ( PDO::FETCH_ASSOC );
+            if ($row ['user_name'] == $arrArgs['user_name']) {
+                $_SESSION['error_msg']="user already exist";
+                return false;
+            } else {
+                // Registration for Corpoarte User will be done by Admin or by a
+                // Seprate Registration Page!
+                $this->executeSQLP ( "call insertcorpuser('$userName','$password','$companyName','$location','$corpEmail','1')" ) or die ( mysql_error () );
+                
+                $_SESSION['error_msg']="Corporate User Registered !! Please Continue with Login!!";
+                return true;
+            } // else
+        }
+        
+     }
+  
+     }
 }
