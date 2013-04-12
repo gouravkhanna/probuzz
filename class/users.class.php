@@ -722,6 +722,25 @@ class users extends DbConnection {
              return $res['type'];
         }
     }
+    function getHeaderPic($arrArg = array()) {
+        $data ['tables'] = 'photo';
+        $data ['columns'] = array (
+                'photo.path'
+        );
+        $data ['conditions'] = array (
+                "personal_profile.user_id" => $arrArg ['id']
+        );
+        $data ['joins'] [] = array (
+                'table' => 'personal_profile',
+                'type' => 'INNER',
+                'conditions' => array (
+                        'photo.id' => 'personal_profile.header_id'
+                )
+        );
+        $result = $this->db->select ( $data );
+        $row = $result->fetch ( PDO::FETCH_ASSOC );
+        return ROOTPATH . $row ['path'];
+    }
 }
 
 ?>

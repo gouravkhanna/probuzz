@@ -39,10 +39,21 @@
 		<li id="umenu">
 			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showRequests"; ?>"><?php echo SHOW_REQUESTS;?></a>
 		</li>
-		<li id="umenu">
+		
+        <li id="umenu">
+			<a href="" id="gallerymenu" onclick="return false">GALLERY</a>
+		</li>
+	    <aside id="gallerymenudiv" class='marginl20 visiblen'>
+	   <li id="umenu">
 			<a href="<?php echo ROOTPATH."index.php?controller=photo"; ?>"><?php echo PHOTOS;?></a>
 		</li>
-
+	    <li id="umenu">
+			<a href="<?php echo ROOTPATH."index.php?controller=photo&url=profilePic"; ?>"><?php echo "CHANGE PROFILE PIC";?></a>
+		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."index.php?controller=photo&url=uploadheader"; ?>"><?php echo "CHANGE HEADER";?></a>
+		</li>
+		</aside>
 		<li id="umenu">
 			<a href="<?php echo ROOTPATH."user/searchjob"; ?>"><?php echo SEARCH_JOB;?></a>
 		</li>
@@ -52,9 +63,7 @@
 		<li id="umenu">
 			<a href="<?php echo ROOTPATH."index.php?controller=user&url=settings"; ?>"><?php echo SETTINGS;?></a>
 		</li>
-		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=photo&url=profilePic"; ?>"><?php echo "CHANGE PROFILE PIC";?></a>
-		</li>
+		
 	</ul>
 		<!-- APPLICATION STATUS -->
 		<!-- NOTIFICATION STATUS -->

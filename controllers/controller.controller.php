@@ -112,7 +112,7 @@ class Controller
 	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 	  $userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
 	  loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
-	  $this->view->loadView('head/head2.php');
+	 $this->loadHeadUser();
 //	  $arrData=loadModel("buzzin","loadBuzz",array('id'=>$_SESSION['id']));
 	  $this->view->loadView('midpanel/midpanel.php');//,$arrData);
 	 
@@ -121,80 +121,42 @@ class Controller
 	  $this->topjobs();
       $this->view->loadView('footer/footer.php');
 	}
-	
-	function loadHome1()
-	{ 
-	  loadView('head/head1.php');
-	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
-	loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
-	  loadView('head/head2.php');
-	  loadView('midpanel/mid.php');
-	  loadView('footer/footer.php');
-
-	}
-	function loadHome2()
-	{
-	  loadView('head/head1.php');
-	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
-	loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
-	  loadView('head/head2.php');
-	  loadView('midpanel/midpanel.php');
-	  loadView('rightpanel/rightpanel.php');
-	  loadView('footer/footer.php');
-	}
-	function loadHome3()
-	{
-	  loadView('head/head1.php');
-	  $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));	
-	  loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
-	  loadView('midpanel/bigmid.php');
-	  loadView('footer/footer.php');
-	}
-
+	/*handle search request on ajax call*/
 	function search()
 	{
 	   $arrArgs=loadModel("users","search",array("searcharg"=>@$_REQUEST['searcharg']));		
 	  loadView("search/search.php",$arrArgs);
 	}
+	
+	/*End the Session for USer*/
 	function logout()
 	{
 		loadModel("users","logout");
 		header("location:index.php");
 	}
+	/*load the top 20 jobs*/
 	function topjobs()
 	{
 		$arrArgs=loadModel("users","topjobs");
 		$this->view->loadView("rightpanel/topjobs.php",$arrArgs);
 	}
+	/*load the about us Page*/
 	function aboutus() {
-
-	      
-	    if(@$_POST['contactus']=="Submit") {
-	        if($_POST['name']!="" && $_POST['email']!="") {
-	      /*  require_once 'library/recaptcha/recaptchalib.php';
-	        $privatekey = "6LcMKN8SAAAAAFbaKu1_OvaeP1yMaQ7cKT5zxwgQ";
-	        $resp = recaptcha_check_answer ( $privatekey, $_SERVER ["REMOTE_ADDR"], $_POST ["recaptcha_challenge_field"], $_POST ["recaptcha_response_field"] );
-	        echo "Ss";
-	        if (! $resp->is_valid) {
-	            // What happens when the CAPTCHA was entered incorrectly
-	            $msg = "<div id=wrongcaptcha>The reCAPTCHA wasn't entered correctly</div>";
-	          $arrData['error_msg']=$msg;  
-	        } else {
-	        */    
-	                loadModel("users", "insertContactUs",array(
-                            "name"=>@$_POST['name'],
-	                        "email"=>@$_POST['email'],
-	                        "comments"=>@$_POST['comments'],
-	                    ));
-	                echo "Succesfully Submitted";    
-	        }
-	          //  }
-	    }
-	    $arrData=loadModel("users", "loadAboutUs");
-	    loadView("about_us.php",$arrData);
-	}
+        if (@$_POST ['contactus'] == "Submit") {
+            if ($_POST ['name'] != "" && $_POST ['email'] != "") {
+                loadModel ( "users", "insertContactUs", array (
+                        "name" => strip_tags($_POST ['name']),
+                        "email" => strip_tags($_POST ['email']),
+                        "comments" =>strip_tags($_POST ['comments']), 
+                ) );
+                echo "Succesfully Submitted";
+            }
+         }
+        $arrData = loadModel ( "users", "loadAboutUs" );
+        loadView ( "about_us.php", $arrData );
+    }
 	
-	
+	/*handle the corporate Registration Request*/
 	function corporates() {
         require_once 'library/recaptcha/recaptchalib.php';
         $privatekey = "6LcMKN8SAAAAAFbaKu1_OvaeP1yMaQ7cKT5zxwgQ";
@@ -206,9 +168,9 @@ class Controller
             if (! $resp->is_valid) {
                 // What happens when the CAPTCHA was entered incorrectly
                 
-                $_SESSION['error_msg'] = "<div id=wrongcaptcha>The reCAPTCHA wasn't entered correctly. 
-                        Go back and try it again." . "(reCAPTCHA said: " . $resp->error . ")</div>";
-      
+                $_SESSION['error_msg'] = "The reCAPTCHA wasn't entered correctly
+                                     Go back and try it again.";
+          
             } else {
                // print_r ( $_REQUEST );
                 $arrArgs = array (
@@ -222,89 +184,19 @@ class Controller
                 );
                                                
                 loadModel("corporate","corporateRegistration",$arrArgs);
-                // $validator=loadModel("validation","register",$arrArgs); //cal the validator method for server side validation
-                
-                /*
-                 * if(!$validator['flag']) { $arrArgs=array('error_msg' => 	$validator['msg'] ); 
-                 * loadView("login1.php",$arrArgs); } 
-                 * else if(loadModel("users","register",$arrArgs)) 
-                 * { header('location:index.php'); }
-                 *  else { $arrArgs=array('error_msg' => 	"User Already Exist valid" ); 
-                 *  loadView("login1.php",$arrArgs); } } }
-                 */
-            }
+             }
         }
         loadView ( "corprateregistration.php" );
     }
-    function corprateRegister() {
-        echo "Sdsd";
+    /*Load the header or cover for the particular user*/
+    function loadHeadUser(){
+        $path=loadModel("users","getHeaderPic",array('id'=>$_SESSION['id']));
+        if($path=="http://localhost/probuzz/trunk/data/photo/g.jpg") {
+            $path="";
+        }
+        loadView('head/head2.php',$path);
     }
-	/*function displayAddress()
-	{
 	
-	$arrArgs=loadModel("users","getAddress",array('id'=>$_SESSION['id']));
-	loadView('midpanel/bigmid.php',$arrArgs);
-	
-	
-	}*/
-	
-	/*function displayEducation()
-	{
-	
-	$arrArgs=loadModel("users","getProfileData",array('id'=>$_SESSION['id']));
-	loadView('midpanel/bigmid.php',$arrArgs);
-	
-	
-	
-	}
-	
-	function displayWork()
-	{
-	
-	$arrArgs=loadModel("users","getProfileData",array('id'=>$_SESSION['id']));
-	loadView('midpanel/bigmid.php',$arrArgs);
-	
-	
-	
-	}
-	function displaySocial()
-	{
-	
-	$arrArgs=loadModel("users","getProfileData",array('id'=>$_SESSION['id']));
-	loadView('midpanel/bigmid.php',$arrArgs);
-		
-	}*/
-	
-	/*function loadHome()
-	{
-		$path=$this->populateHomeData();
-		//$profile_pic_path = "http://".$_SERVER["HTTP_HOST"]."/".APPNAME."/".$path;
-		$profile_pic_path = ROOTPATH.$path;
-		include('home.php');
-	}
-	function loadCorporateHome()
-	{
-		$path=$this->populateHomeData();
-		$profile_pic_path = ROOTPATH.$path;
-		include('corp.php');
-	}
-	function populateHomeData()
-	{
-		return 'data/photo/g.jpg';
-		//loadModel
-		///return $userOb->getProfilePic($_SESSION['id']);
-	}
-	
-	function updateSlot() {
-		echo "<script> alert('in iupddex'); </script>";
-			$corporateOb=new corporate();		
-			$corporateOb->updateSlot();
-			echo "<script> alert('index'); </script>";
-		}
-	function alotSlot() {	
-		$corporateOb=new corporate();
-		$corporateOb->alotSlot(@$_REQUEST['designation']);
-	}*/
 }
 	
 ?>

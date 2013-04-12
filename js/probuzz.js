@@ -30,7 +30,11 @@ function correctDate(input,msg) {
     }
 }
 $(document).ready(function(e) {
-	
+    
+    /*Menu Toggle*/
+    $("#gallerymenu").click(function(){ 
+        $("#gallerymenudiv").slideToggle("slow");
+    });
 	/*jobs.php*/
    function filterWhiteSpace(input) {
         input="#"+input;
