@@ -56,10 +56,7 @@ var ck_username = /^[A-Za-z0-9_]{1,20}$/;
 		document.getElementById("w2").style.visibility=" visible";
 		document.getElementById("e2").style.visibility=" visible";
 		document.getElementById("e2").innerHTML="* User Name is not in valid format ";
-
-		return false;
-		
-		
+     	return false;
 		}
 	    else
 	    {

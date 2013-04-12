@@ -39,9 +39,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 				<p> <?php echo ACCOUNT_INFO; ?> <a id="signup" href="#"><?php echo SIGNUP;?> </a>
 				</p>
 			</div>
-											
-				</form>
-			</div>
+						
 		</form>
 
 		<form id="side-2" class="flip" method="post" name="side-2"
@@ -141,7 +139,6 @@ if(isset($_SESSION['error_msg']))
 </div>
 <div>
 <img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/d6.jpg"; ?> >   
-
  <div id="t1" > <?php echo SEARCH;?> </div>
 </div>
 <div>
@@ -150,12 +147,9 @@ if(isset($_SESSION['error_msg']))
  <div>
 <img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/tell.png"; ?> >   
  </div>
-
- <div>
+<div>
 <img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/news_feed.jpg"; ?> >   
-    <div id="t2" > <?php echo "FEED";?> </div>
  </div>
-
  </div>	
 </DIV>
 </body>

@@ -9,7 +9,9 @@
 	<input id="tags" placeholder="Search Friend" class="floatr marginr10 round5" >
 	<input type='hidden' name='f' id='friendz' value= > 	
  <br><br><textarea id="message_text" name="message_text" placeholder="Type your message here" row="3" cols="45"></textarea> 
-<br>	<button id="submitmessage"  onclick="insertMessage()"><?php echo SEND_MESSAGE;?></button>
+<br><br> <input type="button" id="backmsg" href=<?php echo ROOTPATH."user/messages"; ?>
+  value="Back To messages"/>
+<button id="submitmessage"  onclick="insertMessage()"><?php echo SEND_MESSAGE;?></button>
 </div>
 </div>
 
