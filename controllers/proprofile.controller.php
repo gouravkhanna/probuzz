@@ -1,8 +1,17 @@
 <?php
 	include 'controller.controller.php';
-	
+
+/*
+ * proprofile class
+ * This controller class handles all the tasks relating to Users Professional Profile
+*/
 class proprofile extends Controller
 {
+	
+	/*
+	 * Constructor of proprofile class calls the parent class constructor
+	 * enabling proprofile class to use the Controller Abilities
+	*/
 	function __construct(){
 		parent::__construct();
 		

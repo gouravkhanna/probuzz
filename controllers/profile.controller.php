@@ -1,11 +1,22 @@
 <?php
 include 'controller.controller.php';
 
+/*
+ * profile class
+ * This controller class handles all the tasks relating to Users Personal Profile
+*/
 class profile extends Controller {
+    
+  	/*
+	 * Constructor of profile class calls the parent class constructor
+	 * enabling profile class to use the Controller Abilities
+	*/
+  
 	function __construct()  {
-		parent::__construct();
-		}
-		function home() {
+      parent::__construct();
+	}
+    
+	function home() {
 		loadView('head/head1.php');
 		$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 		$userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
