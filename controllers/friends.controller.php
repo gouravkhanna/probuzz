@@ -5,6 +5,7 @@ class friends extends Controller
 	function __construct() 	{
 		parent::__construct();
 	}
+	/*Load Home*/
 	function home()
 	{
 		echo "Home";
@@ -13,6 +14,7 @@ class friends extends Controller
 	{
 		echo "ALL requests Aree :D :P";
 	}
+	/*Load Friend profile*/
 	function friendsProfile () {
 		
 		$type=loadModel("friend","getType",array("id"=>$_REQUEST['friendId']));
@@ -40,7 +42,7 @@ class friends extends Controller
 		}
 		
 	}
-	
+	/*Show all the friends of a user */
 	function showfriend() {
 		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
@@ -63,6 +65,7 @@ class friends extends Controller
 		loadView("showfriend.php",$arrData);
 		loadView("footer/footer.php",$arrData);
 	}
+	/*Load the professional profile of a friend*/
  	function professionalProfile() {
 		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
@@ -80,6 +83,7 @@ class friends extends Controller
 		loadView('footer/footer.php');
 		
 	}
+	/*Load Personal profile of a friend*/
 	function personalProfile(){
 
 		if(isset($_REQUEST['id'])) {
@@ -100,21 +104,25 @@ class friends extends Controller
        loadView('footer/footer.php');
 
 	}
+	/*Send Request to a friend*/
 	function sendRequest() {
 		$friendId=$_REQUEST['friendId'];
 		$result=loadModel("friend","sendRequest",$friendId);
 		//echo $result;
 	}
+	/*Accept the request from a friend*/
 	function acceptRequest() {
 		$friendId=$_REQUEST['friendId'];
 		$result=loadModel("friend","acceptRequest",$friendId);
 		//echo $result;
 	}
+	/*Decline the friend request*/
 	function declineRequest() {
 		$friendId=$_REQUEST['friendId'];
 		$result=loadModel("friend","declineRequest",$friendId);
 		//echo $result;
 	}
+	/*Show all the friend request*/
 	function showRequests() {
 		$arrData=array('id'=>$_SESSION['id']);
 		loadView("head/head1.php");
@@ -126,10 +134,12 @@ class friends extends Controller
 		loadView('footer/footer.php');
 
 	}
+	/*Remove Friend form profile*/
 	function removeFriend() {
 		$friendId=$_REQUEST['friendId'];
 		$result=loadModel("friend","declineRequest",$friendId);
 	}
+	/*Display friend photo*/
 	function friendPhoto(){
 	   if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
