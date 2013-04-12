@@ -1,6 +1,47 @@
-<?php print_r($arrData); ?>
-GALLERY
-	<form id="form3" action="" method="POST"
+<?php //print_r($arrData); ?>
+<div id="bigmid">GALLERY
+<script src="flex/jquery.flexslider-min.js"></script>
+<link rel="stylesheet" href="flex/flexslider.css" type="text/css" media="screen" />
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('.flexslider').flexslider();
+		});
+		function asas(){
+alert("ASA");
+			}
+	</script>
+	<div class="flexslider">
+	    <ul class="slides">
+	    <?php 
+	    $i=0;
+	    foreach($arrData as $val ) {
+	        echo "<li>";
+	        echo "<img id='imggal' align='center' src='".$val['path']."' />";
+	        echo "	<p class='flex-caption'>
+                <button class=floatr onclick='asas()' >asa</button></p>";
+
+	        echo "<br/>a<br/>a<br/>a<br/>";
+	        
+	    
+	        echo "</li>";
+	    }
+	    ?>
+	    	<!-- <li>
+	    		<img src="flex/demo-stuff/inacup_samoa.jpg" /><p class="flex-caption">Captions and cupcakes. Winning combination.</p>
+	    	</li>
+	    	<li>
+	    		<a href="http://flex.madebymufffin.com"><img src="flex/demo-stuff/inacup_pumpkin.jpg" /></a>
+	    	
+	    	</li>
+	    	<li>
+	    		<img src="flex/demo-stuff/inacup_donut.jpg" />
+	    	</li>
+	    	<li>
+	    		<img src="flex/demo-stuff/inacup_vanilla.jpg" />
+	    	</li> -->
+	    </ul>
+	  </div>
+<form id="form3" action="" method="POST"
 		enctype="multipart/form-data">
 		<div id="pLoad"></div>
 		<div id="a">
@@ -10,7 +51,7 @@ GALLERY
 		 
 	</form>
 
-
+</div>
 <script type="text/javascript">
 var i=1;
 function addUpload()
