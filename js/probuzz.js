@@ -117,22 +117,10 @@ $(document).ready(function(e) {
 	   return true;
 	});
 	
-	
-	
-	
-	
-	
-	
-	
-	///////////////////////////////////////
-	//do
-	
-	
- 	//$("button,a,input[type=submit]").button();
+
     
 	$(".juiButton").button();
-	//$("#head2").css("text-align","center");
-//	$("#head2").html("<img src='data/header/h26.jpg'  />");
+	
 	$("#dvsearch").hide();
 	$("#backjob").hide();
 	$("#dabackbutton").hide();
@@ -140,7 +128,6 @@ $(document).ready(function(e) {
 	showSender();
 	$("#sendmessage").hide();
 	//setInterval (showMessage,1000);
-//	$("#showAllSlot").load("index.php","url=showAllJobs");	
 
 	//Search Bar
 	$("#searchbar").keyup(function(e){
@@ -183,7 +170,7 @@ $(document).ready(function(e) {
 		
 	});
 	/* Top Jobs Dynamic Loading */
-	//$("#rightpanel2").load("index.php","url=topjobs");
+
 	/* Search People*/
 	$("#searchoptbar").click(function(e){
 		n=e.target.id;
@@ -204,17 +191,7 @@ $(document).ready(function(e) {
 		
 	});
 	$("#searchpeopleform").submit(function(){ $("#searchoptbar").slideUp(); });
-	/*textbox show on chekboz click (NOT DONE)*/
-	/*$("#searchoptbar input[type=checkbox]").click(function(e){
-		n=e.target.id;
-		//n1=n.split("ls");
-		var x=$("#"+n);
-		alert(x);
-		var selectVal=$("#spcity").val();
-		if($.inArray("other",selectVal)!=-1) {
-			alert("yes");
-		}
-	});	*/
+	
 	
 	
 	/* JOBS>php*/
@@ -257,13 +234,7 @@ $(document).ready(function(e) {
 	
 	/*Loading 	table on createjobs */
 	$("#showAllSlot").load("index.php","url=showAllJobs");
-	
-	
-//loadPreJob();
-	//
-	//for sliding headers
-	//setInterval (headrotate, 3500);
-	//,data,callback);
+
 });
 var i=0;
 function headrotate()
@@ -285,13 +256,7 @@ function fncreatejob()  {
 		$(x).html("<img src='data/photo/load5.gif' height=30 width=100>");
 		$("#smsg").load("index.php","controller=corporatecontroller&url=updateStatusJob&status="+status+"&jobId="+jobId).fadeIn("fast").fadeOut(5000).delay(1000);	
 		$("#showAllSlot").delay(1000).load("index.php","url=showAllJobs");
-		  
-	}	
-/*function updateStatusJob(status,jobId) {
-	$("#smsg").load("index.php","controller=corporatecontroller&url=updateStatusJob&status="+status+"&jobId="+jobId,function(){
-		$("#showAllSlot").load("index.php","url=showAllJobs");
-		});	
-	}*/
+
 /*Load Jobs and status on display application*/ 
 	function fnLoadJobUser2(a) {
 		//check the status of the job and show button or message accordingly
