@@ -4,6 +4,7 @@ class status extends Controller {
     function __construct() {
         parent::__construct ();
     }
+    /*Load the specific buzz in seprate page and link*/
     function buzz() {
         loadView("head/head1.php");
         $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
@@ -22,6 +23,7 @@ class status extends Controller {
            loadView ( "rightpanel/rightpanel.php");
            loadView ( "footer/footer.php");
     }
+    /*Delete the buzz*/
     function buzzDelete() {
         $result = loadModel ( "buzzin", "buzzDelete", array (
                 "id" => @$_SESSION ['id'],
@@ -33,6 +35,7 @@ class status extends Controller {
             echo "Please Try Again! Later";
         }
     }
+    /*Delete the COmments*/
     function commentDelete() {
         $result = loadModel ( "buzzin", "commentDelete", array (
                 "id" => @$_SESSION ['id'],
@@ -44,6 +47,7 @@ class status extends Controller {
             echo "Please Try Again! Later";
        }
     }
+    /*let use like the buzz*/
     function buzzLike() {
         $result = loadModel ( "buzzin", "buzzLike", array (
                 "id" => @$_SESSION ['id'],
@@ -60,6 +64,7 @@ class status extends Controller {
             echo "Please Try Again! Later";
         }
     }
+    /*Let user unlike the buzz*/
     function buzzUnLike() {
         $result = loadModel ( "buzzin", "unLike", array (
                 "id" => @$_SESSION ['id'],
@@ -76,6 +81,7 @@ class status extends Controller {
             echo "Please Try Again! Later";
         }
     }
+    /*handle buzz Request*/
     function buzzUpdate() {
         if ($_GET ['url'] == "buzzUpdate") {
             $arrArgs = array (
@@ -92,6 +98,7 @@ class status extends Controller {
             }
         }
     }
+    /*Display Comments Dynamically(ajax)*/
     function displayComment() {
         $arrData = loadModel ( "buzzin", "loadComment", array (
                 'buzz_id' => $_REQUEST ['buzz_id'] 
@@ -101,6 +108,7 @@ class status extends Controller {
         loadView ( "midpanel/displaycomment.php", $arrData );
         // the stuff will be loaded only to specific divison only
     }
+    /*Display th ebuzz on ajax Request*/
     function displayBuzz() {
        
         $arrArgs = array (
@@ -110,6 +118,7 @@ class status extends Controller {
         $arrData = loadmodel ( "buzzin", "loadbuzz", $arrArgs );
         loadView ( "midpanel/buzzdisplay.php", $arrData );
     }
+    /*Handle comment insert request*/
     function comment() {
         $arrArgs = array (
                 "id" => @$_SESSION ['id'],
@@ -127,6 +136,7 @@ class status extends Controller {
             echo "Encountered a Problem Wait for a Second!";
         }
     }
+    /*Let user to mark a BUzz Spam*/
     function markBuzzSpam() {
         echo "!";
         $result = loadModel ( "buzzin", "markBuzzSpam", array (

@@ -14,14 +14,24 @@ class corporatecontroller extends controller {
         $arrArgs ["profile_pic_path"] = loadModel ( "users", "getProfilePic", $arrData );
         loadView ( "navigation/corpnavigation.php", $arrArgs );
     }
+    function loadHead2(){
+        $arrData = array (
+                'id' => $_SESSION ['id']
+        );
+        $arrArgs = loadModel ( "users", "getProfilePic", $arrData );
+        loadView ( "head/headcorp.php",$arrArgs );
+    }
+    /*Load the home of the coporate user*/
     function home() {
         $this->loadNavigation ();
-        loadView ( "head/head2.php" );
+        $this->loadHead2();
         loadView ( 'midpanel/midpanel.php' );
         $this->getAppStats ();
         loadView ( 'footer/footer.php' );
     }
+    /*Load the Corporate PRofile of the USer for update and display*/
     function corpProfile() {
+        //if request is update
         if(@$_REQUEST['corpSubmit']=="update") {
             $arrArgs=array(
               "id"=>@$_SESSION['id'],
@@ -48,7 +58,7 @@ class corporatecontroller extends controller {
             }    
         }
         $this->loadNavigation ();
-        loadView ( "head/head2.php" );
+        $this->loadHead2();    
         $arrData = loadModel ( 'corporate', "getProfile", array (
                 "id" => @$_SESSION ['id'] 
         ) );
@@ -56,9 +66,10 @@ class corporatecontroller extends controller {
         loadView ( 'rightpanel/rightpanel.php' );
         loadView ( 'footer/footer.php' );
     }
+    /*Load  the Create JObs tab*/
     function createjobs() {
         $this->loadNavigation ();
-        loadView ( "head/head2.php" );
+        $this->loadHead2();
         // $arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
         loadView ( 'gdata/prejob.php' ); // ,$arrData);
         loadView ( 'rightpanel/alotslot.php' );
@@ -94,7 +105,7 @@ function alotSlot() {
     /* Show form to update the JOb details! */
     function showUpdateSlot() {
         $this->loadNavigation ();
-        loadView ( "head/head2.php" );
+        $this->loadHead2();
         $arrData = loadModel ( "corporate", "showSlot", array (
                 'id' => $_SESSION ['id'],
                 'jobId' => $_REQUEST ['jobId'] 
@@ -184,7 +195,7 @@ function alotSlot() {
     /* ShowJObs Tab */
     function showJobs() {
       $this->loadNavigation();
-        loadView ( "head/head2.php" );
+        $this->loadHead2();
         $arrData = loadModel ( "corporate", "showSlot", array (
                 'id' => $_SESSION ['id'] 
         ) );
@@ -215,7 +226,7 @@ function alotSlot() {
     /* Show the applicant for the job */
     function showApplicant() {
         $this->loadNavigation();
-        loadView ( "head/head2.php" );
+       $this->loadHead2();
         $arrData = loadModel ( "corporate", "showSlot", array (
                 'id' => $_SESSION ['id'] 
         ) );
@@ -336,12 +347,13 @@ function alotSlot() {
             header ( "Location: http://localhost/probuzz/trunk/index.php" );
         }
     }
+    /*Load the Setting s for the corporate user*/
     function settings() {
         loadView('head/head1.php');
         $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
         $userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
         loadView("navigation/corpnavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
-        loadView('head/head2.php');
+        $this->loadHead2();
         loadView('userSettings.php');
         loadView('rightpanel/rightpanel.php');
         loadView('footer/footer.php');

@@ -5,6 +5,7 @@ class subscribe extends controller {
     function __construct(){
         parent::__construct();
     }
+    /*handle Add Subsciption Request*/
     function addSubscription() {
         if(isset($_REQUEST['corp_id'])) {
             $arrArg=array(
@@ -19,6 +20,7 @@ class subscribe extends controller {
             }
         }
     }
+    /*handle remove Subsciption Request*/
     function removeSubscription() {
         if(isset($_REQUEST['corp_id'])) {
             $arrArg=array(
