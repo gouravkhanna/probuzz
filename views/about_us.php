@@ -11,7 +11,8 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 	body {
 		width: 600px;
 		margin: auto;
-		font-family: sans-serif;
+		font-family: del;
+		background-image:url(data/rcs/grey_gradient.jpg);
 	}
 
 	#contact {
