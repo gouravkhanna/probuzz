@@ -93,13 +93,12 @@ $(document).ready(function() {
 	}, false );
 	
 	$("#side-1").submit(function(){
-		
 		var uname=valid_uname1();
 		var password=valid_password1();
-		if(uname || password) {
+		if(uname && password) {
 			return true;
 		} else {
-			//return false;			UNCOMMENT THIS
+			return false;	//		UNCOMMENT THIS
 		}
 		
 	});
@@ -214,10 +213,10 @@ var ck_name = /^[A-Za-z0-9 ]{2,20}$/;
 var first_name=document.forms["side-2"]["first_name"].value;
 if(first_name.length<2) 
 {
-document.getElementById("w1").style.visibility=" visible";
-document.getElementById("e1").style.visibility=" visible";
-document.getElementById("e1").innerHTML="*Name is too short";
-return false; 
+        document.getElementById("w1").style.visibility = " visible";
+        document.getElementById("e1").style.visibility = " visible";
+        document.getElementById("e1").innerHTML = "*Name is too short";
+        return false; 
 }
 
 else if(!ck_name.test(first_name))
@@ -232,39 +231,34 @@ else if(!ck_name.test(first_name))
 	}
 else if(first_name.length>20) 
 {
-document.getElementById("w1").style.visibility=" visible";
+        document.getElementById("w1").style.visibility = " visible";
 
-return false; 
-}
-  else
-{
-document.getElementById("r1").style.visibility=" visible";
-document.getElementById("w1").style.visibility=" hidden";
-document.getElementById("e1").style.visibility=" hidden";
-return true; 
+        return false;
+    } else {
+        document.getElementById("r1").style.visibility = " visible";
+        document.getElementById("w1").style.visibility = " hidden";
+        document.getElementById("e1").style.visibility = " hidden";
+        return true;
 
-}
+    }
 }
 
 function valid_lname() // to check last name
 {
 
-var last_name=document.forms["side-2"]["last_name"].value;
-if(last_name.length==0)
-{
-document.getElementById("w5").style.visibility=" visible";
-document.getElementById("e5").style.visibility=" visible";
-document.getElementById("e5").innerHTML="*Last Name cannot by empty";
-return false; 
-}
-   else
-{
-document.getElementById("r5").style.visibility=" visible";
-document.getElementById("w5").style.visibility=" hidden";
-document.getElementById("e5").style.visibility=" hidden";
-return true; 
+    var last_name = document.forms["side-2"]["last_name"].value;
+    if (last_name.length == 0) {
+        document.getElementById("w5").style.visibility = " visible";
+        document.getElementById("e5").style.visibility = " visible";
+        document.getElementById("e5").innerHTML = "*Last Name cannot by empty";
+        return false;
+    } else {
+        document.getElementById("r5").style.visibility = " visible";
+        document.getElementById("w5").style.visibility = " hidden";
+        document.getElementById("e5").style.visibility = " hidden";
+        return true;
 
-}
+    }
 }
 
 function valid_password()
@@ -406,53 +400,42 @@ function valid_email()
 	
 
 }
-function validLogin()
-{
+function validLogin() {
 
-var u=valid_uname1();
-var p=valid_password1();
-if(!u && !p){
-	return false;}
-else {
-	return true;
-}
-
-}
-
-
-function valid()
-{
-var f=valid_fname();
-var p=valid_password();
-var e=valid_email();
-var l=valid_lname();
-var u=valid_uname();
-if(!f)
-{
- return false;
-}
-
-else if(!p)
-{
- return false;
-}
-else if(!e)
-{
- return false;
-}
-else if(!l)
-{ 
-return false;
-	}
-
-else if(!u){
-	return false;
-}
-else
-{
-true;
+    var u = valid_uname1();
+    var p = valid_password1();
+    if (!u && !p) {
+        return false;
+    } else {
+        return true;
+    }
 
 }
+
+function valid() {
+    var f = valid_fname();
+    var p = valid_password();
+    var e = valid_email();
+    var l = valid_lname();
+    var u = valid_uname();
+    if (!f) {
+        return false;
+    }
+
+    else if (!p) {
+        return false;
+    } else if (!e) {
+        return false;
+    } else if (!l) {
+        return false;
+    }
+
+    else if (!u) {
+        return false;
+    } else {
+        true;
+
+    }
 
 }
 

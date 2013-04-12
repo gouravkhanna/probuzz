@@ -152,15 +152,5 @@ class messaging extends DbConnection {
 					);
 			$this->db->update("message",$data,$conditions);
 		}
-	}
-	
-	/**/
-	function aac() {
-	    
-	}
-	/**/
-	function createMess() {
-	    
-	}
-		
+	}	
 }
