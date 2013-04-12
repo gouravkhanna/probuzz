@@ -7,7 +7,7 @@ if (! empty ( $arrData ) && $arrData[0]['id']!="") {
     foreach ( $arrData as $key => $val ) {
         if ($val ['id'] != "") {
             $res = " <div id='sjresultrow' class=floatl> ";
-            $res .= "<button id='sjbtn' onclick=fnLoadJobUser2('" . $val ['id'] . "') >";
+            $res .= "<button id='sjbtn' class='jptr' onclick=fnLoadJobUser2('" . $val ['id'] . "') >";
             $res .= "<div id='sjresultcol' >" . $val ['company_name'] . "</div> ";
             $res .= "<div id='sjresultcol' >" . $val ['designation'] . "</div> <hr>";
             $res .= "<div id='sjresultcol' >" . $val ['location'] . "</div> ";

@@ -14,7 +14,7 @@
 	<input type="text" id="designation" name="designation"> 	<br/>
 	<?php echo ACCEPT_TERMS; ?> 
 	<input type="checkbox" id="alotslotcheck" name="terms" value="true"><br/>
-	<input type=submit name="url" value="alotSlot" class=bluebutton>
+	<input  type=submit name="url" value="alotSlot" class='bluebutton jptr' >
 </form>
 </div>
 </div>
