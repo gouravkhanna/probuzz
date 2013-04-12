@@ -49,6 +49,14 @@ class validation {
  		 return $arrData;
    
 	}
+
+    function corpregister( $arrArgs=array()){
+      
+
+
+
+    }
+
 	function spaceRemover($input) {
 		return preg_replace('/\s+/', ' ', $input);
 	}

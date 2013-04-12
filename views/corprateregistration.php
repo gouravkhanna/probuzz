@@ -4,7 +4,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 ?>
 <script src="js/jquery-1.9.1.min.js"></script>
 <link rel="stylesheet" href="style/f1.css" />
-<script type="text/javascript" src="<?php echo ROOTPATH."js/login.js"; ?> "></script>
+<script type="text/javascript" src="<?php echo ROOTPATH."js/corplogin.js"; ?> "></script>
 
 </head>
 <body>
@@ -12,7 +12,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 	<div id="wrapper">
 		
 		<form id="side-3"  method="post" name="side-3" class="flip"
-			onsubmit="return validcorp()" action="#">
+			onsubmit="return valid()" action="#">
 			<div id="2">
 				<h2><?php echo JOIN_CORP; ?></h2>
 
@@ -80,7 +80,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 		
 	</div>
 	<div id="wrongcaptcha">
-		<div id="errmsg" name="errmsg">
+		<div id="errmsg1" name="errmsg1">
 <?php
 
 if(isset($_SESSION['error_msg'])) {

@@ -50,6 +50,11 @@ margin-right:1px;
 #captcha,#corp_captcha{
 display: none;
 margin-left: 30px;
+}
+#errmsg1{
+width: auto;
+float: right;
+color:#c43531;
 
 }
 
