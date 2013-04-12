@@ -11,5 +11,7 @@ define("QUALIFICATIONS","Qualifications");
 define("RESUME","Resume");
 /*define("FILE","File :");*/
 define("CERTIFICATIONS","Certifications");
-
+define("APPLICATIONS","Application");
+define("GALLERY","Gallery");
+define("UPLOAD","Upload new photos here");
 ?>

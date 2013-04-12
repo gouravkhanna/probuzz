@@ -3,6 +3,7 @@
 <?php
 
 if (! empty ( $arrData ) && $arrData[0]['id']!="") {
+    echo "<div id='showfrnddiv'><h2>". APPLICATIONS ."</h2> </div>";
     foreach ( $arrData as $key => $val ) {
         if ($val ['id'] != "") {
             $res = " <div id='sjresultrow' class=floatl> ";
@@ -18,7 +19,8 @@ if (! empty ( $arrData ) && $arrData[0]['id']!="") {
        
     }
 } else {
-echo NRF;
+
+  echo "<div id='showfrnddiv'><h2>". NRF ."</h2></div>";
 }
 ?>
 

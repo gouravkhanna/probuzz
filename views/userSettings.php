@@ -1,5 +1,5 @@
 <div id="midpanel"><br><br><br> <br>
-<?php echo "<div id='showfrnddiv'><h2>".SETTINGS ."</h2> </div>";?>
+<?php echo "<div id='showfrnddiv'><h2>".SETTINGS."</h2> </div>";?>
 	<br><br><br> <br><div id="accordion" class='marginl10'>
 		<h3><?php echo CHANGE_PASSWORD;?></h3>
 		<div id="settingsDiv">

@@ -1,6 +1,6 @@
 
 <div id="bigmid">
-	<div class='bluebutton'><span class='fontsize20 marginl10'>Gallery</span></div>
+	<div class='bluebutton'><span class='fontsize20 marginl10'><?php echo GALLERY; ?></span><br><br></div>
 	
 <script src="flex/jquery.flexslider-min.js"></script>
 <link rel="stylesheet" href="flex/flexslider.css" type="text/css" media="screen" />
@@ -10,7 +10,7 @@
 		});
 	</script>
 	<br> 
-	<a href="<?php echo ROOTPATH."photo/newPhoto";?>" >Upload New Photos</a>
+	<a href="<?php echo ROOTPATH."photo/newPhoto";?>" ><?php echo UPLOAD; ?></a>
 	<br><br>
 	<div class="flexslider">
 	    <ul class="slides">

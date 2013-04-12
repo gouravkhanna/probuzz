@@ -338,4 +338,6 @@ define("FRND_MESSAGE","Send Message To Friend. ");
 define("PROFFESIONAL _PROFILE","Proffesional Profile ");
 define("FRIEND_REQUEST","Friend Request From ");
 define("TELL","Tell Us About Your Self");
+define("APPLICATIONS ","Application");
+
 ?>
