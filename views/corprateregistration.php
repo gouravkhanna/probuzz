@@ -12,59 +12,55 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 	<div id="wrapper">
 		
 		<form id="side-3"  method="post" name="side-3" class="flip"
-			onsubmit="return valid()" action="#">
+			onsubmit="return validcorp()" action="#">
 			<div id="2">
 				<h2><?php echo JOIN_CORP; ?></h2>
 
 				<input type="text" name="company_name" id="company_name"
 					autocomplete="off" placeholder="Company Name"
-					onblur="return  valid_uname()" /> <span id="r6" name="r6"> <img
+					onblur="return  valid_company()" /> <span id="r1" name="r1"> <img
 					src="data/rcs/r.png" height="30px" width="30px" class="i" />
-				</span> <span id="w6"> <img src="data/rcs/w.png" height="30px"
-					width="30px"class="i" />
-				</span><span id="e6" name="e6"> </span> <br /> <input type="text"
-					name="user_name" id="user_name" autocomplete="off"
-					placeholder="User Name" onblur="return  valid_fname()" /> <span
-					id="r1" name="r1"> <img src="data/rcs/r.png" height="30px"
-					width="30px" class="i" />
 				</span> <span id="w1"> <img src="data/rcs/w.png" height="30px"
+					width="30px"class="i" />
+				</span><span id="e1" name="e1"> </span> <br />
+				 <input type="text"
+					name="user_name" id="company_alias" autocomplete="off"
+					placeholder="Company Alias" onblur="return  valid_companyAlias()" /> <span
+					id="r2" name="r2"> <img src="data/rcs/r.png" height="30px"
 					width="30px" class="i" />
-				</span><span id="e1" name="e1"> </span> <br /> <input type="text"
+				</span> <span id="w2"> <img src="data/rcs/w.png" height="30px"
+					width="30px" class="i" />
+				</span><span id="e2" name="e2"> </span> <br /> 
+				<input type="text"
 					name="Location" id="Location" autocomplete="off"
-					placeholder="Location" onblur="return  valid_lname()" /> <span
+					placeholder="Location" onblur="return  valid_location()" /> <span
+					id="r3" name="r3"> <img src="data/rcs/r.png" height="30px"
+					width="30px" class="i" />
+				</span> <span id="w3" name="w3"> <img src="data/rcs/w.png"
+					height="30px" width="30px" class="i" />
+				</span><span id="e3" name="e3"> </span> <br /> 
+				<input type="text"
+					name="corp_email" id="corp_email" autocomplete="off" placeholder="Email"
+					onblur="return valid_corpemail()" /> <span id="r4" name="r4" > <img
+					src="data/rcs/r.png" height="30px" width="30px" class="i" />
+				</span> <span id="w4"  name="w4"> <img src="data/rcs/w.png"
+					height="30px" width="30px" class="i" />
+				</span> <span id="e4" name="e4"> </span> <br />  
+				  <input
+					type="password" name="company_password" id="company_password" autocomplete="off"
+					placeholder="Password" onblur="return valid_corppassword()" /> <span
 					id="r5" name="r5"> <img src="data/rcs/r.png" height="30px"
 					width="30px" class="i" />
 				</span> <span id="w5" name="w5"> <img src="data/rcs/w.png"
 					height="30px" width="30px" class="i" />
-				</span><span id="e5" name="e5"> </span> <br /> <input type="text"
-					name="corp_email" id="corp_email" autocomplete="off" placeholder="Email"
-					onblur="return valid_email()" /> <span id="r2" name="r2" id="r2"> <img
-					src="data/rcs/r.png" height="30px" width="30px" class="i" />
-				</span> <span id="w2" name="w2" name="w2"> <img src="data/rcs/w.png"
-					height="30px" width="30px" class="i" />
-				</span> <span id="e2" name="e2"> </span> <br />  <input
-					type="text" name="website" id="website"
-					autocomplete="off" placeholder="Website"/> <span id="r4" name="r4"> <img
-					src="data/rcs/r.png" height="30px" width="30px" class="i" />
-				</span> <span id="w4" name="w4" > <img src="data/rcs/w.png"
-					height="30px" width="30px" class="i" />
-				</span><span id="e4" name="e4"> </span> 
-				<br>
-				  <input
-					type="password" name="company_password" id="company_password" autocomplete="off"
-					placeholder="Password" onblur="return  valid_password()" /> <span
-					id="r3" name="r3"> <img src="data/rcs/r.png" height="30px"
-					width="30px" class="i" />
-				</span> <span id="w3" name="w4"> <img src="data/rcs/w.png"
-					height="30px" width="30px" class="i" />
-				</span> <span id="e3" name="e3"> </span> <br /> <input
+				</span> <span id="e5" name="e5"> </span> <br /> <input
 					type="password" name="comp_confirm_pass" id="comp_confirm_pass"
 					autocomplete="off" placeholder="Confirm Password" role="button"
-					onblur="return  valid_password()" /> <span id="r4" name="r4"> <img
+					onblur="return  valid_corppassword()" /> <span id="r6" name="r6"> <img
 					src="data/rcs/r.png" height="30px" width="30px" class="i" />
-				</span> <span id="w4" name="w4" > <img src="data/rcs/w.png"
+				</span> <span id="w6" name="w6" > <img src="data/rcs/w.png"
 					height="30px" width="30px" class="i" />
-				</span><span id="e4" name="e4"> </span> 
+				</span><span id="e6" name="e6"> </span> 
 				<br /><br />
 				 <div id="corp_captcha">
                    <?php echo recaptcha_get_html($publickey);?>
