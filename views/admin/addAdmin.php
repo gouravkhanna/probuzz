@@ -9,7 +9,7 @@
 		<?php echo ACCOUNT_STATUS;?><br/>
 		<select name="current_status">
 			<option value="0"><?php echo ACTIVE_ACCOUNT;?></option>
-			<option value="1"><?php echo INACTIVE_ACCOUNT;?></option>
+			<option value="4"><?php echo INACTIVE_ACCOUNT;?></option>
 		</select><br/>
 		<?php echo PASSWORD;?><br/>
 		<input type="text" name="password" id="password" placeholder="Password" /><br/>

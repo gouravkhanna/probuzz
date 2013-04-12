@@ -45,7 +45,7 @@ function deactivate(input,rowId) {
     $.ajax({
         type: "GET",
         url: "index.php",
-        data:"controller=admin&url=deactivateAccount&rowId="+rowId+"&status=1",
+        data:"controller=admin&url=deactivateAccount&rowId="+rowId+"&status=4",
         success: function(msg){
             alert(msg);
             $(input).val("Activate");

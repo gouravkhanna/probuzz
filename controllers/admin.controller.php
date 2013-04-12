@@ -176,8 +176,8 @@ class admin extends controller {
             $msg.="Password Cannot Be Empty.<br/>";
             $flag=false;
         }
-        if($_REQUEST['current_status']!="0" && $_REQUEST['current_status']!="1") {
-            $msg.="Please Select Active Status.<br/>";
+        if($_REQUEST['current_status']!="0" && $_REQUEST['current_status']!="4") {
+            $msg.="Please Select Status.<br/>";
             $flag=false;
         }
         if(strlen($_REQUEST['password'])<6) {
