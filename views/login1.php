@@ -163,6 +163,14 @@ if(isset($_SESSION['error_msg']))
 <div>
 <img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/chat.jpg"; ?> >   
  </div>
+ <div>
+<img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/tell.png"; ?> >   
+ </div>
+
+ <div>
+<img class="logImg" id="rotator" src=<?php echo ROOTPATH."data/rcs/news_feed.jpg"; ?> >   
+    <div id="t2" > <?php echo "FEED";?> </div>
+ </div>
 
  </div>	
 </DIV>

@@ -259,6 +259,13 @@ color:#c43531;
 #t1 {
     color:#498af2;
 }
+#t2{
+    color: black;
+     position:absolute;
+    font-size: 50px;
+   left:290px;
+    top:300px;
+}
 #slideshow > div { 
     position: absolute; 
     top: 10px; 
