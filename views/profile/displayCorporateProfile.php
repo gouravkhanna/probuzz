@@ -1,52 +1,11 @@
 <style >
-#corp_img{
-	width: 800px;
-		
-}
-#corp_details{
-font-size: 14px;
-width: 700px;
-float: left;
-margin-left: 40px;
-border-radius: 4px;
-height: 350px;
-box-shadow:3px 3px 3px 3px #2d9be8;
-/*background-image: url("data/rcs/corpbg.jpg");*/
-}
-#corp_details h1{
-	margin-left: 120px;
-	margin-top: 2px;
-}
 
-#divider{
-	width: 1px;
-	height: 350px;
-	background-color: #2d9be8;
-	float: left;
-	margin-left: 45%;
-	position: absolute;
-}
-#details_l{
-	float: left;
-	width:340px;
-}
-#details_r{
-	float: right;
-  width:340px;
-}
-.right_m{
-	float: right;
-	margin-right:70px;
-}
-.rr{
-	margin-right: 1px;
-}
 </style>
 
 <div id="bigmid">
 <div class="leftarrowdiv"> 
   <div id="corp_img">
-<img src=<?php echo ROOTPATH."/data/photo/oss.jpg"; ?>>
+<img class="imgcorpp" src=<?php echo $arrData['profile_pic_path']; ?>>
  </div>
  <br><br>
   <div id="divider"> </div>
@@ -55,8 +14,7 @@ box-shadow:3px 3px 3px 3px #2d9be8;
     	   <h1> About </h1>
        <?php
         $data=$arrData[0];
-      //echo print_r($arrData);
-         echo "<br><br><b> Tagline</b><br>";
+          echo "<br><br><b> Tagline</b><br>";
      echo $data['tagline'];
      echo "<br><br><b> Description</b><br>";
      echo $data['summary'];

@@ -71,7 +71,7 @@ class photo extends controller {
         $arrData = array (
                 'id' => $_SESSION ['id'] 
         );
-        loadView ( 'head/head1.php' );
+            loadView ( 'head/head1.php' );
         $arrArgs = loadModel ( "corporate", "fetchName", $arrData );
         $arrArgs ["profile_pic_path"] = loadModel ( "users", "getProfilePic", $arrData );
         loadView ( "navigation/corpnavigation.php", $arrArgs );
