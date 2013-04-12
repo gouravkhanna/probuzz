@@ -1,12 +1,6 @@
 $(document).ready(function(){
     setInterval(loadDComment,10000);
-    $("body input[type=text]").keyup(function(e){
-        //if esc key is pressed
-   //     alert("A");
-        if(e.which==13) {
-            alert(e.target.id);
-        }
-    });
+    
 function loadBuzz(){
 // load div on page load
 $.ajax({
@@ -67,7 +61,7 @@ function setComment(a){
     var b="#comment"+a; // comment id
     var z=$(b).val();
     var x="#dvcomment"+a;
-
+   // onlySpacesA
                 $.ajax({
                     url:'index.php', //window.location.pathname,
                     type: 'GET',

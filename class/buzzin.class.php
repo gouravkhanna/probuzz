@@ -242,21 +242,20 @@ function commentDelete($arrArg = array()) {
             
             $id = $arrArgs ['id'];
             $comment_text = strip_tags ( $arrArgs ['comment_text'] );
-            $buzz_id = $arrArgs ['buzz_id'];
-            $data = array (
+          if($comment_text!="") {
+              $buzz_id = $arrArgs ['buzz_id'];
+                $data = array (
                     "user_id" => "$id",
                     "buzz_id" => "$buzz_id",
                     "comment_text" =>"$comment_text" 
             );
-            $result="";
-            if($comment_text=="") {
-                $result = $this->db->insert ( "comment", $data );
-            }
-            if ($result && $result->rowCount () > 0) {
+           $result = $this->db->insert ( "comment", $data );
+           if ($result && $result->rowCount () > 0) {
                 return true;
             } else {
                 return false;
             }
+          }
         } else {
             return false;
         }
