@@ -248,7 +248,10 @@ function commentDelete($arrArg = array()) {
                     "buzz_id" => "$buzz_id",
                     "comment_text" =>"$comment_text" 
             );
-            $result = $this->db->insert ( "comment", $data );
+            $result="";
+            if($comment_text=="") {
+                $result = $this->db->insert ( "comment", $data );
+            }
             if ($result && $result->rowCount () > 0) {
                 return true;
             } else {

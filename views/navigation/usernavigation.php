@@ -39,7 +39,7 @@
 			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showRequests"; ?>"><?php echo SHOW_REQUESTS;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=photos"; ?>"><?php echo PHOTOS;?></a>
+			<a href="<?php echo ROOTPATH."index.php?controller=photo"; ?>"><?php echo PHOTOS;?></a>
 		</li>
 
 		<li id="umenu">

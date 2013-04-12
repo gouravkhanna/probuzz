@@ -106,7 +106,7 @@ class personalprofile extends DbConnection {
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
                 $msg="";
-        $flag=true;
+       /* $flag=true;
         if(gettype($arrArgs['pincode'])!="integer") {
             $msg.="Pincode Value Not Integer";
             $flag=false;
@@ -114,7 +114,7 @@ class personalprofile extends DbConnection {
         if(!$flag) {
             $_SESSION['profile_error']=$msg;    
             return false;
-        }
+        }*/
         $house_number = strip_tags($arrArgs ['houseNumber']);
         $street_number = strip_tags($arrArgs ['street_number']);
         $street_name = strip_tags($arrArgs ['street_name']);
@@ -140,7 +140,6 @@ class personalprofile extends DbConnection {
             
         );
       
-        print_r($data);
         $where = array (
                 'user_id' => "$id",
                 "id"=>"$i",
@@ -218,10 +217,11 @@ class personalprofile extends DbConnection {
     function insertCon($arrArgs = array()){
         
         $id = $_SESSION ['id'];
-           if(!is_int($arrArgs['pincode'])) {
+        
+       /* if(!is_int($arrArgs['pincode'])) {
             $_SESSION['profile_error']="Pincode Can Only Be Integer";
             return false;
-        }
+        }*/
         $house_number = strip_tags($arrArgs ['houseNumber']);
         $street_number = strip_tags($arrArgs ['street_number']);
         $street_name = strip_tags($arrArgs ['street_name']);

@@ -119,8 +119,7 @@ class status extends Controller {
         if (isset ( $_GET ['comment_text'] ) && ! empty ( $_GET ['comment_text'] )) {
             $arrData = loadModel ( "buzzin", "insertComment", $arrArgs );
             
-            if ($arrData == 'true') {
-                
+       if($arrData == 'true') {
                 echo "Commented";
             }
         } else {

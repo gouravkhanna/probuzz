@@ -167,7 +167,12 @@ $(document)
                             setErrorMessage("#nepincode","Only Numbers Allowed.");
                             return false;
                         }
-                        
+                        if(onlySpacesA("necity","City Can't Be Empty.")==true) {
+                            return false;
+                        }
+                        if(onlySpacesA("necountry","Country Can't Be Empty.")==true) {
+                            return false;
+                        }
                         return true;
                     });
                     $("#bInfo").click(function (){
@@ -217,8 +222,18 @@ function validateEditAddress(id) {
         setErrorMessage("#epincode_"+id,"Only Numbers Allowed.");
         return false;
     }
-    if(!$("#epincode_"+id).val()) {
-        setErrorMessage("#epincode_"+id,"Can't Be Empty.");
+    if($("#epincode_"+id).val().length<5 || $("#epincode_"+id).val().length>7) {
+        if($("#epincode_"+id).val().length!=0) {
+            setErrorMessage("#epincode_"+id,"PinCode must be of 6 Digit")
+            return false;
+        }               
+     }
+    if(!$("#ecity_"+id).val()) {
+        setErrorMessage("#ecity_"+id,"Can't Be Empty.");
+        return false;
+    }
+    if(!$("#ecountry_"+id).val()) {
+        setErrorMessage("#ecountry_"+id,"Can't Be Empty.");
         return false;
     }
     return true;

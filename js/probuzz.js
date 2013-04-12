@@ -4,7 +4,7 @@ function onlySpacesA(input,msg) {
 	str=$(input).val();
 	temp=str.replace(/\s/g,"");
 	if(temp.length<1) {
-		$(input).css("background-color","lightblue");
+		$(input).css("background-color","#cff993");
 		$(input).val('');
 		$(input).attr("placeholder",msg);
 		$(input).focus();
@@ -46,7 +46,7 @@ $(document).ready(function(e) {
         if(diff>0) {
             return true;
         } else {
-            $(input2).css("background-color","lightblue");
+            $(input2).css("background-color","#cff993");
             $(input2).val('');
             $(input2).attr("placeholder",msg);
             $(input2).focus();
