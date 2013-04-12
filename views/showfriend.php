@@ -1,7 +1,5 @@
 
 <div id="bigmid"> 
-
-
 <?php
 
 echo "<div id=bige >";

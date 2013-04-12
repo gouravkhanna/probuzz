@@ -2,10 +2,9 @@
 
 include 'controller.controller.php';
 class user extends controller {
+
+    /*display job according to type specified*/
     function showSearchJobs() {
-        /*
-         * echo "<pre>"; print_r($_REQUEST);
-         */
         $designation = @$_REQUEST ['sjdesignation'];
         $minSal = @$_REQUEST ['sjminsal'];
         $maxSal = @$_REQUEST ['sjmaxsal'];
@@ -28,11 +27,9 @@ class user extends controller {
         $arrData = loadModel ( "users", "showSearchJobs", $arrArgs );
         loadView ( "search/displaysearchjob.php", $arrData );
     }
+    /* search particular job*/
     function searchJob() {
-        /*
-         * echo "<br><br><br><br>"; echo "<pre>"; print_r($_REQUEST); echo
-         * "</pre>";
-         */
+        
         // loading page content
         loadView ( "head/head1.php" );
         $path = loadModel ( "users", "getProfilePic", array (
@@ -47,6 +44,8 @@ class user extends controller {
         loadView ( 'search/searchjob.php' );
         loadView ( 'footer/footer.php' );
     }
+
+    /* Load Application Status weather applied or not  */
     function loadAppStatus() {
         $result = loadModel ( "users", "getJobAppStatus", array (
                 'id' => $_SESSION ['id'],
@@ -73,6 +72,7 @@ class user extends controller {
         ) );
         loadView ( "displayapplication.php", $arrData );
     }
+    /* Method for appliying job*/
     function applyJob() {
         $result = loadModel ( "users", "applyJob", array (
                 'id' => $_SESSION ['id'],
@@ -84,6 +84,7 @@ class user extends controller {
             echo "Error!! Please Try Again Later";
         }
     }
+    /* Display Messages   */
     function messages() {
         loadView ( "head/head1.php" );
         $path = loadModel ( "users", "getProfilePic", array (
@@ -97,6 +98,7 @@ class user extends controller {
         loadView ( "message/message.php" );
         loadView ( "footer/footer.php" );
     }
+    /* Retrun id of friend who send message*/
     function getMessageFriendId() {
         $para = explode ( '/', $_REQUEST ['url'] );
         print_r ( $para );
@@ -106,12 +108,14 @@ class user extends controller {
             return "-1";
         }
     }
+    /*Display sender*/
     function showSender() {
         $arrData = loadModel ( "messaging", "showSender", array (
                 "id" => @$_SESSION ['id'] 
         ) );
         loadView ( "message/showsender.php", $arrData );
     }
+    /*Get message from friend*/
     function getMessage() {
         $friendId = $_REQUEST ['friend_id'];
         
@@ -121,6 +125,7 @@ class user extends controller {
         ) );
         loadView ( "message/getmessage.php", $arrData );
     }
+    /*Insert Message*/
     function insertMessage() {
         // print_r($_REQUEST);
         $message_text = $_REQUEST ['message_text'];
@@ -137,6 +142,7 @@ class user extends controller {
             echo "no";
         }
     }
+    /*Message is seen or not*/
     function messageSeen() {
         $friendId = $_REQUEST ['friend_id'];
         $arrArg = array (
@@ -145,6 +151,7 @@ class user extends controller {
         );
         $result = loadModel ( "messaging", "messageSeen", $arrArg );
     }
+    /*Create a Message*/
     function createMessage() {
     	loadView("head/head1.php");
     	$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
@@ -153,7 +160,7 @@ class user extends controller {
     	loadView("message/createmessage.php");
     	loadView('footer/footer.php');
     }
-  
+  /*Load message*/
     function loadc() {
     	$arrData=loadModel("friend","showfriend",array("id"=>@$_SESSION['id']));
 	    foreach ($arrData as $key) {
@@ -179,6 +186,7 @@ class user extends controller {
         loadView('rightpanel/rightpanel.php');
         loadView('footer/footer.php');
     }
+    /*Change password */
     function changePassword() {
         $msg="";
         $flag=true;
@@ -210,6 +218,7 @@ class user extends controller {
         }
         
     }
+    /*Deactivate account*/
     function deactivateAccount() {
         echo "<script> alert('You Can Reactivate Your Account By Logging ".
         "In Using The Same User Id And Password');</script>";
@@ -223,6 +232,7 @@ class user extends controller {
             "window.location.href='".ROOTPATH."index.php?controller=user&url=settings';</script>";
         }
     }
+    /*Setup security question*/
     function setupSecurityQuestion() {
         $msg="";
         $flag=true;
@@ -241,9 +251,11 @@ class user extends controller {
             echo $msg;
         }
     }
+    /*Fetch all the security Questions*/
     function fetchSecurityQuestions() {
         loadModel("users","fetchSecurityQuestions");
     }
+    /*Mark user as spam*/
     function markUserSpam() {
         echo "!";
         $result = loadModel ( "users", "markUserSpam", array (
@@ -258,6 +270,7 @@ class user extends controller {
             echo "Please Try Again! Later";
         }
     }
+    /*Forget password Mail*/
     function forgotPasswordEmail() {
         $arrArgs=array(
                 "userName"=>@$_REQUEST['userName'],
