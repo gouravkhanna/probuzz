@@ -279,20 +279,6 @@ function fncreatejob()  {
     $("#midpanel").load("index.php","controller=corporatecontroller&url=createjobs");
 }
 
-
-
-/*function loadDate() {
-	alert("lulu");
-	$("#start_date").datepicker();
-	$("#end_date").datepicker();
-
-}*//*
-$.ajax({
-	url:"index.php",
-	type:"get",
-	data:
-});*/
-
 /* FOR UPDATING STATUS i.e active to inactive and inactive to active  */
 	function updateStatusJob(status,jobId) {
 	var x="#buttonstatus"+jobId;

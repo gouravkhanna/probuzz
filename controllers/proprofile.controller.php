@@ -10,10 +10,10 @@ class proprofile extends Controller
 	function home()
 	{
 		loadView('head/head1.php');
-	  	$path=ROOTPATH.'data/photo/g.jpg';
+		$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
 		$userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
-	  	loadView('navigation/usernavigation.php',array('profile_pic_path'=>"$path","user_name"=>$userName));
-	  	//$arr=loadModel("professionalprofile","constructFields");
+		loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
+		 //$arr=loadModel("professionalprofile","constructFields");
 		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
 			

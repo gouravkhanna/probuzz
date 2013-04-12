@@ -563,6 +563,7 @@ class users extends DbConnection {
             return false;
         }
     }
+    /*Will let user to change password*/
     function changePassword() {
         $data['tables']="users";
         $data['columns']="password";
@@ -571,11 +572,11 @@ class users extends DbConnection {
         );
         $result=$this->db->select($data);
         $row=$result->fetch(PDO::FETCH_ASSOC);
-        if($_REQUEST['old_password']!=$row['password']){
-            return "You Entered Wrong Old Password.<br/>";
+        if(md5($_REQUEST['old_password'])!=($row['password'])){
+            return "You E1ntered Wrong Old Password.<br/>";
         } else {
             $data=array();
-            $data["password"]=strip_tags($_REQUEST['new_password']);
+            $data["password"]=strip_tags(md5($_REQUEST['new_password']));
             $where=array(
                 "user_id"=>$_SESSION['id']
             );
@@ -588,6 +589,7 @@ class users extends DbConnection {
             }
         }
     }
+    /*Will Deactivate The account*/
     function deactivateAccount() {
         $data=array();
         $data["current_status"]="1";
@@ -596,6 +598,7 @@ class users extends DbConnection {
         );
         return $this->db->update ( "users", $data, $where );
     }
+    /*Setup a nEw Security Question*/
     function setupSecurityQuestion() {
         $data=array(
             "user_id"=>$_SESSION['id'],
@@ -609,6 +612,7 @@ class users extends DbConnection {
             return "Error Adding The Security Question.";
         }
     }
+    /*Fetch all the security question and answers of the particular user*/
     function fetchSecurityQuestions() {
         $data['columns']=array(
             "id",
@@ -624,8 +628,7 @@ class users extends DbConnection {
         while($row=$temp->fetch(PDO::FETCH_ASSOC)) {
             array_push($result,$row);
         }
-        //echo "<pre>";
-        //print_r($result);
+  
         if($result) {
             foreach($result as $key =>$value) {
                 echo "<div id=".$value['id']." class='highlight margin5 padding3'> ";
@@ -638,6 +641,7 @@ class users extends DbConnection {
         }
         
     }
+    /*Load the about us page*/
     function loadAboutUs() {
         $data ['tables'] = "pb_data";
         $data ['conditions'] = array (
@@ -651,6 +655,7 @@ class users extends DbConnection {
             return false;
         }
     }
+    /*Insert the user Feedback to db*/
     function insertContactUs($arrArg = array()) {
         $data=array(
                 "name"=>strip_tags($arrArg ['name']),

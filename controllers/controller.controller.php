@@ -35,15 +35,14 @@ class Controller
 				$_POST["recaptcha_challenge_field"],
 				$_POST["recaptcha_response_field"]);
 		
-	/*	if (!$resp->is_valid) {
+	if (!$resp->is_valid) {
 			// What happens when the CAPTCHA was entered incorrectly
 			
 			$msg="<div id=wrongcaptcha>The reCAPTCHA wasn't entered correctly. Go back and try it again." .
 					"(reCAPTCHA said: " . $resp->error . ")</div>";
 			loadView("login1.php",array('error_msg'=>$msg));
 		} else {
-	*/
-	{		// Your code here to handle a successful verification
+		// Your code here to handle a successful verification
 		
 		$arrArgs=array(
 		'userName'=>@$_REQUEST["user_name1"],
@@ -67,8 +66,7 @@ class Controller
 		$arrArgs=array('error_msg' => 	"User Already Exist valid" );
 		loadView("login1.php",$arrArgs);
 	}
-			
-	}
+		}
 	}
 
 	function error($key="",$index="")

@@ -5,8 +5,7 @@
 			parent::__construct();
 		}
 		public function home() {
-			
-			$notifications=loadModel("notification","fetchNotifications");
+		    $notifications=loadModel("notification","fetchNotifications");
 			loadView("notification.php",$notifications);
 		}
 	}
