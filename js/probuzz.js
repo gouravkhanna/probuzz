@@ -59,40 +59,46 @@ $(document).ready(function(e) {
     }
 	$("#createjobform").submit(function(){
 	    filterWhiteSpace("designation");
-	    filterWhiteSpace("location");
-	    filterWhiteSpace("role");
-	    filterWhiteSpace("experience");
-	    filterWhiteSpace("responsiblity");
-	    filterWhiteSpace("criteria");
-	    filterWhiteSpace("area_of_work");
-	    filterWhiteSpace("skills_required");
-	    filterWhiteSpace("contact_person");
-	    filterWhiteSpace("keywords");
-	    filterWhiteSpace("process_details");
-	    filterWhiteSpace("other_info");
-	    filterWhiteSpace("salary_range");
+        filterWhiteSpace("location");
+        filterWhiteSpace("role");
+        filterWhiteSpace("experience");
+        filterWhiteSpace("responsiblity");
+        filterWhiteSpace("criteria");
+        filterWhiteSpace("area_of_work");
+        filterWhiteSpace("skills_required");
+        filterWhiteSpace("contact_person");
+        filterWhiteSpace("keywords");
+        filterWhiteSpace("process_details");
+        filterWhiteSpace("other_info");
+        filterWhiteSpace("salary_range");
 
-	    
-		if(onlySpacesA("designation","Designation Can't Be Empty.")==true) {
-		    return false;
-		}
-		if(onlySpacesA("start_date","Start Date Can't Be Empty")) {
-		    return false;
-		}
-		if(!correctDate("start_date","Invalid Format For Start Date")) {
+        
+        if(onlySpacesA("designation","Designation Can't Be Empty.")==true) {
             return false;
         }
-		if(!correctDate("last_date","Invalid Format For Last Date")) {
+        if(onlySpacesA("start_date","Start Date Can't Be Empty")) {
+            return false;
+        }   
+        
+        if(!correctDate("start_date","Invalid Format For Start Date")) {
             return false;
         }
-		if(onlySpacesA("last_date","Last Date Can't be empty")) {
-		    return false;
-		}
-		if(!dateDifference1("start_date","last_date","Last Date Can't Be Less Than Or Equal To Start Date.")) {
-		    return false;
-		}
-		//if()
-		return true;
+        if(!correctDate("last_date","Invalid Format For Last Date")) {
+            return false;
+        }
+        if(onlySpacesA("last_date","Last Date Can't be empty")) {
+            return false;
+        }
+        if(!dateDifference1("start_date","last_date","Last Date Can't Be Less Than Or Equal To Start Date.")) {
+            return false;
+        }
+        if($("#phone_number").val().length<8 || $("#phone_number").val().length>12) {
+            if($("#phone_number").val().length!=0) {
+                setErrorMessage("#phone_number","Phone Number Must be Of 8-12 Digit")
+                return false;
+            }               
+         }
+        return true;
 	});
     $("#formalotslot").submit(function(){
         filterWhiteSpace("designation");
