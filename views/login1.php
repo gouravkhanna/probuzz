@@ -34,28 +34,12 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 					width="30px" /></span><span id="w12"> <img src="data/rcs/w.png"
 					height="30px" width="30px" />
 				</span><span id="e12" name="e12"> </span> <br /> <br> 
-				<a id="forgetpassword"  > <?php echo FORGET_PASSWORD; ?></a>
 				<input type="submit" id="login" name="url" value="buzzin" /> <br />
 				<br />
 				<p> <?php echo ACCOUNT_INFO; ?> <a id="signup" href="#"><?php echo SIGNUP;?> </a>
 				</p>
 			</div>
-			<div id="aelo">
-				<form id="forgotPasswordForm">
-					<hr/>
-					<div id="aelo1">
-						<?php echo TYPE_REGISTERED_USER_NAME;?>
-						<input type="text" name="forget_user_name" id="forget_user_name" />
-					    <input type="text" name="forget_email" id="forget_email" />
-					
-					</div>
-					
-					<!--<div id="aelo2">
-						Email ID
-						<input type="text" name="b">
-					</div>-->
-					<br/>
-					<input type="button" name="forgetnext" id="forgetnext" value="Next" />
+											
 				</form>
 			</div>
 		</form>
