@@ -161,7 +161,6 @@ class corporate extends DbConnection {
                     "subscribe_status" => '0'
             ) );
             $row3 = $result->fetch ( PDO::FETCH_ASSOC );
-            print_r($row3);
             $arrData = array (
                     "total_jobs" => $row1 ['COUNT(*)'],
                     "total_active_jobs" => $row2 ['COUNT(*)'],

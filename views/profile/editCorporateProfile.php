@@ -73,12 +73,7 @@
 		<?php echo COMPANY_WEBSITE;?><br/>
 		<textarea rows="2" name="website" cols="" class="corpinner"><?php echo $data['website']; ?></textarea>
 	</div><br><br><br>
-	<div class="corpouter">
-		<div class="corpinner">
-			<?php echo UPLOAD_COMPANY_DISPLAY_PIC;?>&emsp;&emsp;&emsp; <input type="file" name="profile_pic_id"/><input type="button" value="Upload"/>
-			<br/>
-		</div>
-	</div>
+	
 	<div class="corpouter">
 		<?php echo COMPANY_EMAIL_ID;?><br/>
 		<textarea rows="2" name="email_id" id="corpemail_id" cols="" class="corpinner"><?php echo $data['email_id']; ?></textarea>

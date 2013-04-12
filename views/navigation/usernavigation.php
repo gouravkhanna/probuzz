@@ -13,7 +13,7 @@
 	<div id="photo">
 		<img id="profilepic" title="" 
 		class="photo" src="<?php echo $arrData['profile_pic_path']; ?>" height="80" width="80"/>
-		<a  style="color:blue;" onclick="return openPhotoFancyBox()">Change Pic</a>
+		<!-- <a  style="color:blue;" onclick="return openPhotoFancyBox()">Change Pic</a> -->
 		<span class="alignwelcome" > <?php echo WELCOME; ?> <br />
         <?php //echo @$_SESSION['user_name'];
 				echo $arrData['user_name'];
@@ -51,6 +51,9 @@
 		</li>
 		<li id="umenu">
 			<a href="<?php echo ROOTPATH."index.php?controller=user&url=settings"; ?>"><?php echo SETTINGS;?></a>
+		</li>
+		<li id="umenu">
+			<a href="<?php echo ROOTPATH."index.php?controller=photo&url=profilePic"; ?>"><?php echo "CHANGE PROFILE PIC";?></a>
 		</li>
 	</ul>
 		<!-- APPLICATION STATUS -->

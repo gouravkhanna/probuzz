@@ -165,4 +165,65 @@ class photos extends DbConnection {
             return false;
         }
     }
+    function uploadProfilePic($arrArgs = array()) {
+        $_SESSION ['profilepic']="";
+        $valid_file = true;
+        print_r($_FILES);
+        if ($_FILES ['myfile'] ['name']) {
+            $allowedExts = array (
+                    "gif",
+                    "jpg",
+                    "png",
+                    "jpeg" 
+            );
+            $namess = "name";
+            $extension = end ( explode ( ".", @$_FILES ["myfile"] ["name"] ) );
+            if (in_array ( $extension, $allowedExts )) {
+                if (! $_FILES ['myfile'] ['error']) {
+                    $new_file_name = strtolower ( $_FILES ['myfile'] ['tmp_name'] ); // rename
+                                                                                // file
+                    if ($_FILES ['myfile'] ['size'] > (1024000))                     // can't be larger
+                                                              // than 1 MB
+                    {
+                        $valid_file = false;
+                       $_SESSION ['profilepic'] .= 'Oops!  Your file\'s size is to large.';
+                    }
+                    if ($valid_file) {
+                        
+                        $target_path = "data/photo/profilepic/";
+                        
+                        $target_path = $target_path . "profile" . $_SESSION ['id'] . basename ( $_FILES ['myfile'] ['name'] );
+                        
+                        if (move_uploaded_file ( $_FILES ['myfile'] ['tmp_name'], $target_path )) {
+                            $data = array (
+                                    'user_id' => strip_tags ( $_SESSION ['id'] ),
+                                    'photo_name' => "profilePic",
+                                    'path' => $target_path 
+                            );
+                            $result = $this->db->insert ( "photo", $data );
+                            if ($result && $result->rowCount () > 0) {
+                                $lastId = $this->db->lastInsertId ();
+                                $data=array("profile_pic_id"=>$lastId);
+                                $condition=array("user_id"=>$_SESSION['id']);
+                                $result = $this->db->update ( "personal_profile", $data,$condition );
+                                echo "Updated";
+                            } else {
+                                return false;
+                            }
+                            $_SESSION ['profilepic'] .= "Your Profile Pic is Changed Sucessfully";
+                        } else {
+                         $_SESSION ['profilepic'] .= "There was an error uploading the file, please try again!";
+                        }
+                    }
+                } 
+
+                else {
+                    // set that to be the returned message
+                    $message = 'Ooops!  Your upload error';
+                }
+            } else {
+                $_SESSION ['profilepic'] .= "Please Put a valid Extension";
+            }
+        }
+    }
 }

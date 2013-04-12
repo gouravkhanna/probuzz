@@ -49,5 +49,20 @@ class photo extends controller {
         loadView("photo/uploadPhoto.php");
         loadView("footer/footer.php");
     }
+    function uploadProfilePic(){
+        loadModel("photos","uploadProfilePic",array("id"=>$_SESSION['id']));
+    }
+    function profilePic(){
+        if(@$_REQUEST['profilepicupload']=="Upload") {
+            loadModel("photos","uploadProfilePic",array("id"=>$_SESSION['id']));
+        }
+        loadView("head/head1.php");
+        $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
+        $userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
+        loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
+        loadView("photo/uploadProfilePic.php");
+        loadView("footer/footer.php");
+       
+    }
     
 }
