@@ -8,7 +8,11 @@ class photo extends controller {
     function home() {
         loadView("head/head1.php");
         echo "<br/>";echo "<br/>";echo "<br/>";echo "<br/>";echo "<br/>";echo "<br/>";
-        loadView("photo/gallery.php");
+        $arrData=loadModel("photos", "loadPhoto",array("id"=>@$_SESSION['id']));
+        loadView("photo/gallery.php",$arrData);
+    }
+    function upload() {
+        loadModel("photos","uploadPhoto");
     }
     
     
