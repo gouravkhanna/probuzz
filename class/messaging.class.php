@@ -101,7 +101,8 @@ class messaging extends DbConnection {
     */
 	function insertMessage($arrArgs = array()) {
 		if (! empty ( $arrArgs )) {
-			$message_text=$arrArgs['message_text'];
+			$message_text=strip_tags($arrArgs['message_text']);
+			if($message_text!=" " && $message_text!="") {
 			$id=$arrArgs['id'];
 			$friendId=$arrArgs['friend_id'];
 			$data=array(
@@ -128,6 +129,9 @@ class messaging extends DbConnection {
 			}
 			else {
 				return false;
+			}
+			} else {
+			    echo "Empty MEssage ";
 			}
 		}
 	}

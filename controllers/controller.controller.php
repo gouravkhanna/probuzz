@@ -10,29 +10,30 @@ class Controller
 	/*handle the login request*/
 	function buzzin()
 	{
-//		$msg="";
-//		$flag=true;
-//		if(!@$_REQUEST["user_name"]) {
-//				$msg.="User Name Can't Be Empty.</br/>";
-//				$flag=false;
-//		}
-//		if(strlen(@$_REQUEST['user_name'])<6) {
-//            $msg.="User Name Should Be Atleast 6 Characters Long.<br/>";
-//            $flag=false;
-//        }
-//		if(!@$_REQUEST["password"]) {
-//				$msg.="Password Can't Be Empty.</br/>";
-//				$flag=false;
-//		}
-//		
-//		if(strlen(@$_REQUEST['password'])<6) {
-//            $msg.="Password Length Should Be Atleast 6 Characters Long.<br/>";
-//            $flag=false;
-//        }
-//		if(!$flag) {
-//		    $_SESSION['error_msg']=$msg;
-//		    loadView("login1.php");
-//		}
+		$msg = "";
+        if (@$_REQUEST ['url'] == "buzzin") {
+            $flag = true;
+            if (! @$_REQUEST ["user_name"]) {
+                $msg .= "*User Name Can't Be Empty.</br/>";
+                $flag = false;
+            }
+            if (strlen ( @$_REQUEST ['user_name'] ) < 6) {
+                $msg .= "*User Name Should Be Atleast 6 Characters Long.<br/>";
+                $flag = false;
+            }
+            if (! @$_REQUEST ["password"]) {
+                $msg .= "*Password Can't Be Empty.</br/>";
+                $flag = false;
+            }
+            if (strlen ( @$_REQUEST ['password'] ) < 6) {
+                $msg .= "*Password Length Should Be Atleast 6 Characters Long.<br/>";
+                $flag = false;
+            }
+            if (! $flag) {
+                $_SESSION ['error_msg'] = $msg;
+                loadView ( "login1.php" );
+            }
+        }
 		
 		$arrArgs= array(
 			'user_name' =>@$_REQUEST["user_name"],
@@ -41,13 +42,14 @@ class Controller
 		if(@$_REQUEST["user_name"] == "") {
 			loadView("login1.php");
 		}
-		else if(loadModel("users","login",$arrArgs)) {
+		else if($flag) {
 		    //on succesful login
+		    loadModel("users","login",$arrArgs);
 			header('location:index.php');
 		}
 		else {
 		    //on unsucceful attempt
-  			loadView("login1.php",$arrArgs);
+  			loadView ( "login1.php" );
 		}
 
 	}
@@ -178,7 +180,6 @@ class Controller
                         "user_name" =>$_REQUEST['user_name'],
                         "location" =>$_REQUEST['Location'],
                         "corp_email" =>$_REQUEST['corp_email'],
-                        "website" =>$_REQUEST['website'],
                         "company_password" =>$_REQUEST['company_password'],
                         "comp_confirm_pass" =>$_REQUEST['comp_confirm_pass'],
                 );

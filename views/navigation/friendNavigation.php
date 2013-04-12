@@ -36,7 +36,6 @@
 		</li>
 		<li id="umenu">
 		</li>
-			<a onclick="openBox()"><?php echo MESSAGE;?></a>
 		</ul>
 		<!-- APPLICATION STATUS -->
 		<!-- NOTIFICATION STATUS -->

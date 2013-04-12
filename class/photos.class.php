@@ -79,7 +79,7 @@ class photos extends DbConnection {
                                     return false;
                                 }
                                 
-                                echo "<br/> File Uploaded Successfully";
+                                echo "<br/> File Uploaded Successfully</br>";
                             } else {
                                 echo "<br/>File Upload Failed.";
                             }
@@ -333,7 +333,7 @@ class photos extends DbConnection {
                             } else {
                                 return false;
                             }
-                            $_SESSION ['profilepic'] .= "Your Profile Pic is Changed Sucessfully";
+                            $_SESSION ['profilepic'] .= "Your Cover is Changed Sucessfully";
                         } else {
                             $_SESSION ['profilepic'] .= "There was an error uploading the file, please try again!";
                         }

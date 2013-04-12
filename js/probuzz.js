@@ -341,6 +341,9 @@ function fnOnLoadJobs() {
 function insertMessage() {
 var message_text=$("#message_text").val();
 	a=$("#friendz").val();
+	if(onlySpacesA("message_text","Message Can't Be Empty.")==true) {
+         return false;
+     }
 	$.ajax({
 		type:"POST",
 		url:'index.php',
@@ -349,8 +352,7 @@ var message_text=$("#message_text").val();
 			  $("#insert").html(data);
 			  $("#message_text").val("");
 			  showMessage();
-			  closeFancy();
-	  }
+		  }
 	});
 }
 /*Display the list of the senders*/
@@ -369,7 +371,7 @@ function showSender() {
 	});
 	
 }
-/*Display trhe message of the particulkar user*/
+/*Display the message of the particulkar user*/
 function showMessage(a) {
 	
 	if(a==undefined) {

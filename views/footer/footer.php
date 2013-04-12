@@ -1,7 +1,8 @@
 
 
 <div id="footer" >
-<footer> <?php echo COPYRIGHTS;?>  </footer>
+<footer> <?php echo COPYRIGHTS;?>
+<a href="<?php echo ROOTPATH."aboutus"; ?>">ABOUT US</a>  </footer>
 
 </div>
 

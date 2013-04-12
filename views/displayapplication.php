@@ -2,7 +2,7 @@
 	<div id="sjsearchres">
 <?php
 
-if (! empty ( $arrData )) {
+if (! empty ( $arrData ) && $arrData[0]['id']!="") {
     foreach ( $arrData as $key => $val ) {
         if ($val ['id'] != "") {
             $res = " <div id='sjresultrow' class=floatl> ";
@@ -15,7 +15,10 @@ if (! empty ( $arrData )) {
             $res .= "</div>";
             echo $res;
         }
+       
     }
+} else {
+echo NRF;
 }
 ?>
 
