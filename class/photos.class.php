@@ -5,6 +5,7 @@ class photos extends DbConnection {
     function __construct() {
         parent::__construct ();
     }
+    /*Load all the photos*/
     function loadPhoto($arrArgs=array()) {
         $data['tables']="photo";
         $data['conditions']=array(
@@ -29,6 +30,7 @@ class photos extends DbConnection {
             return false;
         }
     }
+    /*Upload photo*/
     function uploadPhoto() {
             
         $size = 0;
@@ -91,6 +93,7 @@ class photos extends DbConnection {
             } // end of for loop
         }
     }
+    /*Load photo comment*/
     function loadPhotoComment($arrArgs = array(), $flag = false) {
         $ob = new DbConnection ();
         $buzz_id = $arrArgs ['photo_id']; // retive all comments of this buzz ID
@@ -141,6 +144,7 @@ class photos extends DbConnection {
         // code for retriving comments
         // and return in array
     }
+    /*Insert comment on photo*/
     function insertComment($arrArgs = array()) {
         if (! empty ( $arrArgs )) {
     
@@ -165,6 +169,7 @@ class photos extends DbConnection {
             return false;
         }
     }
+    /*Upload profile picture*/
     function uploadProfilePic($arrArgs = array()) {
         $_SESSION ['profilepic']="";
         $valid_file = true;
@@ -226,6 +231,7 @@ class photos extends DbConnection {
             }
         }
     }
+    /*Upload corporate profile picture*/
     function uploadCorpProfilePic($arrArgs = array()) {
         $_SESSION ['profilepic']="";
         $valid_file = true;
@@ -288,6 +294,7 @@ class photos extends DbConnection {
             }
         }
     }
+    /*Upload header*/
     function uploadHeader($arrArgs = array()) {
         $_SESSION ['profilepic']="";
         $valid_file = true;
