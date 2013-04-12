@@ -37,7 +37,7 @@ class users extends DbConnection {
             $row = $result->fetch ( PDO::FETCH_ASSOC );
 
             $this->current_status = $row ["current_status"];
-            echo $this->current_status;
+         
             if ($row ['user_name'] == $this->userName && ($row ['password']) == md5($this->password)) {
                 $this->type = $row ["type"];
                 $flag=1;
@@ -52,9 +52,24 @@ class users extends DbConnection {
              $_SESSION['error_msg']=	"You Account is Banned Permanently!
                                          Due to Suspicious Activities! <br/>
                                          Contact Admin for any issue!" ; 
-        } else if ($this->current_status == '1' && $flag=='1') {
-            $_SESSION['error_msg']=	"Your Account is  Deactivated! 
-                                    Please use Forget Password to reactiate it";         
+         } else if ($this->current_status == '1' && $flag=='1') {
+                $data=array("current_status"=>'0');
+                $condition=array(
+                        "user_id"=>$this->getId ( $this->userName )
+                    );
+                $result = $this->db->update ( "users", $data, $condition );
+                if ($result && $result->rowCount () > 0) {
+                    $_SESSION['error_msg']="Your Account is  Reactivated!
+                         Please Continue Login";
+                    return true;
+                } else {
+                    $_SESSION['error_msg']="Your Account is Deactivated!
+                         Please Contact Admin";
+                  return false;
+                }
+                  
+        } else if ($this->current_status == '4' && $flag=='1') {
+            $_SESSION['error_msg']=	"Your Admin Account is  Deactivated!";         
         }else if ($this->current_status == '2' && $flag=='1') {
            
             $data1['tables']="spams";
@@ -69,8 +84,7 @@ class users extends DbConnection {
             
             $row = $result->fetch ( PDO::FETCH_ASSOC );
           echo $s=date("dG",(time()-$row['ttime']));
-           //echo $s;
-           if($s<=24){
+          if($s<=24){
                $_SESSION['error_msg']=	"Your Account is Banned for 1 Day!
                                     Please Login after 
                                    ".(24-$s)." hour Left for Ban Lift";

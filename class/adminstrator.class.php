@@ -119,11 +119,9 @@ class adminstrator extends DbConnection {
             
             $result = $this->db->update ( "users", $data, $condition );
             if ($result && $result->rowCount () > 0) {
-                echo "aa";
                 return true;
             } else {
-                echo "NooooS";
-                return false;
+               return false;
             }
         }
     }
