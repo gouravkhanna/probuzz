@@ -4,6 +4,7 @@ class friend extends DbConnection {
     function __construct() {
         parent::__construct ();
     }
+    /*Show friend of user*/
 	function showfriend($arrArg=array()) {
 		
 		$ob=new DbConnection();
@@ -45,7 +46,7 @@ class friend extends DbConnection {
 			return false;
 		}
 	} 
-
+/*Fetch status of friendship*/
 	function fetchStatus($arrArg=array()) {
 		
 		if($arrArg) {
@@ -72,6 +73,7 @@ class friend extends DbConnection {
 			return $row['status'];
 		}
 	}
+	/*Send Friend request*/
 	function sendRequest($arrArg) {
 		 if($arrArg) {
 			$ob=new DbConnection();
@@ -101,6 +103,7 @@ class friend extends DbConnection {
 			}
 		} 
 	}
+	/*Accpet Request*/
 	function acceptRequest($arrArg) {
 		
 		if($arrArg) {
@@ -148,6 +151,7 @@ class friend extends DbConnection {
 			} 
 		}
 	}
+	/*Decline Request*/
 	function declineRequest($arrArg) {
 		
 		if($arrArg) {
@@ -161,6 +165,7 @@ class friend extends DbConnection {
 			}
 		}
 	}
+	/*Show all request*/
 	function showRequests($arrArg=array()) {
 		
 		if($arrArg) {
@@ -201,6 +206,7 @@ class friend extends DbConnection {
 			return $requests;
 		}
 	}
+	/*Get profile pic*/
 	function getProfilePic($arrArg=array())	{
 		//echo "hello";
 		$ob=new DbConnection();
@@ -211,6 +217,7 @@ class friend extends DbConnection {
 		$row=mysql_fetch_array($res);
  		return ROOTPATH.$row['path'];
 	}
+	/*Get type */
 	function getType($arrArg=array()) {
 		if($arrArg) {
 			$ob=new DbConnection();
