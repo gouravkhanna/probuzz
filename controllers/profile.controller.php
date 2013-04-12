@@ -37,8 +37,27 @@ class profile extends Controller {
 			header("location:".ROOTPATH."/index.php?controller=profile");
 	
 		}
+
+		/*if(isset($_GET['delete_contact']))
+		{
+
+			$arrArgs= array('i'=>@$_GET["neid"], );
+			$arrData=loadModel("personalprofile","delete_contact",$arrArgs);
+			header("location:".ROOTPATH."/index.php?controller=profile");
+		}*/
 	}
 	
+	function tagline(){
+         if($_GET['url']=='tagline'){
+         	$arrArgs=array(
+	       'about_myself'=>@$_GET["about"],
+	                );
+    $arrData=loadModel("personalprofile","insertabout",$arrArgs);
+	header("location:".ROOTPATH."/index.php?controller=profile");
+
+         }
+
+	}
 	function new_Con(){
 	if($_GET['url']=='new_Con'){
 	

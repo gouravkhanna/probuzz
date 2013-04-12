@@ -184,7 +184,6 @@ text-align: center;
 font-family:Geneva, Arial, Helvetica, sans-serif;
 font-size:20px;
 
-
 }
 .m
 {
@@ -410,6 +409,17 @@ display:none;
 border-radius:20px;
 -webkit-border-radius: 20px;
 }
+#edit_about{
+min-height:200px;
+height:auto;
+width:400px;
+background-color:#FFF;
+margin:0px auto;
+display:none;
+border-radius:20px;
+-webkit-border-radius: 20px;
+
+}
 #editchead {
 	
 	width:auto;
@@ -543,7 +553,7 @@ width:auto;
 	font-size:1.4em;
 	border-radius-top:20px;
 }
-#close,#close1,#close2,#close3,#close4,#close5,#close6
+#close,#close1,#close2,#close3,#close4,#close5,#close6,#close7
 {
 float:right ;
 font-weight: bold;

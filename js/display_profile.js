@@ -48,6 +48,13 @@ $(document)
                         $("#bigmid").css("background-color", "white");
 
                     });
+                     $("#close7").click(function() {
+                        $("#edit_about").hide();
+                        $("#2").css("opacity", "5");
+                        $("#bigmid").css("background-color", "white");
+
+                    });
+
 
                     $("#close1").click(function() {
 
@@ -128,6 +135,13 @@ $(document)
                         $("#2").fadeTo("fast", 0.1);
                         $("#bigmid").css("background-color", "lightgray");
                     });
+                      $("#editAbout").click(function() {
+
+                        $("#edit_about").show();
+                        $("#2").fadeTo("fast", 0.1);
+                        $("#bigmid").css("background-color", "lightgray");
+                    });
+
 // //////////////////////////////////////////////
 // /////////////////RAHUL
                     $("#submitCon1").click(function () {

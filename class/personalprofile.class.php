@@ -154,6 +154,17 @@ class personalprofile extends DbConnection {
             return false;
         }
     }
+
+   /* function delete_contact($arrArgs=array())
+    {
+       $i=$arrArgs['i'];
+        $where = array (
+                'id' => "$i", 
+        );
+         if ($this->db->update ( 'address',$where )) {
+            echo "Deleted sucessfully";
+        }
+    }*/
     function upInfo($arrArgs = array()) {
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
@@ -214,6 +225,26 @@ class personalprofile extends DbConnection {
         }
     }
 
+function insertabout($arrArgs = array()){
+     $ob = new DbConnection ();
+      $id = $_SESSION ['id'];
+ $tagline =strip_tags($arrArgs ['about_myself']);
+ $data = array (
+                
+                "about_myself" => "$tagline",);
+  $where = array (
+                'user_id' => "$id" 
+        );
+ 
+        if ($this->db->update ( 'personal_profile', $data, $where )) {
+            echo "updated sucessfully";
+            return true;
+        } else {
+            
+            echo "some problem is occured while updating. We will correct it soon. ";
+            return false;
+        }
+}
     function insertCon($arrArgs = array()){
         
         $id = $_SESSION ['id'];

@@ -21,7 +21,9 @@
      ?>
    <form method="get" action="" id="contactform">
     
-     <b><?php echo HOUSE_NO;?> </b>  <br>
+     <b><?php echo HOUSE_NO;?> </b><!--   <input type="image" title="Delete" name="delete_contact" role="submit" onClick="deleteContact($arrData['address'][$i]['id'])" class="floatr" src="<?php echo SITE_PATH.'data/rcs/'.'delete.gif'; ?>"/> -->
+       
+    <br>
      <input type="text" id="ehno_<?php echo $i;?>" name="ehno" width="50px"
      value= "<?PHP echo $arrData['address'][$i]['house_number']; ?>" > <br>
      <b><?php echo STREET_NO;?></b>
@@ -45,7 +47,7 @@
  <input type="text" id="ecountry_<?php echo $i;?>" name="ecountry" 
     value= "<?PHP echo $arrData['address'][$i]['country']; ?>" >
     <input type=hidden value="<?php  echo $arrData['address'][$i]['id']; ?>" id='neid'name ='neid'> 
-     <input type=hidden value=edit_Con name=url> 
+    <input type=hidden value=edit_Con name=url> 
    <input type=hidden value=profile name=controller><br>
    <input type="submit" id="submitCon" value="Save Me" onclick="return validateEditAddress(<?php echo $i;?>)" name=submit > 
    <br> <br> 
@@ -191,7 +193,20 @@
 
  </div>
  
- 
+  <div id="edit_about" name="edit_about" >
+     <div id="editehead" ><?php echo TELL;?><span id="close7"> X</span></div>
+      <div id="innere">
+   <form method="get" action="" name="newE" ><br> 
+    <textarea id='about' name='about' row="3" cols="30" class="floatl marginl10" placeholder="Your Tagline"></textarea>
+      <input type=hidden value=tagline name=url> 
+ <input type=hidden value=profile name=controller><br><br>
+  <input type="submit" id="submitabout" value="Save Me" name=submit class='floatr marginr10' /> 
+
+   </form>
+
+</div>
+
+ </div>
  
 <!--    Add education code ends here-->
  <!--  Main div for   -->
@@ -217,8 +232,10 @@
        ?>
 
    </div>
-   </div>
-   </div>
+    <a href="#" id="editAbout" name="editAbout" class='floatr fontsize16'> Edit </a>
+  <br> </div><br>
+   
+   <br></div>
    <div id="basicInfo" name="basicInfo" class="b">
 
              <?php echo BASIC_INFORMATION;?>

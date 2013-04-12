@@ -337,4 +337,5 @@ define("BAN_4_1_DAY","Ban For 1 Day");
 define("FRND_MESSAGE","Send Message To Friend. ");
 define("PROFFESIONAL _PROFILE","Proffesional Profile ");
 define("FRIEND_REQUEST","Friend Request From ");
+define("TELL","Tell Us About Your Self");
 ?>
