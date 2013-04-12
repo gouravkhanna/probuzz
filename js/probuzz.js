@@ -256,7 +256,7 @@ function fncreatejob()  {
 		$(x).html("<img src='data/photo/load5.gif' height=30 width=100>");
 		$("#smsg").load("index.php","controller=corporatecontroller&url=updateStatusJob&status="+status+"&jobId="+jobId).fadeIn("fast").fadeOut(5000).delay(1000);	
 		$("#showAllSlot").delay(1000).load("index.php","url=showAllJobs");
-
+	}
 /*Load Jobs and status on display application*/ 
 	function fnLoadJobUser2(a) {
 		//check the status of the job and show button or message accordingly
