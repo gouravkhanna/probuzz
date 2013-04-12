@@ -4,7 +4,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 ?>
 <script src="js/jquery-1.9.1.min.js"></script>
 <link rel="stylesheet" href="style/f1.css" />
-
+<script type="text/javascript" src="<?php echo ROOTPATH."js/login.js"; ?> "></script>
 
 </head>
 <body>

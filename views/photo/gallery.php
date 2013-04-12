@@ -9,9 +9,9 @@
 			$('.flexslider').flexslider();
 		});
 	</script>
-	
+	<br> 
 	<a href="<?php echo ROOTPATH."photo/newPhoto";?>" >Upload New Photos</a>
-	
+	<br><br>
 	<div class="flexslider">
 	    <ul class="slides">
 	    <?php 

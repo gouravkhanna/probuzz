@@ -180,7 +180,19 @@ span
 visibility: hidden;
 border-color: transparent;	
 }
-#e1,#e2,#e3,#e4,#e5,#e6
+#r11,#r12{
+visibility: hidden;
+border-color: transparent;  
+float: right;
+margin-top: -30px;
+}
+#w11,#w12{
+visibility: hidden;
+border-color: transparent;  
+float: right;
+}
+
+#e1,#e2,#e3,#e4,#e5,#e6,#e11,#e12
 {
 visibility:hidden;
 color:#FF0000;
@@ -189,9 +201,12 @@ margin-left:50px;
 
 #errmsg
 {
- width: auto;
+width: auto;
+float: right;
 font-size: 20px;
-color:yellow;
+margin-top:350px;
+margin-right:100px;
+color::#FF0000;
 }
 #slideshow{
    
