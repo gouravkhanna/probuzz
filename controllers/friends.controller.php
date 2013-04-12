@@ -126,5 +126,20 @@ class friends extends Controller
 		$friendId=$_REQUEST['friendId'];
 		$result=loadModel("friend","declineRequest",$friendId);
 	}
+	function friendPhoto(){
+	    if(isset($_REQUEST['id'])) {
+	        $id=$_REQUEST['id'];
+	    }
+	    else {
+	        $id=$_SESSION['id'];
+	    }
+	    loadView("head/head1.php");
+	    $path=loadModel("users","getProfilePic",array("id"=>$id));
+	    $userName=loadModel("users","fetchName",array("id"=>$id));
+	    loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
+	    $arrData=loadModel("photos", "loadPhoto",array("id"=>$id));
+	    loadView("photo/gallery.php",$arrData);
+	    loadView("footer/footer.php");
+	}
 }
 ?>

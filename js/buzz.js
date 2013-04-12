@@ -75,9 +75,42 @@ function setComment(a){
                         },
                 });
     }
+
+function setPhotoComment(a){
+    var b="#comment"+a; // comment id
+    var z=$(b).val();
+    var x="#dvcomment"+a;
+   // onlySpacesA
+                $.ajax({
+                    url:'index.php', //window.location.pathname,
+                    type: 'POST',
+                    data: 'controller=photo&url=insertComment&photo_id='+a+'&comment_text='+z,
+                        beforeSend:function(data){
+                        $(x).html("<img src='data/photo/load3.gif' alt='loading' >");                   },
+                        success:function(data) {
+                            //load buzz after Insert
+                            $(b).val(" ");
+                            $(x).load("index.php","controller=photo&url=displaycomment&photo_id="+a);
+                        },
+                });
+    }
+
+function loadPhotoComment(a) {
+    //alert(a);
+    var x="#dvcomment"+a;
+         $.ajax({
+                     url:'index.php', //window.location.pathname,
+                     type: 'POST',
+                     data: 'controller=photo&url=displaycomment&photo_id='+a,
+                         beforeSend:function(data){
+                         $(x).html("<img src='data/photo/load3.gif' alt='loading' >");                   },
+                         success:function(data) {
+                             $(x).html(data);
+                         },
+                 });
+}
 function buzzDelete(a) {
-   alert(a);
-    if(confirm("Sure You want to Delete,\n It Wont Come Back!")) {   
+   if(confirm("Sure You want to Delete,\n It Wont Come Back!")) {   
         b="#buzz"+a;
         $(b).slideUp("slow");
         c="#buzzdel"+a;
@@ -118,7 +151,6 @@ function buzzLike(a) {
     $(btn2).show();
 }
 function markBuzzSpam(a) {
-    // alert(a);
     if(confirm("Sure You want to Mark Spam,\n Review may Take time!")) { 
         c="#buzzdel"+a;
         $(c).html("Are You Sure!");
@@ -127,7 +159,6 @@ function markBuzzSpam(a) {
       }   
  }
 function markUserSpam(a) {
-    alert(a);
     if(confirm("Sure You want to Mark Spam,\n Review may Take time!")) {
         c="#spamuser";
         $(c).html("Are You Sure!");

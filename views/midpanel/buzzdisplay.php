@@ -3,24 +3,32 @@
 
 $count = 1;
 if (! empty ( $arrData )) {
-    foreach ( @$arrData as $row ) {
-        
+    foreach ( @$arrData as $row ) { 
         $pa = @$row ['buzz'] ['path'];
         $date = @strtotime ( $row ['buzz'] ['buzz_time'] );
         $buzzId=$row['buzz']['buzz_id'];
         echo '<div id=buzzdel' . $buzzId.'></div>';
         echo '<div id=buzz' . $buzzId.'>';
         echo '<div id="statusimg' . $count . '"class="statusimg">';
-        echo "<a href='index.php?controller=friends&url=friendsProfile&friendId=" . $row ['buzz'] ['id'] . "' >";
-        echo "<img class='round5' src='" .ROOTPATH. $pa . "' height='50px' width='50px'/></a></div>";
-        echo '<div id="statusName' . $count . '"class="statusName"> <a href="   ">';
+        
+        if($row['type']==0) {
+             echo "<a href='index.php?controller=friends&url=friendsProfile&friendId=" . $row ['buzz'] ['id'] . "' >";
+        } else if($row['type']==1) {
+            echo "<a href='".ROOTPATH."index.php?controller=corporatecontroller&url=showProfile&corpId=". $row ['buzz'] ['id'] . "' >";
+        }
+        else{
+          echo "<a>";
+        }
+        //echo "<a href='index.php?controller=friends&url=friendsProfile&friendId=" . $row ['buzz'] ['id'] . "' >";
+        echo "<img class='round5' src='" .ROOTPATH. $pa . "' height='50px' width='50px'/></div>";
+        echo '<div id="statusName' . $count . '"class="statusName"> ';
         echo $row ['buzz'] ['first_name'] . " " . $row ['buzz'] ['last_name'] . "</a>";
-        if( $row ['buzz'] ['id']==@$_SESSION['id']) {
+       if( $row ['buzz'] ['id']==@$_SESSION['id']) {
             echo "<span class='floatr marginr10 cursor1' onclick=buzzDelete('$buzzId')>X   </span>";
         } else {
             echo "<span class='floatr marginr10 cursor1' onclick=markBuzzSpam('$buzzId')>
                   SPAM
-                    </span>";
+             </span>";
         }
         echo "<span class='date' title='".date('H:i:A',$date)."'>" . date ( 'D-M-Y', $date ) . "</span></div>";
         echo '<div id="statusText' . $count . '"class="statusText">' . $row ['buzz'] ['buzztext'];
@@ -51,8 +59,8 @@ if (! empty ( $arrData )) {
                 echo '<br><div id="cmmnt' . $commentId . '"class="comments"><span class="x">';
                 echo "<img class='round5 imgcenterm' src='" .ROOTPATH. $value ['path'] . "' height='30px' width='30px'/>";
                 echo "<a href='" . ROOTPATH . "index.php?controller=friends&url=friendsProfile&friendId=" . $value ['user_id'] . "' >";
-                echo $value ['first_name'] . " " . $value ['last_name'];
-                echo "</a>";
+                    echo $value ['first_name'] . " " . $value ['last_name'];
+                    echo "</a>";
                 echo "<span class='spancomment'> ";
                 echo $value ['comment_text'];
                 $timeAgo=time_elapsed ($value['comment_time']);
@@ -86,7 +94,7 @@ if (! empty ( $arrData )) {
         echo "</div>";
     }
 } else {
-    echo NO_BUZZ_TO_DISPLAY;
+    //echo NO_BUZZ_TO_DISPLAY;
 }
 
 ?>

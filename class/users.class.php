@@ -283,11 +283,16 @@ class users extends DbConnection {
                     c.company_name,pp.path 
                     from corporate_profile c 
                     join photo pp 
-                    where c.profile_pic_id=pp.id AND ( ";
+                    on c.profile_pic_id=pp.id 
+                    join users u 
+                    on u.user_id=c.user_id
+                    where
+                    ( u.type='1' ) AND
+                     ( ";
             
             foreach ( $search as $value ) {
                 if ($value != "") {
-                    $sql .= " c.company_name like '$value%' OR";
+                    $sql .= " c.company_name like '%$value%' OR";
                 }
             }
             $sql = rtrim ( $sql, "OR" );
@@ -701,6 +706,16 @@ class users extends DbConnection {
         $result = $this->db->select ( $data );
         $row = $result->fetch ( PDO::FETCH_ASSOC );
         return ROOTPATH . $row ['path'];
+    }
+    function getType($id=""){
+        if($id!="") {
+            $data1['tables']="users";
+            $data1['columns']=array("type");
+            $data1['conditions']=array("user_id"=>$id);
+            $result=$this->db->select($data1);
+            $res=$result->fetch(PDO::FETCH_ASSOC);
+             return $res['type'];
+        }
     }
 }
 

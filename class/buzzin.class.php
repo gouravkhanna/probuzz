@@ -119,6 +119,7 @@ function commentDelete($arrArg = array()) {
         while ( $row = $result->fetch ( PDO::FETCH_ASSOC ) ) {
             $row2 = array ();
             $buzzId = $row ['buzz_id'];
+            
             $row2 = $this->loadComment ( array (
                     "buzz_id" => $buzzId 
             ), true );
@@ -126,10 +127,13 @@ function commentDelete($arrArg = array()) {
                     "id"=>$id,
                     "buzz_id" => $buzzId 
             ));
+            $row5=loadModel("users","getType",$row['id']);
+           
             $buzz [] = array (
                     "buzz" => $row,
                     "comment" => $row2,
-                    "like"=>$row3, 
+                    "like"=>$row3,
+                    "type"=>$row5, 
             );
             $row = array ();
         }
@@ -285,10 +289,12 @@ function commentDelete($arrArg = array()) {
                     "id"=>$id,
                     "buzz_id" => $buzzId
             ));
+            $row5=loadModel("users","getType",$row['id']);
             $buzz [] = array (
                     "buzz" => $row,
                     "comment" => $row2,
                     "like"=>$row3,
+                    "type"=>$row5,
             );
             $row = array ();
         }

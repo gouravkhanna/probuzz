@@ -32,7 +32,7 @@
 			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=showfriend&id=".$arrData['id']; ?>"><?php echo FRIENDS;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=photos"; ?>"><?php echo PHOTOS;?></a>
+			<a href="<?php echo ROOTPATH."index.php?controller=friends&url=friendPhoto&id=".$arrData['id']; ?>"><?php echo PHOTOS;?></a>
 		</li>
 		<li id="umenu">
 		</li>

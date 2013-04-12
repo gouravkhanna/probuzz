@@ -1,4 +1,4 @@
-<?php //print_r($arrData); ?>
+
 <div id="bigmid">GALLERY
 <script src="flex/jquery.flexslider-min.js"></script>
 <link rel="stylesheet" href="flex/flexslider.css" type="text/css" media="screen" />
@@ -6,25 +6,71 @@
 		$(window).load(function() {
 			$('.flexslider').flexslider();
 		});
-		function asas(){
-alert("ASA");
-			}
 	</script>
+	
+	<a href="<?php echo ROOTPATH."photo/newPhoto";?>" >Upload New Photos</a>
+	
 	<div class="flexslider">
 	    <ul class="slides">
 	    <?php 
 	    $i=0;
-	    foreach($arrData as $val ) {
+	    if(isset($arrData)) {
+ 	    foreach($arrData as $val ) {
+            if($val['path']!="") {
 	        echo "<li>";
 	        echo "<img id='imggal' align='center' src='".$val['path']."' />";
 	        echo "	<p class='flex-caption'>
-                <button class=floatr onclick='asas()' >asa</button></p>";
-
-	        echo "<br/>a<br/>a<br/>a<br/>";
+	        <input type='button' id='". $val['id'] ."' onclick='loadPhotoComment(this.id)'value='Load Comments' >
+	        </p>";
+	         
+	        echo "<div id='dvcomment" . $val ['id'] . "' >";
+	         
+	        foreach ( $val['comment'] as $value ) {
+	            $c = 1; break;
+	            echo "<br>";
+	            if (is_array ( $value )) {
+	                $commentId=$value['id'];
+	                echo '<div id=commentdel' . $commentId.'></div>';
+	                echo '<br><div id="cmmnt' . $commentId . '"class="comments"><span class="x">';
+	                echo "<img class='round5 imgcenterm' src='" .ROOTPATH. $value ['path'] . "' height='30px' width='30px'/>";
+	                echo "<a href='" . ROOTPATH . "index.php?controller=friends&url=friendsProfile&friendId=" . $value ['user_id'] . "' >";
+	                echo $value ['first_name'] . " " . $value ['last_name'];
+	                echo "</a>";
+	                echo "<span class='spancomment'> ";
+	                echo $value ['comment_text'];
+	                $timeAgo=time_elapsed ($value['comment_time']);
+	                if($timeAgo=="") {
+	                    $timeAgo="Just Now";
+	                }
+	                echo "</span><span class=floatr title='".date('d-M-Y',$value['comment_time'])."'>".$timeAgo."</span>";
+	                if( $value['user_id']==@$_SESSION['id']) {
+	                     
+	                    echo "<span class='floatr marginr10 cursor1' onclick=commentDelete('$commentId')>X   </span>";
+	                }
+	                echo "</div>";
+	                $c++;
+	            }
+	            }
 	        
-	    
+	            echo "</div>";   
+	         
+	            echo "<input type=hidden value=comment name=url />";
+	            echo "<input type=hidden value=status name=controller /><br>";
+	            echo "<input type=hidden value=" . $val ['id']  . " id=buzz_id name=buzz_id >";
+	            
+	            echo '<br><input type="text" id="comment' . $val ['id'] . '" name=comment_text
+                   		  class="comment"
+ 	                        		  placeholder="Post Comment..." />';
+	            echo '<input type="button" id="' . $val['id'] . '"
+		value="Comment" name=submit onclick=setPhotoComment(this.id) class="submit"> ';
+	            
+	            echo "<br/><br/><br/><br/><br/><br/><br/><br/><hr>";
 	        echo "</li>";
-	    }
+	        }
+	    } 
+	    } else {
+        echo NRF;
+    }
 	    ?>
 	    	<!-- <li>
 	    		<img src="flex/demo-stuff/inacup_samoa.jpg" /><p class="flex-caption">Captions and cupcakes. Winning combination.</p>
@@ -41,48 +87,4 @@ alert("ASA");
 	    	</li> -->
 	    </ul>
 	  </div>
-<form id="form3" action="" method="POST"
-		enctype="multipart/form-data">
-		<div id="pLoad"></div>
-		<div id="a">
-			<input type="file" name="resume1[]" id="file" multiple="multiple"> 
-		</div>
-		<input type="submit" onsubmit="return false;">
-		 
-	</form>
-
 </div>
-<script type="text/javascript">
-var i=1;
-function addUpload()
-{
-	i=i+1;
-	if(i<25)
-	$("#a").append("<input type='file' name='resume"+i+"[]'  multiple='multiple' >New Name <input type='type' name='file"+i+"' > <br/>");
-}
-
-$("form#form3").submit(function(){
-
-    
-  //  $.post("test2.php",( $('#form3').serialize(), { 'url': '10' }));
-
-	var formData = new FormData($(this)[0]);
-	formData.append("size",i);	
-    $.ajax({
-        url:'index.php?controller=photo&url=upload', //window.location.pathname,
-        type: 'POST',
-        data: formData,//+"&url="+10,
-        beforeSend:function(data){
-    		$("#pLoad").html("<img src='http://localhost/probuzz/trunk/data/photo/load3.gif' alt='loading' >");		    
-		},
-         success: function (data) {
-            $("#pLoad").html(data);
-        },
-        cache: false,
-        contentType: false,
-       processData: false
-    });
-
-    return false;
-});</script>
-</script>
