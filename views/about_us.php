@@ -83,7 +83,7 @@ if(isset($arrData))
 
 <div id="contact">
 	<h2>Contact Me</h2>
-	<form action="#" method="post">
+	<form name="contact_us" id="contact_us" action="#" method="post">
 		<ul>
 			<li>
 				<label for="name"><?php echo NAME;?> </label>
@@ -105,7 +105,7 @@ if(isset($arrData))
                  </div>
                  </li>
 			<li>
-				<input type="submit" value="Submit" name="contactus">
+				<input type="submit" id="contact_us_submit" value="Submit" name="contactus">
 			</li>
 		</ul>
 	</form>
@@ -116,7 +116,48 @@ if(isset($arrData))
 
 <script>
 
+function onlySpacesA(input,msg) {
+	input="#"+input;
+	str=$(input).val();
+	temp=str.replace(/\s/g,"");
+	if(temp.length<1) {
+		$(input).css("background-color","#cff993");
+		$(input).val('');
+		$(input).attr("placeholder",msg);
+		$(input).focus();
+		return true;
+	   }  else {
+			 return false;
+	}
+}
+
 $(function() {
+	$("#contact_us").submit(function() {
+		if(!$("#name").val()){
+			$("#name").attr("placeholder","This Field Can't Be Empty.");
+		    $("#name").css("background-color","#cff993");
+			$("#name").focus();
+			return false;
+		}
+		if(onlySpacesA("name")) {
+			
+		}
+		if(!$("#email").val()){
+			$("#email").attr("placeholder","This Field Can't Be Empty.");
+		    $("#email").css("background-color","#cff993");
+			$("#email").focus();
+			return false;
+		}
+		if(!$("#comments").val()){
+			$("#comments").attr("placeholder","This Field Can't Be Empty.");
+		    $("#comments").css("background-color","#cff993");
+			$("#comments").focus();
+			return false;
+		}
+		return true;
+		
+	});
+		
 	
 $('html').addClass('js');
 

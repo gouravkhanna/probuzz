@@ -338,6 +338,9 @@ define("FRND_MESSAGE","Send Message To Friend. ");
 define("PROFFESIONAL _PROFILE","Proffesional Profile ");
 define("FRIEND_REQUEST","Friend Request From ");
 define("TELL","Tell Us About Your Self");
+define("UPLOAD_CORP_PIC","Upload Corp Pic");
+define("CHANGE_PROFILE_PIC","Change Profile Pid");
+define("CHANGE_HEADER","Change Header");
 define("APPLICATIONS ","Application");
 
 ?>

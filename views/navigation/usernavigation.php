@@ -1,15 +1,4 @@
 <div id="navigation">
-		<div class="fancybox1">
-				<div class="box1">
-				<form id="imageUploadForm" action="<?php echo ROOTPATH;?>index.php?controller=proprofile&url=uploadResume"
-				method="post" enctype="multipart/form-data" target="photo_upload_target" onsubmit="" >
-					<input type="file" name="profile_pic"  />
-					<input type="submit" onclick="" id="profile_pic_change" value="Set Profile Pic" /> <br/>
-				    <input type="button" class="floatr" value="Close" onclick="closeFancy()" />
-					</form>
-					<iframe id="photo_upload_target" name="upload_target" src="#" style="width:0;height:0;border:0px solid #fff;"></iframe>
-				</div>
-		</div>
 	<div id="photo">
 		<img id="profilepic" title="" 
 		class="photo" src="<?php echo $arrData['profile_pic_path']; ?>" height="80" width="80"/>
@@ -48,10 +37,10 @@
 			<a href="<?php echo ROOTPATH."index.php?controller=photo"; ?>"><?php echo PHOTOS;?></a>
 		</li>
 	    <li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=photo&url=profilePic"; ?>"><?php echo "CHANGE PROFILE PIC";?></a>
+			<a href="<?php echo ROOTPATH."index.php?controller=photo&url=profilePic"; ?>"><?php echo CHANGE_PROFILE_PIC;?></a>
 		</li>
 		<li id="umenu">
-			<a href="<?php echo ROOTPATH."index.php?controller=photo&url=uploadheader"; ?>"><?php echo "CHANGE HEADER";?></a>
+			<a href="<?php echo ROOTPATH."index.php?controller=photo&url=uploadheader"; ?>"><?php echo CHANGE_HEADER;?></a>
 		</li>
 		</aside>
 		<li id="umenu">

@@ -46,7 +46,7 @@
 			</li>
 			<li id="umenu">
 				<a href="<?php echo ROOTPATH."index.php?controller=photo&url=uploadCorpProfilePic"; ?>">
-				<?php echo "UPLOAD CORP PIC";?></a>
+				<?php echo UPLOAD_CORP_PIC;?></a>
 			</li>
 		</ul>
 	</div>
