@@ -29,15 +29,15 @@ class validation {
 		}
 		if($firstName){
 			$flag=false;
-			$msg.="First Name Can Not Contain Spaces<br/>";
+			$msg.="First Name Can Not Contain Only Spaces<br/>";
 		}
 		if($userName){
 			$flag=false;
-			$msg.="User Name Can Not Contain Spaces<br/>";
+			$msg.="User Name Can Not Contain Only Spaces<br/>";
 		}
 		 if($lastName){
 			$flag=false;
-			$msg.="Last Name Can Not Contain Spaces<br/>";
+			$msg.="Last Name Can Not Contain Only Spaces<br/>";
 		} 
  		if(!$arrArgs['email'] || !$arrArgs['password'] || !$arrArgs['userName'] || !$arrArgs['firstName'] || !$arrArgs['lastName']){
  			$flag=false;
@@ -52,10 +52,58 @@ class validation {
 	}
 
     function corpregister( $arrArgs=array()){
-      
+   //   
+   //$arrArgs = array (
+   //                     "company_name"=>$_REQUEST['company_name'],
+   //                     "user_name" =>$_REQUEST['user_name'],
+   //                     "location" =>$_REQUEST['Location'],
+   //                     "corp_email" =>$_REQUEST['corp_email'],
+   //                     "company_password" =>$_REQUEST['company_password'],
+   //                     "comp_confirm_pass" =>$_REQUEST['comp_confirm_pass'],
+   //             );
+   
+		$email=$this->checkEmail(array("key"=>$arrArgs['corp_email']));
+		$password=$this->validPassword(array("key"=>$arrArgs['company_password']));
+   		$userNameAlpha=$this->checkAlphaNum(array("key"=>$arrArgs['user_name']));
+   		$companyName=$this->checkSpaces(array("key"=>$arrArgs['company_name']));
+		$location=$this->checkSpaces(array("key"=>$arrArgs['location']));
 
-
-
+		$flag=true;
+   		$msg="";
+		if(!$arrArgs['company_name'] || !$arrArgs['user_name'] || !$arrArgs['Location']
+		   || !$arrArgs['corp_email'] || !$arrArgs['company_password'] || !$arrArgs['comp_confirm_pass']){
+ 			$flag=false;
+ 			$msg.="No fields should be empty.<br/>";
+ 		}
+		if($companyName) {
+			$flag=false;
+ 			$msg.="Company Name Can Not Contain Only Spaces.<br/>";
+		}
+		if(!$userNameAlpha){
+			$flag=false;
+ 			$msg.="Invalid Characters Used For User Name.<br/>";
+		}
+		if($location) {
+			$flag=false;
+ 			$msg.="Location Can Not Contain Only Spaces.<br/>";
+		}
+		if(!$password) {
+			$flag=false;
+			$msg.="Password Length Should Be Between 6-20.<br/>";
+		}
+		if($arrArgs['company_password']!=$arrArgs['comp_confirm_pass']) {
+			$flag=false;
+			$msg.="Confirm Password Does Not Match.<br/>";
+		}
+		if(!$email) {
+			$flag=false;
+			$msg.="Email Entered is invalid<br/>";
+		}
+		$arrData=array('flag'=>$flag,
+ 			'msg'=>$msg,
+		);		
+ 		   		
+ 		 return $arrData;
     }
 /*Remove spaces from text*/
 	function spaceRemover($input) {

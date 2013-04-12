@@ -71,28 +71,28 @@ class Controller
 			loadView("login1.php");
 		} else {
 		// Your code here to handle a successful verification
-		$arrArgs=array(
-		'userName'=>@$_REQUEST["user_name1"],
-		'password'=>@$_REQUEST["password1"],
-		'firstName'=>@$_REQUEST["first_name"],
-		'lastName'=>@$_REQUEST["last_name"],
-		'email'=>@$_REQUEST["email"],
-	);
-  
-	$validator=loadModel("validation","register",$arrArgs); //cal the validator method for server side validation
-
-	if(!$validator['flag'])
-	{
-		$arrArgs=array('error_msg' => 	$validator['msg'] );
-		loadView("login1.php",$arrArgs);
-	}
-	else if(loadModel("users","register",$arrArgs)) {
-			header('location:index.php');
-	}
-	else {
-		$arrArgs=array('error_msg' => 	"User Already Exist valid" );
-		loadView("login1.php",$arrArgs);
-	}
+				$arrArgs=array(
+				'userName'=>@$_REQUEST["user_name1"],
+				'password'=>@$_REQUEST["password1"],
+				'firstName'=>@$_REQUEST["first_name"],
+				'lastName'=>@$_REQUEST["last_name"],
+				'email'=>@$_REQUEST["email"],
+				);
+		  
+				$validator=loadModel("validation","register",$arrArgs); //cal the validator method for server side validation
+		
+				if(!$validator['flag'])
+				{
+					$arrArgs=array('error_msg' => 	$validator['msg'] );
+					loadView("login1.php",$arrArgs);
+				}
+				else if(loadModel("users","register",$arrArgs)) {
+						header('location:index.php');
+				}
+				else {
+					$arrArgs=array('error_msg' => 	"User Already Exist valid" );
+					loadView("login1.php",$arrArgs);
+				}
 		}
 	}
 
@@ -160,8 +160,8 @@ class Controller
 	
 	/*handle the corporate Registration Request*/
 	function corporates() {
-        require_once 'library/recaptcha/recaptchalib.php';
-        $privatekey = "6LcMKN8SAAAAAFbaKu1_OvaeP1yMaQ7cKT5zxwgQ";
+		require_once 'library/recaptcha/recaptchalib.php';
+		$privatekey = "6LcMKN8SAAAAAFbaKu1_OvaeP1yMaQ7cKT5zxwgQ";
         
         if (@$_REQUEST ['corporateregister'] == "register") {
             
@@ -175,7 +175,7 @@ class Controller
           
             } else {
                // print_r ( $_REQUEST );
-                $arrArgs = array (
+			    $arrArgs = array (
                         "company_name"=>$_REQUEST['company_name'],
                         "user_name" =>$_REQUEST['user_name'],
                         "location" =>$_REQUEST['Location'],
@@ -183,8 +183,13 @@ class Controller
                         "company_password" =>$_REQUEST['company_password'],
                         "comp_confirm_pass" =>$_REQUEST['comp_confirm_pass'],
                 );
-                                               
-                loadModel("corporate","corporateRegistration",$arrArgs);
+				
+				$validator=loadModel("validation","corpregister",$arrArgs);
+				if(!$validator['flag']) {
+						$_SESSION['error_msg']=$validator['msg'];
+				} else {
+						loadModel("corporate","corporateRegistration",$arrArgs);
+				}
              }
         }
         loadView ( "corprateregistration.php" );

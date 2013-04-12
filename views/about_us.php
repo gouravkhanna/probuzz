@@ -141,7 +141,11 @@ $(function() {
 			return false;
 		}
 		if(onlySpacesA("name")) {
-			
+			$("#name").val("");
+			$("#name").attr("placeholder","Only Spaces Not Allowed.");
+		    $("#name").css("background-color","#cff993");
+			$("#name").focus();
+			return false;
 		}
 		if(!$("#email").val()){
 			$("#email").attr("placeholder","This Field Can't Be Empty.");
@@ -149,8 +153,22 @@ $(function() {
 			$("#email").focus();
 			return false;
 		}
+		if(onlySpacesA("email")) {
+			$("#email").val("");
+			$("#email").attr("placeholder","Only Spaces Not Allowed.");
+		    $("#email").css("background-color","#cff993");
+			$("#email").focus();
+			return false;
+		}
 		if(!$("#comments").val()){
 			$("#comments").attr("placeholder","This Field Can't Be Empty.");
+		    $("#comments").css("background-color","#cff993");
+			$("#comments").focus();
+			return false;
+		}
+		if(onlySpacesA("comments")) {
+			$("#comments").val("");
+			$("#comments").attr("placeholder","Only Spaces Not Allowed.");
 		    $("#comments").css("background-color","#cff993");
 			$("#comments").focus();
 			return false;
