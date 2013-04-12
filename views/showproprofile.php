@@ -183,8 +183,23 @@
         </div>
         <h3><?php echo RESUME; ?></h3>
         <div class="wide">
-
-          <?php echo "<pre>";print_r($arrData['resume']); ?>
+            <?php
+                //echo "<pre>";
+                //print_r($arrData['resume']);
+                if(!$arrData['resume']){
+                    echo NO_RESUME;
+                } else {
+                    $filename=end(explode("/",$arrData['resume'][0]['resume_path']));
+                    $_SESSION['filename']=$arrData['resume'][0]['resume_path'];
+                    echo $ctype=end(explode(".",$_SESSION['filename']));
+                    echo "<span class='resumeDownload'>To Download - Click <a  href='class/upload.php'>Here.</a></span>";
+                    echo CONTENTS_OF_RESUME."<br/><br/><hr/>";
+                    echo "<pre class='bigpre'>";
+                    echo file_get_contents(ROOTPATH."data/userdata/resume/".$filename);
+                    echo "</pre>";
+                }
+            ?>
+        
         </div>
     </div>
 </div>

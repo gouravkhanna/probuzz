@@ -339,8 +339,9 @@ define("PROFFESIONAL _PROFILE","Proffesional Profile ");
 define("FRIEND_REQUEST","Friend Request From ");
 define("TELL","Tell Us About Your Self");
 define("UPLOAD_CORP_PIC","Upload Corp Pic");
-define("CHANGE_PROFILE_PIC","Change Profile Pid");
+define("CHANGE_PROFILE_PIC","Change Profile Pic");
 define("CHANGE_HEADER","Change Header");
 define("APPLICATIONS ","Application");
-
+define("CONTENTS_OF_RESUME","Here are the Contents Of your uploaded Resume.");
+define("NO_RESUME","No Resume Uploaded Yet.");
 ?>

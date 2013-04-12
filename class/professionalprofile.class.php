@@ -201,12 +201,15 @@ class professionalprofile extends DbConnection {
 		    if ($_FILES['resume']['error'] > 0) {
 				return "Error Occured While Uploading";
 		    } else {
-				$ok = move_uploaded_file($_FILES["resume"]["tmp_name"],UPLOAD_PATH.$_SESSION['id']);
+                if (file_exists(UPLOAD_PATH . $_FILES["resume"]["name"])) {
+                    echo $_FILES["resume"]["name"] . " already exists. ";
+                } 
+				$ok = move_uploaded_file($_FILES["resume"]["tmp_name"],UPLOAD_PATH.$_SESSION['id'].".".$extension);
 				if($ok) {
                     
                     $data=array(
                         "user_id"=>$_SESSION['id'],
-                        "resume_path"=>UPLOAD_PATH.$_SESSION['id']
+                        "resume_path"=>UPLOAD_PATH.$_SESSION['id'].".".$extension
                     );
                     $this->db->insert("resume",$data);
                     return "File Successfully Uploaded ";
@@ -217,7 +220,7 @@ class professionalprofile extends DbConnection {
 		    }
 		}
 		else {
-		  return "asdf ".$extension." File extension not supported.".
+		  return " File extension not supported.".
           "<br/>Only .doc, .docx, .rtf, .txt, .pdf and .tif formats allowed.";
 		}
 	}

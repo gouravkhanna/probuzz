@@ -90,6 +90,7 @@
         <h3><?php echo RESUME; ?></h3>
         <div class="wide">
             <div id="content">
+				<br/>
 				<?php echo ONLY_ONE_RESUME;?>
                 <form action="<?php echo ROOTPATH;?>index.php?controller=proprofile&url=uploadResume" method="post"
                  enctype="multipart/form-data" target="upload_target" onsubmit="startUpload()" >

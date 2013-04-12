@@ -121,3 +121,14 @@
 .red {
 	color: red;
 }
+.bigpre {
+	font-size:medium;
+	border: 5px solid inset;
+}
+.resumeDownload {
+	float: right;
+}
+.resumeDownload a {
+	color:blue;
+	text-decoration: underline;
+}
