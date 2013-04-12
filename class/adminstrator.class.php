@@ -1,10 +1,25 @@
 <?php
 include_once 'class/dbAcess.php';
-// session_start();
+
+
+/*
+ * adminstrator class
+ * This class is the model class performing all the Admin Functionality.
+*/
 class adminstrator extends DbConnection {
+    
+    /*
+     * constructor of the adminstrator class calls the parents constructor
+     * and thus enabling the class to perform database connectivity.
+    */
     function __construct() {
         parent::__construct ();
     }
+    
+    /*
+     * loadBuzzSpam()
+     * This method fetches all the BUZZ that are marked as SPAM. 
+    */
     function loadBuzzSpam($arrArgs = array()) {
         if (! empty ( $arrArgs )) {
             $data ['tables'] = 'spams';
@@ -27,6 +42,11 @@ class adminstrator extends DbConnection {
             }
         }
     }
+    
+    /*
+     * loadUserSpam()
+     * This method loads the Spam pertaining to Users.
+    */
     function loadUserSpam($arrArgs = array()) {
         if (! empty ( $arrArgs )) {
             $data ['tables'] = 'spams';
@@ -49,6 +69,11 @@ class adminstrator extends DbConnection {
             }
         }
     }
+    
+    /*
+     * buzzDelete()
+     * This method deletes any BUZZ related to any User.
+    */
     function buzzDelete($arrArg = array()) {
         if (! empty ( $arrArg ['buzz_id'] )) {
             $condition = array (
@@ -65,6 +90,11 @@ class adminstrator extends DbConnection {
             }
         }
     }
+    
+    /*
+     * updateReview()
+     * This method updates the Review Status of any SPAM.
+    */
     function updateReview($arrArg = array()) {
         if (! empty ( $arrArg ['spam_id'] )) {
             $spamAction = strip_tags($arrArg ['spam_action']);
@@ -88,6 +118,11 @@ class adminstrator extends DbConnection {
             }
         }
     }
+    
+    /*
+     * banUserOneDay()
+     * This method bans the User for One Whole Day.
+    */
     function banUserOneDay($arrArg = array()) {
         if (! empty ( $arrArg ['spam_id'] )) {
             $spamType = $arrArg ['spam_type'];
@@ -125,6 +160,11 @@ class adminstrator extends DbConnection {
             }
         }
     }
+    
+    /*
+     * banUserOnePermanent()
+     * This method bans the given User Permanently.
+    */
     function banUserOnePermanent($arrArg = array()) {
         if (! empty ( $arrArg ['spam_id'] )) {
             $condition = array (
@@ -144,6 +184,11 @@ class adminstrator extends DbConnection {
             }
         }
     }
+    
+    /*
+     * loadSpamReview()
+     * This method loads all the SPAM Reviews.
+    */
     function loadSpamReview($arrArgs = array()) {
         if (! empty ( $arrArgs )) {
             $data ['tables'] = 'spams';
@@ -168,6 +213,11 @@ class adminstrator extends DbConnection {
             }
         }
     }
+    
+    /*
+     * loadContactUs()
+     * This method loads the Contact Us Details of the Users.
+    */
     function loadContactUs($arrArgs = array()) {
         if (! empty ( $arrArgs )) {
             if (isset ( $arrArgs ['read'] )) {
@@ -201,6 +251,11 @@ class adminstrator extends DbConnection {
             }
         }
     }
+    
+    /*
+     * updateFeedBack()
+     * This method updates the FeedBack of the Contact Us.
+    */
     function updateFeedback($arrArg = array()) {
         if (! empty ( $arrArg ['id'] )) {
             $condition = array (
@@ -221,6 +276,10 @@ class adminstrator extends DbConnection {
         }
     }
  
+    /*
+     * updateAboutUs()
+     * This method updates the About Us of the User.
+    */
     function updateAboutUs($arrArg = array()){
        if($arrArg['text']!="") {
            $condition = array (
@@ -239,6 +298,11 @@ class adminstrator extends DbConnection {
         }
        }
     }
+    
+    /*
+     * addAdmin()
+     * This method adds an Admin Account To the Database.
+    */
     function addAdmin($arrArg=array()) {
         if (! empty ( $arrArg)) {
             //echo "<pre>";
@@ -270,6 +334,11 @@ class adminstrator extends DbConnection {
             }
         }
     }
+    
+    /*
+     * showAllAdmin()
+     * This method fetches all the Admin Users from the Database.
+    */
     function showAllAdmin($arrArg=array()) {
         if (! empty ( $arrArg ['id'] )) {
             $data["tables"]="users";
@@ -294,6 +363,11 @@ class adminstrator extends DbConnection {
             
         }
     }
+    
+    /*
+     * showAllUsers()
+     * This method fetches all the Users from the Database.
+    */
     function showAllUsers($arrArgs=array()) {
         if($arrArgs) {
             $data['columns']=array(
@@ -313,6 +387,11 @@ class adminstrator extends DbConnection {
             return $result;
         }
     }
+    
+    /*
+     * deactivateAccount()
+     * This method Deactivates the User given.
+    */
     function deactivateAccount($arrArgs=array()) {
            if($arrArgs){
             $data=array(
@@ -325,6 +404,11 @@ class adminstrator extends DbConnection {
         }
         return "User Account Deactivated.";
     }
+    
+    /*
+     * activateAccount()
+     * This method Activates the User given.
+    */
     function activateAccount($arrArgs=array()) {
         if($arrArgs){
             $data=array(

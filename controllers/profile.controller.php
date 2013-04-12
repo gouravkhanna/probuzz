@@ -16,6 +16,11 @@ class profile extends Controller {
       parent::__construct();
 	}
     
+    /*
+     * home()
+     * This is the default method of profile controller.
+     * This method loads the default Profile view of the User
+    */
 	function home() {
 		loadView('head/head1.php');
 		$path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
@@ -29,6 +34,10 @@ class profile extends Controller {
 		*/loadView('footer/footer.php');      
 	}   
 	
+    /*
+     * edit_Con()
+     * This method calls the model to update the Contact Information of the User.
+    */
 	function edit_Con(){
 		if($_GET['url']=='edit_Con'){
 			
@@ -58,6 +67,11 @@ class profile extends Controller {
 		}*/
 	}
 	
+    /*
+     * tagline()
+     * This method calls the model to update the User Name ,Last Name and About Me information
+     * of the User.
+    */
 	function tagline(){
          if($_GET['url']=='tagline'){
           $msg="";
@@ -87,6 +101,11 @@ class profile extends Controller {
          }
 
 	}
+    
+    /*
+     * new_Con()
+     * This method calls the model to create a new Contact Information of the User.
+    */
 	function new_Con(){
 	if($_GET['url']=='new_Con'){
 	
@@ -106,6 +125,11 @@ class profile extends Controller {
 	header("location:".ROOTPATH."/index.php?controller=profile");
 	}
 	}
+    
+    /*
+     * new_Education()
+     * This method calls the model to add a new Education Entry in Users Profile.
+    */
 	function new_Education(){
 	if($_GET['url']=='new_Education'){
 	
@@ -122,6 +146,10 @@ class profile extends Controller {
 	}
 	}
 	
+    /*
+     * editInfo()
+     * This method calls the model to update the favourites of the User.
+    */
 	function editInfo(){
 	if($_POST['url']=='editInfo'){
 	$arrArgs=array('fav_book' =>@$_POST["fav_book"] ,
@@ -136,6 +164,11 @@ class profile extends Controller {
 	} 
 	
 	}
+    
+    /*
+     * basicInfoUp()
+     * This method calls the model to update the Basic Information about the User.
+    */
 	function basicInfoUp()
 	{
 	if($_POST['url']=='basicInfoUp'){
@@ -153,7 +186,10 @@ class profile extends Controller {
 	}
 	
 	
-	
+	/*
+     * edu_up()
+     * This method calls the model to update the Education details of the User.
+	*/
 	function edu_up ()
 	{
 	

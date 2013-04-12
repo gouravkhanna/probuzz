@@ -1,7 +1,17 @@
 <?php
 require_once ('dbAcess.php');
+
+/*
+ * professionalprofile class
+ * This class is the model class performing all the Functionality related to Professional Profile.
+*/
 class professionalprofile extends DbConnection {
     public $dbInstance;
+    
+    /*
+	 * constructor of the professionalprofile class calls the parents constructor
+	 * and thus enabling the class to perform database connectivity.
+	*/
     public function __construct() {
         parent::__construct ();
     }

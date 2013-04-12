@@ -1,10 +1,23 @@
 <?php
 include_once 'dbAcess.php';
+
+/*
+ * messaging class
+ * This class is the model class performing all the Messaging Functionality.
+*/
 class messaging extends DbConnection {
+		/*
+		 * constructor of the messaging class calls the parents constructor
+		 * and thus enabling the class to perform database connectivity.
+		*/
 	function __construct() {
 		parent::__construct ();
 	}
-	/*Display the senders*/
+	
+	/*
+	 * showSender()
+	 * This method displays the Sender of the Message.
+	 */
 	function showSender($arrArgs = array()) {
 		if (! empty ( $arrArgs )) {
 			$id=$arrArgs['id'];
@@ -38,7 +51,11 @@ class messaging extends DbConnection {
 			}
 		}
 	}
-	/*Display the 10 messages to user*/
+	
+	/*
+	 * showMessage()
+	 * This method Displays 10 Messages to the User.
+	*/
 	function showMessage($arrArgs = array()) {
 		$friendId=$arrArgs['friend_id'];
 		$id=$arrArgs['id'];
@@ -77,7 +94,11 @@ class messaging extends DbConnection {
 			
 		}
 	}
-	/*Create a new MEssage*/
+	
+	/*
+	 * insertMessage()
+	 * This method creates a New Message
+    */
 	function insertMessage($arrArgs = array()) {
 		if (! empty ( $arrArgs )) {
 			$message_text=$arrArgs['message_text'];
@@ -110,7 +131,10 @@ class messaging extends DbConnection {
 			}
 		}
 	}
-	/*Update Message to Seen*/
+	/*
+	 * messageSeen()
+     * This message updates the Seen status of the Message Sent.
+    */
 	function messageSeen($arrArgs = array()) {
 		if (! empty ( $arrArgs )) {
 			$id=$arrArgs['id'];
@@ -125,9 +149,12 @@ class messaging extends DbConnection {
 			$this->db->update("message",$data,$conditions);
 		}
 	}
+	
+	/**/
 	function aac() {
 	    
 	}
+	/**/
 	function createMess() {
 	    
 	}

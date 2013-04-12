@@ -16,6 +16,12 @@ class proprofile extends Controller
 		parent::__construct();
 		
 	}
+	
+	/*
+	 * home()
+	 * This is the default method of the proprofile Controller
+	 * This method loads the default View of the Professional Profile
+	*/
 	function home()
 	{
 		loadView('head/head1.php');
@@ -34,6 +40,11 @@ class proprofile extends Controller
 		
 	  	loadView('footer/footer.php');
 	}
+	
+	/*
+	 * editView()
+	 * This method calls the model and Loads the Editing View of the Users Professional Profile.
+	*/
 	function editView() {
 		loadView('head/head1.php');
 	  	$path=ROOTPATH.'data/photo/g.jpg';
@@ -50,6 +61,11 @@ class proprofile extends Controller
 	  	loadView('footer/footer.php');
 		
 	}
+	
+	/*
+	 * updateProfile()
+	 * This method calls the model to update the Basic Professional Profile Information of the User.
+	*/
 	public function updateProfile() {
 		$fields=array();
 		foreach($_REQUEST as $key => $value) {
@@ -62,6 +78,12 @@ class proprofile extends Controller
 			echo "Data Update Failure..";
 		}
 	}
+	
+	/*
+	 * deleteFrom()
+	 * This method calls the model to delete an entry from either of the Qualification,
+	 * Experience or the Certifications of the Users Professional Profile.
+	*/
 	public function deleteFrom() {
 		if($_REQUEST['table']=="qualification") {
 			$message="Qualification";
@@ -78,6 +100,12 @@ class proprofile extends Controller
 			echo $message." Deletion Failed..";
 		}
 	}
+	
+	/*
+	 * getFancyBoxContent()
+	 * This method calls the model and loads the fancybox with respective view of Experience, Qualification,
+	 * or Certifications.
+	*/
 	public function getFancyBoxContent() {
 		if($_REQUEST['table']=="qualification") {
 			$view="addUpdateQual.php";
@@ -105,6 +133,11 @@ class proprofile extends Controller
 		}
 	}
 	
+	/*
+	 * inserInto()
+	 * This method calls the model and add either Qualification, Experience OR Certification
+	 * in the Users Professional Profile.
+	*/
 	public function insertInto() {
 		$fields=array();
 		foreach($_REQUEST as $key => $value) {
@@ -191,7 +224,11 @@ class proprofile extends Controller
 		}
 	}
 	
-
+	/*
+	 * updateInto()
+	 * This method calls the model and update either Qualification, Experience OR Certification
+	 * in the Professional Profile.
+	*/
 	public function updateInto() {
 		$fields=array();
 		foreach($_REQUEST as $key => $value) {
@@ -237,6 +274,11 @@ class proprofile extends Controller
 			echo $message." Updation Failed..";
 		}
 	}
+	
+	/*
+	 * fetchFrom()
+	 * This method fetches the data from either Qualification or Experience or Certifications.
+	*/
 	public function fetchFrom() {
 		if(isset($_REQUEST['id'])) {
 			$id=$_REQUEST['id'];
@@ -257,6 +299,10 @@ class proprofile extends Controller
 		$this->view->loadView($view,$arrArg);
 	}
 	
+	/*
+	 * uploadResume()
+	 * This method calls the model to add a single resume to the Users Professional Profile.
+	*/
 	public function uploadResume() {
 		$response=loadModel("professionalprofile","processUpload");
 		echo "<script language='javascript' type='text/javascript'>window.top.window.stopUpload('".$response."');</script>";

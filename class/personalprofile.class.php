@@ -1,9 +1,24 @@
 <?php
 include_once 'class/dbAcess.php';
+
+/*
+ * personalprofile class
+ * This class is the model class performing all the Functionality related to Personal Profile.
+*/
 class personalprofile extends DbConnection {
+    
+    /*
+	 * constructor of the personalprofile class calls the parents constructor
+	 * and thus enabling the class to perform database connectivity.
+	*/
     function __construct() {
         parent::__construct ();
     }
+    
+    /*
+     * loadProfile()
+     * This method loads all the details of the Personal Profile.
+    */
     function loadProfile($arrArgs = array()) {
     
         $arrData = array ();
@@ -101,6 +116,11 @@ class personalprofile extends DbConnection {
        
         return $arrData;
     }
+    
+    /*
+     * upCon()
+     * This method updates the Contact Information of the Users Personal Profile.
+    */
     function upCon($arrArgs = array()) {
 
         $ob = new DbConnection ();
@@ -165,6 +185,11 @@ class personalprofile extends DbConnection {
             echo "Deleted sucessfully";
         }
     }*/
+   
+    /*
+     * upInfo()
+     * This method updates the favourites Information of the Users Personal Profile
+    */
     function upInfo($arrArgs = array()) {
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
@@ -192,6 +217,11 @@ class personalprofile extends DbConnection {
             return false;
         }
     }
+    
+    /*
+     * upbInfo()
+     * This method updates the relationship status, dob and other Personal Information of the User.
+    */
     function upbInfo($arrArgs = array()) {
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
@@ -225,17 +255,22 @@ class personalprofile extends DbConnection {
         }
     }
 
-function insertabout($arrArgs = array()){
-     $ob = new DbConnection ();
-      $id = $_SESSION ['id'];
- $tagline =strip_tags($arrArgs ['about_myself']);
-  $first_name =strip_tags($arrArgs ['fname']);
-  $last_name=strip_tags($arrArgs ['lname']);
- $data = array (
+    /*
+     * insertabout()
+     * This method updates the user name and the about me information of the User.
+    */
+    function insertabout($arrArgs = array()){
+        $ob = new DbConnection ();
+        $id = $_SESSION ['id'];
+        $tagline =strip_tags($arrArgs ['about_myself']);
+        $first_name =strip_tags($arrArgs ['fname']);
+        $last_name=strip_tags($arrArgs ['lname']);
+        $data = array (
                 "about_myself" => "$tagline",
                 "first_name"=>"$first_name",
-                "last_name"=>"$last_name");
-  $where = array (
+                "last_name"=>"$last_name"
+        );
+        $where = array (
                 'user_id' => "$id" 
         );
  
@@ -247,7 +282,12 @@ function insertabout($arrArgs = array()){
             echo "some problem is occured while updating. We will correct it soon. ";
             return false;
         }
-}
+    }
+    
+    /*
+     * insertCon()
+     * This method creates a new Contact Detail of the User.
+    */
     function insertCon($arrArgs = array()){
         
         $id = $_SESSION ['id'];
@@ -285,7 +325,10 @@ function insertabout($arrArgs = array()){
      }
 
     }
-    
+    /*
+     * insert_Education
+     * This method creates a new Entry for the Education of the User.
+    */
     function insert_Education($arrArgs = array()){
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
@@ -310,13 +353,12 @@ function insertabout($arrArgs = array()){
         echo "some problem is occured while updating. We will correct it soon. ";
         return false;
         } 
-        
-        
-        
-        
-        
     }
     
+    /*
+     * up_E()
+     * This method updates the Education Details of the User.
+    */
     function up_E($arrArgs = array()) {
         $ob = new DbConnection ();
         $id = $_SESSION ['id'];
