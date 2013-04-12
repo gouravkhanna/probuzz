@@ -59,6 +59,7 @@ class personalprofile extends DbConnection {
                 'street_number',
                 'city',
                 'state',
+                'pincode',
                 'district',
                 'country' ,
                 'id'
@@ -217,8 +218,7 @@ class personalprofile extends DbConnection {
     function insertCon($arrArgs = array()){
         
         $id = $_SESSION ['id'];
-        
-        if(!is_int($arrArgs['pincode'])) {
+           if(!is_int($arrArgs['pincode'])) {
             $_SESSION['profile_error']="Pincode Can Only Be Integer";
             return false;
         }

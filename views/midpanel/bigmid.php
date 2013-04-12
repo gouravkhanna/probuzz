@@ -32,9 +32,9 @@
      <input type="text" id="estreetName_<?php echo $i;?>"
      name="estreetName" value="<?PHP echo $arrData['address'][$i]['street_name']; ?>" > <br>
      <b><?php echo PINCODE;?></b> <br>
-     <input type="text" id="epincode_<?php echo $i;?>" name="epincode"> <br>
+     <input type="text" id="epincode_<?php echo $i;?>" value="<?PHP echo $arrData['address'][$i]['pincode']; ?>" name="epincode"> <br>
      <b><?php echo DISTRICT; ?></b>  <br>
-     <input type="text" id="edistrict_<?php echo $i;?>" name="edistrict"><br>
+     <input type="text" id="edistrict_<?php echo $i;?>" value="<?PHP echo $arrData['address'][$i]['district']; ?>" name="edistrict"><br>
      <b><?php echo CITY;?></b>  <br>
      <input type="text" id="ecity_<?php echo $i;?>"
      name="ecity" value="<?PHP echo $arrData['address'][$i]['city']; ?>" > <br>
@@ -150,7 +150,7 @@
     <?php 
 
           $len=count($arrData['education']);
-          for ($i=1;$i<($len-1);$i++) {
+          for ($i=0;$i<($len-1);$i++) {
        
      ?>
     <form method="post" action="#">
@@ -248,15 +248,14 @@
       
       <?PHP
       $len=count($arrData['education']);
-if(empty($arrData['address'])){
-        echo "<br><br> <span id='lbc'> No Education To Display</span><br>";
-      }
-    
-      else
-      {
+        
         echo "<br><span id='su'>Studied At </span><br><hr>";
         for($i=0;$i<($len-1);$i++){
-      
+         if($arrData['education'][$i]==NULL){
+          echo "<br><br> <span id='lbc'> No Education To Display</span><br>";
+          break;
+         }else
+      {
       echo "<br><span id='eu'>". $arrData['education'][$i]['institute'];
       echo ",". $arrData['education'][$i]['university'];
       echo "</span>";
@@ -275,10 +274,8 @@ if(empty($arrData['address'])){
 
       <?PHP
       $len=count($arrData['address']);
-       if(empty($arrData['address'])){
-        echo "<br><br> <span id='lbc'> No Address To Display</span><br><hr>";
-      }
-      else{
+      
+     
       echo "<br><br> <span id='lbc'> Address </span><br><hr>";
       for ($i=0;$i<($len-1);$i++) { 
         echo "<br>";        
@@ -290,7 +287,7 @@ if(empty($arrData['address'])){
        echo " ,".$arrData['address'][$i]['country'];
        echo "<br></span>";
          }
-     }
+  
     ?>
   <br><br>
    <input type="button" id="addContact" value="Add more contact">
