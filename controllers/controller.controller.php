@@ -7,6 +7,7 @@ class Controller
 	function __construct() 	{
 		$this->view= new view();
 	}
+	/*handle the login request*/
 	function buzzin()
 	{
 		$arrArgs= array(
@@ -17,15 +18,16 @@ class Controller
 			loadView("login1.php");
 		}
 		else if(loadModel("users","login",$arrArgs)) {
+		    //on succesful login
 			header('location:index.php');
 		}
 		else {
-    //	$arrArgs=array('error_msg' => 	"Not a Valid User Or Password" );
-			loadView("login1.php",$arrArgs);
+		    //on unsucceful attempt
+  			loadView("login1.php",$arrArgs);
 		}
 
 	}
-
+  /*Handle Registration Request*/
 	function register()
 	{
 		require_once 'library/recaptcha/recaptchalib.php';
@@ -34,16 +36,15 @@ class Controller
 				$_SERVER["REMOTE_ADDR"],
 				$_POST["recaptcha_challenge_field"],
 				$_POST["recaptcha_response_field"]);
-		
-	if (!$resp->is_valid) {
+		// if captcha is Invalid
+	    if (!$resp->is_valid) {
 			// What happens when the CAPTCHA was entered incorrectly
-			
-			$msg="<div id=wrongcaptcha>The reCAPTCHA wasn't entered correctly. Go back and try it again." .
-					"(reCAPTCHA said: " . $resp->error . ")</div>";
-			loadView("login1.php",array('error_msg'=>$msg));
+			$_SESSION['error_msg']="
+			        The reCAPTCHA wasn't entered correctly. Go back and try it again.
+				            ";
+			loadView("login1.php");
 		} else {
 		// Your code here to handle a successful verification
-		
 		$arrArgs=array(
 		'userName'=>@$_REQUEST["user_name1"],
 		'password'=>@$_REQUEST["password1"],

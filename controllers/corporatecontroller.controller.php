@@ -1,4 +1,4 @@
-	<?php
+    	<?php
 include 'controller.controller.php';
 class corporatecontroller extends controller {
     function __construct() {
@@ -62,7 +62,6 @@ class corporatecontroller extends controller {
         // $arrData=loadModel("corporate","showSlot",array('id'=>$_SESSION['id']));
         loadView ( 'gdata/prejob.php' ); // ,$arrData);
         loadView ( 'rightpanel/alotslot.php' );
-        loadView ( 'rightpanel/rightpanel2.php' );
         loadView ( 'footer/footer.php' );
         unset($_SESSION['alotslot']);
         unset($_SESSION['updatejob']);
@@ -190,8 +189,9 @@ function alotSlot() {
                 'id' => $_SESSION ['id'] 
         ) );
         loadView ( 'gdata/showjobs.php', $arrData );
-        loadView ( 'rightpanel/rightpanel1.php' );
-        loadView ( 'rightpanel/rightpanel2.php' );
+        
+        $this->getAppStats ();
+                
         loadView ( 'footer/footer.php' );
     }
     /*

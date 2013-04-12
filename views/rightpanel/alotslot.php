@@ -1,4 +1,4 @@
-<div id="rightpanel1">
+<div id="rightpanel">
 <div id="errorDiv">
 <?php
     if(isset($_SESSION['alotslot'])) {
@@ -14,9 +14,7 @@
 	<input type="text" id="designation" name="designation"> 	<br/>
 	<?php echo ACCEPT_TERMS; ?> 
 	<input type="checkbox" id="alotslotcheck" name="terms" value="true"><br/>
-	<input type=submit name="url" id="alotslot" class='marginr10' value="Allot Slot">
-	<!-- <input type=submit name="sub" value="Create Slot"> -->
-
+	<input type=submit name="url" value="alotSlot" class=bluebutton>
 </form>
 </div>
 </div>
