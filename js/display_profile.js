@@ -195,9 +195,24 @@ $(document)
                         }
                         return true;
                     });
-
-                    
+                $("#submitabout").click(function () {
+                        if(!$("#fname1").val()) {
+                            setErrorMessage("#fname1","This Field Can't Be Empty.");
+                            return false;
+                        }
+                        if(onlySpacesA("fname1","Only Spaces Not Allowed.")) {
+                            return false;
+                        }
+                        if(!$("#lname1").val()) {
+                            setErrorMessage("#lname1","This Field Can't Be Empty.");
+                            return false;
+                        }
+                        if(onlySpacesA("lname1","Only Spaces Not Allowed.")) {
+                            return false;
+                        }
+                        return true;
                 });
+        });
 function validateEditEducation(id) {
     //var institute=$("#institute_"+id).val();
     if(!$("#institute_"+id).val()) {

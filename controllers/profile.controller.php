@@ -49,10 +49,25 @@ class profile extends Controller {
 	
 	function tagline(){
          if($_GET['url']=='tagline'){
+          $msg="";
+          $flag=true;
+          if(!$_GET["fname1"]) {
+            $msg.="First Name Can't Be Empty<br/>";
+            $flag=false;
+          }
+          if(!$_GET["fname1"]) {
+            $msg.="Last Name Can't Be Empty<br/>";
+            $flag=false;
+          }
+          if(!$flag) {
+            $_SESSION['profile_error']=$msg;
+            header("location:".ROOTPATH."/index.php?controller=profile");
+            return false;
+          }
          	$arrArgs=array(
-	       'about_myself'=>@$_GET["about"],
-	       'fname'=>@$_GET["fname1"],
-	       'lname'=>@$_GET["lname1"],
+	       'about_myself'=>strip_tags(@$_GET["about"]),
+	       'fname'=>strip_tags(@$_GET["fname1"]),
+	       'lname'=>strip_tags(@$_GET["lname1"]),
 	                );
     print_r($arrArgs);
     $arrData=loadModel("personalprofile","insertabout",$arrArgs);
