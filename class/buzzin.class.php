@@ -4,6 +4,7 @@ class buzzin extends DbConnection {
     function __construct() {
         parent::__construct ();
     }
+    /*Display the like on buzz*/
     function buzzLike($arrArg = array()) {
         $data=array(
              "user_id"=>$arrArg['id'],
@@ -18,6 +19,7 @@ class buzzin extends DbConnection {
      }
      
     }
+    /*Unlike buzz*/
     function unlike($arrArgs=array()){
     
      $data=array(
@@ -35,6 +37,7 @@ class buzzin extends DbConnection {
      }
      
     } 
+    /*Delete the buzz*/
     function buzzDelete($arrArg = array()) {
      $condition=array(
              "user_id"=>strip_tags($arrArg['id']),
@@ -51,6 +54,7 @@ class buzzin extends DbConnection {
      }
      
 }
+/*Comments Delete*/
 function commentDelete($arrArg = array()) {
     $condition=array(
             "user_id"=>strip_tags($arrArg['id']),
@@ -67,7 +71,7 @@ function commentDelete($arrArg = array()) {
     }
      
 }
-    
+    /*Load all the buzz*/
     function loadBuzz($arrArg = array()) {
         $id = $arrArg ['id'];
         if(isset($arrArg ['limit']))
@@ -143,6 +147,7 @@ function commentDelete($arrArg = array()) {
             return false;
         }
     }
+    /*Buzz Update*/
     function buzzUpdate($arrArgs = array()) {
         if (! empty ( $arrArgs )) {
             $buzztext = strip_tags ( $arrArgs ['buzztext'] );
@@ -168,6 +173,7 @@ function commentDelete($arrArg = array()) {
             return false;
         }
     }
+    /*Load all the comment*/
     function loadComment($arrArgs = array(), $flag = false) {
         $ob = new DbConnection ();
         $buzz_id = $arrArgs ['buzz_id']; // retive all comments of this buzz ID
@@ -219,6 +225,7 @@ function commentDelete($arrArg = array()) {
         // code for retriving comments
         // and return in array
     }
+    /*Load likes*/
     function loadLike($arrArgs = array()) {
         if (! empty ( $arrArgs )) {
            $conditions=array(
@@ -241,6 +248,7 @@ function commentDelete($arrArg = array()) {
         }
         
     }
+    /*Insert Comments*/
     function insertComment($arrArgs = array()) {
         if (! empty ( $arrArgs )) {
             
@@ -264,6 +272,7 @@ function commentDelete($arrArg = array()) {
             return false;
         }
     }
+    /*Load specific buzz*/
     function loadSpecificBuzz($arrArg = array()) {
         $id = $arrArg ['id'];
         $sql = "select b.user_id as id,b.id as buzz_id,b.buzztext,
@@ -306,7 +315,7 @@ function commentDelete($arrArg = array()) {
         }
         
     }
-
+/*Mark buzz as spam*/
 function markBuzzSpam($arrArg = array()) {
     $indata=array(
             "marked_by"=>strip_tags($arrArg['id']),
