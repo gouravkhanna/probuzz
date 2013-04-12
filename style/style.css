@@ -801,3 +801,6 @@ box-shadow: 1px 1px 1px 1px gray;
 font-family:del;
 font-size: 1.3em; 
 }
+#showba11 {
+	display: none;
+}
