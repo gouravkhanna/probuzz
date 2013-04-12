@@ -12,7 +12,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 	<div id="wrapper">
 		
 		<form id="side-3"  method="post" name="side-3" class="flip"
-			onsubmit="return valid()" action="#">
+			onsubmit="return validcorp()" action="#">
 			<div id="2">
 				<h2><?php echo JOIN_CORP; ?></h2>
 
@@ -120,11 +120,10 @@ if(isset($_SESSION['error_msg'])) {
 </html>
 <script >
 $("document").ready(function(){
-
 	$("#comp_confirm_pass").on("focus",function(){
-$("#corp_captcha").show();
-});
-
+		$("#corp_captcha").show();
+	});
+	
 });
 
 $("#slideshow > div:gt(0)").hide();
