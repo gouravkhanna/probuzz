@@ -10,6 +10,30 @@ class Controller
 	/*handle the login request*/
 	function buzzin()
 	{
+//		$msg="";
+//		$flag=true;
+//		if(!@$_REQUEST["user_name"]) {
+//				$msg.="User Name Can't Be Empty.</br/>";
+//				$flag=false;
+//		}
+//		if(strlen(@$_REQUEST['user_name'])<6) {
+//            $msg.="User Name Should Be Atleast 6 Characters Long.<br/>";
+//            $flag=false;
+//        }
+//		if(!@$_REQUEST["password"]) {
+//				$msg.="Password Can't Be Empty.</br/>";
+//				$flag=false;
+//		}
+//		
+//		if(strlen(@$_REQUEST['password'])<6) {
+//            $msg.="Password Length Should Be Atleast 6 Characters Long.<br/>";
+//            $flag=false;
+//        }
+//		if(!$flag) {
+//		    $_SESSION['error_msg']=$msg;
+//		    loadView("login1.php");
+//		}
+		
 		$arrArgs= array(
 			'user_name' =>@$_REQUEST["user_name"],
 			'password' => @$_REQUEST["password"],
