@@ -5,6 +5,7 @@ class photo extends controller {
     function __construct() {
         
     }
+    /*load home page*/
     function home() {
         loadView("head/head1.php");
         $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
@@ -17,6 +18,7 @@ class photo extends controller {
     function upload() {
         loadModel("photos","uploadPhoto");
     }
+    /*Insert Comments on photo*/
     function insertComment(){
         $arrArgs = array (
                 "id" => @$_SESSION ['id'],
@@ -34,6 +36,7 @@ class photo extends controller {
             echo "Encountered a Problem Wait for a Second!";
         }
     }
+/*Display all the comments on photo */
     function displayComment() {
         $arrData = loadModel ( "photos", "loadPhotoComment", array (
                 'photo_id' => $_REQUEST ['photo_id']
@@ -41,6 +44,7 @@ class photo extends controller {
         loadView ( "midpanel/displayphotocomment.php", $arrData );
      
     }
+    /* New photo upload*/
     function newPhoto(){
         loadView("head/head1.php");
         $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
@@ -49,9 +53,11 @@ class photo extends controller {
         loadView("photo/uploadPhoto.php");
         loadView("footer/footer.php");
     }
+    /*Upload profile picture*/
     function uploadProfilePic(){
         loadModel("photos","uploadProfilePic",array("id"=>$_SESSION['id']));
     }
+    /*Profile pic display */
     function profilePic(){
         if(@$_REQUEST['profilepicupload']=="Upload") {
             loadModel("photos","uploadProfilePic",array("id"=>$_SESSION['id']));
@@ -64,6 +70,7 @@ class photo extends controller {
         loadView("footer/footer.php");
        
     }
+    /*Upload corporate picture*/
     function uploadCorpProfilePic(){
         if(@$_REQUEST['profilepicupload']=="Upload") {
             loadModel("photos","uploadCorpProfilePic",array("id"=>$_SESSION['id']));
@@ -79,6 +86,7 @@ class photo extends controller {
         loadView("footer/footer.php");
          
     }
+    /*Upload header of user*/
     function uploadheader(){
          if(@$_REQUEST['profilepicupload']=="Upload") {
             loadModel("photos","uploadHeader",array("id"=>$_SESSION['id']));
