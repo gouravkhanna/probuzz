@@ -64,5 +64,21 @@ class photo extends controller {
         loadView("footer/footer.php");
        
     }
+    function uploadCorpProfilePic(){
+        if(@$_REQUEST['profilepicupload']=="Upload") {
+            loadModel("photos","uploadCorpProfilePic",array("id"=>$_SESSION['id']));
+        }
+        $arrData = array (
+                'id' => $_SESSION ['id'] 
+        );
+        loadView ( 'head/head1.php' );
+        $arrArgs = loadModel ( "corporate", "fetchName", $arrData );
+        $arrArgs ["profile_pic_path"] = loadModel ( "users", "getProfilePic", $arrData );
+        loadView ( "navigation/corpnavigation.php", $arrArgs );
+        loadView("photo/uploadProfilePic.php");
+        loadView("footer/footer.php");
+         
+    }
+    
     
 }
