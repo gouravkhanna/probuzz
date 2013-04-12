@@ -3,6 +3,7 @@ class validation {
 	function __construct() {
 		
 	}
+	/*Valiadte fields on register*/
 	function register($arrArgs=array()) {
 		
 		$email=$this->checkEmail(array("key"=>$arrArgs['email']));
@@ -56,13 +57,13 @@ class validation {
 
 
     }
-
+/*Remove spaces from text*/
 	function spaceRemover($input) {
 		return preg_replace('/\s+/', ' ', $input);
 	}
 	
-	
-	function checkEmpty($arrData = array()) { // check field is empty or not
+	/*Check if field is empty or not*/
+	function checkEmpty($arrData = array()) { 
 		if(!empty($arrData)) {
 			$field = $arrData ['key'];
 			if (empty ( $field )) {
@@ -93,7 +94,8 @@ class validation {
 			return false;
 		}
 	}
-	function checkAlpha($arrData = array()) { // string contain only alphabets
+	/* string contain only alphabets*/
+	function checkAlpha($arrData = array()) { 
 		$field = $arrData ['key'];
 		if (ctype_alpha ( $field )) {
 				
@@ -103,8 +105,8 @@ class validation {
 			return false;
 		}
 	}
-	
-	function checkEmail($arrData = array()) { // function to validate email
+	// function to validate email
+	function checkEmail($arrData = array()) { 
 		$field = $arrData ['key'];
 		$email = filter_var ( $field, FILTER_SANITIZE_EMAIL ); // check if the mail is a valid mail or not
 		if (! filter_var ( $email, FILTER_VALIDATE_EMAIL )) { // if not valid
@@ -123,6 +125,7 @@ class validation {
 		
 		return $result; 
 	}
+	/*validate password*/
 	function validPassword($arrData = array()) {
 		$field = $arrData ['key'];
 	
