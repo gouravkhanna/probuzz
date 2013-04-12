@@ -889,3 +889,6 @@ box-shadow:3px 3px 3px 3px #2d9be8;
 	margin-left:10px;
 	text-align: center;
 }
+.jptr{
+    cursor: pointer;
+}
