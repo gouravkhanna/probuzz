@@ -22,6 +22,7 @@
 	</div>
 	<br/><br/><br/><br/><br/><br/><br/>
 	<div id=usermenu>	
+		<br><br>
 	<ul>
 	    <li id="umenu">
 			<a href="<?php echo ROOTPATH."user/messages"; ?>"><?php echo MESSAGING;?></a>

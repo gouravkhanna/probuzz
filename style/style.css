@@ -54,6 +54,7 @@ body {
 	margin-right: 7px;
 	background-color:#f1f1f1; /*darkgrey;*/
 	overflow: visible;
+	font-family: del;
 }
 /*
 ul.n {
@@ -206,7 +207,8 @@ ul.n a:hover, ul.n a.selected {
 }
 #rightpanel {
 	margin-top: 8px;
-	background-color: #dfdfdf;
+	border-left:1px solid lightgray;
+	background-color: #f1f1f1;
 	min-height: 726px;
 	width: 280px;
 	float: left;
@@ -219,7 +221,8 @@ ul.n a:hover, ul.n a.selected {
 
 #rightpanel1 {
 	margin-top: 8px;
-	background-color: #dfdfdf;
+	border-left:1px solid lightgray;
+	background-color: #f1f1f1;
 	min-height: 362px;
 	width: 280px;
 	float: left;
@@ -232,7 +235,8 @@ ul.n a:hover, ul.n a.selected {
 
 #rightpanel2 {
 	margin-top: 8px;
-	background-color: #dfdfdf;
+	border-left:1px solid lightgray;
+	background-color: #f1f1f1;
 	min-height: 362px;
 	width: 280px;
 	float: left;
@@ -415,17 +419,21 @@ h1 {
 #usermenu a {
 	text-decoration: none;
 	color: #4a8df8;
-	font-family: alba;
+	font-family: del;
+	font-size: 16px;
+	margin-top: 22px;
+
 }
 #umenu:HOVER {
-	background-image: url("../data/rcs/g.svg");
-	background-repeat: no-repeat;
+	background-color:#e2e3ff;
+	color: white;
 	background-size: 100%;
-		width:auto;
-	border-radius: 30px;
-	-webkit-border-radius: 30px;
+	width:auto;
 	height:auto;
-	padding-left:20px;
+	padding-left: 12px;
+	border-radius: 4px;
+	-webkit-border-radius:4px;
+	
 	
 }
 #searchbar {
