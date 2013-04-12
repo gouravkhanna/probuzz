@@ -1,6 +1,6 @@
 <div id="bigmid">
 	<div id="searchjob">
-			<?php echo "<div id='showfrnddiv'><h1>".SEARCH_JOB ."</h1> <br><br></div>"; ?>
+			<?php echo "<div id='showfrnddiv'><h2>".SEARCH_JOB ."</h2> </div>"; ?>
 		
     	<form id="formsearchjob" name="formsearchjob" onsubmit="return false;">
 			<br><br><br>

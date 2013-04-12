@@ -1,7 +1,7 @@
 
 <div id="bigmid">
        <div class="leftarrowdiv"> 
-  <div id='showfrnddiv'><h1>Professional Profile</h1> <br><br></div>
+  <div id='showfrnddiv'><h2>Proffesional Profile</h2> </div>
        <br><br><br><br> 
     <div class="fright">
         <a href="index.php?controller=proprofile&url=editView">EDIT</a>

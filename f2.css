@@ -410,8 +410,8 @@ border-radius:20px;
 -webkit-border-radius: 20px;
 }
 #edit_about{
-min-height:200px;
-height:auto;
+
+height:300px;
 width:400px;
 background-color:#FFF;
 margin:0px auto;
@@ -544,6 +544,7 @@ margin-top: 2px;
 
 }
 
+
 #editehead
 {
 width:auto;
@@ -553,6 +554,7 @@ width:auto;
 	font-size:1.4em;
 	border-radius-top:20px;
 }
+
 #close,#close1,#close2,#close3,#close4,#close5,#close6,#close7
 {
 float:right ;

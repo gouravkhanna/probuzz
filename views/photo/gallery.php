@@ -1,5 +1,7 @@
 
-<div id="bigmid">GALLERY
+<div id="bigmid">
+	<div class='bluebutton'><span class='fontsize20 marginl10'>Gallery</span></div>
+	
 <script src="flex/jquery.flexslider-min.js"></script>
 <link rel="stylesheet" href="flex/flexslider.css" type="text/css" media="screen" />
 	<script type="text/javascript">

@@ -1,5 +1,5 @@
 <div id="midpanel"><br><br><br> <br>
-<?php echo "<div id='showfrnddiv'><h1>".SETTINGS ."</h1> <br><br></div>";?>
+<?php echo "<div id='showfrnddiv'><h2>".SETTINGS ."</h2> </div>";?>
 	<br><br><br> <br><div id="accordion" class='marginl10'>
 		<h3><?php echo CHANGE_PASSWORD;?></h3>
 		<div id="settingsDiv">
@@ -31,8 +31,8 @@
 		</div>
 		<h3><?php echo DEACTIVATE_ACCOUNT;?></h3>
 		<div id="deactivateAccount">
-			<a href="<?php echo ROOTPATH."index.php?controller=user&url=deactivateAccount"; ?>"
-				onclick="return confirm('<?php echo DELETION_CONFIRMATION;?>');">
+			<a   href="<?php echo ROOTPATH."index.php?controller=user&url=deactivateAccount"; ?>"
+			onclick="return confirm('<?php echo DELETION_CONFIRMATION;?>');">
 			<?php echo DEACTIVATE_LINK;?></a>
 		</div>
 	</div>

@@ -713,7 +713,7 @@ hr {
 	float: right;
 	margin-right: 85px;
 	}
-#sjsubmit,#alotslot{
+#sjsubmit,#alotslot,#userSettingsSubmit,#setSecurityQuestion{
 float: right;
 cursor:pointer;
 border-radius:4px;

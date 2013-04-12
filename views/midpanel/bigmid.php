@@ -196,9 +196,18 @@
   <div id="edit_about" name="edit_about" >
      <div id="editehead" ><?php echo TELL;?><span id="close7"> X</span></div>
       <div id="innere">
-   <form method="get" action="" name="newE" ><br> 
-    <textarea id='about' name='about' row="3" cols="30" class="floatl marginl10" placeholder="Your Tagline"></textarea>
-      <input type=hidden value=tagline name=url> 
+   <form method="get" action="" name="newAbout" ><br> 
+    <b><?php echo FIRSTNAME;?></b> 
+     <br>
+   <input type="text" id="fname1" 
+    name="fname1" width="50px"
+    value=<?php echo $arrData['personal']['first_name'];?>>
+   <br><b><?php echo LASTNAME;?></b> 
+    <br> <input type="text" id="lname1" name="lname1" 
+    value=<?php  echo $arrData['personal']['last_name'];?> >
+   <br><b><?php echo ABOUT_ME; ?></b><br> <textarea id='about' 
+   name='about' row="3" cols="30" class="floatl" placeholder="Your Tagline"></textarea>
+ <input type=hidden value=tagline name=url> 
  <input type=hidden value=profile name=controller><br><br>
   <input type="submit" id="submitabout" value="Save Me" name=submit class='floatr marginr10' /> 
 
@@ -224,9 +233,7 @@
                         
      echo " <span id='sspp'> <b>  Lives in </b>  </span> &nbsp <span id='t'>". $arrData['address'][0]['city'];
           
-     echo " <br> <b> Attented </b></span> <span id='t'>". $arrData['education'][0]['institute'];
-     echo "</span>"; 
-     echo "<br>  Tagline <span id='t'>" .$arrData['personal']['about_myself'];
+      echo "<br><b>  Tagline</b> <span id='t'>" .$arrData['personal']['about_myself'];
      echo "</span>";  
 
        ?>

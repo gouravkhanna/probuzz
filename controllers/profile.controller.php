@@ -51,7 +51,10 @@ class profile extends Controller {
          if($_GET['url']=='tagline'){
          	$arrArgs=array(
 	       'about_myself'=>@$_GET["about"],
+	       'fname'=>@$_GET["fname1"],
+	       'lname'=>@$_GET["lname1"],
 	                );
+    print_r($arrArgs);
     $arrData=loadModel("personalprofile","insertabout",$arrArgs);
 	header("location:".ROOTPATH."/index.php?controller=profile");
 

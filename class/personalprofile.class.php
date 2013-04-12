@@ -229,9 +229,12 @@ function insertabout($arrArgs = array()){
      $ob = new DbConnection ();
       $id = $_SESSION ['id'];
  $tagline =strip_tags($arrArgs ['about_myself']);
+  $first_name =strip_tags($arrArgs ['fname']);
+  $last_name=strip_tags($arrArgs ['lname']);
  $data = array (
-                
-                "about_myself" => "$tagline",);
+                "about_myself" => "$tagline",
+                "first_name"=>"$first_name",
+                "last_name"=>"$last_name");
   $where = array (
                 'user_id' => "$id" 
         );
