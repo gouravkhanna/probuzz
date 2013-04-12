@@ -12,6 +12,7 @@ class users extends DbConnection {
     function __construct() {
         parent::__construct ();
     }
+    /*Lgion user */
     function login($arrData = array()) {
         $this->userName = $arrData ['user_name'];
         $this->password = $arrData ['password'];
@@ -100,6 +101,7 @@ class users extends DbConnection {
             return false;
         }
     }
+    /*Get the id of user*/
     function getId($userName = "") {
         if ($userName != "") {
             $data ['tables'] = 'users';
@@ -114,6 +116,7 @@ class users extends DbConnection {
             return $row ['user_id'];
         }
     }
+    /*Get user name*/
     function getUserName($userId = "") {
         if ($userId != "") {
             $data ['tables'] = 'users';
@@ -128,6 +131,7 @@ class users extends DbConnection {
             return $row ['user_name'];
         }
     }
+    /*Fetch Name from database*/
     function fetchName($arrArg=array()) {
 		if($arrArg) {
 			$data['tables']="personal_profile as p";
@@ -149,6 +153,7 @@ class users extends DbConnection {
 			return false;
 		}
 	}
+    /*Get the profile pic from database*/
     function getProfilePic($arrArg = array()) {
         $data ['tables'] = 'photo';
         $data ['columns'] = array (
@@ -168,10 +173,12 @@ class users extends DbConnection {
         $row = $result->fetch ( PDO::FETCH_ASSOC );
         return ROOTPATH . $row ['path'];
     }
+    /*Logout and destroy the session*/
     function logout($id) {
         $_SESSION ['id'] = "";
         unset ( $_SESSION ['id'] );
     }
+    /*Register the user into site*/
     function register($arrData = array()) {
         // if(empty($arrData)) {
         $this->userName = $arrData ['userName'];
@@ -209,6 +216,7 @@ class users extends DbConnection {
         }
        
     }
+    /*Search user*/
     function search($arrArgs = array()) {
         
         /*
@@ -311,6 +319,7 @@ class users extends DbConnection {
             return $row;
         }
     }
+    /*Find all the top jobs*/
     function topjobs() {
         $data ['tables'] = 'jobs j';
         $data ['columns'] = array (
@@ -693,6 +702,7 @@ class users extends DbConnection {
                mail('gnxtstar007@gmail.com', 'Your Password is Now Changed', $message) or die("NOooooooooooooooo");
            echo "mail Sent";*/
    }
+   /*Get the corporate profile pic*/
     function getCorpProfilePic($arrArg = array()) {
         $data ['tables'] = 'photo';
         $data ['columns'] = array (
@@ -712,6 +722,7 @@ class users extends DbConnection {
         $row = $result->fetch ( PDO::FETCH_ASSOC );
         return ROOTPATH . $row ['path'];
     }
+    /*Get the type of user*/
     function getType($id=""){
         if($id!="") {
             $data1['tables']="users";
@@ -722,6 +733,7 @@ class users extends DbConnection {
              return $res['type'];
         }
     }
+    /*Get the header pic*/
     function getHeaderPic($arrArg = array()) {
         $data ['tables'] = 'photo';
         $data ['columns'] = array (
