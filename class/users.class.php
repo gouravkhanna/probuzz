@@ -12,7 +12,7 @@ class users extends DbConnection {
     function __construct() {
         parent::__construct ();
     }
-    /*Lgion user */
+        /* Logion user adn check for the various bans and deactiavation */
     function login($arrData = array()) {
         $this->userName = $arrData ['user_name'];
         $this->password = $arrData ['password'];
@@ -36,68 +36,69 @@ class users extends DbConnection {
             $result = $this->db->select ( $data );
             
             $row = $result->fetch ( PDO::FETCH_ASSOC );
-
+            
             $this->current_status = $row ["current_status"];
-         
-            if ($row ['user_name'] == $this->userName && ($row ['password']) == md5($this->password)) {
+            
+            if ($row ['user_name'] == $this->userName && ($row ['password']) == md5 ( $this->password )) {
                 $this->type = $row ["type"];
-                $flag=1;
+                $flag = 1;
             }
         }
-        if ($this->current_status == 0 && $flag==1) {
+        if ($this->current_status == 0 && $flag == 1) {
             $_SESSION ['id'] = $this->getId ( $this->userName );
             $_SESSION ['user_name'] = $this->userName;
             $_SESSION ['type'] = $this->type;
             return true;
-        } else if ($this->current_status == '3' && $flag=='1') {
-             $_SESSION['error_msg']=	"You Account is Banned Permanently!
+        } else if ($this->current_status == '3' && $flag == '1') {
+            $_SESSION ['error_msg'] = "You Account is Banned Permanently!
                                          Due to Suspicious Activities! <br/>
-                                         Contact Admin for any issue!" ; 
-         } else if ($this->current_status == '1' && $flag=='1') {
-                $data=array("current_status"=>'0');
-                $condition=array(
-                        "user_id"=>$this->getId ( $this->userName )
-                    );
-                $result = $this->db->update ( "users", $data, $condition );
-                if ($result && $result->rowCount () > 0) {
-                    $_SESSION['error_msg']="Your Account is  Reactivated!
+                                         Contact Admin for any issue!";
+        } else if ($this->current_status == '1' && $flag == '1') {
+            $data = array (
+                    "current_status" => '0' 
+            );
+            $condition = array (
+                    "user_id" => $this->getId ( $this->userName ) 
+            );
+            $result = $this->db->update ( "users", $data, $condition );
+            if ($result && $result->rowCount () > 0) {
+                $_SESSION ['error_msg'] = "Your Account is  Reactivated!
                          Please Continue Login";
-                    return true;
-                } else {
-                    $_SESSION['error_msg']="Your Account is Deactivated!
+                return true;
+            } else {
+                $_SESSION ['error_msg'] = "Your Account is Deactivated!
                          Please Contact Admin";
-                  return false;
-                }
-                  
-        } else if ($this->current_status == '4' && $flag=='1') {
-            $_SESSION['error_msg']=	"Your Admin Account is  Deactivated!";         
-        }else if ($this->current_status == '2' && $flag=='1') {
-           
-            $data1['tables']="spams";
-            $data1['columns']=array(
-                    "unix_timestamp(spam_review_time) as ttime");
-            $data1['conditions']=array(
-                    "spam_id"=>$row ['user_id'],
-                    "spam_review"=>'1',
-                    "spam_action"=>'2',
-                    );      
+                return false;
+            }
+        } else if ($this->current_status == '4' && $flag == '1') {
+            $_SESSION ['error_msg'] = "Your Admin Account is  Deactivated!";
+        } else if ($this->current_status == '2' && $flag == '1') {
+            
+            $data1 ['tables'] = "spams";
+            $data1 ['columns'] = array (
+                    "unix_timestamp(spam_review_time) as ttime" 
+            );
+            $data1 ['conditions'] = array (
+                    "spam_id" => $row ['user_id'],
+                    "spam_review" => '1',
+                    "spam_action" => '2' 
+            );
             $result = $this->db->select ( $data1 );
             
             $row = $result->fetch ( PDO::FETCH_ASSOC );
-          echo $s=date("dG",(time()-$row['ttime']));
-          if($s<=24){
-               $_SESSION['error_msg']=	"Your Account is Banned for 1 Day!
+            echo $s = date ( "dG", (time () - $row ['ttime']) );
+            if ($s <= 24) {
+                $_SESSION ['error_msg'] = "Your Account is Banned for 1 Day!
                                     Please Login after 
-                                   ".(24-$s)." hour Left for Ban Lift";
-           } else {
-               $_SESSION ['id'] = $this->getId ( $this->userName );
-               $_SESSION ['user_name'] = $this->userName;
-               $_SESSION ['type'] = $this->type;
-               return true;
-           }
-            
-        } else {    
-            $_SESSION['error_msg']=	"Not a Valid User Or Password" ;
+                                   " . (24 - $s) . " hour Left for Ban Lift";
+            } else {
+                $_SESSION ['id'] = $this->getId ( $this->userName );
+                $_SESSION ['user_name'] = $this->userName;
+                $_SESSION ['type'] = $this->type;
+                return true;
+            }
+        } else {
+            $_SESSION ['error_msg'] = "Not a Valid User Or Password";
             return false;
         }
     }
@@ -240,16 +241,7 @@ class users extends DbConnection {
 				on p.profile_pic_id=pp.id
 		        where
 				 u.type=0 AND (";
-            /*
-             * $data['tables']	= 'personal_profile p'; $data['columns']=
-             * array('p.user_id as id','p.first_name','p.last_name','pp.path');
-             * $data['joins'][] = array( 'table' => 'users u', 'type'	=>
-             * 'INNER', 'conditions' => array('p.user_id' => 'u.user_id') );
-             * $data['joins'][] = array( 'table' => 'photo pp', 'type'	=>
-             * 'INNER', 'conditions' => array('p.profile_pic_id' => 'pp.id') );
-             * $data['conditions'][]=array("personal_profile.user_id"=>$arrArg['id']);
-             * //$data['conditions'][]=array("u.user_name like"=>$value%);
-             */
+           
             foreach ( $search as $value ) {
                 if ($value != "" && $value != " ") {
                     $sql .= " u.user_name like '$value%' OR";
@@ -397,7 +389,7 @@ class users extends DbConnection {
             } else {
                 $cond .= "AND ( j.experience like '%" . $arrArgs ['experiance'] . "%' ) ";
             }
-            $sql = $sql . $cond;
+            $sql = $sql . $cond. "order by j.created_date desc";
             $res = $this->executeSQLP ( $sql );
             if ($res) {
                 while ( $row [] = $res->fetch ( PDO::FETCH_ASSOC ) ) {
@@ -447,10 +439,7 @@ class users extends DbConnection {
         if (! empty ( $arrArgs )) {
             $id = $arrArgs ['id'];
             $jobId = $arrArgs ['jobId'];
-            // $sql="Insert into probuzz.job_applicant
-            // values('','$id','$jobId','1',now(),'','')";
-            // `user_id`, `job_id`, `status`, `appliying_date`, `remarks`,
-            // `applcaition_review`
+    
             $data = array (
                     "user_id" => $id,
                     "job_id" => $jobId,
@@ -678,30 +667,7 @@ class users extends DbConnection {
             return "Error Adding The Security Question.";
         }
     }
-    function forgotPasswordEmail($arrArg = array()) {
-      /*  ini_set('SMTP','localhost');
-        ini_set('sendmail_from', 'gnxtstar007@gmail.com');
-        //return "fortjasdljgflas";
-        $userName=$arrArg['userName'];
-        $email=$arrArg['email'];
-        //request is correct
-        
-        echo $id=$this->getId($userName);
-        /*$data['tables']="users";
-        $data['columns']=array("password");
-        $data['conditions']=array("user_id"=>$id);
-        $result = $this->db->select ( $data );
-        $row = $result->fetch ( PDO::FETCH_ASSOC );
-        echo $pass=$row ['password'];
-        echo md5($pass);*/
-       // $newPass=time().$id;
-       /*
-        $message="Your NEw Password is ";
-        $message = wordwrap($message, 70, "\r\n");
-        
-               mail('gnxtstar007@gmail.com', 'Your Password is Now Changed', $message) or die("NOooooooooooooooo");
-           echo "mail Sent";*/
-   }
+    
    /*Get the corporate profile pic*/
     function getCorpProfilePic($arrArg = array()) {
         $data ['tables'] = 'photo';

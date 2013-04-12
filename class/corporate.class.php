@@ -349,9 +349,7 @@ class corporate extends DbConnection {
                     $_SESSION ['error_msg'] = "user already exist";
                     return false;
                 } else {
-                    // Registration for Corpoarte User will be done by Admin or
-                    // by a
-                    // Seprate Registration Page!
+                    
                     $this->executeSQLP ( "call insertcorpuser('$userName','$password','$companyName','$location','$corpEmail','1')" ) or die ( mysql_error () );
                     
                     $_SESSION ['error_msg'] = "Corporate User Registered !! Please Continue with Login!!";

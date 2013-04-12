@@ -137,9 +137,4 @@ class validation {
 		}
 	}
 }
-
-
- 
-
-
 ?>

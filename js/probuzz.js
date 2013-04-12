@@ -355,9 +355,10 @@ var message_text=$("#message_text").val();
 		url:'index.php',
 		data: "controller=user&url=insertMessage&message_text="+message_text+"&friend_id="+a,
 		  success: function(data){ 
-			  $("#insert").html(data);
+			  $("#insert").html(data).fadeOut("slow");
 			  $("#message_text").val("");
 			  showMessage();
+			  
 		  }
 	});
 }

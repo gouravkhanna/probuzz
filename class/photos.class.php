@@ -30,7 +30,7 @@ class photos extends DbConnection {
             return false;
         }
     }
-    /*Upload photo*/
+    /*Upload photo for user*/
     function uploadPhoto() {
             
         $size = 0;
