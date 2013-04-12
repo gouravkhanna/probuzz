@@ -4,6 +4,7 @@ class subscription extends DbConnection {
     function __construct() {
         parent::__construct ();
     }
+    /*Add all the subscription*/
     function addSubscription($arrArg=array()) {
         $data=array(
                 "user_id"=>strip_tags($arrArg['id']),
@@ -17,6 +18,7 @@ class subscription extends DbConnection {
            return false;
         }
     }
+    /*Remove All the subscription*/
     function removeSubscription($arrArg=array()){
         $data=array(
                "subscribe_status"=>'1',
@@ -32,6 +34,7 @@ class subscription extends DbConnection {
             return false;
         }
     }
+    /*Check subscription status*/
     function checkSubscriptionStatus($arrArg=array()) {
         $data['tables']="subscription";
         $data['columns']=array("subscribe_status");

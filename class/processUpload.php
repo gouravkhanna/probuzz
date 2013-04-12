@@ -1,3 +1,4 @@
+<!-- upload differnt type of files -->
 <?php
     include '../library/constant.php';
     echo UPLOAD_PATH."<br/> <pre>";
