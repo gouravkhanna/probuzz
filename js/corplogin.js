@@ -28,31 +28,48 @@ return true;
 }
 
 
-function valid_companyAlias() // to check company alias
+function valid_corpuser() // to check company alias
 {
-var company_alias=document.forms["side-3"]["company_alias"].value;
-if(company_alias.length<=2) 
-{
-document.getElementById("w2").style.visibility=" visible";
-document.getElementById("e2").style.visibility=" visible";
-document.getElementById("e2").innerHTML="*Alias is not valid";
-return false; 
-}
+var user_name=document.forms["side-3"]["user_name"].value;
+var ck_username = /^[A-Za-z0-9_]{1,20}$/;
+	if(user_name.length<6) 
+	{
+	document.getElementById("w2").style.visibility=" visible";
+	document.getElementById("e2").style.visibility=" visible";
+	document.getElementById("e2").innerHTML="* User Name must contain 6 characters ";
+	return false; 
+	}
+	else if(user_name.length>20) 
+	{
+	document.getElementById("w2").style.visibility=" visible";
+	document.getElementById("e2").style.visibility=" visible";
+	document.getElementById("e2").innerHTML="* User Name cannot contain more then 20 chracters ";
 
-else if(company_alias.length>20) 
-{
-document.getElementById("w2").style.visibility=" visible";
+	return false; 
+	}
+	
+	
+//	else if(!ck_username.test(user_name1))
+	else if(!isAlphaNumeric(user_name))
+		{
+		
+		document.getElementById("w2").style.visibility=" visible";
+		document.getElementById("e2").style.visibility=" visible";
+		document.getElementById("e2").innerHTML="* User Name is not in valid format ";
 
-return false; 
-}
-  else
-{
-document.getElementById("r2").style.visibility=" visible";
-document.getElementById("w2").style.visibility=" hidden";
-document.getElementById("e2").style.visibility=" hidden";
-return true; 
+		return false;
+		
+		
+		}
+	    else
+	    {
+		 document.getElementById("r2").style.visibility=" visible";
+		 document.getElementById("w2").style.visibility=" hidden";
+		 document.getElementById("e2").style.visibility=" hidden";
+		 return true; 
 
-}
+	    }
+
 }
 
 
@@ -178,7 +195,7 @@ if(pwd.length<6 )
 function validcorp(){
 
 var c=valid_company();
-var alias=valid_companyAlias();
+var alias=valid_corpuser();
 var location=valid_location();
 var pwd=valid_corppassword();
 var email= valid_corpemail();
