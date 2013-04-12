@@ -24,8 +24,8 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 					width="30px"class="i" />
 				</span><span id="e1" name="e1"> </span> <br />
 				 <input type="text"
-					name="user_name" id="company_alias" autocomplete="off"
-					placeholder="Company Alias" onblur="return  valid_companyAlias()" /> <span
+					name="user_name" id="user_nsame" autocomplete="off"
+					placeholder="User Name" onblur="return  valid_companyAlias()" /> <span
 					id="r2" name="r2"> <img src="data/rcs/r.png" height="30px"
 					width="30px" class="i" />
 				</span> <span id="w2"> <img src="data/rcs/w.png" height="30px"
