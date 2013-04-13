@@ -110,9 +110,9 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 		
 		
 	</div>
-
+<br><br><br>
 	<div id="wrongcaptcha">
-		<div id="errmsg" name="errmsg">
+<div id="errmsg" name="errmsg">
 <?php
 
 if(isset($_SESSION['error_msg']))
@@ -157,7 +157,7 @@ if(isset($_SESSION['error_msg']))
 </html>
 <script >
 $("document").ready(function(){
-    $("#confirm_pass").on("blur",function(){
+    $("#confirm_pass").on("focus",function(){
      $("#log_captcha").show();
     });
 

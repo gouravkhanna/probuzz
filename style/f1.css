@@ -48,21 +48,23 @@ margin-right:1px;
 	
 }
 #log_captcha,#corp_captcha{
-/* margin-left: 30px;
-overflow:hidden;
-background-repeat: no-repeat; */
+ margin-left: 40px;
+background-repeat: no-repeat; 
 	display: none;
-	min-height:75px;
-	min-width: 75px;
+	height:145px;
+	width: 340px;
+overflow:hidden;	
+	text-align: center;
 	 
 	
 }
 #errmsg1{
-width: auto;
+width: 400px;
 float: right;
 color:#c43531;
 margin-top:400px;
-margin-right:30px; 
+word-wrap: break-word; 
+margin-right:20px; 
 }
 
 #side-1 {
@@ -202,7 +204,7 @@ margin-top: -30px;
 visibility: hidden;
 border-color: transparent;  
 float: right;
-err}
+}
 
 #e1,#e2,#e3,#e4,#e5,#e6,#e11,#e12
 {
@@ -213,12 +215,14 @@ margin-left:50px;
 
 #errmsg
 {
-width: auto;
+width: 400px;
 float: right;
 font-size: 20px;
 margin-top:350px;
 margin-right:100px;
-color:#c43531;
+color:#c43531; 
+word-wrap: break-word; 
+	
 }
 #slideshow{
    
