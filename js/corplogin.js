@@ -18,6 +18,14 @@ function valid_company() {
 		return true; 
 	}
 }
+function isAlphaNumeric(input) {
+    var ck_username=/^\d*[a-zA-Z][a-zA-Z0-9]*$/;
+    if(!ck_username.test(input)) {
+        return false;
+    } else {
+        return true;
+    }   
+}
 
 /* to check company alias	*/
 function valid_corpuser() {
