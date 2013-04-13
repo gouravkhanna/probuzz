@@ -2,7 +2,6 @@
 	<div id="photo">
 		<img id="profilepic" title="" 
 		class="photo" src="<?php echo $arrData['profile_pic_path']; ?>" height="80" width="80"/>
-		<!-- <a  style="color:blue;" onclick="return openPhotoFancyBox()">Change Pic</a> -->
 		<span class="alignwelcome" > <?php echo WELCOME; ?> <br />
         <?php //echo @$_SESSION['user_name'];
 				echo $arrData['user_name'];
@@ -30,7 +29,7 @@
 		</li>
 		
         <li id="umenu">
-			<a href="" id="gallerymenu" onclick="return false">GALLERY</a>
+			<a href="" id="gallerymenu" onclick="return false"><?php echo GALLERY;?></a>
 		</li>
 	    <aside id="gallerymenudiv" class='marginl20 visiblen'>
 	   <li id="umenu">

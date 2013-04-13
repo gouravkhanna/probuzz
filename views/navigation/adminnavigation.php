@@ -37,20 +37,7 @@
 			<a href="<?php echo ROOTPATH."admin/showAllAdmin"; ?>"><?php echo SHOW_ADMIN;?></a>
 		</li>
 		</aside>
-		<li id="umenu">
-			<a href="" id="usermanegementmenu" onclick="return false"><?php echo USER_MANAGEMENT;?></a>
-		</li>
-	    <aside id="usermanegementdiv" class='marginl20 visiblen'>
-	    <li id="umenu">
-			<a href="<?php echo ROOTPATH."admin/manageUsers"; ?>"><?php echo MANAGE_USERS;?></a>
-		</li>
-		<li id="umenu">
-			<a href="<?php echo ROOTPATH."admin/deleteAdmin"; ?>"><?php echo MANAGE_CORPORATE;?></a>
-		</li>
-		<li id="umenu">
-			<a href="<?php echo ROOTPATH."admin/showAllAdmin"; ?>"><?php echo SHOW_ALL_USERS;?></a>
-		</li>
-		</aside>
+		
 		<li id="umenu">
 			<a href="" id="pagemanegementmenu" onclick="return false"><?php echo PAGE_MANAGEMENT;?></a>
 		</li>

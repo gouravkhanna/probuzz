@@ -344,4 +344,16 @@ define("CHANGE_HEADER","Change Header");
 define("APPLICATIONS ","Application");
 define("CONTENTS_OF_RESUME","Here are the Contents Of your uploaded Resume.");
 define("NO_RESUME","No Resume Uploaded Yet.");
-?>
+define("GALLERY","Gallery");
+define("CORPORATE_REGISTRATION","Corporate Registration");
+define("ERROR","Error");
+/* define("","");
+define("","");
+define("","");
+define("","");
+define("","");
+define("","");
+define("","");
+define("","");
+define("","");
+ */?>

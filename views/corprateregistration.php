@@ -2,6 +2,9 @@
 require_once 'library/recaptcha/recaptchalib.php';
 $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from the signup page
 ?>
+<head>
+	<title><?php echo CORPORATE_REGISTRATION;?></title>
+</head>
 <script src="js/jquery-1.9.1.min.js"></script>
 <link rel="stylesheet" href="style/f1.css" />
 <script type="text/javascript" src="<?php echo ROOTPATH."js/corplogin.js"; ?> "></script>

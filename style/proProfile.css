@@ -128,7 +128,11 @@
 .resumeDownload {
 	float: right;
 }
-.resumeDownload a {
+.resumeDownload a, {
 	color:blue;
 	text-decoration: underline;
+}
+.about_US {
+	color:white;
+	
 }

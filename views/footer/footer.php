@@ -1,8 +1,8 @@
 
 
 <div id="footer" >
-<footer> <?php echo COPYRIGHTS;?>
-<a href="<?php echo ROOTPATH."aboutus"; ?>">ABOUT US</a>  </footer>
+<footer> <?php echo COPYRIGHTS. " || ";?>
+<a class="about_US" href="<?php echo ROOTPATH."aboutus"; ?>"><?php echo "ABOUT_US"?></a>  </footer>
 
 </div>
 
