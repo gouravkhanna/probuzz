@@ -6,10 +6,12 @@ class status extends Controller {
     }
     /*Load the specific buzz in seprate page and link*/
     function buzz() {
+        
         loadView("head/head1.php");
         $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
-	    loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path));
-	    loadView("head/head2.php");
+	    $userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
+	    loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
+	    $this->loadHeadUser();
 
 	    $url=explode("/",$_REQUEST['url']);
         $arrArgs = array (

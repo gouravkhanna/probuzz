@@ -1,7 +1,7 @@
 
 <div id="bigmid">
        <div class="leftarrowdiv"> 
-  <div id='showfrnddiv'><h2>Proffesional Profile</h2> </div>
+  <div id='showfrnddiv'><h2><?php echo PROFESSIONAL_PROFILE;?></h2> </div>
        <br><br><br><br> 
     <div class="fright">
         <a href="index.php?controller=proprofile&url=editView">EDIT</a>
@@ -181,7 +181,7 @@
         ?>
 
         </div>
-        <h3><?php echo RESUME; ?></h3>
+        <h3><?php echo RESUME; ?><sup><?php echo BETA;?></sup></h3>
         <div class="wide">
             <?php
                 //echo "<pre>";
@@ -191,7 +191,7 @@
                 } else {
                     $filename=end(explode("/",$arrData['resume'][0]['resume_path']));
                     $_SESSION['filename']=$arrData['resume'][0]['resume_path'];
-                    echo $ctype=end(explode(".",$_SESSION['filename']));
+                    //echo $ctype=end(explode(".",$_SESSION['filename']));
                     echo "<span class='resumeDownload'>To Download - Click <a  href='class/upload.php'>Here.</a></span>";
                     echo CONTENTS_OF_RESUME."<br/><br/><hr/>";
                     echo "<pre class='bigpre'>";

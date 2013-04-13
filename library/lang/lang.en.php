@@ -335,7 +335,6 @@ define("NO_USERS_TO_DISPLAY","No Users To Display.");
 define("USER_NAME","User Name");
 define("BAN_4_1_DAY","Ban For 1 Day");
 define("FRND_MESSAGE","Send Message To Friend. ");
-define("PROFFESIONAL _PROFILE","Proffesional Profile ");
 define("FRIEND_REQUEST","Friend Request From ");
 define("TELL","Tell Us About Your Self");
 define("UPLOAD_CORP_PIC","Upload Corp Pic");
@@ -349,7 +348,7 @@ define("CORPORATE_REGISTRATION","Corporate Registration");
 define("ERROR","Error");
 define("UPDATE_REVIEW_FAILED","Sorry Update Review Failed.");
 define("CANT_COMPLETE_REQUEST","Sorry Can't Complete Your Request.");
-/* define("","");
+ define("BETA","beta");/*
 define("","");
 define("","");
 define("","");

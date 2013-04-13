@@ -29,7 +29,7 @@
 		</li>
 		
         <li id="umenu">
-			<a href="" id="gallerymenu" onclick="return false"><?php echo GALLERY;?></a>
+			<a href="" id="gallerymenu" onclick="return false"><?php echo GALLERY;?></a><sup><?php echo BETA; ?></sup>
 		</li>
 	    <aside id="gallerymenudiv" class='marginl20 visiblen'>
 	   <li id="umenu">

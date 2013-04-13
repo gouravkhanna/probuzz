@@ -162,6 +162,7 @@ function openFancyBox(table,rowId) {
 
     } else {
         //alert("New record");
+        
         $(".box").load("index.php","controller=proprofile&url=getFancyBoxContent&table="+table);
     }
     $('.fancybox').css({"display":"block"}).hide().fadeIn("slow");

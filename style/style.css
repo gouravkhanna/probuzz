@@ -129,6 +129,8 @@ ul.n a:hover, ul.n a.selected {
 	margin-left: -5px;
 	margin-right: 5px;
 	word-wrap: break-word; 
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ 
 
 	
 }
@@ -177,6 +179,7 @@ ul.n a:hover, ul.n a.selected {
 	height: auto;
 	
  word-wrap: break-word; 
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
 		
 }
 #buzztable {
@@ -204,6 +207,7 @@ ul.n a:hover, ul.n a.selected {
 	max-width:125px;
 		
  word-wrap: break-word; 
+	 white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
 }
 #rightpanel {
 	margin-top: 8px;
@@ -489,6 +493,7 @@ margin-right: 5px;
 	margin-left: 25px;
 	margin-top: 10px;
 	word-wrap: break-word; 
+	 white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
 	box-shadow: 2px 2px 2px 2px #e2e2e4;
 
 
@@ -741,6 +746,7 @@ font-family:del;
 font-weight: bold;
 font-size:16;
 word-wrap: break-word; 
+	 white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
 
 }
 
@@ -756,6 +762,7 @@ font-weight: bold;
 font-size: 16;
 font-family: del;
 word-wrap: break-word;
+	 white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
 text-align: center;
 }
 

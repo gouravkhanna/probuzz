@@ -34,7 +34,7 @@ class corporatecontroller extends controller {
         //if request is update
         if(@$_REQUEST['corpSubmit']=="update") {
             $arrArgs=array(
-              "id"=>@$_SESSION['id'],
+            "id"=>@$_SESSION['id'],
             "company_name" =>strip_tags($_REQUEST['company_name']),
             "company_alias" =>strip_tags($_REQUEST['company_alias']),
             "tagline" =>strip_tags($_REQUEST['tagline']),

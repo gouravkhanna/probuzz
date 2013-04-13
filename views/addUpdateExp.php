@@ -17,7 +17,9 @@ $(function() {
 			$flag=1;
 			$rowId=$_REQUEST['rowId'];
 			//$exp=mysql_fetch_assoc($arrData);
+			
 			$exp=$arrData->fetch(PDO::FETCH_ASSOC);
+			
 			
 		}
 	}

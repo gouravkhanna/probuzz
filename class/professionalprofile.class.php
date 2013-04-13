@@ -163,7 +163,7 @@ class professionalprofile extends DbConnection {
             foreach ( $fields as $key => $value ) {
                 $data ['columns'] [] = $value;
             }
-            if (! $arrArgs ['table'] == "professional_profile") {
+            if ($arrArgs ['table'] != "professional_profile") {
                 $data ['conditions'] = array (
                         "id" => $arrArgs ['rowId'] 
                 );

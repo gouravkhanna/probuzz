@@ -287,7 +287,7 @@
       }
        ?>
         <br><br>
-   <input type="button" id="addEducation" value="Add more contact">
+   <input type="button" id="addEducation" value="Add Education">
     <a href="#" id="edite" name="edite"> Edit </a>
   </div>
   
