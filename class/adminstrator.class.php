@@ -110,10 +110,9 @@ class adminstrator extends DbConnection {
             
             $result = $this->db->update ( "probuzz.spams", $data, $condition );
             if ($result && $result->rowCount () > 0) {
-                echo "SSS";
                 return true;
             } else {
-                echo "NOOSOS";
+                echo UPDATE_REVIEW_FAILED;
                 return false;
             }
         }
@@ -176,10 +175,9 @@ class adminstrator extends DbConnection {
             
             $result = $this->db->update ( "users", $data, $condition );
             if ($result && $result->rowCount () > 0) {
-                echo "aa";
                 return true;
             } else {
-                echo "NooooS";
+                echo CANT_COMPLETE_REQUEST;
                 return false;
             }
         }

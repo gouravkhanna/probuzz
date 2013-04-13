@@ -24,9 +24,6 @@ class personalprofile extends DbConnection {
         $arrData = array ();
         $id = $arrArgs ['id'];
         
-        /*
-         * $sql=" SELECT first_name,last_name,DOB,contact_no,gender,email, about_myself,relationship_status,intersted_in, favourite_book,favourite_movies,favourite_food FROM personal_profile WHERE user_id='$id' ";
-         */
         $data ['tables'] = "personal_profile ";
         $data ['columns'] = array (
                 'first_name',
@@ -46,12 +43,7 @@ class personalprofile extends DbConnection {
                 'user_id' => "$id" 
         );
         $res = $this->db->select ( $data );
-        // $res=$ob->executeSQL($sql);
         $row = $res->fetch ( PDO::FETCH_ASSOC );
-        
-        /*
-         * $sql1="SELECT company_Name,current_job,position FROM experience WHERE user_id='$id'";
-         */
         $data ['tables'] = "experience";
         $data ['columns'] = array (
                 'company_Name',
@@ -63,10 +55,6 @@ class personalprofile extends DbConnection {
         );
         $res1 = $this->db->select ( $data );
         $row1 = $res1->fetch ( PDO::FETCH_ASSOC );
-        
-        /*
-         * $sql2="SELECT house_number,street_number,street_name, city,state,district,country FROM address WHERE user_id='$id'";
-         */
         $data ['tables'] = "address";
         $data ['columns'] = array (
                 'house_number',
@@ -83,15 +71,8 @@ class personalprofile extends DbConnection {
                 'user_id' => "$id" 
         );
         $res2 = $this->db->select ( $data );
-        while ($row2[] = $res2->fetch ( PDO::FETCH_ASSOC ))
-        {
-            
-            
+        while ($row2[] = $res2->fetch ( PDO::FETCH_ASSOC )) {
         }
-        
-        /*
-         * $sql3="SELECT institute ,university from qualification WHERE user_id='$id' ";
-         */
         
         $data ['tables'] = "qualification";
         $data ['columns'] = array (
@@ -104,8 +85,6 @@ class personalprofile extends DbConnection {
         );
         $res3 = $this->db->select ( $data );
        while ($row3[] = $res3->fetch ( PDO::FETCH_ASSOC )){
-        
-        
        }
         $arrData = array (
                 'personal' => $row,

@@ -2,7 +2,7 @@
 
 <div id="footer" >
 <footer> <?php echo COPYRIGHTS. " || ";?>
-<a class="about_US" href="<?php echo ROOTPATH."aboutus"; ?>"><?php echo "ABOUT_US"?></a>  </footer>
+<a class="about_US" href="<?php echo ROOTPATH."aboutus"; ?>"><?php echo ABOUT_US;?></a>  </footer>
 
 </div>
 

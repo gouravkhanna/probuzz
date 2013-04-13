@@ -347,6 +347,8 @@ define("NO_RESUME","No Resume Uploaded Yet.");
 define("GALLERY","Gallery");
 define("CORPORATE_REGISTRATION","Corporate Registration");
 define("ERROR","Error");
+define("UPDATE_REVIEW_FAILED","Sorry Update Review Failed.");
+define("CANT_COMPLETE_REQUEST","Sorry Can't Complete Your Request.");
 /* define("","");
 define("","");
 define("","");
