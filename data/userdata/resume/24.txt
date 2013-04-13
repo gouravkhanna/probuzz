@@ -1,0 +1,209 @@
+seExercise 1:
+
+1. List all the distinct regions in the world.
+mysql> select distinct region from Country ; 
++---------------------------+
+| region                    |
++---------------------------+
+| Caribbean                 |
+| Southern and Central Asia |
+| Central Africa            |
+| Southern Europe           |
+| Middle East               |
+| South America             |
+| Polynesia                 |
+| Antarctica                |
+| Australia and New Zealand |
+| Western Europe            |
+| Eastern Africa            |
+| Western Africa            |
+| Eastern Europe            |
+| Central America           |
+| North America             |
+| Southeast Asia            |
+| Southern Africa           |
+| Eastern Asia              |
+| Nordic Countries          |
+| Northern Africa           |
+| Baltic Countries          |
+| Melanesia                 |
+| Micronesia                |
+| British Islands           |
+| Micronesia/Caribbean      |
++---------------------------+
+2. List the first three countries in alphabetic order.
+ select name from Country limit 1,3; 
++-------------+
+| name        |
++-------------+
+| Afghanistan |
+| Angola      |
+| Anguilla    |
++-------------+
+3 rows in set (0.00 sec)
+
+3. List all countries in the 'Baltic Countries' region.
+ select name from Country where region="Baltic countries"; 
++-----------+
+| name      |
++-----------+
+| Estonia   |
+| Lithuania |
+| Latvia    |
++-----------+
+
+4. List all the countries where the life expectancy is more than 79.
+mysql> select name from Country where Lifeexpectancy>79; 
++-------------+
+| name        |
++-------------+
+| Andorra     |
+| Australia   |
+| Canada      |
+| Switzerland |
+| Hong Kong   |
+| Iceland     |
+| Japan       |
+| Macao       |
+| Singapore   |
+| San Marino  |
+| Sweden      |
++-------------+
+11 rows in set (0.00 sec)
+
+5. List the 5 largest cities in the world.
+  select name from Country group by Continent limit 5;
+
+6. List the different countries (country codes) that have cities with more than 7 000 000 inhabitants. How many are
+  there?
+  select DISTINCT code from Country where population>7000000;
+ 
+
+7. Find out the 5 most common government forms in the world (most common = the largest number of countries) .
+mysql> select concat(name,'(',Region,')') countryRegion from Country where Continent = 'Asia';
+
+8. List the average surface area of the countries in each continent.
+ 
+select avg(surfacearea),name from Country group by continent;
++------------------+----------------+
+| avg(surfacearea) | name           |
++------------------+----------------+
+|    625117.745098 | Afghanistan    |
+|    501068.128261 | Albania        |
+|    654445.135135 | Aruba          |
+|    521558.224138 | Angola         |
+|    305867.642857 | American Samoa |
+|   2626420.200000 | Antarctica     |
+|   1276066.142857 | Argentina      |
++------------------+----------------+
+7 rows in set (0.00 sec)
+
+9. Calculate the average life expectancy in each continent (remember that each country have a different
+  population).
+ select avg(lifeexpectancy),name from Country group by continent;
++---------------------+----------------+
+| avg(lifeexpectancy) | name           |
++---------------------+----------------+
+|            67.44118 | Afghanistan    |
+|            75.14773 | Albania        |
+|            72.99189 | Aruba          |
+|            52.57193 | Angola         |
+|            69.71500 | American Samoa |
+|                NULL | Antarctica     |
+|            70.94615 | Argentina      |
++---------------------+----------------+
+7 rows in set (0.01 sec)
+
+10. List the 5 most densely populated countries in the world (only include countries with a surface area larger than 10000).
+
+ select sum(population)/sum(surfacearea) as abc,name from Country where surfacearea>10000 group by continent order by abc desc limit 5;
+
+11. How many different districts are represented in the City table?
+
+select distinct district from City;
+
+12. List all the languages that are spoken in more than 10 countries.
+ select language from CountryLanguage group by countrycode having count(countrycode) >= 10;
+ 
+Exercise 2:
+
+1. What weekday will it be 1 year and 2 months from now?
+ SELECT DAYNAME(now()+Interval 1 year+interval 2 month);
+
+
+2. what are the lengths of the longest and shortest city names in the City table?
+select max(char_length(name)),min(char_length(name)) from City;
+
+3. List the first 5 result rows of populations from the Country table, rounded up to 6 places to the left of the decimal point.
+ select round(population,-6) from Country limit 5; 
+4. List all the country names where the life expectancy cannot be calculated.
+select name from Country where isNull(lifeExpectancy); 
+5. Which is the most common two-character combination at the start of a country's name?
+ select substring(name,1,2) as ac ,count(*) as c  from Country group by ac order by c desc limit 1;
+6. Select the current date and set the output format to result in the following format; month_name date, year(4 digit).
+
+SELECT DATE_FORMAT(now(), '%M %d %Y');
+
+7. List the countries in Asia with their region listed after the name within parenthesis (i.e.; "Cyprus (Middle East)" ).
+select concat(name,'(',Region,')') countryRegion from Country where Continent = 'Asia';
+
+8. List the name of the countries that have the letters a, c and s contained in their names.
+
+ select name from Country where name like '%a%c%s%';
+9. List the average life expectancy in each continent, round to the closest integer.
+ select round(avg(lifeExpectancy)) from Country group by Continent;
+10. Create the following result by querying the Country table:
++------------+-----------+
+| WorldPop   |EuropePop  |
++------------+-----------+
+| 6078749450 | 730074600 |
++------------+-----------+
+select sum(population) as worldpop,sum(if(continent="europe",population,0)) as europop from Country ;
+
+Exercise 3:
+
+1. Change the current database to the test database.
+
+2. Create two new tables:
+	1. 'students’ with two columns; [‘id’ of the SMALLINT UNSIGNED data type, having following attributes; AUTO_INCREMENT PRIMARY KEY] and [‘name’ with the following attributes; VARCHAR(100)]
+	2. ‘enrollments’ with two columns; [‘studentid’ of the SMALLINT UNSIGNED data type; and [‘name’ of the VARCHAR(100) data type and a default value of NULL] 
+Show the CREATE TABLE statement for both the above tables to confirm accurate creation.
+3. Alter the enrollments table to specifically set the storage engine to InnoDB in order to support foreign keys.
+4. Assign the studentid column in the enrollments table as a foreign key with a reference to the id column of the students table. Show the CREATE TABLE statement to confirm the change.
+NOTE: Note: Both tables need to use the InnoDB storage engine in order for this exercise to work.
+
+5. Modify the enrollments table to change the string length for the ‘name’ column to 50 and add a default string value of ‘New Student’ and disallow NULL values. Confirm new table structure.
+6. Rename the enrollments table to t2.
+7. Remove the enrollments table if it exists. Check the warnings.
+8. Remove the t2 and students tables. Confirm that the tables no longer exist.
+9. You will need to create two new tables within the world database in order to do this exercise:
+	Table 1: Call this table ‘europe’ and it should be created from the Country table. ‘europe’ will consist of the name and population from Country for the entire continent of ‘Europe’.
+	Table 2: Call this table ‘asia’ and it should be created from the Country table. ‘asia’ will consist of the name and population from Country for the entire continent of ‘Asia’.
+	a) Perform a query that will return all the data from both of the above tables simultaneously.
+	b) Perform a query that will return a list of the country name and population (in that order) from the europe table, where the population is less than 500,000, and simultaneously returns the population and name (in that order) from the asia table, where the population exceeds 10,000,000.
+
+Hint: Try using the UNION clause with the SELECT.
+
+Exercise 4:
+
+1. Create a database called world_copy.
+2. Create the same tables in world_copy as in the world database (same structure, same contents).
+3. Insert a new city into the City table of the new world_copy database with the following values for the columns Name, CountryCode, Population and District respectively: 'Sarah City', 'USA', 1, 'California'.
+
+NOTE: Make sure to change the database to world_copy before doing this and the following steps.
+
+4. Obtain the value generated for the ID column for the newly inserted row.
+5. Use REPLACE instead of INSERT to execute the same change as for number 3 (above), with the exception of changing the city name to 'Steve City'. Does this remove the original 'Sarah City'?
+6. Make sure that your SQL Mode is set to '' (empty).
+7. Create a table with one TINYINT column.
+8. INSERT the values 'test' and 500 into the table. Verify the values.
+9. Change the SQL Mode to 'TRADITIONAL'.
+10. Try inserting 'test' and 500 again.
+11. Make up a European country of your own and add it to the Country table in the world_copy database, using a REPLACE statement.
+12. Change the GNP of your country to 123000.
+13. Increase the population of your country by 10%.
+14. Create a new table containing all European countries.
+15. Delete your country from the Country table.
+
+
+

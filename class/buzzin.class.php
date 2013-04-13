@@ -322,7 +322,7 @@ function markBuzzSpam($arrArg = array()) {
             "spam_id"=>strip_tags($arrArg['buzz_id']),
             "spam_type"=>'0',
     );
-    $data["tables"]="spam";
+    $data["tables"]="spams";
     $data['conditions']=$indata;
     $sel=$this->db->select($data);
     $res=$sel->fetch(PDO::FETCH_ASSOC);
@@ -330,7 +330,7 @@ function markBuzzSpam($arrArg = array()) {
         return "spam";
     } else {
         $indata['spam_time']='now()';
-        $result=$this->db->insert("spam",$indata);
+        $result=$this->db->insert("spams",$indata);
         if($result && $result->rowCount() > 0) {
              return "newspam";
         } else {
