@@ -25,13 +25,8 @@ if (isset ( $_REQUEST ['url'] ) && ! empty ( $_REQUEST ['url'] )) {
     $url = explode ( "/", @$_REQUEST ['url'] );
     if (count ( $url ) > 1) {
         $controller = $url [0];
-   /*  if(count ( $url ) >3) {
-        	header("location:".ROOTPATH."index.php");
-        	$function = 'home';
-        } else  {*/
-        	$function = $url [1];
-    //   }
-    }
+          	$function = $url [1];
+        }
 } else {
     $function = 'home'; // default method to be called or the first method
 }
@@ -53,6 +48,8 @@ if (file_exists ( $fn )) {
     $obj = new $controllerClass ();
     $obj->$function ();
 } else {
+    header("location:".ROOTPATH."views/error.php");
+    
     die ( $controller . ' controller not found' );
 }
 ob_flush ();
