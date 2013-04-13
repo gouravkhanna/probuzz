@@ -903,3 +903,8 @@ box-shadow:3px 3px 3px 3px #2d9be8;
 .bluebutton:HOVER {
 
 }
+#chooseheader {
+	display:none;
+	height: 500px;
+	width: 800px;
+}

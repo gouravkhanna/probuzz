@@ -356,4 +356,31 @@ class photos extends DbConnection {
             }
         }
     }
+    function getHeaders(){
+        $data['tables']="photo";
+        $data['conditions']=array("user_id"=>"1");
+        $data['columns']=array("path","id");
+        $result = $this->db->select ( $data );
+        
+        if ($result) {
+            while ( $row [] = $result->fetch ( PDO::FETCH_ASSOC ) ) {
+            }
+            return $row;
+        } else {
+           return false;
+        }
+        
+    }
+    function updateChooseHeader($arrArgs = array()){
+        $data=array("header_id"=>$arrArgs['head_id']);
+        $condition=array("user_id"=>$_SESSION['id']);
+        $result = $this->db->update ( "personal_profile", $data,$condition );
+            
+         if ($result && $result->rowCount () > 0) {
+                $_SESSION ['profilepic'] .= "Your Cover is Changed Sucessfully";
+        } else {
+            return false;
+        } 
+        
+    }
 }

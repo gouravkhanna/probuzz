@@ -432,3 +432,7 @@ function removeSubscription(a){
   $("#subscriptionbtn").show();
   $("#unsubscriptionbtn").hide();
  }
+/*Choose header from list*/
+function showChooseHeader() {
+    $("#chooseheader").slideToggle();    
+}

@@ -78,7 +78,7 @@ class photo extends controller {
         $arrData = array (
                 'id' => $_SESSION ['id'] 
         );
-            loadView ( 'head/head1.php' );
+        loadView ( 'head/head1.php' );
         $arrArgs = loadModel ( "corporate", "fetchName", $arrData );
         $arrArgs ["profile_pic_path"] = loadModel ( "users", "getProfilePic", $arrData );
         loadView ( "navigation/corpnavigation.php", $arrArgs );
@@ -95,8 +95,19 @@ class photo extends controller {
         $path=loadModel("users","getProfilePic",array('id'=>$_SESSION['id']));
         $userName=loadModel("users","fetchName",array("id"=>$_SESSION['id']));
         loadView("navigation/usernavigation.php",array('profile_pic_path' =>$path,"user_name"=>$userName));
-        loadView("photo/uploadProfilePic.php");
+        $arrData=loadModel("photos","getHeaders",$arrData);
+        loadView("photo/uploadProfilePic.php",$arrData);
         loadView("footer/footer.php");
+   }
+   function updateChooseHeader(){
+      $arrData = array (
+               'id' => $_SESSION ['id'],
+               "head_id"=>$_REQUEST['header_id'],
+       );
+       if(isset($_REQUEST['header_id'])) {
+           loadModel("photos","updateChooseHeader",$arrData);
+       }
+       header("location:".ROOTPATH."index.php?controller=photo&url=uploadheader");
    }
     
     

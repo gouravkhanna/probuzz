@@ -5,6 +5,21 @@
       echo @$_SESSION['profilepic'];
       unset($_SESSION['profilepic']);
     }
+
+?>
+</div>
+
+<button onclick="showChooseHeader()">Choose Header</button>
+<div id="chooseheader">
+<?php 
+if(isset($arrData)) {
+foreach ($arrData as $val) {
+if($val['path']!="") {
+    echo "<a href='".ROOTPATH."index.php?controller=photo&url=updateChooseHeader&header_id=".$val['id']."' ><img src='".$val['path']."' height=100 width=130  class=marginl2></a>";
+    }
+}
+}
+
 ?>
 </div>
 
