@@ -20,7 +20,6 @@
       $( "<div>" ).text( message ).prependTo( "#log" );
       $( "#log" ).scrollTop( 0 );
     }
- 
     $( "#tags" ).autocomplete({
       source: "http://localhost/probuzz/trunk/user/loadc",
       minLength: 1,

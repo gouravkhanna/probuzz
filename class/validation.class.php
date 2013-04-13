@@ -70,7 +70,7 @@ class validation {
 
 		$flag=true;
    		$msg="";
-		if(!$arrArgs['company_name'] || !$arrArgs['user_name'] || !$arrArgs['Location']
+		if(!$arrArgs['company_name'] || !$arrArgs['user_name'] || !$arrArgs['location']
 		   || !$arrArgs['corp_email'] || !$arrArgs['company_password'] || !$arrArgs['comp_confirm_pass']){
  			$flag=false;
  			$msg.="No fields should be empty.<br/>";

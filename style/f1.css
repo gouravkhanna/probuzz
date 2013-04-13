@@ -51,7 +51,7 @@ margin-right:1px;
  margin-left: 40px;
 background-repeat: no-repeat; 
 	display: none;
-	height:145px;
+	height:auto;
 	width: 340px;
 overflow:hidden;	
 	text-align: center;

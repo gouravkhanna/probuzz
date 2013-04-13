@@ -57,6 +57,7 @@ $(document).ready(function(e) {
             return false;
         }
     }
+  /*Create Job form validation*/
 	$("#createjobform").submit(function(){
 	    filterWhiteSpace("designation");
         filterWhiteSpace("location");
@@ -100,6 +101,7 @@ $(document).ready(function(e) {
          }
         return true;
 	});
+	/*Alots slot form validation*/
     $("#formalotslot").submit(function(){
         filterWhiteSpace("designation");
         if(onlySpacesA("designation","Designation Can't Be Empty.")==true) {

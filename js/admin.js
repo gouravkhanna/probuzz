@@ -95,7 +95,6 @@ function validateNewAdmin() {
     return true;
 }
 function clearSpam(a) {
-    alert(a);
     if(confirm("Sure You want to Delete,\n It Wont Come Back!")) {   
         b="#row"+a;
         $(b).slideUp("slow");
@@ -105,7 +104,7 @@ function clearSpam(a) {
     }
 }  
 function clearUserSpam(a) {
-    alert(a);
+   
     if(confirm("Sure You want to Delete,\n It Wont Come Back!")) {   
         b="#row"+a;
         $(b).slideUp("slow");
@@ -115,7 +114,7 @@ function clearUserSpam(a) {
     }
 }  
 function buzzDeleteAdmin(a) {
-    alert(a);
+   
     if(confirm("Sure You want to Delete,\n It Wont Come Back!")) {   
         b="#row"+a;
         $(b).slideUp("slow");
@@ -125,7 +124,7 @@ function buzzDeleteAdmin(a) {
     }
 }
 function banUserOneDay(a) {
-    alert(a);
+  
     if(confirm("Sure You want to Delete,\n It Wont Come Back!")) {   
         b="#row"+a;
         $(b).slideUp("slow");
@@ -135,7 +134,7 @@ function banUserOneDay(a) {
     }
 }
 function banUserOneDayBuzz(a) {
-    alert(a);
+  
     if(confirm("Sure You want to Delete,\n It Wont Come Back!")) {   
         b="#row"+a;
         $(b).slideUp("slow");
@@ -145,7 +144,7 @@ function banUserOneDayBuzz(a) {
     }
 }
 function banUserOnePermanent(a) {
-    alert(a);
+   
     if(confirm("Sure You want to Delete,\n It Wont Come Back!")) {   
         b="#row"+a;
         $(b).slideUp("slow");
@@ -155,7 +154,7 @@ function banUserOnePermanent(a) {
     }
 }
 function markRead(a) {
-    alert(a);
+   
     b="#row"+a;
     $(b).slideUp("slow");
     c="#usshowmsg";
