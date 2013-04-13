@@ -47,15 +47,22 @@ margin-right:1px;
 
 	
 }
-#captcha,#corp_captcha{
-display: none;
-margin-left: 30px;
+#log_captcha,#corp_captcha{
+/* margin-left: 30px;
+overflow:hidden;
+background-repeat: no-repeat; */
+	display: none;
+	min-height:75px;
+	min-width: 75px;
+	 
+	
 }
 #errmsg1{
 width: auto;
 float: right;
 color:#c43531;
-margin-top: 400px;
+margin-top:400px;
+margin-right:30px; 
 }
 
 #side-1 {

@@ -72,11 +72,20 @@ font-weight: bold;
 font-size: 16px;
 float: right;
 }
+#fav{
+	width:330px;
+	height:40px;    	
+	font-size: 16px;
+   	word-wrap: break-word; 
+	float: left;
+}
+
 #rbc{
 	float:left;
 	margin-left:10px;
 	margin-top: -5px;
 	font-size: 14px;
+
 }
 #addContact,#addEducation{
 float: left;

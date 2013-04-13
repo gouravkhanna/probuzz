@@ -334,13 +334,13 @@
        echo NO_INFO_TO_DISPLAY;
     }  
     else{
-    echo "<br> <span id='lb'>Read </span> <span id='rb'>".$arrData['personal']['favourite_book'];
-      echo "</span><br>";
+    echo "<span id='lb'>Read </span><br><div id='fav'>".$arrData['personal']['favourite_book'];
+      echo "</div><br>";
       echo "<span id='lb'> Movies </span>
-            <span id='rb'> ".$arrData['personal']['favourite_movies']; 
-       echo "</span><br>";
-       echo " <span id='lb'> Food </span><span id='rb'>".$arrData['personal']['favourite_food']; 
-        echo "</span><br>";
+            <br><div id='fav'> ".$arrData['personal']['favourite_movies']; 
+       echo "</div><br>";
+       echo " <span id='lb'> Food </span><br><div id='fav'>".$arrData['personal']['favourite_food']; 
+        echo "</div><br>";
   }
     ?>
 

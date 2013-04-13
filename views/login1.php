@@ -88,9 +88,10 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 				</span> <span id="w4" name="w4" > <img src="data/rcs/w.png"
 					height="30px" width="30px" class="i" />
 				</span><span id="e4" name="e4"> </span> <br /><br />
-				 <div id="captcha">
-                 <?php echo recaptcha_get_html($publickey);?>
-                    </div>
+				 <div id="log_captcha">
+                    <?php echo recaptcha_get_html($publickey);?>
+                    
+                  </div>
              
                  <div id="" >
                    <p>
@@ -156,17 +157,12 @@ if(isset($_SESSION['error_msg']))
 </html>
 <script >
 $("document").ready(function(){
-$("#confirm_pass").on("focus",function(){
-$("#captcha").show();
-});
+    $("#confirm_pass").on("blur",function(){
+     $("#log_captcha").show();
+    });
 
 });
 
-$("#comp_confirm_pass").click(function(){
-
-	   alert('fgfggf');
-	    $("#corp_captcha").show();
-	});
 
 	
 

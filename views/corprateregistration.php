@@ -82,7 +82,7 @@ $publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from th
 		<!-- side 3 end  -->
 		
 	</div>
-	<div id="wrongcaptcha">
+	<div id="wrongcaptcha"><br><br>
 		<div id="errmsg1" name="errmsg1">
 <?php
 
