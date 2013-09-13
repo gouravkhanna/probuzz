@@ -163,7 +163,7 @@ $(document).ready(function(e) {
 		        type: 'POST',
 		        data: 'url=search&searcharg='+search,
 		        	beforeSend:function(data){
-		        		$("#dvsearchresult").html("<img src='http://localhost/probuzz/trunk/data/photo/load3.gif' alt='loading' >").end();		        	},
+		        		$("#dvsearchresult").html("<img src='http://probuzz.com/data/photo/load3.gif' alt='loading' >").end();		        	},
 		        	success:function(data) {
 		        		$("#dvsearchresult").html(data);
 		        	},
@@ -228,7 +228,7 @@ $(document).ready(function(e) {
 		        type: 'GET',
 		        data: $(this).serialize()+'&url=showSearchJobs&controller=user',
 		        	beforeSend:function(data){
-		        		$("#sjsearchres").html("<img src='http://localhost/probuzz/trunk/data/photo/load3.gif' alt='loading' >");		    
+		        		$("#sjsearchres").html("<img src='http://probuzz.com/data/photo/load3.gif' alt='loading' >");		    
 					},
 		        	success:function(data) {
 		        			$("#sjsearchres").html(data).fadeIn("fast");
@@ -253,7 +253,7 @@ function headrotate()
 	{
 		if(i==27) i=1;
 		else i++;
-		$("#head2").html("<img src='http://localhost/probuzz/trunk/data/header/h"+i+".jpg' height=245 />");
+		$("#head2").html("<img src='http://probuzz.com/data/header/h"+i+".jpg' height=245 />");
 		$("#head2").css("text-align","center");
 		$( "#head2" ).effect( "slide", "", 1500);//, callback );
 	}

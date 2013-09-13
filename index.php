@@ -6,7 +6,7 @@ include_once 'library/lang/labels.lang.en.php';
 include_once 'library/constant.php';
 include_once ('library/common.inc.php');
 
-ini_set ( 'display_errors', '1' );
+//ini_set ( 'display_errors', '1' );
 if (isset ( $_REQUEST ['controller'] ) && ! empty ( $_REQUEST ['controller'] )) {
     $controller = $_REQUEST ['controller'];
 } else {

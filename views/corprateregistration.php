@@ -1,6 +1,6 @@
 <?php
 require_once 'library/recaptcha/recaptchalib.php';
-$publickey = "6LcMKN8SAAAAAOH-xKBEFRDrJw-JN5r4v4iUoxi2"; // you got this from the signup page
+$publickey = "6LerbOcSAAAAAF07TPnDV4QCVji62vtUqrdrEv73"; // you got this from the signup page
 ?>
 <head>
 	<title><?php echo CORPORATE_REGISTRATION;?></title>

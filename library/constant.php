@@ -1,12 +1,12 @@
 <?php
 //for defining root path to use at various links
-define("ROOTPATH","http://localhost/probuzz/trunk/");
-define("DOC_PATH",$_SERVER["DOCUMENT_ROOT"]."/probuzz/trunk/");
+define("ROOTPATH","http://probuzz.com/");
+define("DOC_PATH",$_SERVER["DOCUMENT_ROOT"]."");
 define("UPLOAD_PATH",DOC_PATH."data/userdata/resume/");
 define('DOC_ROOT',$_SERVER['DOCUMENT_ROOT']);
 
-define('SITE_ROOT',DOC_ROOT.'/probuzz/trunk/');
-define('SITE_PATH','http://'.$_SERVER['HTTP_HOST'].'/probuzz/trunk/');
+define('SITE_ROOT',DOC_ROOT);
+define('SITE_PATH','http://'.$_SERVER['HTTP_HOST']);
 define('IMAGE_PATH',SITE_PATH.'images/');
 define('CSS_PATH',SITE_PATH.'css/');
 define('JS_PATH',SITE_PATH.'js/');

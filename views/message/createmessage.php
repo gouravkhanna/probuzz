@@ -21,7 +21,7 @@
       $( "#log" ).scrollTop( 0 );
     }
     $( "#tags" ).autocomplete({
-      source: "http://localhost/probuzz/trunk/user/loadc",
+      source: "http://probuzz.com/user/loadc",
       minLength: 1,
       select: function( event, ui ) {
         log( ui.item ?

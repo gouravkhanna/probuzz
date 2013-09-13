@@ -57,7 +57,7 @@ class Controller
 	function register()
 	{
 		require_once 'library/recaptcha/recaptchalib.php';
-		$privatekey = "6LcMKN8SAAAAAFbaKu1_OvaeP1yMaQ7cKT5zxwgQ";
+		$privatekey = "6LerbOcSAAAAAJNpMVKGhDDkq9oUPrsgp02f5Sh2";
 		$resp = recaptcha_check_answer ($privatekey,
 				$_SERVER["REMOTE_ADDR"],
 				$_POST["recaptcha_challenge_field"],
@@ -161,7 +161,7 @@ class Controller
 	/*handle the corporate Registration Request*/
 	function corporates() {
 		require_once 'library/recaptcha/recaptchalib.php';
-		$privatekey = "6LcMKN8SAAAAAFbaKu1_OvaeP1yMaQ7cKT5zxwgQ";
+		$privatekey = "6LerbOcSAAAAAJNpMVKGhDDkq9oUPrsgp02f5Sh2";
         
         if (@$_REQUEST ['corporateregister'] == "register") {
             
@@ -197,7 +197,7 @@ class Controller
     /*Load the header or cover for the particular user*/
     function loadHeadUser(){
         $path=loadModel("users","getHeaderPic",array('id'=>$_SESSION['id']));
-        if($path=="http://localhost/probuzz/trunk/data/photo/g.jpg") {
+        if($path=="http://probuzz.com/data/photo/g.jpg") {
             $path="";
         }
         loadView('head/head2.php',$path);

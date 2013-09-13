@@ -1,6 +1,6 @@
 @font-face {
 	font-family: alba;
-	src: url("http://localhost/probuzz/trunk/data/font/alba.TTF");
+	src: url("http://probuzz.com/data/font/alba.TTF");
 }
 @font-face {
 	font-family: a1;
@@ -17,7 +17,7 @@
 }
 @font-face {
 	font-family: del;
-	src: url("http://localhost/probuzz/trunk/data/font/Delicious-Italic.otf");
+	src: url("http://probuzz.com/data/font/Delicious-Italic.otf");
 }
 body {
 	max-height: auto;
@@ -645,7 +645,8 @@ hr {
 }
 #msgcontent {
 	margin-bottom: 10px;
-	height: 40px;
+	min-height: 40px;
+	height: auto;
 	border:1px ;
 	box-shadow: 2px 2px 2px 1px #e2e2e4;
 	

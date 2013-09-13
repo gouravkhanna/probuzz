@@ -27,7 +27,7 @@ $("form#form3").submit(function(){
         type: 'POST',
         data: formData,//+"&url="+10,
         beforeSend:function(data){
-    		$("#pLoad").html("<img src='http://localhost/probuzz/trunk/data/photo/load3.gif' alt='loading' >");		    
+    		$("#pLoad").html("<img src='http://probuzz.com/data/photo/load3.gif' alt='loading' >");		    
 		},
          success: function (data) {
             $("#pLoad").html(data);

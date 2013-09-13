@@ -26,7 +26,7 @@ class friends extends Controller
 			$friendName=loadModel("users","fetchName",$arrData);
 			loadView("navigation/friendNavigation.php",array('profile_pic_path' =>$path,'friend_name'=>$friendName,'id'=>$_REQUEST['friendId']));
 			 $path=loadModel("users","getHeaderPic",array("id"=>$_REQUEST['friendId']));
-            if($path=="http://localhost/probuzz/trunk/data/photo/g.jpg") {
+            if($path=="http://probuzz.com/data/photo/g.jpg") {
                 $path="";
             }
             loadView('head/head2.php',$path);
@@ -38,7 +38,7 @@ class friends extends Controller
 			$this->view->loadView('footer/footer.php');	
 
 		} else {
-			header("Location: http://localhost/probuzz/trunk/index.php");
+			header("Location: http://probuzz.com/index.php");
 		}
 		
 	}

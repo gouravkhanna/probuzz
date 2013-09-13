@@ -321,7 +321,7 @@ function alotSlot() {
             $arrArg ["profile_pic_path"] = loadModel ( "users", "getProfilePic", $arrData );
             loadView ( "profile/displayCorporateProfile.php",$arrArg  );
                    } else {
-            header ( "Location: http://localhost/probuzz/trunk/index.php" );
+            header ( "Location: http://probuzz.com/index.php" );
         }
     }
     /*For other user to view Corporate Jobs*/
@@ -344,7 +344,7 @@ function alotSlot() {
             $arrData=loadModel("corporate","getJobs",$arrArgs);
             loadView ("displayjob.php",$arrData);
         } else {
-            header ( "Location: http://localhost/probuzz/trunk/index.php" );
+            header ( "Location: http://probuzz.com/index.php" );
         }
     }
     /*Load the Setting s for the corporate user*/
